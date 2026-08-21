@@ -1,0 +1,1783 @@
+:root {
+  color-scheme: dark;
+  --mint: #32dab4;
+  --mint-soft: #78ffe2;
+  --white: #f2f7f5;
+  --muted: #8d9a9d;
+  --line: rgb(242 247 245 / 0.14);
+  --bg: #050708;
+  /*
+    시퀀스가 재생되는 동안 실제로 굴러가는 스크롤 거리.
+    구간 자의 높이가 아니라 순수 이동 거리라, 장수로 나누면 프레임당 거리가 바로 나온다.
+    이 값이 프레임 수에 비례해야 이음매에서 재생 속도가 튀지 않는다.
+
+      main   264장 / 1012vh = 3.83vh
+      bridge  22장 /   77vh = 3.50vh
+      ascent 144장 /  552vh = 3.83vh
+
+    구간마다 speed 배수가 다르므로 평균만 맞춰서는 부족하다.
+    값을 바꾸면 .tools/pace-profile.mjs 로 이음매 구간끼리 다시 비교한다.
+    (브리지가 조금 낮은 건 양옆 구간이 둘 다 평균보다 느린 컷이라 거기에 맞춘 것이다.)
+  */
+  --travel-main: 1012vh;
+  --travel-bridge: 77vh;
+  --travel-ascent: 552vh;
+  /* 마지막 시퀀스가 끝난 뒤 그 프레임에 머무는 거리 */
+  --end-hold: 55vh;
+  --mono: "JetBrains Mono", ui-monospace, SFMono-Regular, Menlo, monospace;
+}
+
+* {
+  box-sizing: border-box;
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
+body {
+  margin: 0;
+  min-width: 320px;
+  overflow-x: hidden;
+  background: var(--bg);
+  color: var(--white);
+  font-family: Inter, ui-sans-serif, system-ui, -apple-system, "Segoe UI", sans-serif;
+  -webkit-font-smoothing: antialiased;
+}
+
+a {
+  color: inherit;
+  text-decoration: none;
+}
+
+code {
+  font-family: var(--mono);
+  font-size: 0.9em;
+  color: var(--mint);
+}
+
+/* ============ BOOT ============ */
+
+.boot {
+  position: fixed;
+  inset: 0;
+  z-index: 90;
+  display: grid;
+  place-items: center;
+  background: #030405;
+  transition: opacity 0.6s ease, visibility 0.6s ease;
+}
+
+.boot.done {
+  opacity: 0;
+  visibility: hidden;
+}
+
+.boot-inner {
+  width: min(420px, 76vw);
+}
+
+.boot-mark {
+  display: block;
+  margin-bottom: 18px;
+  font-size: 12px;
+  font-weight: 700;
+  letter-spacing: 0.42em;
+  color: var(--white);
+}
+
+.boot-bar {
+  height: 2px;
+  background: rgb(242 247 245 / 0.1);
+}
+
+.boot-bar i {
+  display: block;
+  height: 100%;
+  background: var(--mint);
+  transform: scaleX(0);
+  transform-origin: left center;
+  transition: transform 0.2s linear;
+}
+
+.boot-meta {
+  display: flex;
+  justify-content: space-between;
+  margin-top: 12px;
+  font-family: var(--mono);
+  font-size: 10px;
+  letter-spacing: 0.22em;
+  color: var(--muted);
+}
+
+/* ============ CHROME ============ */
+
+.topline {
+  position: fixed;
+  inset: 0 0 auto 0;
+  z-index: 60;
+  height: 2px;
+  background: rgb(242 247 245 / 0.07);
+  pointer-events: none;
+}
+
+.topline i {
+  display: block;
+  height: 100%;
+  background: var(--mint);
+  box-shadow: 0 0 14px rgb(50 218 180 / 0.7);
+  transform: scaleX(0);
+  transform-origin: left center;
+}
+
+.topbar {
+  position: fixed;
+  inset: 0 0 auto 0;
+  z-index: 50;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 24px;
+  padding: 26px clamp(20px, 4vw, 56px);
+  mix-blend-mode: difference;
+}
+
+.brand {
+  display: inline-flex;
+  align-items: center;
+  gap: 10px;
+  font-size: 13px;
+  font-weight: 800;
+  letter-spacing: 0.3em;
+}
+
+.brand-dot {
+  width: 7px;
+  height: 7px;
+  background: var(--mint);
+}
+
+.topnav {
+  display: flex;
+  gap: 28px;
+  font-family: var(--mono);
+  font-size: 11px;
+  letter-spacing: 0.22em;
+}
+
+.topnav a {
+  position: relative;
+  padding-bottom: 4px;
+  color: rgb(242 247 245 / 0.7);
+  transition: color 0.25s ease;
+}
+
+.topnav a::after {
+  content: "";
+  position: absolute;
+  inset: auto 0 0 0;
+  height: 1px;
+  background: var(--mint);
+  transform: scaleX(0);
+  transform-origin: left center;
+  transition: transform 0.3s ease;
+}
+
+.topnav a:hover {
+  color: var(--white);
+}
+
+.topnav a:hover::after {
+  transform: scaleX(1);
+}
+
+.top-cta {
+  padding: 10px 20px;
+  border: 1px solid var(--line);
+  font-family: var(--mono);
+  font-size: 11px;
+  letter-spacing: 0.22em;
+  transition: border-color 0.25s ease, background 0.25s ease;
+}
+
+.top-cta:hover {
+  border-color: var(--mint);
+  background: rgb(50 218 180 / 0.12);
+}
+
+/* ============ SCENE ============ */
+
+/* 세 시퀀스가 공유하는 스크롤 구간. 화면은 이 안에서 계속 고정된다. */
+.scene-stack {
+  position: relative;
+  /* 모든 이동 거리 + 화면 하나(sticky 가 빠져나갈 자리) + 마지막 홀드 */
+  height: calc(
+    var(--travel-main) + var(--travel-bridge) + var(--travel-ascent) + 100vh + var(--end-hold)
+  );
+}
+
+/*
+  각 시퀀스가 차지하는 스크롤 범위. 진행도 계산에만 쓰이고 화면에는 나오지 않는다.
+
+  자의 진행도가 1에 닿는 지점은 아래 끝에서 한 화면 위다(sticky 이므로).
+  그래서 높이는 "이동 거리 + 100vh" 이고, 다음 자는 이동 거리만큼만 내려가 시작한다.
+  높이를 그대로 더해 배치하면 시퀀스 사이에 화면 하나만큼 멈춘 구간이 생긴다.
+*/
+.scene-range {
+  position: absolute;
+  left: 0;
+  width: 1px;
+  visibility: hidden;
+  pointer-events: none;
+}
+
+/* 마지막 시퀀스만 끝나고 머문다. 앞의 둘은 곧바로 다음으로 넘어간다. */
+#scene,
+#scene2 {
+  --end-hold: 0vh;
+}
+
+#scene {
+  top: 0;
+  height: calc(var(--travel-main) + 100vh);
+}
+
+#scene2 {
+  top: var(--travel-main);
+  height: calc(var(--travel-bridge) + 100vh);
+}
+
+#scene3 {
+  top: calc(var(--travel-main) + var(--travel-bridge));
+  height: calc(var(--travel-ascent) + 100vh + var(--end-hold));
+}
+
+.scene-sticky {
+  position: sticky;
+  top: 0;
+  height: 100vh;
+  height: 100svh;
+  overflow: hidden;
+}
+
+.scene-canvas {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  display: block;
+  /* 스크롤 전에는 살짝 확대해 두고, 그 여유분 안에서 포인터를 따라 움직인다.
+     스크롤이 시작되면 scale 이 1 로 돌아오면서 정확한 cover 프레이밍으로 안착한다. */
+  transform:
+    perspective(1600px)
+    translate3d(var(--scene-px, 0px), var(--scene-py, 0px), 0)
+    rotateX(var(--tilt-x, 0deg))
+    rotateY(var(--tilt-y, 0deg))
+    scale(var(--scene-scale, 1));
+  transform-origin: center;
+  backface-visibility: hidden;
+  will-change: transform;
+}
+
+.dust-canvas {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  display: block;
+  pointer-events: none;
+  mix-blend-mode: screen;
+}
+
+/*
+  이음매 교차. 앞 시퀀스의 마지막 프레임과 뒤 시퀀스의 첫 프레임이 거의 같은 컷이라
+  짧은 디졸브만으로 전환이 보이지 않는다.
+
+  캔버스는 순서대로 겹쳐 두고 뒤엣것의 opacity 만 올린다. app.js 가 이음매마다 값을 쓴다.
+  카피와 계기판은 여기에 관여하지 않는다. 셋을 이어 붙인 하나의 타임라인으로 돌아간다.
+*/
+.scene-canvas--over {
+  opacity: 0;
+}
+
+.scene-scrim,
+.scene-vignette,
+.scene-grain {
+  position: absolute;
+  inset: 0;
+  pointer-events: none;
+}
+
+.scene-scrim {
+  background:
+    linear-gradient(180deg, rgb(3 5 6 / 0.72) 0%, rgb(3 5 6 / 0) 34%),
+    linear-gradient(0deg, rgb(3 5 6 / 0.8) 0%, rgb(3 5 6 / 0) 42%);
+}
+
+.scene-vignette {
+  background: radial-gradient(120% 82% at 50% 48%, rgb(0 0 0 / 0) 42%, rgb(0 0 0 / 0.72) 100%);
+}
+
+.scene-grain {
+  opacity: 0.05;
+  background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='140' height='140'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='3'/%3E%3C/filter%3E%3Crect width='140' height='140' filter='url(%23n)'/%3E%3C/svg%3E");
+  mix-blend-mode: overlay;
+}
+
+.scene-bars {
+  position: absolute;
+  inset: 0;
+  pointer-events: none;
+}
+
+.scene-bars i {
+  position: absolute;
+  left: 0;
+  width: 100%;
+  height: clamp(28px, 5vh, 64px);
+  background: #030405;
+}
+
+.scene-bars i:first-child {
+  top: 0;
+}
+
+.scene-bars i:last-child {
+  bottom: 0;
+}
+
+/* ---- chapters ---- */
+
+.chapters {
+  position: absolute;
+  inset: 0;
+  isolation: isolate;
+  pointer-events: none;
+  /* 배경보다 적게, 반대 방향으로 움직여 앞뒤 거리를 만든다. */
+  transform: translate3d(var(--text-px, 0px), var(--text-py, 0px), 0);
+}
+
+.chapter {
+  position: absolute;
+  /* 3줄 타이틀이 하단 HUD와 겹치지 않도록 중앙보다 살짝 위에 앉힌다. */
+  top: 44%;
+  width: min(560px, 44vw);
+  opacity: var(--amount, 0);
+  transform: translate3d(var(--slide, 0px), calc(-50% + var(--rise, 0px)), 0);
+  will-change: opacity, transform;
+}
+
+/* 시퀀스가 밝은 컷으로 넘어가도 카피가 읽히도록 카피 뒤에만 깔리는 스크림 */
+.chapter::before {
+  content: "";
+  position: absolute;
+  inset: -20vh -24vw -20vh -28vw;
+  z-index: -1;
+  background: radial-gradient(
+    56% 60% at 42% 50%,
+    rgb(3 5 6 / 0.88) 0%,
+    rgb(3 5 6 / 0.6) 40%,
+    rgb(3 5 6 / 0) 74%
+  );
+}
+
+.chapter[data-align="right"]::before {
+  inset: -20vh -28vw -20vh -24vw;
+  background: radial-gradient(
+    56% 60% at 58% 50%,
+    rgb(3 5 6 / 0.88) 0%,
+    rgb(3 5 6 / 0.6) 40%,
+    rgb(3 5 6 / 0) 74%
+  );
+}
+
+.chapter[data-align="center"]::before {
+  background: radial-gradient(
+    58% 62% at 50% 50%,
+    rgb(3 5 6 / 0.88) 0%,
+    rgb(3 5 6 / 0.6) 40%,
+    rgb(3 5 6 / 0) 74%
+  );
+}
+
+.chapter[data-align="center"] {
+  left: 50%;
+  width: min(720px, 82vw);
+  text-align: center;
+  transform: translate3d(calc(-50% + var(--slide, 0px)), calc(-50% + var(--rise, 0px)), 0);
+}
+
+.chapter[data-align="left"] {
+  left: clamp(20px, 6vw, 96px);
+}
+
+.chapter[data-align="right"] {
+  /* 우측 레일과 부딪히지 않도록 레일 폭만큼 안쪽으로 들여쓴다. */
+  right: clamp(56px, 8vw, 132px);
+  text-align: right;
+}
+
+.ch-label {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  margin: 0 0 20px;
+  font-family: var(--mono);
+  font-size: 11px;
+  letter-spacing: 0.34em;
+  color: var(--mint);
+}
+
+.chapter[data-align="center"] .ch-label {
+  justify-content: center;
+}
+
+.chapter[data-align="right"] .ch-label {
+  flex-direction: row-reverse;
+}
+
+.ch-dash {
+  width: 34px;
+  height: 2px;
+  background: var(--mint);
+}
+
+.ch-title {
+  margin: 0;
+  font-size: clamp(38px, 6.4vw, 92px);
+  font-weight: 800;
+  line-height: 0.94;
+  letter-spacing: -0.03em;
+  text-transform: uppercase;
+  text-shadow: 0 2px 34px rgb(3 5 6 / 0.55);
+}
+
+.ch-title em {
+  font-style: normal;
+  color: var(--mint);
+}
+
+.ch-body {
+  max-width: 46ch;
+  margin: 24px 0 0;
+  font-size: clamp(13px, 1.05vw, 15px);
+  line-height: 1.75;
+  color: rgb(242 247 245 / 0.7);
+}
+
+.chapter[data-align="center"] .ch-body {
+  margin-inline: auto;
+}
+
+.chapter[data-align="right"] .ch-body {
+  margin-left: auto;
+}
+
+/* ---- HUD ---- */
+
+.hud {
+  position: absolute;
+  left: clamp(20px, 4vw, 56px);
+  bottom: clamp(52px, 9vh, 104px);
+  display: grid;
+  gap: 14px;
+  pointer-events: none;
+}
+
+.hud-block {
+  display: grid;
+  gap: 4px;
+  padding-left: 12px;
+  border-left: 1px solid var(--line);
+  /* 시퀀스 중간에 흰 플래시 컷이 들어와도 계기판이 읽히도록 */
+  text-shadow: 0 1px 10px rgb(3 5 6 / 0.85);
+}
+
+.hud-key {
+  font-family: var(--mono);
+  font-size: 9px;
+  letter-spacing: 0.28em;
+  color: var(--muted);
+}
+
+.hud-val {
+  font-family: var(--mono);
+  font-size: 13px;
+  letter-spacing: 0.1em;
+  color: var(--white);
+  font-variant-numeric: tabular-nums;
+}
+
+.rail {
+  position: absolute;
+  right: clamp(16px, 2vw, 30px);
+  top: 50%;
+  width: 1px;
+  height: min(320px, 38vh);
+  background: rgb(242 247 245 / 0.12);
+  transform: translateY(-50%);
+  pointer-events: none;
+}
+
+.rail-fill {
+  position: absolute;
+  inset: 0;
+  background: var(--mint);
+  transform: scaleY(0);
+  transform-origin: top center;
+}
+
+.rail-knob {
+  position: absolute;
+  left: 50%;
+  top: 0;
+  width: 9px;
+  height: 9px;
+  background: var(--mint);
+  box-shadow: 0 0 16px rgb(50 218 180 / 0.9);
+  transform: translate(-50%, -50%) rotate(45deg);
+}
+
+.cue {
+  position: absolute;
+  left: 50%;
+  bottom: clamp(52px, 9vh, 104px);
+  display: grid;
+  justify-items: center;
+  gap: 10px;
+  transform: translateX(-50%);
+  font-family: var(--mono);
+  font-size: 10px;
+  letter-spacing: 0.34em;
+  color: var(--muted);
+  pointer-events: none;
+  transition: opacity 0.3s ease;
+}
+
+.cue i {
+  width: 1px;
+  height: 36px;
+  background: linear-gradient(180deg, var(--mint), transparent);
+  animation: cue 1.9s ease-in-out infinite;
+}
+
+@keyframes cue {
+  0%,
+  100% {
+    transform: scaleY(0.3);
+    transform-origin: top center;
+  }
+  50% {
+    transform: scaleY(1);
+    transform-origin: top center;
+  }
+}
+
+/* ============ SHARED SECTION UI ============ */
+
+.wrap {
+  width: min(1360px, calc(100vw - clamp(40px, 8vw, 112px)));
+  margin: 0 auto;
+}
+
+.sec-head {
+  display: flex;
+  align-items: center;
+  gap: 20px;
+  padding-bottom: 22px;
+  border-bottom: 1px solid var(--line);
+}
+
+.sec-label {
+  font-family: var(--mono);
+  font-size: 11px;
+  letter-spacing: 0.34em;
+  color: var(--muted);
+  white-space: nowrap;
+}
+
+.sec-line {
+  flex: 1;
+  height: 1px;
+  background: var(--line);
+}
+
+.sec-dash {
+  width: 46px;
+  height: 4px;
+  background: var(--mint);
+}
+
+.reveal {
+  opacity: 0;
+  transform: translate3d(0, 26px, 0);
+  transition: opacity 0.7s cubic-bezier(0.22, 1, 0.36, 1), transform 0.7s cubic-bezier(0.22, 1, 0.36, 1);
+}
+
+.reveal.in {
+  opacity: 1;
+  transform: none;
+}
+
+/* ============ SECTION BLOCKS ============ */
+/*
+  시퀀스 아래 홈 섹션들이 공유하는 조각.
+  라운드를 쓰지 않고 1px 선과 민트 한 색으로만 위계를 만든다.
+*/
+
+.sec-intro {
+  margin: clamp(38px, 5vh, 62px) 0 clamp(40px, 5vh, 68px);
+  max-width: 900px;
+}
+
+.sec-title {
+  margin: 0;
+  font-size: clamp(34px, 4.6vw, 70px);
+  font-weight: 800;
+  line-height: 1.04;
+  letter-spacing: -0.035em;
+  text-transform: uppercase;
+}
+
+.sec-title em {
+  font-style: normal;
+  color: var(--mint);
+}
+
+.sec-lead {
+  margin: 22px 0 0;
+  max-width: 560px;
+  font-size: 14px;
+  line-height: 1.85;
+  color: rgb(242 247 245 / 0.62);
+}
+
+.sr-only {
+  position: absolute;
+  width: 1px;
+  height: 1px;
+  overflow: hidden;
+  clip-path: inset(50%);
+  white-space: nowrap;
+}
+
+:where(a, button, input):focus-visible {
+  outline: 2px solid var(--mint);
+  outline-offset: 3px;
+}
+
+/* ---- 에셋 자리 ---- */
+/*
+  최종 이미지가 들어올 칸. 무엇이·어떤 비율로·어떻게 움직이는지 적어 둔다.
+  빈 회색 상자로 두면 나중에 무엇을 넣어야 할지 알 수 없다.
+*/
+
+.ph {
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-end;
+  gap: 5px;
+  padding: 16px;
+  border: 1px solid var(--line);
+  background: #0b1013;
+  background-image: repeating-linear-gradient(135deg, rgb(242 247 245 / 0.028) 0 1px, transparent 1px 9px);
+  overflow: hidden;
+}
+
+.ph--wide {
+  aspect-ratio: 21 / 9;
+}
+
+.ph--16x9 {
+  aspect-ratio: 16 / 9;
+}
+
+.ph--16x10 {
+  aspect-ratio: 16 / 10;
+}
+
+.ph-type {
+  font-family: var(--mono);
+  font-size: 10px;
+  letter-spacing: 0.22em;
+  color: var(--mint);
+}
+
+.ph-meta {
+  font-family: var(--mono);
+  font-size: 10px;
+  letter-spacing: 0.16em;
+  color: var(--muted);
+}
+
+/* ---- 버튼과 링크 ---- */
+
+.btn {
+  display: inline-flex;
+  align-items: center;
+  gap: 14px;
+  min-height: 44px;
+  padding: 13px 28px;
+  border: 1px solid var(--line);
+  font-family: var(--mono);
+  font-size: 11px;
+  letter-spacing: 0.24em;
+  white-space: nowrap;
+  transition: border-color 0.22s ease, background 0.22s ease, color 0.22s ease;
+}
+
+.btn i,
+.signal i {
+  position: relative;
+  width: 16px;
+  height: 1px;
+  background: currentColor;
+  transition: transform 0.22s ease;
+}
+
+.btn i::after,
+.signal i::after {
+  content: "";
+  position: absolute;
+  right: 0;
+  top: -3px;
+  width: 7px;
+  height: 7px;
+  border-top: 1px solid currentColor;
+  border-right: 1px solid currentColor;
+  transform: rotate(45deg);
+}
+
+.btn:hover {
+  border-color: var(--mint);
+  color: var(--mint);
+}
+
+.btn:hover i,
+.signal:hover i {
+  transform: translateX(5px);
+}
+
+.btn--primary {
+  border-color: var(--mint);
+  background: var(--mint);
+  color: #04120d;
+}
+
+.btn--primary:hover {
+  border-color: var(--mint-soft);
+  background: var(--mint-soft);
+  color: #04120d;
+}
+
+/* 대비를 낮추되 읽히기는 해야 한다. */
+.btn.is-disabled {
+  border-color: rgb(242 247 245 / 0.09);
+  color: rgb(242 247 245 / 0.38);
+  pointer-events: none;
+}
+
+.signal {
+  display: inline-flex;
+  align-items: center;
+  gap: 10px;
+  padding: 8px 0;
+  border-bottom: 1px solid transparent;
+  font-family: var(--mono);
+  font-size: 11px;
+  letter-spacing: 0.24em;
+  transition: color 0.22s ease, border-color 0.22s ease;
+}
+
+.signal:hover {
+  border-bottom-color: var(--mint);
+  color: var(--mint);
+}
+
+.badge {
+  display: inline-block;
+  align-self: flex-start;
+  padding: 6px 12px;
+  background: var(--mint);
+  color: #04120d;
+  font-family: var(--mono);
+  font-size: 10px;
+  letter-spacing: 0.24em;
+}
+
+.badge--soft {
+  border: 1px solid var(--mint);
+  background: none;
+  color: var(--mint);
+}
+
+.actions {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: 12px 18px;
+}
+
+/* 아직 확정되지 않은 값과 검수가 필요한 문구는 같은 색으로 눈에 띄게 둔다. */
+.pending,
+.flag {
+  font-family: var(--mono);
+  font-size: 10px;
+  letter-spacing: 0.2em;
+  color: #e0a94f;
+}
+
+.flag {
+  display: inline-block;
+  padding: 7px 11px;
+  border: 1px dashed rgb(224 169 79 / 0.45);
+}
+
+/* ============ 01 / NEW RELEASE ============ */
+
+.release {
+  padding: clamp(88px, 12vh, 156px) 0 clamp(78px, 10vh, 128px);
+  background: #070a0b;
+}
+
+.feature {
+  display: grid;
+  grid-template-columns: 1.35fr 1fr;
+  gap: clamp(28px, 3vw, 56px);
+  padding-top: 30px;
+  border-top: 1px solid var(--line);
+}
+
+.feature-body {
+  display: flex;
+  flex-direction: column;
+  gap: clamp(24px, 3vh, 36px);
+}
+
+.feature-title {
+  margin: 16px 0 0;
+  font-size: clamp(28px, 3.2vw, 46px);
+  font-weight: 800;
+  letter-spacing: -0.03em;
+}
+
+.feature-premise {
+  margin: 14px 0 0;
+  font-size: 14px;
+  line-height: 1.8;
+  color: rgb(242 247 245 / 0.62);
+}
+
+.meta {
+  margin: 0;
+  border-top: 1px solid var(--line);
+}
+
+.meta > div {
+  display: flex;
+  justify-content: space-between;
+  gap: 16px;
+  padding: 13px 0;
+  border-bottom: 1px solid var(--line);
+}
+
+.meta dt {
+  font-family: var(--mono);
+  font-size: 10px;
+  letter-spacing: 0.24em;
+  color: var(--muted);
+}
+
+.meta dd {
+  margin: 0;
+  font-family: var(--mono);
+  font-size: 11px;
+  letter-spacing: 0.16em;
+}
+
+.rail-row {
+  display: grid;
+  grid-template-columns: auto minmax(0, 1fr) auto;
+  align-items: center;
+  gap: clamp(20px, 3vw, 40px);
+  margin-top: clamp(40px, 5vh, 66px);
+  padding-top: 28px;
+  border-top: 1px solid var(--line);
+}
+
+.rail-label {
+  font-family: var(--mono);
+  font-size: 10px;
+  letter-spacing: 0.28em;
+  color: var(--muted);
+}
+
+.rail-items {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 16px;
+}
+
+.rail-item {
+  padding: 0;
+  border: 0;
+  background: none;
+  color: inherit;
+  text-align: left;
+  cursor: pointer;
+  opacity: 0.48;
+  transition: opacity 0.25s ease;
+}
+
+.rail-item:hover,
+.rail-item.is-current {
+  opacity: 1;
+}
+
+/* 선택 상태를 흐리기 차이로만 두지 않고 테두리로도 알린다. */
+.rail-item.is-current .ph {
+  border-color: var(--mint);
+}
+
+.rail-name {
+  display: block;
+  margin-top: 10px;
+  font-family: var(--mono);
+  font-size: 10px;
+  letter-spacing: 0.2em;
+}
+
+.rail-nav {
+  display: flex;
+  gap: 8px;
+}
+
+.rail-nav button {
+  width: 44px;
+  height: 44px;
+  border: 1px solid var(--line);
+  background: none;
+  color: inherit;
+  cursor: pointer;
+  transition: border-color 0.22s ease, color 0.22s ease;
+}
+
+.rail-nav button:hover {
+  border-color: var(--mint);
+  color: var(--mint);
+}
+
+/* ============ 02 / POPULAR GAMES ============ */
+
+.games {
+  padding: clamp(88px, 12vh, 156px) 0 clamp(78px, 10vh, 128px);
+  background: var(--bg);
+}
+
+.controls {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: 16px 24px;
+  margin-bottom: clamp(32px, 4vh, 56px);
+  padding-bottom: 26px;
+  border-bottom: 1px solid var(--line);
+}
+
+.search {
+  flex: 1 1 240px;
+}
+
+.search input {
+  width: 100%;
+  min-height: 44px;
+  padding: 12px 16px;
+  border: 1px solid var(--line);
+  background: #0b1013;
+  color: var(--white);
+  font-family: var(--mono);
+  font-size: 11px;
+  letter-spacing: 0.16em;
+}
+
+.search input::placeholder {
+  color: var(--muted);
+}
+
+.search input:focus {
+  border-color: var(--mint);
+}
+
+.chips {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px;
+}
+
+.chip {
+  display: inline-flex;
+  align-items: center;
+  gap: 9px;
+  min-height: 44px;
+  padding: 10px 16px;
+  border: 1px solid var(--line);
+  background: none;
+  color: rgb(242 247 245 / 0.7);
+  font-family: var(--mono);
+  font-size: 10px;
+  letter-spacing: 0.22em;
+  cursor: pointer;
+  transition: border-color 0.22s ease, color 0.22s ease;
+}
+
+/* 선택을 색으로만 알리면 색을 구분하지 못하는 사람에게는 상태가 사라진다. */
+.chip::before {
+  content: "";
+  width: 6px;
+  height: 6px;
+  border: 1px solid currentColor;
+}
+
+.chip:hover {
+  border-color: rgb(242 247 245 / 0.3);
+  color: var(--white);
+}
+
+.chip[aria-pressed="true"] {
+  border-color: var(--mint);
+  color: var(--mint);
+}
+
+.chip[aria-pressed="true"]::before {
+  background: var(--mint);
+}
+
+.card-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: clamp(24px, 2.6vw, 40px);
+}
+
+.card {
+  display: flex;
+  flex-direction: column;
+  padding-top: 18px;
+  border-top: 1px solid var(--line);
+}
+
+.card .ph {
+  transition: border-color 0.25s ease;
+}
+
+.card:hover .ph {
+  border-color: var(--mint);
+}
+
+.card-body {
+  display: flex;
+  flex: 1;
+  flex-direction: column;
+  align-items: flex-start;
+  gap: 12px;
+  padding-top: 20px;
+}
+
+.card-body h3 {
+  margin: 0;
+  font-size: 20px;
+  font-weight: 700;
+  letter-spacing: -0.01em;
+}
+
+.card-body p {
+  margin: 0;
+  font-size: 13px;
+  line-height: 1.75;
+  color: rgb(242 247 245 / 0.6);
+}
+
+.card-body .tags {
+  font-family: var(--mono);
+  font-size: 10px;
+  letter-spacing: 0.2em;
+  color: var(--muted);
+}
+
+.actions--compact {
+  margin-top: auto;
+  padding-top: 14px;
+}
+
+.actions--compact .btn {
+  padding: 12px 20px;
+}
+
+/* ============ 03 / WHAT WE BUILD ============ */
+
+.build {
+  padding: clamp(88px, 12vh, 156px) 0 clamp(78px, 10vh, 128px);
+  background: #070a0b;
+}
+
+.rows {
+  margin: 0;
+  padding: 0;
+  list-style: none;
+  border-top: 1px solid var(--line);
+}
+
+.row {
+  display: grid;
+  grid-template-columns: 80px minmax(0, 1fr) minmax(0, 1.15fr);
+  align-items: baseline;
+  gap: clamp(18px, 3vw, 48px);
+  padding: clamp(26px, 3.4vh, 44px) 0;
+  border-bottom: 1px solid var(--line);
+  transition: background 0.3s ease;
+}
+
+.row:hover {
+  background: rgb(50 218 180 / 0.045);
+}
+
+.row-num {
+  font-family: var(--mono);
+  font-size: 11px;
+  letter-spacing: 0.3em;
+  color: var(--mint);
+}
+
+.row h3 {
+  margin: 0;
+  font-size: clamp(20px, 2.2vw, 30px);
+  font-weight: 800;
+  letter-spacing: -0.02em;
+}
+
+.row p {
+  margin: 0;
+  font-size: 14px;
+  line-height: 1.85;
+  color: rgb(242 247 245 / 0.62);
+}
+
+/* ============ 04 / OUR JOURNEY ============ */
+
+.journey {
+  padding: clamp(88px, 12vh, 156px) 0 clamp(78px, 10vh, 128px);
+  background: var(--bg);
+}
+
+.timeline {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  margin: 0 0 clamp(38px, 5vh, 62px);
+  padding: 0;
+  list-style: none;
+  border-top: 1px solid var(--line);
+}
+
+.milestone {
+  position: relative;
+  padding: 34px clamp(16px, 2vw, 28px) 42px;
+  border-left: 1px solid var(--line);
+}
+
+.milestone:last-child {
+  border-right: 1px solid var(--line);
+}
+
+/* 스크롤이 닿으면 얇은 민트 선이 항목 위를 지나간다. */
+.milestone::before {
+  content: "";
+  position: absolute;
+  top: -1px;
+  left: -1px;
+  width: 0;
+  height: 2px;
+  background: var(--mint);
+  transition: width 0.9s cubic-bezier(0.22, 1, 0.36, 1);
+}
+
+.milestone.in::before {
+  width: calc(100% + 1px);
+}
+
+.milestone-year {
+  display: block;
+  font-size: clamp(30px, 3.6vw, 52px);
+  font-weight: 800;
+  line-height: 1;
+  letter-spacing: -0.05em;
+  color: rgb(242 247 245 / 0.14);
+}
+
+.milestone h3 {
+  margin: 22px 0 12px;
+  font-size: 16px;
+  font-weight: 700;
+}
+
+.milestone p {
+  margin: 0;
+}
+
+/* ============ 05 / FROM THE CROWN ============ */
+
+.news {
+  padding: clamp(88px, 12vh, 156px) 0 clamp(78px, 10vh, 128px);
+  background: #070a0b;
+}
+
+.news-grid {
+  display: grid;
+  grid-template-columns: 1.25fr 1fr;
+  gap: clamp(30px, 4vw, 72px);
+  margin-bottom: clamp(38px, 5vh, 62px);
+}
+
+.news-meta {
+  margin: 0;
+  font-family: var(--mono);
+  font-size: 10px;
+  letter-spacing: 0.24em;
+  color: var(--muted);
+}
+
+.news-lead .news-meta {
+  margin: 24px 0 12px;
+}
+
+.news-lead h3 {
+  margin: 0 0 14px;
+  font-size: clamp(22px, 2.6vw, 34px);
+  font-weight: 800;
+  letter-spacing: -0.025em;
+}
+
+.news-summary {
+  margin: 0 0 16px;
+  font-size: 13.5px;
+  line-height: 1.8;
+  color: rgb(242 247 245 / 0.6);
+}
+
+.news-list {
+  margin: 0;
+  padding: 0;
+  list-style: none;
+  border-top: 1px solid var(--line);
+}
+
+.news-list li {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  gap: 12px;
+  padding: clamp(20px, 2.8vh, 32px) 0;
+  border-bottom: 1px solid var(--line);
+}
+
+.news-list h3 {
+  margin: 0;
+  font-size: 17px;
+  font-weight: 700;
+  letter-spacing: -0.01em;
+}
+
+/* ============ 06 / OUR PARTNERS ============ */
+
+.partners {
+  padding: clamp(88px, 12vh, 156px) 0 clamp(78px, 10vh, 128px);
+  background: var(--bg);
+}
+
+.logo-grid {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  border-top: 1px solid var(--line);
+  border-left: 1px solid var(--line);
+}
+
+.logo-slot {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  min-height: clamp(96px, 11vw, 140px);
+  border-right: 1px solid var(--line);
+  border-bottom: 1px solid var(--line);
+  font-family: var(--mono);
+  font-size: 10px;
+  letter-spacing: 0.24em;
+  color: rgb(242 247 245 / 0.32);
+  transition: color 0.25s ease, background 0.25s ease;
+}
+
+.logo-slot:hover {
+  background: rgb(50 218 180 / 0.05);
+  color: var(--mint);
+}
+
+.note {
+  margin: 20px 0 0;
+  font-family: var(--mono);
+  font-size: 10px;
+  letter-spacing: 0.18em;
+  color: var(--muted);
+}
+
+/* ============ LEGAL TRUST STRIP ============ */
+
+.trust {
+  padding: clamp(50px, 7vh, 88px) 0;
+  border-block: 1px solid var(--line);
+  background: #070a0b;
+}
+
+.trust-row {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  margin: 0;
+}
+
+.trust-row > div {
+  padding-left: clamp(16px, 2vw, 26px);
+  border-left: 1px solid var(--line);
+}
+
+.trust-row dt {
+  font-family: var(--mono);
+  font-size: 10px;
+  letter-spacing: 0.28em;
+  color: var(--mint);
+}
+
+.trust-row dd {
+  margin: 13px 0 0;
+  font-size: 14px;
+  line-height: 1.6;
+}
+
+.trust-foot {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  justify-content: space-between;
+  gap: 16px;
+  margin-top: 34px;
+  padding-top: 24px;
+  border-top: 1px solid var(--line);
+}
+
+/* ============ MARQUEE ============ */
+
+.marquee {
+  overflow: hidden;
+  padding: 26px 0;
+  border-block: 1px solid var(--line);
+  background: #070a0b;
+}
+
+.marquee-track {
+  display: flex;
+  width: max-content;
+  animation: marquee 26s linear infinite;
+}
+
+.marquee-track span {
+  font-size: clamp(28px, 4.4vw, 62px);
+  font-weight: 800;
+  letter-spacing: -0.02em;
+  text-transform: uppercase;
+  color: rgb(242 247 245 / 0.1);
+  white-space: nowrap;
+}
+
+@keyframes marquee {
+  to {
+    transform: translateX(-50%);
+  }
+}
+
+/* ============ CONTACT CTA ============ */
+
+.outro {
+  padding: clamp(90px, 12vh, 160px) 0 clamp(70px, 10vh, 130px);
+  background: #070a0b;
+}
+
+.outro-grid {
+  display: grid;
+  grid-template-columns: 1.1fr 1fr;
+  gap: clamp(40px, 6vw, 96px);
+  margin-top: clamp(48px, 6vh, 80px);
+}
+
+.outro-title {
+  margin: 0;
+  font-size: clamp(36px, 5.2vw, 76px);
+  font-weight: 800;
+  line-height: 1.02;
+  letter-spacing: -0.035em;
+}
+
+.outro-title em {
+  font-style: normal;
+  color: var(--mint);
+}
+
+.outro-side p {
+  margin: 0 0 30px;
+  font-size: 14px;
+  line-height: 1.85;
+  color: rgb(242 247 245 / 0.64);
+}
+
+/* ============ FOOT ============ */
+
+.foot {
+  padding: clamp(56px, 7vh, 92px) 0 28px;
+  border-top: 1px solid var(--line);
+  background: #050708;
+}
+
+.foot-top {
+  display: grid;
+  grid-template-columns: 1.4fr 1fr;
+  gap: clamp(30px, 4vw, 64px);
+  padding-bottom: 40px;
+  border-bottom: 1px solid var(--line);
+}
+
+.foot-mark {
+  margin: 0;
+  font-size: clamp(38px, 6vw, 86px);
+  font-weight: 800;
+  line-height: 0.95;
+  letter-spacing: -0.05em;
+}
+
+.foot-statement {
+  margin: 20px 0 0;
+  max-width: 440px;
+  font-size: 13.5px;
+  line-height: 1.85;
+  color: rgb(242 247 245 / 0.6);
+}
+
+.foot-nav {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  gap: 14px;
+  font-family: var(--mono);
+  font-size: 11px;
+  letter-spacing: 0.22em;
+  color: rgb(242 247 245 / 0.72);
+}
+
+.foot-nav a:hover {
+  color: var(--mint);
+}
+
+.foot-legal {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  gap: 6px;
+  padding: 30px 0;
+  border-bottom: 1px solid var(--line);
+}
+
+.foot-legal p {
+  margin: 0;
+  font-size: 12px;
+  line-height: 1.7;
+  color: var(--muted);
+}
+
+.foot-legal .flag {
+  margin-top: 14px;
+}
+
+.foot-bottom {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-between;
+  gap: 12px;
+  padding-top: 22px;
+  font-family: var(--mono);
+  font-size: 10px;
+  letter-spacing: 0.22em;
+  color: var(--muted);
+}
+
+/* ============ MOBILE REEL ============ */
+/*
+  좁은 화면 전용 슬라이드. 기본값은 숨김이고 아래 미디어 쿼리에서만 켠다.
+  스크롤 시퀀스와 둘 중 하나만 존재한다.
+*/
+
+.reel {
+  display: none;
+  position: relative;
+  height: 100svh;
+  overflow: hidden;
+  background: #04070a;
+  touch-action: pan-y;
+}
+
+.reel-stage {
+  position: absolute;
+  inset: 0;
+}
+
+.reel-slide {
+  position: absolute;
+  inset: 0;
+  opacity: 0;
+  visibility: hidden;
+  transition: opacity 0.9s ease, visibility 0s linear 0.9s;
+}
+
+.reel-slide.is-active {
+  opacity: 1;
+  visibility: visible;
+  transition: opacity 0.9s ease, visibility 0s;
+}
+
+/* picture 는 기본이 inline 이라 그대로 두면 이미지가 슬라이드를 채우지 못한다. */
+.reel-slide picture {
+  position: absolute;
+  inset: 0;
+  display: block;
+}
+
+.reel-img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  /* 이미지가 아직 없거나 못 읽어도 빈 아이콘이 뜨지 않도록 바탕을 깔아 둔다. */
+  background: linear-gradient(180deg, #0a1118 0%, #04070a 100%);
+  transform: scale(1.08);
+  transition: transform 6.4s linear;
+}
+
+.reel-slide.is-active .reel-img {
+  transform: scale(1);
+}
+
+/* 사진 위에 글을 얹으므로 아래쪽을 눌러 둔다. 안 그러면 밝은 하늘에서 글이 사라진다. */
+.reel-slide::after {
+  content: "";
+  position: absolute;
+  inset: 0;
+  pointer-events: none;
+  background:
+    linear-gradient(180deg, rgb(3 5 6 / 0.72) 0%, rgb(3 5 6 / 0) 24%),
+    linear-gradient(0deg, rgb(3 5 6 / 0.94) 0%, rgb(3 5 6 / 0.58) 34%, rgb(3 5 6 / 0) 62%);
+}
+
+.reel-copy {
+  position: absolute;
+  left: clamp(18px, 6vw, 40px);
+  right: clamp(18px, 6vw, 40px);
+  bottom: clamp(76px, 12vh, 120px);
+  z-index: 1;
+}
+
+/* 글은 사진보다 조금 늦게 들어온다. 같이 나타나면 어느 쪽도 읽히지 않는다. */
+.reel-copy > * {
+  opacity: 0;
+  transform: translate3d(0, 18px, 0);
+  transition: opacity 0.6s ease, transform 0.6s ease;
+}
+
+.reel-slide.is-active .reel-copy > * {
+  opacity: 1;
+  transform: none;
+}
+
+.reel-slide.is-active .ch-label {
+  transition-delay: 0.18s;
+}
+
+.reel-slide.is-active .ch-title {
+  transition-delay: 0.26s;
+}
+
+.reel-slide.is-active .ch-body {
+  transition-delay: 0.36s;
+}
+
+.reel-bar {
+  position: absolute;
+  top: clamp(64px, 10vh, 92px);
+  left: clamp(18px, 6vw, 40px);
+  right: clamp(18px, 6vw, 40px);
+  z-index: 2;
+  display: flex;
+  gap: 6px;
+}
+
+.reel-seg {
+  flex: 1;
+  height: 2px;
+  background: rgb(255 255 255 / 0.22);
+  overflow: hidden;
+}
+
+.reel-seg b {
+  display: block;
+  height: 100%;
+  background: var(--mint);
+  transform: scaleX(0);
+  transform-origin: left center;
+}
+
+.reel-hint {
+  position: absolute;
+  left: 50%;
+  bottom: clamp(28px, 5vh, 48px);
+  z-index: 2;
+  transform: translateX(-50%);
+  font-family: var(--mono);
+  font-size: 9px;
+  letter-spacing: 0.34em;
+  color: var(--muted);
+  transition: opacity 0.4s ease;
+}
+
+/* 한 번이라도 직접 넘겼으면 안내를 지운다. */
+.reel.is-touched .reel-hint {
+  opacity: 0;
+}
+
+/* 모션을 줄이도록 설정한 기기에서는 밀고 당기는 움직임만 뺀다. 넘어가는 것 자체는 내용이다. */
+.reel.is-still .reel-img,
+.reel.is-still .reel-copy > * {
+  transition-duration: 0.01s;
+  transform: none;
+}
+
+/* ============ RESPONSIVE ============ */
+
+@media (max-width: 1080px) {
+  .feature,
+  .news-grid,
+  .outro-grid,
+  .foot-top {
+    grid-template-columns: 1fr;
+  }
+
+  .card-grid {
+    grid-template-columns: repeat(2, 1fr);
+  }
+
+  .timeline,
+  .trust-row {
+    grid-template-columns: repeat(2, 1fr);
+  }
+
+  /* 두 칸으로 접히면 마지막 항목만 오른쪽 선을 갖는 규칙이 어긋난다. */
+  .milestone:nth-child(2n) {
+    border-right: 1px solid var(--line);
+  }
+
+  .row {
+    grid-template-columns: 60px minmax(0, 1fr);
+  }
+
+  .row p {
+    grid-column: 2;
+  }
+
+  /* 셋을 한 줄에 두면 썸네일이 너무 작아진다. 레일만 아래로 내린다. */
+  .rail-row {
+    grid-template-columns: 1fr auto;
+  }
+
+  .rail-items {
+    grid-column: 1 / -1;
+    order: 1;
+  }
+
+  .foot-nav {
+    flex-direction: row;
+    flex-wrap: wrap;
+    gap: 14px 28px;
+  }
+}
+
+/*
+  이 경계에서 화면 구성이 통째로 바뀐다.
+  스크롤 시퀀스는 사라지고 슬라이드 롤링이 그 자리를 대신한다.
+  app.js 도 같은 900px 을 보고 둘 중 하나만 구동한다. 두 값이 어긋나면
+  아무것도 안 보이거나 430장을 헛되이 내려받는다.
+*/
+@media (max-width: 900px) {
+  .topnav {
+    display: none;
+  }
+
+  /* 자리만 차지하는 게 아니라 통째로 없앤다. 높이가 1800vh 라 남겨 두면 빈 스크롤이 된다. */
+  #sequence {
+    display: none;
+  }
+
+  .reel {
+    display: block;
+  }
+}
+
+@media (max-width: 560px) {
+  .card-grid,
+  .timeline,
+  .trust-row,
+  .rail-items {
+    grid-template-columns: 1fr;
+  }
+
+  .logo-grid {
+    grid-template-columns: repeat(2, 1fr);
+  }
+
+  /* 한 줄로 세우면 칸을 나누던 세로선이 사라져 항목끼리 붙어 보인다. 간격으로 대신한다. */
+  .timeline,
+  .trust-row {
+    gap: 26px 0;
+  }
+
+  .milestone,
+  .trust-row > div {
+    padding-left: 20px;
+    border-right: 0;
+  }
+
+  .ch-title {
+    font-size: clamp(32px, 10vw, 46px);
+  }
+
+  /* 좁은 화면에서 버튼이 줄에 걸치면 글자가 잘린다. 가로를 채운다. */
+  .actions .btn {
+    flex: 1 1 100%;
+    justify-content: space-between;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  html {
+    scroll-behavior: auto;
+  }
+
+  .cue i,
+  .marquee-track {
+    animation: none;
+  }
+
+  .reveal {
+    opacity: 1;
+    transform: none;
+  }
+}

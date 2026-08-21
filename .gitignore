@@ -1,0 +1,13 @@
+# PNG 원본(합계 약 850MB). 배포 대상이 아니며 AVIF 변환본만 커밋한다.
+_source-frames/
+_source-frames-bridge/
+_source-frames-2/
+_source-reel/
+
+# 변환·검수용 로컬 도구
+.tools/node_modules/
+.tools/shots/
+.tools/bun.lock
+.tools/package.json
+.tools/.motion-cache.json
+.tools/*.log

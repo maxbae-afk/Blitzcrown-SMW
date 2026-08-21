@@ -1,0 +1,6022 @@
+[
+  {
+    "name": "01 NEW RELEASE",
+    "selector": "#release",
+    "width": 1920,
+    "height": 1203.8,
+    "top": 19396.8,
+    "background": {
+      "r": 0.03,
+      "g": 0.04,
+      "b": 0.04,
+      "a": 1
+    },
+    "items": [
+      {
+        "kind": "box",
+        "name": "sec-head Bottom",
+        "x": 280,
+        "y": 165.59,
+        "w": 1360,
+        "h": 1,
+        "fill": {
+          "r": 0.95,
+          "g": 0.97,
+          "b": 0.96,
+          "a": 0.14
+        }
+      },
+      {
+        "kind": "text",
+        "name": "sec-label",
+        "text": "01 / NEW RELEASE",
+        "x": 280,
+        "y": 129.59,
+        "w": 165.45,
+        "h": 14,
+        "size": 11,
+        "weight": 400,
+        "spacing": 3.74,
+        "mono": true,
+        "upper": false,
+        "fill": {
+          "r": 0.55,
+          "g": 0.6,
+          "b": 0.62,
+          "a": 1
+        }
+      },
+      {
+        "kind": "box",
+        "name": "sec-line",
+        "x": 465.45,
+        "y": 136.09,
+        "w": 1108.55,
+        "h": 1,
+        "fill": {
+          "r": 0.95,
+          "g": 0.97,
+          "b": 0.96,
+          "a": 0.14
+        }
+      },
+      {
+        "kind": "box",
+        "name": "sec-dash",
+        "x": 1594,
+        "y": 134.59,
+        "w": 46,
+        "h": 4,
+        "fill": {
+          "r": 0.2,
+          "g": 0.85,
+          "b": 0.71,
+          "a": 1
+        }
+      },
+      {
+        "kind": "text",
+        "name": "sec-title",
+        "text": "THE LATEST",
+        "x": 280,
+        "y": 213.59,
+        "w": 416.3,
+        "h": 85,
+        "size": 70,
+        "weight": 800,
+        "spacing": -2.45,
+        "mono": false,
+        "upper": true,
+        "fill": {
+          "r": 0.95,
+          "g": 0.97,
+          "b": 0.96,
+          "a": 1
+        }
+      },
+      {
+        "kind": "text",
+        "name": "em",
+        "text": "WORLD",
+        "x": 696.3,
+        "y": 213.59,
+        "w": 250.06,
+        "h": 85,
+        "size": 70,
+        "weight": 800,
+        "spacing": -2.45,
+        "mono": false,
+        "upper": true,
+        "fill": {
+          "r": 0.2,
+          "g": 0.85,
+          "b": 0.71,
+          "a": 1
+        }
+      },
+      {
+        "kind": "text",
+        "name": "sec-lead",
+        "text": "Original instant win games with unexpected mechanics and fresh ideas.",
+        "x": 280,
+        "y": 319.39,
+        "w": 473.81,
+        "h": 17,
+        "size": 14,
+        "weight": 400,
+        "spacing": 0,
+        "mono": false,
+        "upper": false,
+        "fill": {
+          "r": 0.95,
+          "g": 0.97,
+          "b": 0.96,
+          "a": 0.62
+        }
+      },
+      {
+        "kind": "box",
+        "name": "feature Top",
+        "x": 280,
+        "y": 395.28,
+        "w": 1360,
+        "h": 1,
+        "fill": {
+          "r": 0.95,
+          "g": 0.97,
+          "b": 0.96,
+          "a": 0.14
+        }
+      },
+      {
+        "kind": "box",
+        "name": "ph",
+        "x": 280,
+        "y": 426.28,
+        "w": 749.09,
+        "h": 321.03,
+        "fill": {
+          "r": 0.04,
+          "g": 0.06,
+          "b": 0.07,
+          "a": 1
+        }
+      },
+      {
+        "kind": "box",
+        "name": "ph border",
+        "x": 280,
+        "y": 426.28,
+        "w": 749.09,
+        "h": 321.03,
+        "fill": null,
+        "stroke": {
+          "r": 0.95,
+          "g": 0.97,
+          "b": 0.96,
+          "a": 0.14
+        },
+        "strokeWeight": 1
+      },
+      {
+        "kind": "text",
+        "name": "ph-type",
+        "text": "[IMAGE] FEATURED GAME WORLD",
+        "x": 297,
+        "y": 699.31,
+        "w": 221.41,
+        "h": 13,
+        "size": 10,
+        "weight": 400,
+        "spacing": 2.2,
+        "mono": true,
+        "upper": false,
+        "fill": {
+          "r": 0.2,
+          "g": 0.85,
+          "b": 0.71,
+          "a": 1
+        }
+      },
+      {
+        "kind": "text",
+        "name": "ph-meta",
+        "text": "21:9 · full-bleed layered environment",
+        "x": 297,
+        "y": 717.31,
+        "w": 281.2,
+        "h": 13,
+        "size": 10,
+        "weight": 400,
+        "spacing": 1.6,
+        "mono": true,
+        "upper": false,
+        "fill": {
+          "r": 0.55,
+          "g": 0.6,
+          "b": 0.62,
+          "a": 1
+        }
+      },
+      {
+        "kind": "box",
+        "name": "badge",
+        "x": 1085.09,
+        "y": 426.28,
+        "w": 49.2,
+        "h": 25,
+        "fill": {
+          "r": 0.2,
+          "g": 0.85,
+          "b": 0.71,
+          "a": 1
+        }
+      },
+      {
+        "kind": "text",
+        "name": "badge",
+        "text": "NEW",
+        "x": 1097.09,
+        "y": 432.28,
+        "w": 25.2,
+        "h": 13,
+        "size": 10,
+        "weight": 400,
+        "spacing": 2.4,
+        "mono": true,
+        "upper": false,
+        "fill": {
+          "r": 0.02,
+          "g": 0.07,
+          "b": 0.05,
+          "a": 1
+        }
+      },
+      {
+        "kind": "text",
+        "name": "feature-title",
+        "text": "GAME TITLE",
+        "x": 1085.09,
+        "y": 467.28,
+        "w": 265.58,
+        "h": 56,
+        "size": 46,
+        "weight": 800,
+        "spacing": -1.38,
+        "mono": false,
+        "upper": false,
+        "fill": {
+          "r": 0.95,
+          "g": 0.97,
+          "b": 0.96,
+          "a": 1
+        }
+      },
+      {
+        "kind": "text",
+        "name": "feature-premise",
+        "text": "한 줄 프레미스가 들어갑니다. 게임의 세계와 규칙을 한 문장으로 설명합니다.",
+        "x": 1085.09,
+        "y": 541.28,
+        "w": 477.52,
+        "h": 17,
+        "size": 14,
+        "weight": 400,
+        "spacing": 0,
+        "mono": false,
+        "upper": false,
+        "fill": {
+          "r": 0.95,
+          "g": 0.97,
+          "b": 0.96,
+          "a": 0.62
+        }
+      },
+      {
+        "kind": "box",
+        "name": "meta Top",
+        "x": 1085.09,
+        "y": 594.86,
+        "w": 554.91,
+        "h": 1,
+        "fill": {
+          "r": 0.95,
+          "g": 0.97,
+          "b": 0.96,
+          "a": 0.14
+        }
+      },
+      {
+        "kind": "box",
+        "name": "div Bottom",
+        "x": 1085.09,
+        "y": 635.86,
+        "w": 554.91,
+        "h": 1,
+        "fill": {
+          "r": 0.95,
+          "g": 0.97,
+          "b": 0.96,
+          "a": 0.14
+        }
+      },
+      {
+        "kind": "text",
+        "name": "dt",
+        "text": "GAME TYPE",
+        "x": 1085.09,
+        "y": 608.86,
+        "w": 75.61,
+        "h": 13,
+        "size": 10,
+        "weight": 400,
+        "spacing": 2.4,
+        "mono": true,
+        "upper": false,
+        "fill": {
+          "r": 0.55,
+          "g": 0.6,
+          "b": 0.62,
+          "a": 1
+        }
+      },
+      {
+        "kind": "text",
+        "name": "dd",
+        "text": "INSTANT WIN",
+        "x": 1548.03,
+        "y": 608.86,
+        "w": 91.97,
+        "h": 14,
+        "size": 11,
+        "weight": 400,
+        "spacing": 1.76,
+        "mono": true,
+        "upper": false,
+        "fill": {
+          "r": 0.95,
+          "g": 0.97,
+          "b": 0.96,
+          "a": 1
+        }
+      },
+      {
+        "kind": "box",
+        "name": "div Bottom",
+        "x": 1085.09,
+        "y": 676.86,
+        "w": 554.91,
+        "h": 1,
+        "fill": {
+          "r": 0.95,
+          "g": 0.97,
+          "b": 0.96,
+          "a": 0.14
+        }
+      },
+      {
+        "kind": "text",
+        "name": "dt",
+        "text": "KEY MECHANIC",
+        "x": 1085.09,
+        "y": 649.86,
+        "w": 100.81,
+        "h": 13,
+        "size": 10,
+        "weight": 400,
+        "spacing": 2.4,
+        "mono": true,
+        "upper": false,
+        "fill": {
+          "r": 0.55,
+          "g": 0.6,
+          "b": 0.62,
+          "a": 1
+        }
+      },
+      {
+        "kind": "text",
+        "name": "dd",
+        "text": "MECHANIC",
+        "x": 1573.11,
+        "y": 649.86,
+        "w": 66.89,
+        "h": 14,
+        "size": 11,
+        "weight": 400,
+        "spacing": 1.76,
+        "mono": true,
+        "upper": false,
+        "fill": {
+          "r": 0.95,
+          "g": 0.97,
+          "b": 0.96,
+          "a": 1
+        }
+      },
+      {
+        "kind": "box",
+        "name": "div Bottom",
+        "x": 1085.09,
+        "y": 717.86,
+        "w": 554.91,
+        "h": 1,
+        "fill": {
+          "r": 0.95,
+          "g": 0.97,
+          "b": 0.96,
+          "a": 0.14
+        }
+      },
+      {
+        "kind": "text",
+        "name": "dt",
+        "text": "RELEASE DATE",
+        "x": 1085.09,
+        "y": 690.86,
+        "w": 100.81,
+        "h": 13,
+        "size": 10,
+        "weight": 400,
+        "spacing": 2.4,
+        "mono": true,
+        "upper": false,
+        "fill": {
+          "r": 0.55,
+          "g": 0.6,
+          "b": 0.62,
+          "a": 1
+        }
+      },
+      {
+        "kind": "text",
+        "name": "pending",
+        "text": "APPROVED DATA REQUIRED",
+        "x": 1456.08,
+        "y": 690.86,
+        "w": 183.92,
+        "h": 14,
+        "size": 11,
+        "weight": 400,
+        "spacing": 1.76,
+        "mono": true,
+        "upper": false,
+        "fill": {
+          "r": 0.88,
+          "g": 0.66,
+          "b": 0.31,
+          "a": 1
+        }
+      },
+      {
+        "kind": "box",
+        "name": "btn",
+        "x": 1085.09,
+        "y": 751.25,
+        "w": 171.17,
+        "h": 44,
+        "fill": {
+          "r": 0.2,
+          "g": 0.85,
+          "b": 0.71,
+          "a": 1
+        }
+      },
+      {
+        "kind": "box",
+        "name": "btn border",
+        "x": 1085.09,
+        "y": 751.25,
+        "w": 171.17,
+        "h": 44,
+        "fill": null,
+        "stroke": {
+          "r": 0.2,
+          "g": 0.85,
+          "b": 0.71,
+          "a": 1
+        },
+        "strokeWeight": 1
+      },
+      {
+        "kind": "text",
+        "name": "btn",
+        "text": "PLAY DEMO",
+        "x": 1114.09,
+        "y": 766.25,
+        "w": 83.17,
+        "h": 14,
+        "size": 11,
+        "weight": 400,
+        "spacing": 2.64,
+        "mono": true,
+        "upper": false,
+        "fill": {
+          "r": 0.02,
+          "g": 0.07,
+          "b": 0.05,
+          "a": 1
+        }
+      },
+      {
+        "kind": "box",
+        "name": "i",
+        "x": 1211.27,
+        "y": 772.75,
+        "w": 16,
+        "h": 1,
+        "fill": {
+          "r": 0.02,
+          "g": 0.07,
+          "b": 0.05,
+          "a": 1
+        }
+      },
+      {
+        "kind": "box",
+        "name": "btn border",
+        "x": 1274.27,
+        "y": 751.25,
+        "w": 171.17,
+        "h": 44,
+        "fill": null,
+        "stroke": {
+          "r": 0.95,
+          "g": 0.97,
+          "b": 0.96,
+          "a": 0.14
+        },
+        "strokeWeight": 1
+      },
+      {
+        "kind": "text",
+        "name": "btn",
+        "text": "VIEW GAME",
+        "x": 1303.27,
+        "y": 766.25,
+        "w": 83.17,
+        "h": 14,
+        "size": 11,
+        "weight": 400,
+        "spacing": 2.64,
+        "mono": true,
+        "upper": false,
+        "fill": {
+          "r": 0.95,
+          "g": 0.97,
+          "b": 0.96,
+          "a": 1
+        }
+      },
+      {
+        "kind": "box",
+        "name": "i",
+        "x": 1400.44,
+        "y": 772.75,
+        "w": 16,
+        "h": 1,
+        "fill": {
+          "r": 0.95,
+          "g": 0.97,
+          "b": 0.96,
+          "a": 1
+        }
+      },
+      {
+        "kind": "box",
+        "name": "rail-row Top",
+        "x": 280,
+        "y": 849.25,
+        "w": 1360,
+        "h": 1,
+        "fill": {
+          "r": 0.95,
+          "g": 0.97,
+          "b": 0.96,
+          "a": 0.14
+        }
+      },
+      {
+        "kind": "text",
+        "name": "rail-label",
+        "text": "MORE RELEASES",
+        "x": 280,
+        "y": 980.52,
+        "w": 114.41,
+        "h": 13,
+        "size": 10,
+        "weight": 400,
+        "spacing": 2.8,
+        "mono": true,
+        "upper": false,
+        "fill": {
+          "r": 0.55,
+          "g": 0.6,
+          "b": 0.62,
+          "a": 1
+        }
+      },
+      {
+        "kind": "box",
+        "name": "ph",
+        "x": 434.41,
+        "y": 878.25,
+        "w": 345.86,
+        "h": 194.53,
+        "fill": {
+          "r": 0.04,
+          "g": 0.06,
+          "b": 0.07,
+          "a": 1
+        }
+      },
+      {
+        "kind": "box",
+        "name": "ph border",
+        "x": 434.41,
+        "y": 878.25,
+        "w": 345.86,
+        "h": 194.53,
+        "fill": null,
+        "stroke": {
+          "r": 0.2,
+          "g": 0.85,
+          "b": 0.71,
+          "a": 1
+        },
+        "strokeWeight": 1
+      },
+      {
+        "kind": "text",
+        "name": "ph-type",
+        "text": "[IMAGE] KEY ART",
+        "x": 451.41,
+        "y": 1024.78,
+        "w": 123,
+        "h": 13,
+        "size": 10,
+        "weight": 400,
+        "spacing": 2.2,
+        "mono": true,
+        "upper": false,
+        "fill": {
+          "r": 0.2,
+          "g": 0.85,
+          "b": 0.71,
+          "a": 1
+        }
+      },
+      {
+        "kind": "text",
+        "name": "ph-meta",
+        "text": "16:9",
+        "x": 451.41,
+        "y": 1042.78,
+        "w": 30.41,
+        "h": 13,
+        "size": 10,
+        "weight": 400,
+        "spacing": 1.6,
+        "mono": true,
+        "upper": false,
+        "fill": {
+          "r": 0.55,
+          "g": 0.6,
+          "b": 0.62,
+          "a": 1
+        }
+      },
+      {
+        "kind": "text",
+        "name": "rail-name",
+        "text": "GAME TITLE",
+        "x": 434.41,
+        "y": 1082.78,
+        "w": 80,
+        "h": 13,
+        "size": 10,
+        "weight": 400,
+        "spacing": 2,
+        "mono": true,
+        "upper": false,
+        "fill": {
+          "r": 0.95,
+          "g": 0.97,
+          "b": 0.96,
+          "a": 1
+        }
+      },
+      {
+        "kind": "box",
+        "name": "ph",
+        "x": 796.27,
+        "y": 878.25,
+        "w": 345.86,
+        "h": 194.53,
+        "fill": {
+          "r": 0.04,
+          "g": 0.06,
+          "b": 0.07,
+          "a": 1
+        }
+      },
+      {
+        "kind": "box",
+        "name": "ph border",
+        "x": 796.27,
+        "y": 878.25,
+        "w": 345.86,
+        "h": 194.53,
+        "fill": null,
+        "stroke": {
+          "r": 0.95,
+          "g": 0.97,
+          "b": 0.96,
+          "a": 0.14
+        },
+        "strokeWeight": 1
+      },
+      {
+        "kind": "text",
+        "name": "ph-type",
+        "text": "[IMAGE] KEY ART",
+        "x": 813.27,
+        "y": 1024.78,
+        "w": 123,
+        "h": 13,
+        "size": 10,
+        "weight": 400,
+        "spacing": 2.2,
+        "mono": true,
+        "upper": false,
+        "fill": {
+          "r": 0.2,
+          "g": 0.85,
+          "b": 0.71,
+          "a": 1
+        }
+      },
+      {
+        "kind": "text",
+        "name": "ph-meta",
+        "text": "16:9",
+        "x": 813.27,
+        "y": 1042.78,
+        "w": 30.41,
+        "h": 13,
+        "size": 10,
+        "weight": 400,
+        "spacing": 1.6,
+        "mono": true,
+        "upper": false,
+        "fill": {
+          "r": 0.55,
+          "g": 0.6,
+          "b": 0.62,
+          "a": 1
+        }
+      },
+      {
+        "kind": "text",
+        "name": "rail-name",
+        "text": "GAME TITLE",
+        "x": 796.27,
+        "y": 1082.78,
+        "w": 80,
+        "h": 13,
+        "size": 10,
+        "weight": 400,
+        "spacing": 2,
+        "mono": true,
+        "upper": false,
+        "fill": {
+          "r": 0.95,
+          "g": 0.97,
+          "b": 0.96,
+          "a": 1
+        }
+      },
+      {
+        "kind": "box",
+        "name": "ph",
+        "x": 1158.13,
+        "y": 878.25,
+        "w": 345.88,
+        "h": 194.55,
+        "fill": {
+          "r": 0.04,
+          "g": 0.06,
+          "b": 0.07,
+          "a": 1
+        }
+      },
+      {
+        "kind": "box",
+        "name": "ph border",
+        "x": 1158.13,
+        "y": 878.25,
+        "w": 345.88,
+        "h": 194.55,
+        "fill": null,
+        "stroke": {
+          "r": 0.95,
+          "g": 0.97,
+          "b": 0.96,
+          "a": 0.14
+        },
+        "strokeWeight": 1
+      },
+      {
+        "kind": "text",
+        "name": "ph-type",
+        "text": "[IMAGE] KEY ART",
+        "x": 1175.13,
+        "y": 1024.8,
+        "w": 123,
+        "h": 13,
+        "size": 10,
+        "weight": 400,
+        "spacing": 2.2,
+        "mono": true,
+        "upper": false,
+        "fill": {
+          "r": 0.2,
+          "g": 0.85,
+          "b": 0.71,
+          "a": 1
+        }
+      },
+      {
+        "kind": "text",
+        "name": "ph-meta",
+        "text": "16:9",
+        "x": 1175.13,
+        "y": 1042.8,
+        "w": 30.41,
+        "h": 13,
+        "size": 10,
+        "weight": 400,
+        "spacing": 1.6,
+        "mono": true,
+        "upper": false,
+        "fill": {
+          "r": 0.55,
+          "g": 0.6,
+          "b": 0.62,
+          "a": 1
+        }
+      },
+      {
+        "kind": "text",
+        "name": "rail-name",
+        "text": "GAME TITLE",
+        "x": 1158.13,
+        "y": 1082.8,
+        "w": 80,
+        "h": 13,
+        "size": 10,
+        "weight": 400,
+        "spacing": 2,
+        "mono": true,
+        "upper": false,
+        "fill": {
+          "r": 0.95,
+          "g": 0.97,
+          "b": 0.96,
+          "a": 1
+        }
+      },
+      {
+        "kind": "box",
+        "name": "button border",
+        "x": 1544,
+        "y": 965.02,
+        "w": 44,
+        "h": 44,
+        "fill": null,
+        "stroke": {
+          "r": 0.95,
+          "g": 0.97,
+          "b": 0.96,
+          "a": 0.14
+        },
+        "strokeWeight": 1
+      },
+      {
+        "kind": "text",
+        "name": "button",
+        "text": "←",
+        "x": 1559.33,
+        "y": 979.52,
+        "w": 13.34,
+        "h": 15,
+        "size": 13.33,
+        "weight": 400,
+        "spacing": 0,
+        "mono": false,
+        "upper": false,
+        "fill": {
+          "r": 0.95,
+          "g": 0.97,
+          "b": 0.96,
+          "a": 1
+        }
+      },
+      {
+        "kind": "box",
+        "name": "button border",
+        "x": 1596,
+        "y": 965.02,
+        "w": 44,
+        "h": 44,
+        "fill": null,
+        "stroke": {
+          "r": 0.95,
+          "g": 0.97,
+          "b": 0.96,
+          "a": 0.14
+        },
+        "strokeWeight": 1
+      },
+      {
+        "kind": "text",
+        "name": "button",
+        "text": "→",
+        "x": 1611.33,
+        "y": 979.52,
+        "w": 13.34,
+        "h": 15,
+        "size": 13.33,
+        "weight": 400,
+        "spacing": 0,
+        "mono": false,
+        "upper": false,
+        "fill": {
+          "r": 0.95,
+          "g": 0.97,
+          "b": 0.96,
+          "a": 1
+        }
+      }
+    ]
+  },
+  {
+    "name": "02 POPULAR GAMES",
+    "selector": "#games",
+    "width": 1920,
+    "height": 1649.19,
+    "top": 20600.59,
+    "background": {
+      "r": 0.02,
+      "g": 0.03,
+      "b": 0.03,
+      "a": 1
+    },
+    "items": [
+      {
+        "kind": "box",
+        "name": "sec-head Bottom",
+        "x": 280,
+        "y": 165.59,
+        "w": 1360,
+        "h": 1,
+        "fill": {
+          "r": 0.95,
+          "g": 0.97,
+          "b": 0.96,
+          "a": 0.14
+        }
+      },
+      {
+        "kind": "text",
+        "name": "sec-label",
+        "text": "02 / POPULAR GAMES",
+        "x": 280,
+        "y": 129.59,
+        "w": 186.13,
+        "h": 14,
+        "size": 11,
+        "weight": 400,
+        "spacing": 3.74,
+        "mono": true,
+        "upper": false,
+        "fill": {
+          "r": 0.55,
+          "g": 0.6,
+          "b": 0.62,
+          "a": 1
+        }
+      },
+      {
+        "kind": "box",
+        "name": "sec-line",
+        "x": 486.13,
+        "y": 136.09,
+        "w": 1087.88,
+        "h": 1,
+        "fill": {
+          "r": 0.95,
+          "g": 0.97,
+          "b": 0.96,
+          "a": 0.14
+        }
+      },
+      {
+        "kind": "box",
+        "name": "sec-dash",
+        "x": 1594,
+        "y": 134.59,
+        "w": 46,
+        "h": 4,
+        "fill": {
+          "r": 0.2,
+          "g": 0.85,
+          "b": 0.71,
+          "a": 1
+        }
+      },
+      {
+        "kind": "text",
+        "name": "sec-title",
+        "text": "PLAY WHAT'S",
+        "x": 280,
+        "y": 213.59,
+        "w": 466.86,
+        "h": 85,
+        "size": 70,
+        "weight": 800,
+        "spacing": -2.45,
+        "mono": false,
+        "upper": true,
+        "fill": {
+          "r": 0.95,
+          "g": 0.97,
+          "b": 0.96,
+          "a": 1
+        }
+      },
+      {
+        "kind": "text",
+        "name": "sec-title",
+        "text": "MOVING THE",
+        "x": 280,
+        "y": 286.39,
+        "w": 443.44,
+        "h": 85,
+        "size": 70,
+        "weight": 800,
+        "spacing": -2.45,
+        "mono": false,
+        "upper": true,
+        "fill": {
+          "r": 0.95,
+          "g": 0.97,
+          "b": 0.96,
+          "a": 1
+        }
+      },
+      {
+        "kind": "text",
+        "name": "em",
+        "text": "WORLD",
+        "x": 723.44,
+        "y": 286.39,
+        "w": 250.06,
+        "h": 85,
+        "size": 70,
+        "weight": 800,
+        "spacing": -2.45,
+        "mono": false,
+        "upper": true,
+        "fill": {
+          "r": 0.2,
+          "g": 0.85,
+          "b": 0.71,
+          "a": 1
+        }
+      },
+      {
+        "kind": "box",
+        "name": "controls Bottom",
+        "x": 280,
+        "y": 490.19,
+        "w": 1360,
+        "h": 1,
+        "fill": {
+          "r": 0.95,
+          "g": 0.97,
+          "b": 0.96,
+          "a": 0.14
+        }
+      },
+      {
+        "kind": "text",
+        "name": "sr-only",
+        "text": "Search games",
+        "x": 280,
+        "y": 420.19,
+        "w": 108.19,
+        "h": 20,
+        "size": 16,
+        "weight": 400,
+        "spacing": 0,
+        "mono": false,
+        "upper": false,
+        "fill": {
+          "r": 0.95,
+          "g": 0.97,
+          "b": 0.96,
+          "a": 1
+        }
+      },
+      {
+        "kind": "box",
+        "name": "input",
+        "x": 280,
+        "y": 420.19,
+        "w": 623.61,
+        "h": 44,
+        "fill": {
+          "r": 0.04,
+          "g": 0.06,
+          "b": 0.07,
+          "a": 1
+        }
+      },
+      {
+        "kind": "box",
+        "name": "input border",
+        "x": 280,
+        "y": 420.19,
+        "w": 623.61,
+        "h": 44,
+        "fill": null,
+        "stroke": {
+          "r": 0.95,
+          "g": 0.97,
+          "b": 0.96,
+          "a": 0.14
+        },
+        "strokeWeight": 1
+      },
+      {
+        "kind": "box",
+        "name": "chip border",
+        "x": 927.61,
+        "y": 420.19,
+        "w": 75.61,
+        "h": 44,
+        "fill": null,
+        "stroke": {
+          "r": 0.2,
+          "g": 0.85,
+          "b": 0.71,
+          "a": 1
+        },
+        "strokeWeight": 1
+      },
+      {
+        "kind": "text",
+        "name": "chip",
+        "text": "ALL",
+        "x": 961.61,
+        "y": 435.69,
+        "w": 24.61,
+        "h": 13,
+        "size": 10,
+        "weight": 400,
+        "spacing": 2.2,
+        "mono": true,
+        "upper": false,
+        "fill": {
+          "r": 0.2,
+          "g": 0.85,
+          "b": 0.71,
+          "a": 1
+        }
+      },
+      {
+        "kind": "box",
+        "name": "chip border",
+        "x": 1011.22,
+        "y": 420.19,
+        "w": 141.2,
+        "h": 44,
+        "fill": null,
+        "stroke": {
+          "r": 0.95,
+          "g": 0.97,
+          "b": 0.96,
+          "a": 0.14
+        },
+        "strokeWeight": 1
+      },
+      {
+        "kind": "text",
+        "name": "chip",
+        "text": "INSTANT WIN",
+        "x": 1045.22,
+        "y": 435.69,
+        "w": 90.2,
+        "h": 13,
+        "size": 10,
+        "weight": 400,
+        "spacing": 2.2,
+        "mono": true,
+        "upper": false,
+        "fill": {
+          "r": 0.95,
+          "g": 0.97,
+          "b": 0.96,
+          "a": 0.7
+        }
+      },
+      {
+        "kind": "box",
+        "name": "chip border",
+        "x": 1160.42,
+        "y": 420.19,
+        "w": 100.2,
+        "h": 44,
+        "fill": null,
+        "stroke": {
+          "r": 0.95,
+          "g": 0.97,
+          "b": 0.96,
+          "a": 0.14
+        },
+        "strokeWeight": 1
+      },
+      {
+        "kind": "text",
+        "name": "chip",
+        "text": "PLINKO",
+        "x": 1194.42,
+        "y": 435.69,
+        "w": 49.2,
+        "h": 13,
+        "size": 10,
+        "weight": 400,
+        "spacing": 2.2,
+        "mono": true,
+        "upper": false,
+        "fill": {
+          "r": 0.95,
+          "g": 0.97,
+          "b": 0.96,
+          "a": 0.7
+        }
+      },
+      {
+        "kind": "box",
+        "name": "chip border",
+        "x": 1268.63,
+        "y": 420.19,
+        "w": 92,
+        "h": 44,
+        "fill": null,
+        "stroke": {
+          "r": 0.95,
+          "g": 0.97,
+          "b": 0.96,
+          "a": 0.14
+        },
+        "strokeWeight": 1
+      },
+      {
+        "kind": "text",
+        "name": "chip",
+        "text": "CRASH",
+        "x": 1302.63,
+        "y": 435.69,
+        "w": 41,
+        "h": 13,
+        "size": 10,
+        "weight": 400,
+        "spacing": 2.2,
+        "mono": true,
+        "upper": false,
+        "fill": {
+          "r": 0.95,
+          "g": 0.97,
+          "b": 0.96,
+          "a": 0.7
+        }
+      },
+      {
+        "kind": "box",
+        "name": "chip border",
+        "x": 1368.63,
+        "y": 420.19,
+        "w": 92,
+        "h": 44,
+        "fill": null,
+        "stroke": {
+          "r": 0.95,
+          "g": 0.97,
+          "b": 0.96,
+          "a": 0.14
+        },
+        "strokeWeight": 1
+      },
+      {
+        "kind": "text",
+        "name": "chip",
+        "text": "OTHER",
+        "x": 1402.63,
+        "y": 435.69,
+        "w": 41,
+        "h": 13,
+        "size": 10,
+        "weight": 400,
+        "spacing": 2.2,
+        "mono": true,
+        "upper": false,
+        "fill": {
+          "r": 0.95,
+          "g": 0.97,
+          "b": 0.96,
+          "a": 0.7
+        }
+      },
+      {
+        "kind": "text",
+        "name": "signal",
+        "text": "VIEW ALL GAMES",
+        "x": 1484.63,
+        "y": 434.69,
+        "w": 129.38,
+        "h": 14,
+        "size": 11,
+        "weight": 400,
+        "spacing": 2.64,
+        "mono": true,
+        "upper": false,
+        "fill": {
+          "r": 0.95,
+          "g": 0.97,
+          "b": 0.96,
+          "a": 1
+        }
+      },
+      {
+        "kind": "box",
+        "name": "i",
+        "x": 1624,
+        "y": 441.19,
+        "w": 16,
+        "h": 1,
+        "fill": {
+          "r": 0.95,
+          "g": 0.97,
+          "b": 0.96,
+          "a": 1
+        }
+      },
+      {
+        "kind": "box",
+        "name": "card Top",
+        "x": 280,
+        "y": 534.38,
+        "w": 426.66,
+        "h": 1,
+        "fill": {
+          "r": 0.95,
+          "g": 0.97,
+          "b": 0.96,
+          "a": 0.14
+        }
+      },
+      {
+        "kind": "box",
+        "name": "ph",
+        "x": 280,
+        "y": 553.38,
+        "w": 426.66,
+        "h": 266.66,
+        "fill": {
+          "r": 0.04,
+          "g": 0.06,
+          "b": 0.07,
+          "a": 1
+        }
+      },
+      {
+        "kind": "box",
+        "name": "ph border",
+        "x": 280,
+        "y": 553.38,
+        "w": 426.66,
+        "h": 266.66,
+        "fill": null,
+        "stroke": {
+          "r": 0.95,
+          "g": 0.97,
+          "b": 0.96,
+          "a": 0.14
+        },
+        "strokeWeight": 1
+      },
+      {
+        "kind": "text",
+        "name": "ph-type",
+        "text": "[IMAGE] GAME KEY ART",
+        "x": 297,
+        "y": 772.03,
+        "w": 164,
+        "h": 13,
+        "size": 10,
+        "weight": 400,
+        "spacing": 2.2,
+        "mono": true,
+        "upper": false,
+        "fill": {
+          "r": 0.2,
+          "g": 0.85,
+          "b": 0.71,
+          "a": 1
+        }
+      },
+      {
+        "kind": "text",
+        "name": "ph-meta",
+        "text": "16:10 · hover scale 1.03",
+        "x": 297,
+        "y": 790.03,
+        "w": 182.41,
+        "h": 13,
+        "size": 10,
+        "weight": 400,
+        "spacing": 1.6,
+        "mono": true,
+        "upper": false,
+        "fill": {
+          "r": 0.55,
+          "g": 0.6,
+          "b": 0.62,
+          "a": 1
+        }
+      },
+      {
+        "kind": "box",
+        "name": "badge border",
+        "x": 280,
+        "y": 840.03,
+        "w": 84.81,
+        "h": 27,
+        "fill": null,
+        "stroke": {
+          "r": 0.2,
+          "g": 0.85,
+          "b": 0.71,
+          "a": 1
+        },
+        "strokeWeight": 1
+      },
+      {
+        "kind": "text",
+        "name": "badge",
+        "text": "POPULAR",
+        "x": 293,
+        "y": 847.03,
+        "w": 58.81,
+        "h": 13,
+        "size": 10,
+        "weight": 400,
+        "spacing": 2.4,
+        "mono": true,
+        "upper": false,
+        "fill": {
+          "r": 0.2,
+          "g": 0.85,
+          "b": 0.71,
+          "a": 1
+        }
+      },
+      {
+        "kind": "text",
+        "name": "h3",
+        "text": "GAME TITLE",
+        "x": 280,
+        "y": 879.03,
+        "w": 118.61,
+        "h": 24,
+        "size": 20,
+        "weight": 700,
+        "spacing": -0.2,
+        "mono": false,
+        "upper": false,
+        "fill": {
+          "r": 0.95,
+          "g": 0.97,
+          "b": 0.96,
+          "a": 1
+        }
+      },
+      {
+        "kind": "text",
+        "name": "p",
+        "text": "한 줄 설명이 들어갑니다.",
+        "x": 280,
+        "y": 918.03,
+        "w": 144.72,
+        "h": 16,
+        "size": 13,
+        "weight": 400,
+        "spacing": 0,
+        "mono": false,
+        "upper": false,
+        "fill": {
+          "r": 0.95,
+          "g": 0.97,
+          "b": 0.96,
+          "a": 0.6
+        }
+      },
+      {
+        "kind": "text",
+        "name": "tags",
+        "text": "INSTANT WIN · MECHANIC",
+        "x": 280,
+        "y": 951.78,
+        "w": 176,
+        "h": 13,
+        "size": 10,
+        "weight": 400,
+        "spacing": 2,
+        "mono": true,
+        "upper": false,
+        "fill": {
+          "r": 0.55,
+          "g": 0.6,
+          "b": 0.62,
+          "a": 1
+        }
+      },
+      {
+        "kind": "box",
+        "name": "btn",
+        "x": 280,
+        "y": 993.28,
+        "w": 155.17,
+        "h": 44,
+        "fill": {
+          "r": 0.2,
+          "g": 0.85,
+          "b": 0.71,
+          "a": 1
+        }
+      },
+      {
+        "kind": "box",
+        "name": "btn border",
+        "x": 280,
+        "y": 993.28,
+        "w": 155.17,
+        "h": 44,
+        "fill": null,
+        "stroke": {
+          "r": 0.2,
+          "g": 0.85,
+          "b": 0.71,
+          "a": 1
+        },
+        "strokeWeight": 1
+      },
+      {
+        "kind": "text",
+        "name": "btn",
+        "text": "PLAY DEMO",
+        "x": 301,
+        "y": 1008.28,
+        "w": 83.17,
+        "h": 14,
+        "size": 11,
+        "weight": 400,
+        "spacing": 2.64,
+        "mono": true,
+        "upper": false,
+        "fill": {
+          "r": 0.02,
+          "g": 0.07,
+          "b": 0.05,
+          "a": 1
+        }
+      },
+      {
+        "kind": "box",
+        "name": "i",
+        "x": 398.17,
+        "y": 1014.78,
+        "w": 16,
+        "h": 1,
+        "fill": {
+          "r": 0.02,
+          "g": 0.07,
+          "b": 0.05,
+          "a": 1
+        }
+      },
+      {
+        "kind": "text",
+        "name": "signal",
+        "text": "VIEW GAME",
+        "x": 453.17,
+        "y": 1007.78,
+        "w": 83.17,
+        "h": 14,
+        "size": 11,
+        "weight": 400,
+        "spacing": 2.64,
+        "mono": true,
+        "upper": false,
+        "fill": {
+          "r": 0.95,
+          "g": 0.97,
+          "b": 0.96,
+          "a": 1
+        }
+      },
+      {
+        "kind": "box",
+        "name": "i",
+        "x": 546.34,
+        "y": 1014.28,
+        "w": 16,
+        "h": 1,
+        "fill": {
+          "r": 0.95,
+          "g": 0.97,
+          "b": 0.96,
+          "a": 1
+        }
+      },
+      {
+        "kind": "box",
+        "name": "card Top",
+        "x": 746.66,
+        "y": 534.38,
+        "w": 426.67,
+        "h": 1,
+        "fill": {
+          "r": 0.95,
+          "g": 0.97,
+          "b": 0.96,
+          "a": 0.14
+        }
+      },
+      {
+        "kind": "box",
+        "name": "ph",
+        "x": 746.66,
+        "y": 553.38,
+        "w": 426.67,
+        "h": 266.66,
+        "fill": {
+          "r": 0.04,
+          "g": 0.06,
+          "b": 0.07,
+          "a": 1
+        }
+      },
+      {
+        "kind": "box",
+        "name": "ph border",
+        "x": 746.66,
+        "y": 553.38,
+        "w": 426.67,
+        "h": 266.66,
+        "fill": null,
+        "stroke": {
+          "r": 0.95,
+          "g": 0.97,
+          "b": 0.96,
+          "a": 0.14
+        },
+        "strokeWeight": 1
+      },
+      {
+        "kind": "text",
+        "name": "ph-type",
+        "text": "[IMAGE] GAME KEY ART",
+        "x": 763.66,
+        "y": 772.03,
+        "w": 164,
+        "h": 13,
+        "size": 10,
+        "weight": 400,
+        "spacing": 2.2,
+        "mono": true,
+        "upper": false,
+        "fill": {
+          "r": 0.2,
+          "g": 0.85,
+          "b": 0.71,
+          "a": 1
+        }
+      },
+      {
+        "kind": "text",
+        "name": "ph-meta",
+        "text": "16:10 · hover scale 1.03",
+        "x": 763.66,
+        "y": 790.03,
+        "w": 182.41,
+        "h": 13,
+        "size": 10,
+        "weight": 400,
+        "spacing": 1.6,
+        "mono": true,
+        "upper": false,
+        "fill": {
+          "r": 0.55,
+          "g": 0.6,
+          "b": 0.62,
+          "a": 1
+        }
+      },
+      {
+        "kind": "box",
+        "name": "badge border",
+        "x": 746.66,
+        "y": 840.03,
+        "w": 84.81,
+        "h": 27,
+        "fill": null,
+        "stroke": {
+          "r": 0.2,
+          "g": 0.85,
+          "b": 0.71,
+          "a": 1
+        },
+        "strokeWeight": 1
+      },
+      {
+        "kind": "text",
+        "name": "badge",
+        "text": "POPULAR",
+        "x": 759.66,
+        "y": 847.03,
+        "w": 58.81,
+        "h": 13,
+        "size": 10,
+        "weight": 400,
+        "spacing": 2.4,
+        "mono": true,
+        "upper": false,
+        "fill": {
+          "r": 0.2,
+          "g": 0.85,
+          "b": 0.71,
+          "a": 1
+        }
+      },
+      {
+        "kind": "text",
+        "name": "h3",
+        "text": "GAME TITLE",
+        "x": 746.66,
+        "y": 879.03,
+        "w": 118.61,
+        "h": 24,
+        "size": 20,
+        "weight": 700,
+        "spacing": -0.2,
+        "mono": false,
+        "upper": false,
+        "fill": {
+          "r": 0.95,
+          "g": 0.97,
+          "b": 0.96,
+          "a": 1
+        }
+      },
+      {
+        "kind": "text",
+        "name": "p",
+        "text": "한 줄 설명이 들어갑니다.",
+        "x": 746.66,
+        "y": 918.03,
+        "w": 144.72,
+        "h": 16,
+        "size": 13,
+        "weight": 400,
+        "spacing": 0,
+        "mono": false,
+        "upper": false,
+        "fill": {
+          "r": 0.95,
+          "g": 0.97,
+          "b": 0.96,
+          "a": 0.6
+        }
+      },
+      {
+        "kind": "text",
+        "name": "tags",
+        "text": "PLINKO · MECHANIC",
+        "x": 746.66,
+        "y": 951.78,
+        "w": 136,
+        "h": 13,
+        "size": 10,
+        "weight": 400,
+        "spacing": 2,
+        "mono": true,
+        "upper": false,
+        "fill": {
+          "r": 0.55,
+          "g": 0.6,
+          "b": 0.62,
+          "a": 1
+        }
+      },
+      {
+        "kind": "box",
+        "name": "btn",
+        "x": 746.66,
+        "y": 993.28,
+        "w": 155.17,
+        "h": 44,
+        "fill": {
+          "r": 0.2,
+          "g": 0.85,
+          "b": 0.71,
+          "a": 1
+        }
+      },
+      {
+        "kind": "box",
+        "name": "btn border",
+        "x": 746.66,
+        "y": 993.28,
+        "w": 155.17,
+        "h": 44,
+        "fill": null,
+        "stroke": {
+          "r": 0.2,
+          "g": 0.85,
+          "b": 0.71,
+          "a": 1
+        },
+        "strokeWeight": 1
+      },
+      {
+        "kind": "text",
+        "name": "btn",
+        "text": "PLAY DEMO",
+        "x": 767.66,
+        "y": 1008.28,
+        "w": 83.17,
+        "h": 14,
+        "size": 11,
+        "weight": 400,
+        "spacing": 2.64,
+        "mono": true,
+        "upper": false,
+        "fill": {
+          "r": 0.02,
+          "g": 0.07,
+          "b": 0.05,
+          "a": 1
+        }
+      },
+      {
+        "kind": "box",
+        "name": "i",
+        "x": 864.83,
+        "y": 1014.78,
+        "w": 16,
+        "h": 1,
+        "fill": {
+          "r": 0.02,
+          "g": 0.07,
+          "b": 0.05,
+          "a": 1
+        }
+      },
+      {
+        "kind": "text",
+        "name": "signal",
+        "text": "VIEW GAME",
+        "x": 919.83,
+        "y": 1007.78,
+        "w": 83.17,
+        "h": 14,
+        "size": 11,
+        "weight": 400,
+        "spacing": 2.64,
+        "mono": true,
+        "upper": false,
+        "fill": {
+          "r": 0.95,
+          "g": 0.97,
+          "b": 0.96,
+          "a": 1
+        }
+      },
+      {
+        "kind": "box",
+        "name": "i",
+        "x": 1013,
+        "y": 1014.28,
+        "w": 16,
+        "h": 1,
+        "fill": {
+          "r": 0.95,
+          "g": 0.97,
+          "b": 0.96,
+          "a": 1
+        }
+      },
+      {
+        "kind": "box",
+        "name": "card Top",
+        "x": 1213.33,
+        "y": 534.38,
+        "w": 426.66,
+        "h": 1,
+        "fill": {
+          "r": 0.95,
+          "g": 0.97,
+          "b": 0.96,
+          "a": 0.14
+        }
+      },
+      {
+        "kind": "box",
+        "name": "ph",
+        "x": 1213.33,
+        "y": 553.38,
+        "w": 426.66,
+        "h": 266.66,
+        "fill": {
+          "r": 0.04,
+          "g": 0.06,
+          "b": 0.07,
+          "a": 1
+        }
+      },
+      {
+        "kind": "box",
+        "name": "ph border",
+        "x": 1213.33,
+        "y": 553.38,
+        "w": 426.66,
+        "h": 266.66,
+        "fill": null,
+        "stroke": {
+          "r": 0.95,
+          "g": 0.97,
+          "b": 0.96,
+          "a": 0.14
+        },
+        "strokeWeight": 1
+      },
+      {
+        "kind": "text",
+        "name": "ph-type",
+        "text": "[IMAGE] GAME KEY ART",
+        "x": 1230.33,
+        "y": 772.03,
+        "w": 164,
+        "h": 13,
+        "size": 10,
+        "weight": 400,
+        "spacing": 2.2,
+        "mono": true,
+        "upper": false,
+        "fill": {
+          "r": 0.2,
+          "g": 0.85,
+          "b": 0.71,
+          "a": 1
+        }
+      },
+      {
+        "kind": "text",
+        "name": "ph-meta",
+        "text": "16:10 · hover scale 1.03",
+        "x": 1230.33,
+        "y": 790.03,
+        "w": 182.41,
+        "h": 13,
+        "size": 10,
+        "weight": 400,
+        "spacing": 1.6,
+        "mono": true,
+        "upper": false,
+        "fill": {
+          "r": 0.55,
+          "g": 0.6,
+          "b": 0.62,
+          "a": 1
+        }
+      },
+      {
+        "kind": "box",
+        "name": "badge border",
+        "x": 1213.33,
+        "y": 840.03,
+        "w": 84.81,
+        "h": 27,
+        "fill": null,
+        "stroke": {
+          "r": 0.2,
+          "g": 0.85,
+          "b": 0.71,
+          "a": 1
+        },
+        "strokeWeight": 1
+      },
+      {
+        "kind": "text",
+        "name": "badge",
+        "text": "POPULAR",
+        "x": 1226.33,
+        "y": 847.03,
+        "w": 58.81,
+        "h": 13,
+        "size": 10,
+        "weight": 400,
+        "spacing": 2.4,
+        "mono": true,
+        "upper": false,
+        "fill": {
+          "r": 0.2,
+          "g": 0.85,
+          "b": 0.71,
+          "a": 1
+        }
+      },
+      {
+        "kind": "text",
+        "name": "h3",
+        "text": "GAME TITLE",
+        "x": 1213.33,
+        "y": 879.03,
+        "w": 118.61,
+        "h": 24,
+        "size": 20,
+        "weight": 700,
+        "spacing": -0.2,
+        "mono": false,
+        "upper": false,
+        "fill": {
+          "r": 0.95,
+          "g": 0.97,
+          "b": 0.96,
+          "a": 1
+        }
+      },
+      {
+        "kind": "text",
+        "name": "p",
+        "text": "한 줄 설명이 들어갑니다.",
+        "x": 1213.33,
+        "y": 918.03,
+        "w": 144.72,
+        "h": 16,
+        "size": 13,
+        "weight": 400,
+        "spacing": 0,
+        "mono": false,
+        "upper": false,
+        "fill": {
+          "r": 0.95,
+          "g": 0.97,
+          "b": 0.96,
+          "a": 0.6
+        }
+      },
+      {
+        "kind": "text",
+        "name": "tags",
+        "text": "CRASH · MECHANIC",
+        "x": 1213.33,
+        "y": 951.78,
+        "w": 128,
+        "h": 13,
+        "size": 10,
+        "weight": 400,
+        "spacing": 2,
+        "mono": true,
+        "upper": false,
+        "fill": {
+          "r": 0.55,
+          "g": 0.6,
+          "b": 0.62,
+          "a": 1
+        }
+      },
+      {
+        "kind": "box",
+        "name": "btn",
+        "x": 1213.33,
+        "y": 993.28,
+        "w": 155.17,
+        "h": 44,
+        "fill": {
+          "r": 0.2,
+          "g": 0.85,
+          "b": 0.71,
+          "a": 1
+        }
+      },
+      {
+        "kind": "box",
+        "name": "btn border",
+        "x": 1213.33,
+        "y": 993.28,
+        "w": 155.17,
+        "h": 44,
+        "fill": null,
+        "stroke": {
+          "r": 0.2,
+          "g": 0.85,
+          "b": 0.71,
+          "a": 1
+        },
+        "strokeWeight": 1
+      },
+      {
+        "kind": "text",
+        "name": "btn",
+        "text": "PLAY DEMO",
+        "x": 1234.33,
+        "y": 1008.28,
+        "w": 83.17,
+        "h": 14,
+        "size": 11,
+        "weight": 400,
+        "spacing": 2.64,
+        "mono": true,
+        "upper": false,
+        "fill": {
+          "r": 0.02,
+          "g": 0.07,
+          "b": 0.05,
+          "a": 1
+        }
+      },
+      {
+        "kind": "box",
+        "name": "i",
+        "x": 1331.5,
+        "y": 1014.78,
+        "w": 16,
+        "h": 1,
+        "fill": {
+          "r": 0.02,
+          "g": 0.07,
+          "b": 0.05,
+          "a": 1
+        }
+      },
+      {
+        "kind": "text",
+        "name": "signal",
+        "text": "VIEW GAME",
+        "x": 1386.5,
+        "y": 1007.78,
+        "w": 83.17,
+        "h": 14,
+        "size": 11,
+        "weight": 400,
+        "spacing": 2.64,
+        "mono": true,
+        "upper": false,
+        "fill": {
+          "r": 0.95,
+          "g": 0.97,
+          "b": 0.96,
+          "a": 1
+        }
+      },
+      {
+        "kind": "box",
+        "name": "i",
+        "x": 1479.67,
+        "y": 1014.28,
+        "w": 16,
+        "h": 1,
+        "fill": {
+          "r": 0.95,
+          "g": 0.97,
+          "b": 0.96,
+          "a": 1
+        }
+      },
+      {
+        "kind": "box",
+        "name": "card Top",
+        "x": 280,
+        "y": 1077.28,
+        "w": 426.66,
+        "h": 1,
+        "fill": {
+          "r": 0.95,
+          "g": 0.97,
+          "b": 0.96,
+          "a": 0.14
+        }
+      },
+      {
+        "kind": "box",
+        "name": "ph",
+        "x": 280,
+        "y": 1096.28,
+        "w": 426.66,
+        "h": 266.66,
+        "fill": {
+          "r": 0.04,
+          "g": 0.06,
+          "b": 0.07,
+          "a": 1
+        }
+      },
+      {
+        "kind": "box",
+        "name": "ph border",
+        "x": 280,
+        "y": 1096.28,
+        "w": 426.66,
+        "h": 266.66,
+        "fill": null,
+        "stroke": {
+          "r": 0.95,
+          "g": 0.97,
+          "b": 0.96,
+          "a": 0.14
+        },
+        "strokeWeight": 1
+      },
+      {
+        "kind": "text",
+        "name": "ph-type",
+        "text": "[IMAGE] GAME KEY ART",
+        "x": 297,
+        "y": 1314.94,
+        "w": 164,
+        "h": 13,
+        "size": 10,
+        "weight": 400,
+        "spacing": 2.2,
+        "mono": true,
+        "upper": false,
+        "fill": {
+          "r": 0.2,
+          "g": 0.85,
+          "b": 0.71,
+          "a": 1
+        }
+      },
+      {
+        "kind": "text",
+        "name": "ph-meta",
+        "text": "16:10 · hover scale 1.03",
+        "x": 297,
+        "y": 1332.94,
+        "w": 182.41,
+        "h": 13,
+        "size": 10,
+        "weight": 400,
+        "spacing": 1.6,
+        "mono": true,
+        "upper": false,
+        "fill": {
+          "r": 0.55,
+          "g": 0.6,
+          "b": 0.62,
+          "a": 1
+        }
+      },
+      {
+        "kind": "text",
+        "name": "h3",
+        "text": "GAME TITLE",
+        "x": 280,
+        "y": 1382.94,
+        "w": 118.61,
+        "h": 24,
+        "size": 20,
+        "weight": 700,
+        "spacing": -0.2,
+        "mono": false,
+        "upper": false,
+        "fill": {
+          "r": 0.95,
+          "g": 0.97,
+          "b": 0.96,
+          "a": 1
+        }
+      },
+      {
+        "kind": "text",
+        "name": "p",
+        "text": "한 줄 설명이 들어갑니다.",
+        "x": 280,
+        "y": 1421.94,
+        "w": 144.72,
+        "h": 16,
+        "size": 13,
+        "weight": 400,
+        "spacing": 0,
+        "mono": false,
+        "upper": false,
+        "fill": {
+          "r": 0.95,
+          "g": 0.97,
+          "b": 0.96,
+          "a": 0.6
+        }
+      },
+      {
+        "kind": "text",
+        "name": "tags",
+        "text": "INSTANT WIN · MECHANIC",
+        "x": 280,
+        "y": 1455.69,
+        "w": 176,
+        "h": 13,
+        "size": 10,
+        "weight": 400,
+        "spacing": 2,
+        "mono": true,
+        "upper": false,
+        "fill": {
+          "r": 0.55,
+          "g": 0.6,
+          "b": 0.62,
+          "a": 1
+        }
+      },
+      {
+        "kind": "box",
+        "name": "btn",
+        "x": 280,
+        "y": 1497.19,
+        "w": 155.17,
+        "h": 44,
+        "fill": {
+          "r": 0.2,
+          "g": 0.85,
+          "b": 0.71,
+          "a": 1
+        }
+      },
+      {
+        "kind": "box",
+        "name": "btn border",
+        "x": 280,
+        "y": 1497.19,
+        "w": 155.17,
+        "h": 44,
+        "fill": null,
+        "stroke": {
+          "r": 0.2,
+          "g": 0.85,
+          "b": 0.71,
+          "a": 1
+        },
+        "strokeWeight": 1
+      },
+      {
+        "kind": "text",
+        "name": "btn",
+        "text": "PLAY DEMO",
+        "x": 301,
+        "y": 1512.19,
+        "w": 83.17,
+        "h": 14,
+        "size": 11,
+        "weight": 400,
+        "spacing": 2.64,
+        "mono": true,
+        "upper": false,
+        "fill": {
+          "r": 0.02,
+          "g": 0.07,
+          "b": 0.05,
+          "a": 1
+        }
+      },
+      {
+        "kind": "box",
+        "name": "i",
+        "x": 398.17,
+        "y": 1518.69,
+        "w": 16,
+        "h": 1,
+        "fill": {
+          "r": 0.02,
+          "g": 0.07,
+          "b": 0.05,
+          "a": 1
+        }
+      },
+      {
+        "kind": "text",
+        "name": "signal",
+        "text": "VIEW GAME",
+        "x": 453.17,
+        "y": 1511.69,
+        "w": 83.17,
+        "h": 14,
+        "size": 11,
+        "weight": 400,
+        "spacing": 2.64,
+        "mono": true,
+        "upper": false,
+        "fill": {
+          "r": 0.95,
+          "g": 0.97,
+          "b": 0.96,
+          "a": 1
+        }
+      },
+      {
+        "kind": "box",
+        "name": "i",
+        "x": 546.34,
+        "y": 1518.19,
+        "w": 16,
+        "h": 1,
+        "fill": {
+          "r": 0.95,
+          "g": 0.97,
+          "b": 0.96,
+          "a": 1
+        }
+      },
+      {
+        "kind": "box",
+        "name": "card Top",
+        "x": 746.66,
+        "y": 1077.28,
+        "w": 426.67,
+        "h": 1,
+        "fill": {
+          "r": 0.95,
+          "g": 0.97,
+          "b": 0.96,
+          "a": 0.14
+        }
+      },
+      {
+        "kind": "box",
+        "name": "ph",
+        "x": 746.66,
+        "y": 1096.28,
+        "w": 426.67,
+        "h": 266.66,
+        "fill": {
+          "r": 0.04,
+          "g": 0.06,
+          "b": 0.07,
+          "a": 1
+        }
+      },
+      {
+        "kind": "box",
+        "name": "ph border",
+        "x": 746.66,
+        "y": 1096.28,
+        "w": 426.67,
+        "h": 266.66,
+        "fill": null,
+        "stroke": {
+          "r": 0.95,
+          "g": 0.97,
+          "b": 0.96,
+          "a": 0.14
+        },
+        "strokeWeight": 1
+      },
+      {
+        "kind": "text",
+        "name": "ph-type",
+        "text": "[IMAGE] GAME KEY ART",
+        "x": 763.66,
+        "y": 1314.94,
+        "w": 164,
+        "h": 13,
+        "size": 10,
+        "weight": 400,
+        "spacing": 2.2,
+        "mono": true,
+        "upper": false,
+        "fill": {
+          "r": 0.2,
+          "g": 0.85,
+          "b": 0.71,
+          "a": 1
+        }
+      },
+      {
+        "kind": "text",
+        "name": "ph-meta",
+        "text": "16:10 · hover scale 1.03",
+        "x": 763.66,
+        "y": 1332.94,
+        "w": 182.41,
+        "h": 13,
+        "size": 10,
+        "weight": 400,
+        "spacing": 1.6,
+        "mono": true,
+        "upper": false,
+        "fill": {
+          "r": 0.55,
+          "g": 0.6,
+          "b": 0.62,
+          "a": 1
+        }
+      },
+      {
+        "kind": "text",
+        "name": "h3",
+        "text": "GAME TITLE",
+        "x": 746.66,
+        "y": 1382.94,
+        "w": 118.61,
+        "h": 24,
+        "size": 20,
+        "weight": 700,
+        "spacing": -0.2,
+        "mono": false,
+        "upper": false,
+        "fill": {
+          "r": 0.95,
+          "g": 0.97,
+          "b": 0.96,
+          "a": 1
+        }
+      },
+      {
+        "kind": "text",
+        "name": "p",
+        "text": "한 줄 설명이 들어갑니다.",
+        "x": 746.66,
+        "y": 1421.94,
+        "w": 144.72,
+        "h": 16,
+        "size": 13,
+        "weight": 400,
+        "spacing": 0,
+        "mono": false,
+        "upper": false,
+        "fill": {
+          "r": 0.95,
+          "g": 0.97,
+          "b": 0.96,
+          "a": 0.6
+        }
+      },
+      {
+        "kind": "text",
+        "name": "tags",
+        "text": "PLINKO · MECHANIC",
+        "x": 746.66,
+        "y": 1455.69,
+        "w": 136,
+        "h": 13,
+        "size": 10,
+        "weight": 400,
+        "spacing": 2,
+        "mono": true,
+        "upper": false,
+        "fill": {
+          "r": 0.55,
+          "g": 0.6,
+          "b": 0.62,
+          "a": 1
+        }
+      },
+      {
+        "kind": "box",
+        "name": "btn",
+        "x": 746.66,
+        "y": 1497.19,
+        "w": 155.17,
+        "h": 44,
+        "fill": {
+          "r": 0.2,
+          "g": 0.85,
+          "b": 0.71,
+          "a": 1
+        }
+      },
+      {
+        "kind": "box",
+        "name": "btn border",
+        "x": 746.66,
+        "y": 1497.19,
+        "w": 155.17,
+        "h": 44,
+        "fill": null,
+        "stroke": {
+          "r": 0.2,
+          "g": 0.85,
+          "b": 0.71,
+          "a": 1
+        },
+        "strokeWeight": 1
+      },
+      {
+        "kind": "text",
+        "name": "btn",
+        "text": "PLAY DEMO",
+        "x": 767.66,
+        "y": 1512.19,
+        "w": 83.17,
+        "h": 14,
+        "size": 11,
+        "weight": 400,
+        "spacing": 2.64,
+        "mono": true,
+        "upper": false,
+        "fill": {
+          "r": 0.02,
+          "g": 0.07,
+          "b": 0.05,
+          "a": 1
+        }
+      },
+      {
+        "kind": "box",
+        "name": "i",
+        "x": 864.83,
+        "y": 1518.69,
+        "w": 16,
+        "h": 1,
+        "fill": {
+          "r": 0.02,
+          "g": 0.07,
+          "b": 0.05,
+          "a": 1
+        }
+      },
+      {
+        "kind": "text",
+        "name": "signal",
+        "text": "VIEW GAME",
+        "x": 919.83,
+        "y": 1511.69,
+        "w": 83.17,
+        "h": 14,
+        "size": 11,
+        "weight": 400,
+        "spacing": 2.64,
+        "mono": true,
+        "upper": false,
+        "fill": {
+          "r": 0.95,
+          "g": 0.97,
+          "b": 0.96,
+          "a": 1
+        }
+      },
+      {
+        "kind": "box",
+        "name": "i",
+        "x": 1013,
+        "y": 1518.19,
+        "w": 16,
+        "h": 1,
+        "fill": {
+          "r": 0.95,
+          "g": 0.97,
+          "b": 0.96,
+          "a": 1
+        }
+      },
+      {
+        "kind": "box",
+        "name": "card Top",
+        "x": 1213.33,
+        "y": 1077.28,
+        "w": 426.66,
+        "h": 1,
+        "fill": {
+          "r": 0.95,
+          "g": 0.97,
+          "b": 0.96,
+          "a": 0.14
+        }
+      },
+      {
+        "kind": "box",
+        "name": "ph",
+        "x": 1213.33,
+        "y": 1096.28,
+        "w": 426.66,
+        "h": 266.66,
+        "fill": {
+          "r": 0.04,
+          "g": 0.06,
+          "b": 0.07,
+          "a": 1
+        }
+      },
+      {
+        "kind": "box",
+        "name": "ph border",
+        "x": 1213.33,
+        "y": 1096.28,
+        "w": 426.66,
+        "h": 266.66,
+        "fill": null,
+        "stroke": {
+          "r": 0.95,
+          "g": 0.97,
+          "b": 0.96,
+          "a": 0.14
+        },
+        "strokeWeight": 1
+      },
+      {
+        "kind": "text",
+        "name": "ph-type",
+        "text": "[IMAGE] GAME KEY ART",
+        "x": 1230.33,
+        "y": 1314.94,
+        "w": 164,
+        "h": 13,
+        "size": 10,
+        "weight": 400,
+        "spacing": 2.2,
+        "mono": true,
+        "upper": false,
+        "fill": {
+          "r": 0.2,
+          "g": 0.85,
+          "b": 0.71,
+          "a": 1
+        }
+      },
+      {
+        "kind": "text",
+        "name": "ph-meta",
+        "text": "16:10 · hover scale 1.03",
+        "x": 1230.33,
+        "y": 1332.94,
+        "w": 182.41,
+        "h": 13,
+        "size": 10,
+        "weight": 400,
+        "spacing": 1.6,
+        "mono": true,
+        "upper": false,
+        "fill": {
+          "r": 0.55,
+          "g": 0.6,
+          "b": 0.62,
+          "a": 1
+        }
+      },
+      {
+        "kind": "text",
+        "name": "h3",
+        "text": "GAME TITLE",
+        "x": 1213.33,
+        "y": 1382.94,
+        "w": 118.61,
+        "h": 24,
+        "size": 20,
+        "weight": 700,
+        "spacing": -0.2,
+        "mono": false,
+        "upper": false,
+        "fill": {
+          "r": 0.95,
+          "g": 0.97,
+          "b": 0.96,
+          "a": 1
+        }
+      },
+      {
+        "kind": "text",
+        "name": "p",
+        "text": "한 줄 설명이 들어갑니다.",
+        "x": 1213.33,
+        "y": 1421.94,
+        "w": 144.72,
+        "h": 16,
+        "size": 13,
+        "weight": 400,
+        "spacing": 0,
+        "mono": false,
+        "upper": false,
+        "fill": {
+          "r": 0.95,
+          "g": 0.97,
+          "b": 0.96,
+          "a": 0.6
+        }
+      },
+      {
+        "kind": "text",
+        "name": "tags",
+        "text": "OTHER · MECHANIC",
+        "x": 1213.33,
+        "y": 1455.69,
+        "w": 128,
+        "h": 13,
+        "size": 10,
+        "weight": 400,
+        "spacing": 2,
+        "mono": true,
+        "upper": false,
+        "fill": {
+          "r": 0.55,
+          "g": 0.6,
+          "b": 0.62,
+          "a": 1
+        }
+      },
+      {
+        "kind": "box",
+        "name": "btn border",
+        "x": 1213.33,
+        "y": 1497.19,
+        "w": 189.84,
+        "h": 44,
+        "fill": null,
+        "stroke": {
+          "r": 0.95,
+          "g": 0.97,
+          "b": 0.96,
+          "a": 0.09
+        },
+        "strokeWeight": 1
+      },
+      {
+        "kind": "text",
+        "name": "btn",
+        "text": "DEMO UNAVAILABLE",
+        "x": 1234.33,
+        "y": 1512.19,
+        "w": 147.84,
+        "h": 14,
+        "size": 11,
+        "weight": 400,
+        "spacing": 2.64,
+        "mono": true,
+        "upper": false,
+        "fill": {
+          "r": 0.95,
+          "g": 0.97,
+          "b": 0.96,
+          "a": 0.38
+        }
+      },
+      {
+        "kind": "text",
+        "name": "signal",
+        "text": "VIEW GAME",
+        "x": 1421.17,
+        "y": 1511.69,
+        "w": 83.17,
+        "h": 14,
+        "size": 11,
+        "weight": 400,
+        "spacing": 2.64,
+        "mono": true,
+        "upper": false,
+        "fill": {
+          "r": 0.95,
+          "g": 0.97,
+          "b": 0.96,
+          "a": 1
+        }
+      },
+      {
+        "kind": "box",
+        "name": "i",
+        "x": 1514.34,
+        "y": 1518.19,
+        "w": 16,
+        "h": 1,
+        "fill": {
+          "r": 0.95,
+          "g": 0.97,
+          "b": 0.96,
+          "a": 1
+        }
+      }
+    ]
+  },
+  {
+    "name": "03 WHAT WE BUILD",
+    "selector": "#build",
+    "width": 1920,
+    "height": 790.38,
+    "top": 22249.78,
+    "background": {
+      "r": 0.03,
+      "g": 0.04,
+      "b": 0.04,
+      "a": 1
+    },
+    "items": [
+      {
+        "kind": "box",
+        "name": "sec-head Bottom",
+        "x": 280,
+        "y": 165.59,
+        "w": 1360,
+        "h": 1,
+        "fill": {
+          "r": 0.95,
+          "g": 0.97,
+          "b": 0.96,
+          "a": 0.14
+        }
+      },
+      {
+        "kind": "text",
+        "name": "sec-label",
+        "text": "03 / WHAT WE BUILD",
+        "x": 280,
+        "y": 129.59,
+        "w": 186.13,
+        "h": 14,
+        "size": 11,
+        "weight": 400,
+        "spacing": 3.74,
+        "mono": true,
+        "upper": false,
+        "fill": {
+          "r": 0.55,
+          "g": 0.6,
+          "b": 0.62,
+          "a": 1
+        }
+      },
+      {
+        "kind": "box",
+        "name": "sec-line",
+        "x": 486.13,
+        "y": 136.09,
+        "w": 1087.88,
+        "h": 1,
+        "fill": {
+          "r": 0.95,
+          "g": 0.97,
+          "b": 0.96,
+          "a": 0.14
+        }
+      },
+      {
+        "kind": "box",
+        "name": "sec-dash",
+        "x": 1594,
+        "y": 134.59,
+        "w": 46,
+        "h": 4,
+        "fill": {
+          "r": 0.2,
+          "g": 0.85,
+          "b": 0.71,
+          "a": 1
+        }
+      },
+      {
+        "kind": "text",
+        "name": "sec-title",
+        "text": "ORIGINAL",
+        "x": 280,
+        "y": 213.59,
+        "w": 333.42,
+        "h": 85,
+        "size": 70,
+        "weight": 800,
+        "spacing": -2.45,
+        "mono": false,
+        "upper": true,
+        "fill": {
+          "r": 0.95,
+          "g": 0.97,
+          "b": 0.96,
+          "a": 1
+        }
+      },
+      {
+        "kind": "text",
+        "name": "em",
+        "text": "BY DESIGN.",
+        "x": 613.42,
+        "y": 213.59,
+        "w": 380.41,
+        "h": 85,
+        "size": 70,
+        "weight": 800,
+        "spacing": -2.45,
+        "mono": false,
+        "upper": true,
+        "fill": {
+          "r": 0.2,
+          "g": 0.85,
+          "b": 0.71,
+          "a": 1
+        }
+      },
+      {
+        "kind": "box",
+        "name": "rows Top",
+        "x": 280,
+        "y": 347.39,
+        "w": 1360,
+        "h": 1,
+        "fill": {
+          "r": 0.95,
+          "g": 0.97,
+          "b": 0.96,
+          "a": 0.14
+        }
+      },
+      {
+        "kind": "box",
+        "name": "row Bottom",
+        "x": 280,
+        "y": 458.72,
+        "w": 1360,
+        "h": 1,
+        "fill": {
+          "r": 0.95,
+          "g": 0.97,
+          "b": 0.96,
+          "a": 0.14
+        }
+      },
+      {
+        "kind": "text",
+        "name": "row-num",
+        "text": "01",
+        "x": 280,
+        "y": 403.11,
+        "w": 19.81,
+        "h": 14,
+        "size": 11,
+        "weight": 400,
+        "spacing": 3.3,
+        "mono": true,
+        "upper": false,
+        "fill": {
+          "r": 0.2,
+          "g": 0.85,
+          "b": 0.71,
+          "a": 1
+        }
+      },
+      {
+        "kind": "text",
+        "name": "h3",
+        "text": "ORIGINAL MECHANICS",
+        "x": 408,
+        "y": 385.11,
+        "w": 329.66,
+        "h": 36,
+        "size": 30,
+        "weight": 800,
+        "spacing": -0.6,
+        "mono": false,
+        "upper": false,
+        "fill": {
+          "r": 0.95,
+          "g": 0.97,
+          "b": 0.96,
+          "a": 1
+        }
+      },
+      {
+        "kind": "text",
+        "name": "p",
+        "text": "Game concepts designed to feel distinct from the first interaction.",
+        "x": 1006.69,
+        "y": 400.11,
+        "w": 433.78,
+        "h": 17,
+        "size": 14,
+        "weight": 400,
+        "spacing": 0,
+        "mono": false,
+        "upper": false,
+        "fill": {
+          "r": 0.95,
+          "g": 0.97,
+          "b": 0.96,
+          "a": 0.62
+        }
+      },
+      {
+        "kind": "box",
+        "name": "row Bottom",
+        "x": 280,
+        "y": 570.05,
+        "w": 1360,
+        "h": 1,
+        "fill": {
+          "r": 0.95,
+          "g": 0.97,
+          "b": 0.96,
+          "a": 0.14
+        }
+      },
+      {
+        "kind": "text",
+        "name": "row-num",
+        "text": "02",
+        "x": 280,
+        "y": 514.44,
+        "w": 19.81,
+        "h": 14,
+        "size": 11,
+        "weight": 400,
+        "spacing": 3.3,
+        "mono": true,
+        "upper": false,
+        "fill": {
+          "r": 0.2,
+          "g": 0.85,
+          "b": 0.71,
+          "a": 1
+        }
+      },
+      {
+        "kind": "text",
+        "name": "h3",
+        "text": "VISUAL CRAFT",
+        "x": 408,
+        "y": 496.44,
+        "w": 215.23,
+        "h": 36,
+        "size": 30,
+        "weight": 800,
+        "spacing": -0.6,
+        "mono": false,
+        "upper": false,
+        "fill": {
+          "r": 0.95,
+          "g": 0.97,
+          "b": 0.96,
+          "a": 1
+        }
+      },
+      {
+        "kind": "text",
+        "name": "p",
+        "text": "Characters, worlds and motion built as one coherent experience.",
+        "x": 1006.69,
+        "y": 511.44,
+        "w": 427.77,
+        "h": 17,
+        "size": 14,
+        "weight": 400,
+        "spacing": 0,
+        "mono": false,
+        "upper": false,
+        "fill": {
+          "r": 0.95,
+          "g": 0.97,
+          "b": 0.96,
+          "a": 0.62
+        }
+      },
+      {
+        "kind": "box",
+        "name": "row Bottom",
+        "x": 280,
+        "y": 681.38,
+        "w": 1360,
+        "h": 1,
+        "fill": {
+          "r": 0.95,
+          "g": 0.97,
+          "b": 0.96,
+          "a": 0.14
+        }
+      },
+      {
+        "kind": "text",
+        "name": "row-num",
+        "text": "03",
+        "x": 280,
+        "y": 625.77,
+        "w": 19.81,
+        "h": 14,
+        "size": 11,
+        "weight": 400,
+        "spacing": 3.3,
+        "mono": true,
+        "upper": false,
+        "fill": {
+          "r": 0.2,
+          "g": 0.85,
+          "b": 0.71,
+          "a": 1
+        }
+      },
+      {
+        "kind": "text",
+        "name": "h3",
+        "text": "PARTNER-READY DELIVERY",
+        "x": 408,
+        "y": 607.77,
+        "w": 401.3,
+        "h": 36,
+        "size": 30,
+        "weight": 800,
+        "spacing": -0.6,
+        "mono": false,
+        "upper": false,
+        "fill": {
+          "r": 0.95,
+          "g": 0.97,
+          "b": 0.96,
+          "a": 1
+        }
+      },
+      {
+        "kind": "text",
+        "name": "p",
+        "text": "Commercially prepared experiences built for trusted distribution.",
+        "x": 1006.69,
+        "y": 622.77,
+        "w": 426.88,
+        "h": 17,
+        "size": 14,
+        "weight": 400,
+        "spacing": 0,
+        "mono": false,
+        "upper": false,
+        "fill": {
+          "r": 0.95,
+          "g": 0.97,
+          "b": 0.96,
+          "a": 0.62
+        }
+      }
+    ]
+  },
+  {
+    "name": "04 OUR JOURNEY",
+    "selector": "#journey",
+    "width": 1920,
+    "height": 797.28,
+    "top": 23040.16,
+    "background": {
+      "r": 0.02,
+      "g": 0.03,
+      "b": 0.03,
+      "a": 1
+    },
+    "items": [
+      {
+        "kind": "box",
+        "name": "sec-head Bottom",
+        "x": 280,
+        "y": 165.59,
+        "w": 1360,
+        "h": 1,
+        "fill": {
+          "r": 0.95,
+          "g": 0.97,
+          "b": 0.96,
+          "a": 0.14
+        }
+      },
+      {
+        "kind": "text",
+        "name": "sec-label",
+        "text": "04 / OUR JOURNEY",
+        "x": 280,
+        "y": 129.59,
+        "w": 165.45,
+        "h": 14,
+        "size": 11,
+        "weight": 400,
+        "spacing": 3.74,
+        "mono": true,
+        "upper": false,
+        "fill": {
+          "r": 0.55,
+          "g": 0.6,
+          "b": 0.62,
+          "a": 1
+        }
+      },
+      {
+        "kind": "box",
+        "name": "sec-line",
+        "x": 465.45,
+        "y": 136.09,
+        "w": 1108.55,
+        "h": 1,
+        "fill": {
+          "r": 0.95,
+          "g": 0.97,
+          "b": 0.96,
+          "a": 0.14
+        }
+      },
+      {
+        "kind": "box",
+        "name": "sec-dash",
+        "x": 1594,
+        "y": 134.59,
+        "w": 46,
+        "h": 4,
+        "fill": {
+          "r": 0.2,
+          "g": 0.85,
+          "b": 0.71,
+          "a": 1
+        }
+      },
+      {
+        "kind": "text",
+        "name": "sec-title",
+        "text": "BUILT WORLD",
+        "x": 280,
+        "y": 213.59,
+        "w": 461.69,
+        "h": 85,
+        "size": 70,
+        "weight": 800,
+        "spacing": -2.45,
+        "mono": false,
+        "upper": true,
+        "fill": {
+          "r": 0.95,
+          "g": 0.97,
+          "b": 0.96,
+          "a": 1
+        }
+      },
+      {
+        "kind": "text",
+        "name": "em",
+        "text": "BY WORLD.",
+        "x": 741.69,
+        "y": 213.59,
+        "w": 376.33,
+        "h": 85,
+        "size": 70,
+        "weight": 800,
+        "spacing": -2.45,
+        "mono": false,
+        "upper": true,
+        "fill": {
+          "r": 0.2,
+          "g": 0.85,
+          "b": 0.71,
+          "a": 1
+        }
+      },
+      {
+        "kind": "text",
+        "name": "sec-lead",
+        "text": "Home에는 핵심 milestone만 둡니다. 전체 연혁은 About 페이지로 이어집니다.",
+        "x": 280,
+        "y": 319.39,
+        "w": 490.16,
+        "h": 17,
+        "size": 14,
+        "weight": 400,
+        "spacing": 0,
+        "mono": false,
+        "upper": false,
+        "fill": {
+          "r": 0.95,
+          "g": 0.97,
+          "b": 0.96,
+          "a": 0.62
+        }
+      },
+      {
+        "kind": "box",
+        "name": "timeline Top",
+        "x": 280,
+        "y": 395.28,
+        "w": 1360,
+        "h": 1,
+        "fill": {
+          "r": 0.95,
+          "g": 0.97,
+          "b": 0.96,
+          "a": 0.14
+        }
+      },
+      {
+        "kind": "box",
+        "name": "milestone Left",
+        "x": 280,
+        "y": 396.28,
+        "w": 1,
+        "h": 195,
+        "fill": {
+          "r": 0.95,
+          "g": 0.97,
+          "b": 0.96,
+          "a": 0.14
+        }
+      },
+      {
+        "kind": "text",
+        "name": "milestone-year",
+        "text": "YEAR",
+        "x": 309,
+        "y": 424.28,
+        "w": 134.88,
+        "h": 63,
+        "size": 52,
+        "weight": 800,
+        "spacing": -2.6,
+        "mono": false,
+        "upper": false,
+        "fill": {
+          "r": 0.95,
+          "g": 0.97,
+          "b": 0.96,
+          "a": 0.14
+        }
+      },
+      {
+        "kind": "text",
+        "name": "h3",
+        "text": "Studio Foundation",
+        "x": 309,
+        "y": 504.28,
+        "w": 142.34,
+        "h": 20,
+        "size": 16,
+        "weight": 700,
+        "spacing": 0,
+        "mono": false,
+        "upper": false,
+        "fill": {
+          "r": 0.95,
+          "g": 0.97,
+          "b": 0.96,
+          "a": 1
+        }
+      },
+      {
+        "kind": "text",
+        "name": "pending",
+        "text": "CONTENT REQUIRED",
+        "x": 309,
+        "y": 536.28,
+        "w": 128,
+        "h": 13,
+        "size": 10,
+        "weight": 400,
+        "spacing": 2,
+        "mono": true,
+        "upper": false,
+        "fill": {
+          "r": 0.88,
+          "g": 0.66,
+          "b": 0.31,
+          "a": 1
+        }
+      },
+      {
+        "kind": "box",
+        "name": "milestone Left",
+        "x": 620,
+        "y": 396.28,
+        "w": 1,
+        "h": 195,
+        "fill": {
+          "r": 0.95,
+          "g": 0.97,
+          "b": 0.96,
+          "a": 0.14
+        }
+      },
+      {
+        "kind": "text",
+        "name": "milestone-year",
+        "text": "YEAR",
+        "x": 649,
+        "y": 424.28,
+        "w": 134.88,
+        "h": 63,
+        "size": 52,
+        "weight": 800,
+        "spacing": -2.6,
+        "mono": false,
+        "upper": false,
+        "fill": {
+          "r": 0.95,
+          "g": 0.97,
+          "b": 0.96,
+          "a": 0.14
+        }
+      },
+      {
+        "kind": "text",
+        "name": "h3",
+        "text": "First Game Release",
+        "x": 649,
+        "y": 504.28,
+        "w": 149.73,
+        "h": 20,
+        "size": 16,
+        "weight": 700,
+        "spacing": 0,
+        "mono": false,
+        "upper": false,
+        "fill": {
+          "r": 0.95,
+          "g": 0.97,
+          "b": 0.96,
+          "a": 1
+        }
+      },
+      {
+        "kind": "text",
+        "name": "pending",
+        "text": "CONTENT REQUIRED",
+        "x": 649,
+        "y": 536.28,
+        "w": 128,
+        "h": 13,
+        "size": 10,
+        "weight": 400,
+        "spacing": 2,
+        "mono": true,
+        "upper": false,
+        "fill": {
+          "r": 0.88,
+          "g": 0.66,
+          "b": 0.31,
+          "a": 1
+        }
+      },
+      {
+        "kind": "box",
+        "name": "milestone Left",
+        "x": 960,
+        "y": 396.28,
+        "w": 1,
+        "h": 195,
+        "fill": {
+          "r": 0.95,
+          "g": 0.97,
+          "b": 0.96,
+          "a": 0.14
+        }
+      },
+      {
+        "kind": "text",
+        "name": "milestone-year",
+        "text": "YEAR",
+        "x": 989,
+        "y": 424.28,
+        "w": 134.88,
+        "h": 63,
+        "size": 52,
+        "weight": 800,
+        "spacing": -2.6,
+        "mono": false,
+        "upper": false,
+        "fill": {
+          "r": 0.95,
+          "g": 0.97,
+          "b": 0.96,
+          "a": 0.14
+        }
+      },
+      {
+        "kind": "text",
+        "name": "h3",
+        "text": "Licence / Certification",
+        "x": 989,
+        "y": 504.28,
+        "w": 173.08,
+        "h": 20,
+        "size": 16,
+        "weight": 700,
+        "spacing": 0,
+        "mono": false,
+        "upper": false,
+        "fill": {
+          "r": 0.95,
+          "g": 0.97,
+          "b": 0.96,
+          "a": 1
+        }
+      },
+      {
+        "kind": "text",
+        "name": "pending",
+        "text": "CONTENT REQUIRED",
+        "x": 989,
+        "y": 536.28,
+        "w": 128,
+        "h": 13,
+        "size": 10,
+        "weight": 400,
+        "spacing": 2,
+        "mono": true,
+        "upper": false,
+        "fill": {
+          "r": 0.88,
+          "g": 0.66,
+          "b": 0.31,
+          "a": 1
+        }
+      },
+      {
+        "kind": "box",
+        "name": "milestone Left",
+        "x": 1300,
+        "y": 396.28,
+        "w": 1,
+        "h": 195,
+        "fill": {
+          "r": 0.95,
+          "g": 0.97,
+          "b": 0.96,
+          "a": 0.14
+        }
+      },
+      {
+        "kind": "box",
+        "name": "milestone Right",
+        "x": 1639,
+        "y": 396.28,
+        "w": 1,
+        "h": 195,
+        "fill": {
+          "r": 0.95,
+          "g": 0.97,
+          "b": 0.96,
+          "a": 0.14
+        }
+      },
+      {
+        "kind": "text",
+        "name": "milestone-year",
+        "text": "YEAR",
+        "x": 1329,
+        "y": 424.28,
+        "w": 134.88,
+        "h": 63,
+        "size": 52,
+        "weight": 800,
+        "spacing": -2.6,
+        "mono": false,
+        "upper": false,
+        "fill": {
+          "r": 0.95,
+          "g": 0.97,
+          "b": 0.96,
+          "a": 0.14
+        }
+      },
+      {
+        "kind": "text",
+        "name": "h3",
+        "text": "Landmark Partnership",
+        "x": 1329,
+        "y": 504.28,
+        "w": 173.61,
+        "h": 20,
+        "size": 16,
+        "weight": 700,
+        "spacing": 0,
+        "mono": false,
+        "upper": false,
+        "fill": {
+          "r": 0.95,
+          "g": 0.97,
+          "b": 0.96,
+          "a": 1
+        }
+      },
+      {
+        "kind": "text",
+        "name": "pending",
+        "text": "CONTENT REQUIRED",
+        "x": 1329,
+        "y": 536.28,
+        "w": 128,
+        "h": 13,
+        "size": 10,
+        "weight": 400,
+        "spacing": 2,
+        "mono": true,
+        "upper": false,
+        "fill": {
+          "r": 0.88,
+          "g": 0.66,
+          "b": 0.31,
+          "a": 1
+        }
+      },
+      {
+        "kind": "box",
+        "name": "btn border",
+        "x": 280,
+        "y": 645.28,
+        "w": 254.33,
+        "h": 44,
+        "fill": null,
+        "stroke": {
+          "r": 0.95,
+          "g": 0.97,
+          "b": 0.96,
+          "a": 0.14
+        },
+        "strokeWeight": 1
+      },
+      {
+        "kind": "text",
+        "name": "btn",
+        "text": "DISCOVER OUR STORY",
+        "x": 309,
+        "y": 660.28,
+        "w": 166.33,
+        "h": 14,
+        "size": 11,
+        "weight": 400,
+        "spacing": 2.64,
+        "mono": true,
+        "upper": false,
+        "fill": {
+          "r": 0.95,
+          "g": 0.97,
+          "b": 0.96,
+          "a": 1
+        }
+      },
+      {
+        "kind": "box",
+        "name": "i",
+        "x": 489.33,
+        "y": 666.78,
+        "w": 16,
+        "h": 1,
+        "fill": {
+          "r": 0.95,
+          "g": 0.97,
+          "b": 0.96,
+          "a": 1
+        }
+      }
+    ]
+  },
+  {
+    "name": "MARQUEE",
+    "selector": ".marquee",
+    "width": 1920,
+    "height": 129,
+    "top": 23837.44,
+    "background": {
+      "r": 0.03,
+      "g": 0.04,
+      "b": 0.04,
+      "a": 1
+    },
+    "items": [
+      {
+        "kind": "box",
+        "name": "marquee Top",
+        "x": 0,
+        "y": 0,
+        "w": 1920,
+        "h": 1,
+        "fill": {
+          "r": 0.95,
+          "g": 0.97,
+          "b": 0.96,
+          "a": 0.14
+        }
+      },
+      {
+        "kind": "box",
+        "name": "marquee Bottom",
+        "x": 0,
+        "y": 128,
+        "w": 1920,
+        "h": 1,
+        "fill": {
+          "r": 0.95,
+          "g": 0.97,
+          "b": 0.96,
+          "a": 0.14
+        }
+      },
+      {
+        "kind": "text",
+        "name": "span",
+        "text": "MANY WORLDS. ONE CROWN. — WHERE ORIGINAL MECHANICS BECOME WORLDS. —",
+        "x": 0,
+        "y": 27,
+        "w": 2560.58,
+        "h": 75,
+        "size": 62,
+        "weight": 800,
+        "spacing": -1.24,
+        "mono": false,
+        "upper": true,
+        "fill": {
+          "r": 0.95,
+          "g": 0.97,
+          "b": 0.96,
+          "a": 0.1
+        }
+      },
+      {
+        "kind": "text",
+        "name": "span",
+        "text": "MANY WORLDS. ONE CROWN. — WHERE ORIGINAL MECHANICS BECOME WORLDS. —",
+        "x": 2560.58,
+        "y": 27,
+        "w": 2560.58,
+        "h": 75,
+        "size": 62,
+        "weight": 800,
+        "spacing": -1.24,
+        "mono": false,
+        "upper": true,
+        "fill": {
+          "r": 0.95,
+          "g": 0.97,
+          "b": 0.96,
+          "a": 0.1
+        }
+      }
+    ]
+  },
+  {
+    "name": "05 NEWS",
+    "selector": "#news",
+    "width": 1920,
+    "height": 1131.17,
+    "top": 23966.44,
+    "background": {
+      "r": 0.03,
+      "g": 0.04,
+      "b": 0.04,
+      "a": 1
+    },
+    "items": [
+      {
+        "kind": "box",
+        "name": "sec-head Bottom",
+        "x": 280,
+        "y": 165.59,
+        "w": 1360,
+        "h": 1,
+        "fill": {
+          "r": 0.95,
+          "g": 0.97,
+          "b": 0.96,
+          "a": 0.14
+        }
+      },
+      {
+        "kind": "text",
+        "name": "sec-label",
+        "text": "05 / FROM THE CROWN",
+        "x": 280,
+        "y": 129.59,
+        "w": 196.47,
+        "h": 14,
+        "size": 11,
+        "weight": 400,
+        "spacing": 3.74,
+        "mono": true,
+        "upper": false,
+        "fill": {
+          "r": 0.55,
+          "g": 0.6,
+          "b": 0.62,
+          "a": 1
+        }
+      },
+      {
+        "kind": "box",
+        "name": "sec-line",
+        "x": 496.47,
+        "y": 136.09,
+        "w": 1077.53,
+        "h": 1,
+        "fill": {
+          "r": 0.95,
+          "g": 0.97,
+          "b": 0.96,
+          "a": 0.14
+        }
+      },
+      {
+        "kind": "box",
+        "name": "sec-dash",
+        "x": 1594,
+        "y": 134.59,
+        "w": 46,
+        "h": 4,
+        "fill": {
+          "r": 0.2,
+          "g": 0.85,
+          "b": 0.71,
+          "a": 1
+        }
+      },
+      {
+        "kind": "text",
+        "name": "sec-title",
+        "text": "NEWS &",
+        "x": 280,
+        "y": 213.59,
+        "w": 277.3,
+        "h": 85,
+        "size": 70,
+        "weight": 800,
+        "spacing": -2.45,
+        "mono": false,
+        "upper": true,
+        "fill": {
+          "r": 0.95,
+          "g": 0.97,
+          "b": 0.96,
+          "a": 1
+        }
+      },
+      {
+        "kind": "text",
+        "name": "em",
+        "text": "UPDATES",
+        "x": 557.3,
+        "y": 213.59,
+        "w": 310.59,
+        "h": 85,
+        "size": 70,
+        "weight": 800,
+        "spacing": -2.45,
+        "mono": false,
+        "upper": true,
+        "fill": {
+          "r": 0.2,
+          "g": 0.85,
+          "b": 0.71,
+          "a": 1
+        }
+      },
+      {
+        "kind": "box",
+        "name": "ph",
+        "x": 280,
+        "y": 347.39,
+        "w": 715.55,
+        "h": 402.48,
+        "fill": {
+          "r": 0.04,
+          "g": 0.06,
+          "b": 0.07,
+          "a": 1
+        }
+      },
+      {
+        "kind": "box",
+        "name": "ph border",
+        "x": 280,
+        "y": 347.39,
+        "w": 715.55,
+        "h": 402.48,
+        "fill": null,
+        "stroke": {
+          "r": 0.95,
+          "g": 0.97,
+          "b": 0.96,
+          "a": 0.14
+        },
+        "strokeWeight": 1
+      },
+      {
+        "kind": "text",
+        "name": "ph-type",
+        "text": "[IMAGE] FEATURED ARTICLE MEDIA",
+        "x": 297,
+        "y": 701.88,
+        "w": 246,
+        "h": 13,
+        "size": 10,
+        "weight": 400,
+        "spacing": 2.2,
+        "mono": true,
+        "upper": false,
+        "fill": {
+          "r": 0.2,
+          "g": 0.85,
+          "b": 0.71,
+          "a": 1
+        }
+      },
+      {
+        "kind": "text",
+        "name": "ph-meta",
+        "text": "16:9",
+        "x": 297,
+        "y": 719.88,
+        "w": 30.41,
+        "h": 13,
+        "size": 10,
+        "weight": 400,
+        "spacing": 1.6,
+        "mono": true,
+        "upper": false,
+        "fill": {
+          "r": 0.55,
+          "g": 0.6,
+          "b": 0.62,
+          "a": 1
+        }
+      },
+      {
+        "kind": "text",
+        "name": "news-meta",
+        "text": "CATEGORY · DATE",
+        "x": 280,
+        "y": 773.88,
+        "w": 126,
+        "h": 13,
+        "size": 10,
+        "weight": 400,
+        "spacing": 2.4,
+        "mono": true,
+        "upper": false,
+        "fill": {
+          "r": 0.55,
+          "g": 0.6,
+          "b": 0.62,
+          "a": 1
+        }
+      },
+      {
+        "kind": "text",
+        "name": "h3",
+        "text": "ARTICLE TITLE PLACEHOLDER",
+        "x": 280,
+        "y": 798.88,
+        "w": 486.77,
+        "h": 41,
+        "size": 34,
+        "weight": 800,
+        "spacing": -0.85,
+        "mono": false,
+        "upper": false,
+        "fill": {
+          "r": 0.95,
+          "g": 0.97,
+          "b": 0.96,
+          "a": 1
+        }
+      },
+      {
+        "kind": "text",
+        "name": "news-summary",
+        "text": "기사 요약이 들어갑니다. 실제 발표 자료가 확정된 뒤 채웁니다.",
+        "x": 280,
+        "y": 857.88,
+        "w": 375.66,
+        "h": 16,
+        "size": 13.5,
+        "weight": 400,
+        "spacing": 0,
+        "mono": false,
+        "upper": false,
+        "fill": {
+          "r": 0.95,
+          "g": 0.97,
+          "b": 0.96,
+          "a": 0.6
+        }
+      },
+      {
+        "kind": "text",
+        "name": "signal",
+        "text": "READ NEWS",
+        "x": 280,
+        "y": 902.17,
+        "w": 83.17,
+        "h": 14,
+        "size": 11,
+        "weight": 400,
+        "spacing": 2.64,
+        "mono": true,
+        "upper": false,
+        "fill": {
+          "r": 0.95,
+          "g": 0.97,
+          "b": 0.96,
+          "a": 1
+        }
+      },
+      {
+        "kind": "box",
+        "name": "i",
+        "x": 373.17,
+        "y": 908.67,
+        "w": 16,
+        "h": 1,
+        "fill": {
+          "r": 0.95,
+          "g": 0.97,
+          "b": 0.96,
+          "a": 1
+        }
+      },
+      {
+        "kind": "box",
+        "name": "news-list Top",
+        "x": 1067.55,
+        "y": 347.39,
+        "w": 572.45,
+        "h": 1,
+        "fill": {
+          "r": 0.95,
+          "g": 0.97,
+          "b": 0.96,
+          "a": 0.14
+        }
+      },
+      {
+        "kind": "box",
+        "name": "reveal Bottom",
+        "x": 1067.55,
+        "y": 496.86,
+        "w": 572.45,
+        "h": 1,
+        "fill": {
+          "r": 0.95,
+          "g": 0.97,
+          "b": 0.96,
+          "a": 0.14
+        }
+      },
+      {
+        "kind": "text",
+        "name": "news-meta",
+        "text": "NEW RELEASES · DATE",
+        "x": 1067.55,
+        "y": 378.63,
+        "w": 159.61,
+        "h": 13,
+        "size": 10,
+        "weight": 400,
+        "spacing": 2.4,
+        "mono": true,
+        "upper": false,
+        "fill": {
+          "r": 0.55,
+          "g": 0.6,
+          "b": 0.62,
+          "a": 1
+        }
+      },
+      {
+        "kind": "text",
+        "name": "h3",
+        "text": "ARTICLE TITLE PLACEHOLDER",
+        "x": 1067.55,
+        "y": 403.63,
+        "w": 248.39,
+        "h": 20,
+        "size": 17,
+        "weight": 700,
+        "spacing": -0.17,
+        "mono": false,
+        "upper": false,
+        "fill": {
+          "r": 0.95,
+          "g": 0.97,
+          "b": 0.96,
+          "a": 1
+        }
+      },
+      {
+        "kind": "text",
+        "name": "signal",
+        "text": "READ NEWS",
+        "x": 1067.55,
+        "y": 443.63,
+        "w": 83.17,
+        "h": 14,
+        "size": 11,
+        "weight": 400,
+        "spacing": 2.64,
+        "mono": true,
+        "upper": false,
+        "fill": {
+          "r": 0.95,
+          "g": 0.97,
+          "b": 0.96,
+          "a": 1
+        }
+      },
+      {
+        "kind": "box",
+        "name": "i",
+        "x": 1160.72,
+        "y": 450.13,
+        "w": 16,
+        "h": 1,
+        "fill": {
+          "r": 0.95,
+          "g": 0.97,
+          "b": 0.96,
+          "a": 1
+        }
+      },
+      {
+        "kind": "box",
+        "name": "reveal Bottom",
+        "x": 1067.55,
+        "y": 646.33,
+        "w": 572.45,
+        "h": 1,
+        "fill": {
+          "r": 0.95,
+          "g": 0.97,
+          "b": 0.96,
+          "a": 0.14
+        }
+      },
+      {
+        "kind": "text",
+        "name": "news-meta",
+        "text": "PARTNERSHIPS · DATE",
+        "x": 1067.55,
+        "y": 528.09,
+        "w": 159.61,
+        "h": 13,
+        "size": 10,
+        "weight": 400,
+        "spacing": 2.4,
+        "mono": true,
+        "upper": false,
+        "fill": {
+          "r": 0.55,
+          "g": 0.6,
+          "b": 0.62,
+          "a": 1
+        }
+      },
+      {
+        "kind": "text",
+        "name": "h3",
+        "text": "ARTICLE TITLE PLACEHOLDER",
+        "x": 1067.55,
+        "y": 553.09,
+        "w": 248.39,
+        "h": 20,
+        "size": 17,
+        "weight": 700,
+        "spacing": -0.17,
+        "mono": false,
+        "upper": false,
+        "fill": {
+          "r": 0.95,
+          "g": 0.97,
+          "b": 0.96,
+          "a": 1
+        }
+      },
+      {
+        "kind": "text",
+        "name": "signal",
+        "text": "READ NEWS",
+        "x": 1067.55,
+        "y": 593.09,
+        "w": 83.17,
+        "h": 14,
+        "size": 11,
+        "weight": 400,
+        "spacing": 2.64,
+        "mono": true,
+        "upper": false,
+        "fill": {
+          "r": 0.95,
+          "g": 0.97,
+          "b": 0.96,
+          "a": 1
+        }
+      },
+      {
+        "kind": "box",
+        "name": "i",
+        "x": 1160.72,
+        "y": 599.59,
+        "w": 16,
+        "h": 1,
+        "fill": {
+          "r": 0.95,
+          "g": 0.97,
+          "b": 0.96,
+          "a": 1
+        }
+      },
+      {
+        "kind": "box",
+        "name": "reveal Bottom",
+        "x": 1067.55,
+        "y": 795.8,
+        "w": 572.45,
+        "h": 1,
+        "fill": {
+          "r": 0.95,
+          "g": 0.97,
+          "b": 0.96,
+          "a": 0.14
+        }
+      },
+      {
+        "kind": "text",
+        "name": "news-meta",
+        "text": "LICENSING · DATE",
+        "x": 1067.55,
+        "y": 677.56,
+        "w": 134.41,
+        "h": 13,
+        "size": 10,
+        "weight": 400,
+        "spacing": 2.4,
+        "mono": true,
+        "upper": false,
+        "fill": {
+          "r": 0.55,
+          "g": 0.6,
+          "b": 0.62,
+          "a": 1
+        }
+      },
+      {
+        "kind": "text",
+        "name": "h3",
+        "text": "ARTICLE TITLE PLACEHOLDER",
+        "x": 1067.55,
+        "y": 702.56,
+        "w": 248.39,
+        "h": 20,
+        "size": 17,
+        "weight": 700,
+        "spacing": -0.17,
+        "mono": false,
+        "upper": false,
+        "fill": {
+          "r": 0.95,
+          "g": 0.97,
+          "b": 0.96,
+          "a": 1
+        }
+      },
+      {
+        "kind": "text",
+        "name": "signal",
+        "text": "READ NEWS",
+        "x": 1067.55,
+        "y": 742.56,
+        "w": 83.17,
+        "h": 14,
+        "size": 11,
+        "weight": 400,
+        "spacing": 2.64,
+        "mono": true,
+        "upper": false,
+        "fill": {
+          "r": 0.95,
+          "g": 0.97,
+          "b": 0.96,
+          "a": 1
+        }
+      },
+      {
+        "kind": "box",
+        "name": "i",
+        "x": 1160.72,
+        "y": 749.06,
+        "w": 16,
+        "h": 1,
+        "fill": {
+          "r": 0.95,
+          "g": 0.97,
+          "b": 0.96,
+          "a": 1
+        }
+      },
+      {
+        "kind": "box",
+        "name": "btn border",
+        "x": 280,
+        "y": 979.17,
+        "w": 208.13,
+        "h": 44,
+        "fill": null,
+        "stroke": {
+          "r": 0.95,
+          "g": 0.97,
+          "b": 0.96,
+          "a": 0.14
+        },
+        "strokeWeight": 1
+      },
+      {
+        "kind": "text",
+        "name": "btn",
+        "text": "VIEW ALL NEWS",
+        "x": 309,
+        "y": 994.17,
+        "w": 120.13,
+        "h": 14,
+        "size": 11,
+        "weight": 400,
+        "spacing": 2.64,
+        "mono": true,
+        "upper": false,
+        "fill": {
+          "r": 0.95,
+          "g": 0.97,
+          "b": 0.96,
+          "a": 1
+        }
+      },
+      {
+        "kind": "box",
+        "name": "i",
+        "x": 443.13,
+        "y": 1000.67,
+        "w": 16,
+        "h": 1,
+        "fill": {
+          "r": 0.95,
+          "g": 0.97,
+          "b": 0.96,
+          "a": 1
+        }
+      }
+    ]
+  },
+  {
+    "name": "06 PARTNERS",
+    "selector": "#partners",
+    "width": 1920,
+    "height": 842.19,
+    "top": 25097.61,
+    "background": {
+      "r": 0.02,
+      "g": 0.03,
+      "b": 0.03,
+      "a": 1
+    },
+    "items": [
+      {
+        "kind": "box",
+        "name": "sec-head Bottom",
+        "x": 280,
+        "y": 165.59,
+        "w": 1360,
+        "h": 1,
+        "fill": {
+          "r": 0.95,
+          "g": 0.97,
+          "b": 0.96,
+          "a": 0.14
+        }
+      },
+      {
+        "kind": "text",
+        "name": "sec-label",
+        "text": "06 / OUR PARTNERS",
+        "x": 280,
+        "y": 129.59,
+        "w": 175.78,
+        "h": 14,
+        "size": 11,
+        "weight": 400,
+        "spacing": 3.74,
+        "mono": true,
+        "upper": false,
+        "fill": {
+          "r": 0.55,
+          "g": 0.6,
+          "b": 0.62,
+          "a": 1
+        }
+      },
+      {
+        "kind": "box",
+        "name": "sec-line",
+        "x": 475.78,
+        "y": 136.09,
+        "w": 1098.22,
+        "h": 1,
+        "fill": {
+          "r": 0.95,
+          "g": 0.97,
+          "b": 0.96,
+          "a": 0.14
+        }
+      },
+      {
+        "kind": "box",
+        "name": "sec-dash",
+        "x": 1594,
+        "y": 134.59,
+        "w": 46,
+        "h": 4,
+        "fill": {
+          "r": 0.2,
+          "g": 0.85,
+          "b": 0.71,
+          "a": 1
+        }
+      },
+      {
+        "kind": "text",
+        "name": "sec-title",
+        "text": "TRUSTED BY",
+        "x": 280,
+        "y": 213.59,
+        "w": 420.84,
+        "h": 85,
+        "size": 70,
+        "weight": 800,
+        "spacing": -2.45,
+        "mono": false,
+        "upper": true,
+        "fill": {
+          "r": 0.95,
+          "g": 0.97,
+          "b": 0.96,
+          "a": 1
+        }
+      },
+      {
+        "kind": "text",
+        "name": "em",
+        "text": "INDUSTRY LEADERS",
+        "x": 280,
+        "y": 286.39,
+        "w": 662.94,
+        "h": 85,
+        "size": 70,
+        "weight": 800,
+        "spacing": -2.45,
+        "mono": false,
+        "upper": true,
+        "fill": {
+          "r": 0.2,
+          "g": 0.85,
+          "b": 0.71,
+          "a": 1
+        }
+      },
+      {
+        "kind": "box",
+        "name": "logo-grid Top",
+        "x": 280,
+        "y": 420.19,
+        "w": 1360,
+        "h": 1,
+        "fill": {
+          "r": 0.95,
+          "g": 0.97,
+          "b": 0.96,
+          "a": 0.14
+        }
+      },
+      {
+        "kind": "box",
+        "name": "logo-grid Left",
+        "x": 280,
+        "y": 420.19,
+        "w": 1,
+        "h": 281,
+        "fill": {
+          "r": 0.95,
+          "g": 0.97,
+          "b": 0.96,
+          "a": 0.14
+        }
+      },
+      {
+        "kind": "box",
+        "name": "logo-slot Bottom",
+        "x": 281,
+        "y": 560.19,
+        "w": 339.75,
+        "h": 1,
+        "fill": {
+          "r": 0.95,
+          "g": 0.97,
+          "b": 0.96,
+          "a": 0.14
+        }
+      },
+      {
+        "kind": "box",
+        "name": "logo-slot Right",
+        "x": 619.75,
+        "y": 421.19,
+        "w": 1,
+        "h": 140,
+        "fill": {
+          "r": 0.95,
+          "g": 0.97,
+          "b": 0.96,
+          "a": 0.14
+        }
+      },
+      {
+        "kind": "text",
+        "name": "logo-slot",
+        "text": "PARTNER LOGO",
+        "x": 399.97,
+        "y": 484.19,
+        "w": 100.81,
+        "h": 13,
+        "size": 10,
+        "weight": 400,
+        "spacing": 2.4,
+        "mono": true,
+        "upper": false,
+        "fill": {
+          "r": 0.95,
+          "g": 0.97,
+          "b": 0.96,
+          "a": 0.32
+        }
+      },
+      {
+        "kind": "box",
+        "name": "logo-slot Bottom",
+        "x": 620.75,
+        "y": 560.19,
+        "w": 339.75,
+        "h": 1,
+        "fill": {
+          "r": 0.95,
+          "g": 0.97,
+          "b": 0.96,
+          "a": 0.14
+        }
+      },
+      {
+        "kind": "box",
+        "name": "logo-slot Right",
+        "x": 959.5,
+        "y": 421.19,
+        "w": 1,
+        "h": 140,
+        "fill": {
+          "r": 0.95,
+          "g": 0.97,
+          "b": 0.96,
+          "a": 0.14
+        }
+      },
+      {
+        "kind": "text",
+        "name": "logo-slot",
+        "text": "PARTNER LOGO",
+        "x": 739.72,
+        "y": 484.19,
+        "w": 100.81,
+        "h": 13,
+        "size": 10,
+        "weight": 400,
+        "spacing": 2.4,
+        "mono": true,
+        "upper": false,
+        "fill": {
+          "r": 0.95,
+          "g": 0.97,
+          "b": 0.96,
+          "a": 0.32
+        }
+      },
+      {
+        "kind": "box",
+        "name": "logo-slot Bottom",
+        "x": 960.5,
+        "y": 560.19,
+        "w": 339.75,
+        "h": 1,
+        "fill": {
+          "r": 0.95,
+          "g": 0.97,
+          "b": 0.96,
+          "a": 0.14
+        }
+      },
+      {
+        "kind": "box",
+        "name": "logo-slot Right",
+        "x": 1299.25,
+        "y": 421.19,
+        "w": 1,
+        "h": 140,
+        "fill": {
+          "r": 0.95,
+          "g": 0.97,
+          "b": 0.96,
+          "a": 0.14
+        }
+      },
+      {
+        "kind": "text",
+        "name": "logo-slot",
+        "text": "PARTNER LOGO",
+        "x": 1079.47,
+        "y": 484.19,
+        "w": 100.81,
+        "h": 13,
+        "size": 10,
+        "weight": 400,
+        "spacing": 2.4,
+        "mono": true,
+        "upper": false,
+        "fill": {
+          "r": 0.95,
+          "g": 0.97,
+          "b": 0.96,
+          "a": 0.32
+        }
+      },
+      {
+        "kind": "box",
+        "name": "logo-slot Bottom",
+        "x": 1300.25,
+        "y": 560.19,
+        "w": 339.75,
+        "h": 1,
+        "fill": {
+          "r": 0.95,
+          "g": 0.97,
+          "b": 0.96,
+          "a": 0.14
+        }
+      },
+      {
+        "kind": "box",
+        "name": "logo-slot Right",
+        "x": 1639,
+        "y": 421.19,
+        "w": 1,
+        "h": 140,
+        "fill": {
+          "r": 0.95,
+          "g": 0.97,
+          "b": 0.96,
+          "a": 0.14
+        }
+      },
+      {
+        "kind": "text",
+        "name": "logo-slot",
+        "text": "PARTNER LOGO",
+        "x": 1419.22,
+        "y": 484.19,
+        "w": 100.81,
+        "h": 13,
+        "size": 10,
+        "weight": 400,
+        "spacing": 2.4,
+        "mono": true,
+        "upper": false,
+        "fill": {
+          "r": 0.95,
+          "g": 0.97,
+          "b": 0.96,
+          "a": 0.32
+        }
+      },
+      {
+        "kind": "box",
+        "name": "logo-slot Bottom",
+        "x": 281,
+        "y": 700.19,
+        "w": 339.75,
+        "h": 1,
+        "fill": {
+          "r": 0.95,
+          "g": 0.97,
+          "b": 0.96,
+          "a": 0.14
+        }
+      },
+      {
+        "kind": "box",
+        "name": "logo-slot Right",
+        "x": 619.75,
+        "y": 561.19,
+        "w": 1,
+        "h": 140,
+        "fill": {
+          "r": 0.95,
+          "g": 0.97,
+          "b": 0.96,
+          "a": 0.14
+        }
+      },
+      {
+        "kind": "text",
+        "name": "logo-slot",
+        "text": "PARTNER LOGO",
+        "x": 399.97,
+        "y": 624.19,
+        "w": 100.81,
+        "h": 13,
+        "size": 10,
+        "weight": 400,
+        "spacing": 2.4,
+        "mono": true,
+        "upper": false,
+        "fill": {
+          "r": 0.95,
+          "g": 0.97,
+          "b": 0.96,
+          "a": 0.32
+        }
+      },
+      {
+        "kind": "box",
+        "name": "logo-slot Bottom",
+        "x": 620.75,
+        "y": 700.19,
+        "w": 339.75,
+        "h": 1,
+        "fill": {
+          "r": 0.95,
+          "g": 0.97,
+          "b": 0.96,
+          "a": 0.14
+        }
+      },
+      {
+        "kind": "box",
+        "name": "logo-slot Right",
+        "x": 959.5,
+        "y": 561.19,
+        "w": 1,
+        "h": 140,
+        "fill": {
+          "r": 0.95,
+          "g": 0.97,
+          "b": 0.96,
+          "a": 0.14
+        }
+      },
+      {
+        "kind": "text",
+        "name": "logo-slot",
+        "text": "PARTNER LOGO",
+        "x": 739.72,
+        "y": 624.19,
+        "w": 100.81,
+        "h": 13,
+        "size": 10,
+        "weight": 400,
+        "spacing": 2.4,
+        "mono": true,
+        "upper": false,
+        "fill": {
+          "r": 0.95,
+          "g": 0.97,
+          "b": 0.96,
+          "a": 0.32
+        }
+      },
+      {
+        "kind": "box",
+        "name": "logo-slot Bottom",
+        "x": 960.5,
+        "y": 700.19,
+        "w": 339.75,
+        "h": 1,
+        "fill": {
+          "r": 0.95,
+          "g": 0.97,
+          "b": 0.96,
+          "a": 0.14
+        }
+      },
+      {
+        "kind": "box",
+        "name": "logo-slot Right",
+        "x": 1299.25,
+        "y": 561.19,
+        "w": 1,
+        "h": 140,
+        "fill": {
+          "r": 0.95,
+          "g": 0.97,
+          "b": 0.96,
+          "a": 0.14
+        }
+      },
+      {
+        "kind": "text",
+        "name": "logo-slot",
+        "text": "PARTNER LOGO",
+        "x": 1079.47,
+        "y": 624.19,
+        "w": 100.81,
+        "h": 13,
+        "size": 10,
+        "weight": 400,
+        "spacing": 2.4,
+        "mono": true,
+        "upper": false,
+        "fill": {
+          "r": 0.95,
+          "g": 0.97,
+          "b": 0.96,
+          "a": 0.32
+        }
+      },
+      {
+        "kind": "box",
+        "name": "logo-slot Bottom",
+        "x": 1300.25,
+        "y": 700.19,
+        "w": 339.75,
+        "h": 1,
+        "fill": {
+          "r": 0.95,
+          "g": 0.97,
+          "b": 0.96,
+          "a": 0.14
+        }
+      },
+      {
+        "kind": "box",
+        "name": "logo-slot Right",
+        "x": 1639,
+        "y": 561.19,
+        "w": 1,
+        "h": 140,
+        "fill": {
+          "r": 0.95,
+          "g": 0.97,
+          "b": 0.96,
+          "a": 0.14
+        }
+      },
+      {
+        "kind": "text",
+        "name": "logo-slot",
+        "text": "PARTNER LOGO",
+        "x": 1419.22,
+        "y": 624.19,
+        "w": 100.81,
+        "h": 13,
+        "size": 10,
+        "weight": 400,
+        "spacing": 2.4,
+        "mono": true,
+        "upper": false,
+        "fill": {
+          "r": 0.95,
+          "g": 0.97,
+          "b": 0.96,
+          "a": 0.32
+        }
+      },
+      {
+        "kind": "text",
+        "name": "note",
+        "text": "모두 같은 monochrome 처리. hover에서만 원본 로고 색으로 전환합니다.",
+        "x": 280,
+        "y": 721.19,
+        "w": 442.81,
+        "h": 13,
+        "size": 10,
+        "weight": 400,
+        "spacing": 1.8,
+        "mono": true,
+        "upper": false,
+        "fill": {
+          "r": 0.55,
+          "g": 0.6,
+          "b": 0.62,
+          "a": 1
+        }
+      }
+    ]
+  },
+  {
+    "name": "LEGAL TRUST",
+    "selector": "#trust",
+    "width": 1920,
+    "height": 291.58,
+    "top": 25939.8,
+    "background": {
+      "r": 0.03,
+      "g": 0.04,
+      "b": 0.04,
+      "a": 1
+    },
+    "items": [
+      {
+        "kind": "box",
+        "name": "trust Top",
+        "x": 0,
+        "y": 0,
+        "w": 1920,
+        "h": 1,
+        "fill": {
+          "r": 0.95,
+          "g": 0.97,
+          "b": 0.96,
+          "a": 0.14
+        }
+      },
+      {
+        "kind": "box",
+        "name": "trust Bottom",
+        "x": 0,
+        "y": 290.58,
+        "w": 1920,
+        "h": 1,
+        "fill": {
+          "r": 0.95,
+          "g": 0.97,
+          "b": 0.96,
+          "a": 0.14
+        }
+      },
+      {
+        "kind": "box",
+        "name": "reveal Left",
+        "x": 280,
+        "y": 76.59,
+        "w": 1,
+        "h": 48.39,
+        "fill": {
+          "r": 0.95,
+          "g": 0.97,
+          "b": 0.96,
+          "a": 0.14
+        }
+      },
+      {
+        "kind": "text",
+        "name": "dt",
+        "text": "LICENSED",
+        "x": 307,
+        "y": 76.59,
+        "w": 70.41,
+        "h": 13,
+        "size": 10,
+        "weight": 400,
+        "spacing": 2.8,
+        "mono": true,
+        "upper": false,
+        "fill": {
+          "r": 0.2,
+          "g": 0.85,
+          "b": 0.71,
+          "a": 1
+        }
+      },
+      {
+        "kind": "text",
+        "name": "dd",
+        "text": "Malta Gaming Authority",
+        "x": 307,
+        "y": 104.59,
+        "w": 156.03,
+        "h": 17,
+        "size": 14,
+        "weight": 400,
+        "spacing": 0,
+        "mono": false,
+        "upper": false,
+        "fill": {
+          "r": 0.95,
+          "g": 0.97,
+          "b": 0.96,
+          "a": 1
+        }
+      },
+      {
+        "kind": "box",
+        "name": "reveal Left",
+        "x": 620,
+        "y": 76.59,
+        "w": 1,
+        "h": 48.39,
+        "fill": {
+          "r": 0.95,
+          "g": 0.97,
+          "b": 0.96,
+          "a": 0.14
+        }
+      },
+      {
+        "kind": "text",
+        "name": "dt",
+        "text": "REGULATED",
+        "x": 647,
+        "y": 76.59,
+        "w": 79.2,
+        "h": 13,
+        "size": 10,
+        "weight": 400,
+        "spacing": 2.8,
+        "mono": true,
+        "upper": false,
+        "fill": {
+          "r": 0.2,
+          "g": 0.85,
+          "b": 0.71,
+          "a": 1
+        }
+      },
+      {
+        "kind": "text",
+        "name": "dd",
+        "text": "MGA/B2B/1088/2025",
+        "x": 647,
+        "y": 104.59,
+        "w": 140.77,
+        "h": 17,
+        "size": 14,
+        "weight": 400,
+        "spacing": 0,
+        "mono": false,
+        "upper": false,
+        "fill": {
+          "r": 0.95,
+          "g": 0.97,
+          "b": 0.96,
+          "a": 1
+        }
+      },
+      {
+        "kind": "box",
+        "name": "reveal Left",
+        "x": 960,
+        "y": 76.59,
+        "w": 1,
+        "h": 48.39,
+        "fill": {
+          "r": 0.95,
+          "g": 0.97,
+          "b": 0.96,
+          "a": 0.14
+        }
+      },
+      {
+        "kind": "text",
+        "name": "dt",
+        "text": "OPERATED BY",
+        "x": 987,
+        "y": 76.59,
+        "w": 96.81,
+        "h": 13,
+        "size": 10,
+        "weight": 400,
+        "spacing": 2.8,
+        "mono": true,
+        "upper": false,
+        "fill": {
+          "r": 0.2,
+          "g": 0.85,
+          "b": 0.71,
+          "a": 1
+        }
+      },
+      {
+        "kind": "text",
+        "name": "dd",
+        "text": "Massive Gaming Malta Limited",
+        "x": 987,
+        "y": 104.59,
+        "w": 201.83,
+        "h": 17,
+        "size": 14,
+        "weight": 400,
+        "spacing": 0,
+        "mono": false,
+        "upper": false,
+        "fill": {
+          "r": 0.95,
+          "g": 0.97,
+          "b": 0.96,
+          "a": 1
+        }
+      },
+      {
+        "kind": "box",
+        "name": "reveal Left",
+        "x": 1300,
+        "y": 76.59,
+        "w": 1,
+        "h": 48.39,
+        "fill": {
+          "r": 0.95,
+          "g": 0.97,
+          "b": 0.96,
+          "a": 0.14
+        }
+      },
+      {
+        "kind": "text",
+        "name": "dt",
+        "text": "REGISTRATION",
+        "x": 1327,
+        "y": 76.59,
+        "w": 105.61,
+        "h": 13,
+        "size": 10,
+        "weight": 400,
+        "spacing": 2.8,
+        "mono": true,
+        "upper": false,
+        "fill": {
+          "r": 0.2,
+          "g": 0.85,
+          "b": 0.71,
+          "a": 1
+        }
+      },
+      {
+        "kind": "text",
+        "name": "dd",
+        "text": "C109221",
+        "x": 1327,
+        "y": 104.59,
+        "w": 56.22,
+        "h": 17,
+        "size": 14,
+        "weight": 400,
+        "spacing": 0,
+        "mono": false,
+        "upper": false,
+        "fill": {
+          "r": 0.95,
+          "g": 0.97,
+          "b": 0.96,
+          "a": 1
+        }
+      },
+      {
+        "kind": "box",
+        "name": "trust-foot Top",
+        "x": 280,
+        "y": 158.98,
+        "w": 1360,
+        "h": 1,
+        "fill": {
+          "r": 0.95,
+          "g": 0.97,
+          "b": 0.96,
+          "a": 0.14
+        }
+      },
+      {
+        "kind": "text",
+        "name": "signal",
+        "text": "VERIFY LICENCE",
+        "x": 280,
+        "y": 191.98,
+        "w": 129.38,
+        "h": 14,
+        "size": 11,
+        "weight": 400,
+        "spacing": 2.64,
+        "mono": true,
+        "upper": false,
+        "fill": {
+          "r": 0.95,
+          "g": 0.97,
+          "b": 0.96,
+          "a": 1
+        }
+      },
+      {
+        "kind": "box",
+        "name": "i",
+        "x": 419.38,
+        "y": 198.48,
+        "w": 16,
+        "h": 1,
+        "fill": {
+          "r": 0.95,
+          "g": 0.97,
+          "b": 0.96,
+          "a": 1
+        }
+      },
+      {
+        "kind": "box",
+        "name": "flag border",
+        "x": 1320,
+        "y": 184.98,
+        "w": 320,
+        "h": 29,
+        "fill": null,
+        "stroke": {
+          "r": 0.88,
+          "g": 0.66,
+          "b": 0.31,
+          "a": 0.45
+        },
+        "strokeWeight": 1
+      },
+      {
+        "kind": "text",
+        "name": "flag",
+        "text": "CONTENT REVIEW REQUIRED BEFORE LAUNCH",
+        "x": 1332,
+        "y": 192.98,
+        "w": 296,
+        "h": 13,
+        "size": 10,
+        "weight": 400,
+        "spacing": 2,
+        "mono": true,
+        "upper": false,
+        "fill": {
+          "r": 0.88,
+          "g": 0.66,
+          "b": 0.31,
+          "a": 1
+        }
+      }
+    ]
+  },
+  {
+    "name": "CONTACT CTA",
+    "selector": "#contact",
+    "width": 1920,
+    "height": 649.45,
+    "top": 26231.38,
+    "background": {
+      "r": 0.03,
+      "g": 0.04,
+      "b": 0.04,
+      "a": 1
+    },
+    "items": [
+      {
+        "kind": "box",
+        "name": "sec-head Bottom",
+        "x": 280,
+        "y": 165.59,
+        "w": 1360,
+        "h": 1,
+        "fill": {
+          "r": 0.95,
+          "g": 0.97,
+          "b": 0.96,
+          "a": 0.14
+        }
+      },
+      {
+        "kind": "text",
+        "name": "sec-label",
+        "text": "07 / NEXT STEP",
+        "x": 280,
+        "y": 129.59,
+        "w": 144.77,
+        "h": 14,
+        "size": 11,
+        "weight": 400,
+        "spacing": 3.74,
+        "mono": true,
+        "upper": false,
+        "fill": {
+          "r": 0.55,
+          "g": 0.6,
+          "b": 0.62,
+          "a": 1
+        }
+      },
+      {
+        "kind": "box",
+        "name": "sec-line",
+        "x": 444.77,
+        "y": 136.09,
+        "w": 1129.23,
+        "h": 1,
+        "fill": {
+          "r": 0.95,
+          "g": 0.97,
+          "b": 0.96,
+          "a": 0.14
+        }
+      },
+      {
+        "kind": "box",
+        "name": "sec-dash",
+        "x": 1594,
+        "y": 134.59,
+        "w": 46,
+        "h": 4,
+        "fill": {
+          "r": 0.2,
+          "g": 0.85,
+          "b": 0.71,
+          "a": 1
+        }
+      },
+      {
+        "kind": "text",
+        "name": "outro-title",
+        "text": "LET'S BUILD",
+        "x": 280,
+        "y": 223.39,
+        "w": 430.61,
+        "h": 92,
+        "size": 76,
+        "weight": 800,
+        "spacing": -2.66,
+        "mono": false,
+        "upper": false,
+        "fill": {
+          "r": 0.95,
+          "g": 0.97,
+          "b": 0.96,
+          "a": 1
+        }
+      },
+      {
+        "kind": "text",
+        "name": "outro-title",
+        "text": "THE NEXT",
+        "x": 280,
+        "y": 300.91,
+        "w": 360.84,
+        "h": 92,
+        "size": 76,
+        "weight": 800,
+        "spacing": -2.66,
+        "mono": false,
+        "upper": false,
+        "fill": {
+          "r": 0.95,
+          "g": 0.97,
+          "b": 0.96,
+          "a": 1
+        }
+      },
+      {
+        "kind": "text",
+        "name": "em",
+        "text": "ORIGINAL",
+        "x": 280,
+        "y": 378.42,
+        "w": 348.05,
+        "h": 92,
+        "size": 76,
+        "weight": 800,
+        "spacing": -2.66,
+        "mono": false,
+        "upper": false,
+        "fill": {
+          "r": 0.2,
+          "g": 0.85,
+          "b": 0.71,
+          "a": 1
+        }
+      },
+      {
+        "kind": "text",
+        "name": "em",
+        "text": "EXPERIENCE.",
+        "x": 280,
+        "y": 455.94,
+        "w": 477.06,
+        "h": 92,
+        "size": 76,
+        "weight": 800,
+        "spacing": -2.66,
+        "mono": false,
+        "upper": false,
+        "fill": {
+          "r": 0.2,
+          "g": 0.85,
+          "b": 0.71,
+          "a": 1
+        }
+      },
+      {
+        "kind": "text",
+        "name": "p",
+        "text": "Talk to our team about partnerships, distribution and original game experiences.",
+        "x": 1038.09,
+        "y": 235.39,
+        "w": 528.59,
+        "h": 17,
+        "size": 14,
+        "weight": 400,
+        "spacing": 0,
+        "mono": false,
+        "upper": false,
+        "fill": {
+          "r": 0.95,
+          "g": 0.97,
+          "b": 0.96,
+          "a": 0.64
+        }
+      },
+      {
+        "kind": "box",
+        "name": "btn",
+        "x": 1038.09,
+        "y": 287.28,
+        "w": 272.81,
+        "h": 44,
+        "fill": {
+          "r": 0.2,
+          "g": 0.85,
+          "b": 0.71,
+          "a": 1
+        }
+      },
+      {
+        "kind": "box",
+        "name": "btn border",
+        "x": 1038.09,
+        "y": 287.28,
+        "w": 272.81,
+        "h": 44,
+        "fill": null,
+        "stroke": {
+          "r": 0.2,
+          "g": 0.85,
+          "b": 0.71,
+          "a": 1
+        },
+        "strokeWeight": 1
+      },
+      {
+        "kind": "text",
+        "name": "btn",
+        "text": "START A CONVERSATION",
+        "x": 1067.09,
+        "y": 302.28,
+        "w": 184.81,
+        "h": 14,
+        "size": 11,
+        "weight": 400,
+        "spacing": 2.64,
+        "mono": true,
+        "upper": false,
+        "fill": {
+          "r": 0.02,
+          "g": 0.07,
+          "b": 0.05,
+          "a": 1
+        }
+      },
+      {
+        "kind": "box",
+        "name": "i",
+        "x": 1265.91,
+        "y": 308.78,
+        "w": 16,
+        "h": 1,
+        "fill": {
+          "r": 0.02,
+          "g": 0.07,
+          "b": 0.05,
+          "a": 1
+        }
+      },
+      {
+        "kind": "box",
+        "name": "btn border",
+        "x": 1328.91,
+        "y": 287.28,
+        "w": 208.13,
+        "h": 44,
+        "fill": null,
+        "stroke": {
+          "r": 0.95,
+          "g": 0.97,
+          "b": 0.96,
+          "a": 0.14
+        },
+        "strokeWeight": 1
+      },
+      {
+        "kind": "text",
+        "name": "btn",
+        "text": "EXPLORE GAMES",
+        "x": 1357.91,
+        "y": 302.28,
+        "w": 120.13,
+        "h": 14,
+        "size": 11,
+        "weight": 400,
+        "spacing": 2.64,
+        "mono": true,
+        "upper": false,
+        "fill": {
+          "r": 0.95,
+          "g": 0.97,
+          "b": 0.96,
+          "a": 1
+        }
+      },
+      {
+        "kind": "box",
+        "name": "i",
+        "x": 1492.03,
+        "y": 308.78,
+        "w": 16,
+        "h": 1,
+        "fill": {
+          "r": 0.95,
+          "g": 0.97,
+          "b": 0.96,
+          "a": 1
+        }
+      }
+    ]
+  },
+  {
+    "name": "FOOTER",
+    "selector": ".foot",
+    "width": 1920,
+    "height": 568.17,
+    "top": 26880.83,
+    "background": {
+      "r": 0.02,
+      "g": 0.03,
+      "b": 0.03,
+      "a": 1
+    },
+    "items": [
+      {
+        "kind": "box",
+        "name": "foot Top",
+        "x": 0,
+        "y": 0,
+        "w": 1920,
+        "h": 1,
+        "fill": {
+          "r": 0.95,
+          "g": 0.97,
+          "b": 0.96,
+          "a": 0.14
+        }
+      },
+      {
+        "kind": "box",
+        "name": "foot-top Bottom",
+        "x": 280,
+        "y": 268.22,
+        "w": 1360,
+        "h": 1,
+        "fill": {
+          "r": 0.95,
+          "g": 0.97,
+          "b": 0.96,
+          "a": 0.14
+        }
+      },
+      {
+        "kind": "text",
+        "name": "foot-mark",
+        "text": "BLITZCROWN",
+        "x": 280,
+        "y": 64.59,
+        "w": 542.31,
+        "h": 104,
+        "size": 86,
+        "weight": 800,
+        "spacing": -4.3,
+        "mono": false,
+        "upper": false,
+        "fill": {
+          "r": 0.95,
+          "g": 0.97,
+          "b": 0.96,
+          "a": 1
+        }
+      },
+      {
+        "kind": "text",
+        "name": "foot-statement",
+        "text": "By pushing conventional boundaries, we craft original instant win",
+        "x": 280,
+        "y": 182.28,
+        "w": 414.66,
+        "h": 16,
+        "size": 13.5,
+        "weight": 400,
+        "spacing": 0,
+        "mono": false,
+        "upper": false,
+        "fill": {
+          "r": 0.95,
+          "g": 0.97,
+          "b": 0.96,
+          "a": 0.6
+        }
+      },
+      {
+        "kind": "text",
+        "name": "foot-statement",
+        "text": "experiences that redefine iGaming.",
+        "x": 280,
+        "y": 207.25,
+        "w": 223.05,
+        "h": 16,
+        "size": 13.5,
+        "weight": 400,
+        "spacing": 0,
+        "mono": false,
+        "upper": false,
+        "fill": {
+          "r": 0.95,
+          "g": 0.97,
+          "b": 0.96,
+          "a": 0.6
+        }
+      },
+      {
+        "kind": "text",
+        "name": "a",
+        "text": "Games",
+        "x": 1100,
+        "y": 76.59,
+        "w": 45.11,
+        "h": 14,
+        "size": 11,
+        "weight": 400,
+        "spacing": 2.42,
+        "mono": true,
+        "upper": false,
+        "fill": {
+          "r": 0.95,
+          "g": 0.97,
+          "b": 0.96,
+          "a": 0.72
+        }
+      },
+      {
+        "kind": "text",
+        "name": "a",
+        "text": "About Us",
+        "x": 1100,
+        "y": 104.59,
+        "w": 72.17,
+        "h": 14,
+        "size": 11,
+        "weight": 400,
+        "spacing": 2.42,
+        "mono": true,
+        "upper": false,
+        "fill": {
+          "r": 0.95,
+          "g": 0.97,
+          "b": 0.96,
+          "a": 0.72
+        }
+      },
+      {
+        "kind": "text",
+        "name": "a",
+        "text": "Contact",
+        "x": 1100,
+        "y": 132.59,
+        "w": 63.14,
+        "h": 14,
+        "size": 11,
+        "weight": 400,
+        "spacing": 2.42,
+        "mono": true,
+        "upper": false,
+        "fill": {
+          "r": 0.95,
+          "g": 0.97,
+          "b": 0.96,
+          "a": 0.72
+        }
+      },
+      {
+        "kind": "text",
+        "name": "a",
+        "text": "Privacy Policy",
+        "x": 1100,
+        "y": 160.59,
+        "w": 126.28,
+        "h": 14,
+        "size": 11,
+        "weight": 400,
+        "spacing": 2.42,
+        "mono": true,
+        "upper": false,
+        "fill": {
+          "r": 0.95,
+          "g": 0.97,
+          "b": 0.96,
+          "a": 0.72
+        }
+      },
+      {
+        "kind": "box",
+        "name": "foot-legal Bottom",
+        "x": 280,
+        "y": 504.17,
+        "w": 1360,
+        "h": 1,
+        "fill": {
+          "r": 0.95,
+          "g": 0.97,
+          "b": 0.96,
+          "a": 0.14
+        }
+      },
+      {
+        "kind": "text",
+        "name": "p",
+        "text": "This site is operated by Massive Gaming Malta Limited.",
+        "x": 280,
+        "y": 301.22,
+        "w": 311.5,
+        "h": 15,
+        "size": 12,
+        "weight": 400,
+        "spacing": 0,
+        "mono": false,
+        "upper": false,
+        "fill": {
+          "r": 0.55,
+          "g": 0.6,
+          "b": 0.62,
+          "a": 1
+        }
+      },
+      {
+        "kind": "text",
+        "name": "p",
+        "text": "Registration number C109221.",
+        "x": 280,
+        "y": 327.61,
+        "w": 169.39,
+        "h": 15,
+        "size": 12,
+        "weight": 400,
+        "spacing": 0,
+        "mono": false,
+        "upper": false,
+        "fill": {
+          "r": 0.55,
+          "g": 0.6,
+          "b": 0.62,
+          "a": 1
+        }
+      },
+      {
+        "kind": "text",
+        "name": "p",
+        "text": "Registered address: 97, Triq Windsor, Sliema, SLM 1853, Malta.",
+        "x": 280,
+        "y": 354,
+        "w": 355.72,
+        "h": 15,
+        "size": 12,
+        "weight": 400,
+        "spacing": 0,
+        "mono": false,
+        "upper": false,
+        "fill": {
+          "r": 0.55,
+          "g": 0.6,
+          "b": 0.62,
+          "a": 1
+        }
+      },
+      {
+        "kind": "text",
+        "name": "p",
+        "text": "Licensed and regulated by the Malta Gaming Authority.",
+        "x": 280,
+        "y": 380.39,
+        "w": 311.47,
+        "h": 15,
+        "size": 12,
+        "weight": 400,
+        "spacing": 0,
+        "mono": false,
+        "upper": false,
+        "fill": {
+          "r": 0.55,
+          "g": 0.6,
+          "b": 0.62,
+          "a": 1
+        }
+      },
+      {
+        "kind": "text",
+        "name": "p",
+        "text": "Licence number MGA/B2B/1088/2025.",
+        "x": 280,
+        "y": 406.78,
+        "w": 218.59,
+        "h": 15,
+        "size": 12,
+        "weight": 400,
+        "spacing": 0,
+        "mono": false,
+        "upper": false,
+        "fill": {
+          "r": 0.55,
+          "g": 0.6,
+          "b": 0.62,
+          "a": 1
+        }
+      },
+      {
+        "kind": "box",
+        "name": "flag border",
+        "x": 280,
+        "y": 445.17,
+        "w": 320,
+        "h": 29,
+        "fill": null,
+        "stroke": {
+          "r": 0.88,
+          "g": 0.66,
+          "b": 0.31,
+          "a": 0.45
+        },
+        "strokeWeight": 1
+      },
+      {
+        "kind": "text",
+        "name": "flag",
+        "text": "CONTENT REVIEW REQUIRED BEFORE LAUNCH",
+        "x": 292,
+        "y": 453.17,
+        "w": 296,
+        "h": 13,
+        "size": 10,
+        "weight": 400,
+        "spacing": 2,
+        "mono": true,
+        "upper": false,
+        "fill": {
+          "r": 0.88,
+          "g": 0.66,
+          "b": 0.31,
+          "a": 1
+        }
+      },
+      {
+        "kind": "text",
+        "name": "span",
+        "text": "Copyright © Massive Gaming Pty. Ltd. All rights reserved.",
+        "x": 280,
+        "y": 527.17,
+        "w": 467.41,
+        "h": 13,
+        "size": 10,
+        "weight": 400,
+        "spacing": 2.2,
+        "mono": true,
+        "upper": false,
+        "fill": {
+          "r": 0.55,
+          "g": 0.6,
+          "b": 0.62,
+          "a": 1
+        }
+      },
+      {
+        "kind": "text",
+        "name": "span",
+        "text": "RENDER MODE — IMAGE SEQUENCE · DESKTOP SET · AVIF",
+        "x": 1238.19,
+        "y": 527.17,
+        "w": 401.81,
+        "h": 13,
+        "size": 10,
+        "weight": 400,
+        "spacing": 2.2,
+        "mono": true,
+        "upper": false,
+        "fill": {
+          "r": 0.55,
+          "g": 0.6,
+          "b": 0.62,
+          "a": 1
+        }
+      }
+    ]
+  }
+]
