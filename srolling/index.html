@@ -19,7 +19,7 @@
     <span class="boot-mark">BLITZCROWN</span>
     <div class="boot-bar"><i id="bootBar"></i></div>
     <div class="boot-meta">
-      <span id="bootLabel">INITIALIZING SEQUENCE</span>
+      <span id="bootLabel">WORLD SYNC</span>
       <span id="bootPct">0%</span>
     </div>
   </div>
@@ -28,9 +28,8 @@
 <div class="topline" aria-hidden="true"><i id="topline"></i></div>
 
 <header class="topbar">
-  <a class="brand" href="#top">
-    <span class="brand-dot"></span>
-    <span>BLITZCROWN</span>
+  <a class="brand" href="#top" aria-label="Blitzcrown home">
+    <img src="assets/blitzcrown-logo.svg" alt="Blitzcrown" />
   </a>
   <nav class="topnav">
     <a href="#games">GAMES</a>
@@ -70,55 +69,63 @@
         0~1 main · 1~2 bridge · 2~3 ascent 의 진행도다.
         05 처럼 이음매를 걸치는 카피는 경계를 넘어가는 data-end 를 갖는다.
         값은 .tools/chapter-map.mjs 가 계산해 준다.
+
+        이 시퀀스가 기획서(docs/FIGMA_MAKE_STRUCTURE_PROMPT.md)의 Hero·Brand Film·Identity
+        자리를 대신하므로, 카피도 그 세 섹션의 것을 가져온다.
+        eyebrow 는 8-4 Identity 의 brand words 여덟 개를 순서대로 쓴다.
+        (딜러·카드가 먼저 나오는 영상 순서에 맞춰 GAMEPLAY 와 INSTANT WIN 만 자리를 바꿨다.)
+
+        줄바꿈은 눈대중으로 넣지 않는다. .ch-title 은 <br> 로 줄을 직접 나누는데 한 줄이
+        상자(560px)보다 길면 조용히 한 번 더 접힌다. 고칠 때마다 .tools/copy-fit.mjs 로 잰다.
       -->
       <div class="chapters" id="chapters">
-        <article class="chapter" data-start="0.000" data-end="0.112" data-align="left">
-          <p class="ch-label"><span class="ch-dash"></span>00 / IGNITION</p>
-          <h1 class="ch-title">ONE COIN<br />STARTS<br /><em>EVERYTHING</em></h1>
-          <p class="ch-body">스크롤이 곧 재생 헤드입니다. 내려갈수록 모든 프레임이 한 컷처럼 이어집니다.</p>
+        <article class="chapter" data-start="0.000" data-end="0.104" data-align="left">
+          <p class="ch-label"><span class="ch-dash"></span>00 / ORIGINAL</p>
+          <h1 class="ch-title">BEYOND<br />MORE,<br />ORIGINAL<br /><em>GAMES</em></h1>
+          <p class="ch-body">By pushing conventional boundaries, we craft original instant win experiences that redefine iGaming.</p>
         </article>
 
-        <article class="chapter" data-start="0.177" data-end="0.274" data-align="left">
-          <p class="ch-label"><span class="ch-dash"></span>01 / THE REALM</p>
-          <h2 class="ch-title">ENTER<br />THE <em>CROWN</em></h2>
-          <p class="ch-body">균열 사이로 쏟아진 빛이 성으로 이어집니다. 되감아도 같은 속도로 되돌아갑니다.</p>
+        <article class="chapter" data-start="0.162" data-end="0.254" data-align="left">
+          <p class="ch-label"><span class="ch-dash"></span>01 / BOLD</p>
+          <h2 class="ch-title">MANY<br />WORLDS.<br />ONE<br /><em>CROWN.</em></h2>
+          <p class="ch-body">Where original mechanics become worlds.</p>
         </article>
 
-        <article class="chapter" data-start="0.291" data-end="0.355" data-align="right">
-          <p class="ch-label"><span class="ch-dash"></span>02 / GRAND HALL</p>
-          <h2 class="ch-title">A HALL<br />BUILT FOR<br /><em>PLAY</em></h2>
-          <p class="ch-body">성문을 지나면 홀 전체가 단숨에 스쳐 지나갑니다. 이 구간만 스크롤이 두 배로 빨리 흐릅니다.</p>
+        <article class="chapter" data-start="0.273" data-end="0.364" data-align="right">
+          <p class="ch-label"><span class="ch-dash"></span>02 / CRAFTED</p>
+          <h2 class="ch-title">A WORLD<br />BUILT TO<br /><em>BE PLAYED</em></h2>
+          <p class="ch-body">Premium, cinematic and immersive. Every world is crafted, never assembled from a template.</p>
         </article>
 
-        <article class="chapter" data-start="0.378" data-end="0.461" data-align="left">
-          <p class="ch-label"><span class="ch-dash"></span>03 / LIVE DEALER</p>
-          <h2 class="ch-title">FACE<br />TO <em>FACE</em></h2>
-          <p class="ch-body">딜러가 자리에 앉는 순간, 카메라는 테이블 높이로 내려옵니다.</p>
+        <article class="chapter" data-start="0.401" data-end="0.480" data-align="left">
+          <p class="ch-label"><span class="ch-dash"></span>03 / GAMEPLAY</p>
+          <h2 class="ch-title">GAMEPLAY<br /><em>FIRST</em></h2>
+          <p class="ch-body">A round you remember long after the result. That is the standard we hold.</p>
         </article>
 
-        <article class="chapter" data-start="0.505" data-end="0.679" data-align="right">
-          <p class="ch-label"><span class="ch-dash"></span>04 / THE DEAL</p>
-          <h2 class="ch-title">EVERY CARD<br />IS A <em>ROUND</em></h2>
-          <p class="ch-body">카드가 놓이는 속도는 전적으로 손끝에 달려 있습니다. 멈추면 그대로 멈춥니다.</p>
+        <article class="chapter" data-start="0.524" data-end="0.712" data-align="right">
+          <p class="ch-label"><span class="ch-dash"></span>04 / INSTANT WIN</p>
+          <h2 class="ch-title">INSTANT<br />WIN, MADE<br /><em>ORIGINAL</em></h2>
+          <p class="ch-body">Fast, bold and settled in a single moment. Instant win is where our games live.</p>
         </article>
 
         <!-- 브리지 시퀀스를 통째로 가로질러 3번 시퀀스의 폭발 구간까지 이어진다. -->
-        <article class="chapter" data-start="0.837" data-end="2.231" data-align="left">
-          <p class="ch-label"><span class="ch-dash"></span>05 / TAKE OFF</p>
-          <h2 class="ch-title">AND THE SKY<br />IS <em>NEXT</em></h2>
-          <p class="ch-body">카드 뒷면의 문양이 다음 세계로 이어집니다. 하늘이 갈라지고 기체가 그대로 뚫고 나갑니다.</p>
+        <article class="chapter" data-start="0.859" data-end="2.231" data-align="left">
+          <p class="ch-label"><span class="ch-dash"></span>05 / UNEXPECTED</p>
+          <h2 class="ch-title">ENTER THE<br />BLITZCROWN<br /><em>UNIVERSE</em></h2>
+          <p class="ch-body">Many entrances, one crown. Every world connects, and none of them ends where you expect.</p>
         </article>
 
         <article class="chapter" data-start="2.338" data-end="2.622" data-align="left">
-          <p class="ch-label"><span class="ch-dash"></span>06 / REBUILT</p>
-          <h2 class="ch-title">PROPELLER<br />TO <em>THRUST</em></h2>
-          <p class="ch-body">기체를 훑는 구간은 0.67배로 흘려보내고, 제트가 점화되는 순간에 스크롤을 다시 붙잡습니다.</p>
+          <p class="ch-label"><span class="ch-dash"></span>06 / TRUSTED</p>
+          <h2 class="ch-title">BUILT FOR<br />TRUSTED<br /><em>DELIVERY</em></h2>
+          <p class="ch-body">Original does not mean unproven. Every release is built to be delivered.</p>
         </article>
 
         <article class="chapter" data-start="2.787" data-end="3.001" data-align="left">
-          <p class="ch-label"><span class="ch-dash"></span>07 / ORBIT</p>
-          <h2 class="ch-title">PAST THE<br />LAST <em>SKY</em></h2>
-          <p class="ch-body">대기권을 벗어나면 프레임 간격이 가장 넓어집니다. 여기서 스크롤이 한 번 더 느려집니다.</p>
+          <p class="ch-label"><span class="ch-dash"></span>07 / PARTNERSHIP</p>
+          <h2 class="ch-title">BEYOND<br />EVERY<br /><em>BOUNDARY</em></h2>
+          <p class="ch-body">The next original experience starts with a conversation.</p>
         </article>
       </div>
 
@@ -150,8 +157,17 @@
         <b class="rail-knob" id="railKnob"></b>
       </div>
 
+      <div class="sequence-controls" aria-label="Sequence controls">
+        <button id="replaySequence" type="button" aria-label="처음부터 다시 보기" title="REPLAY">
+          <img src="assets/first-page.svg" alt="" />
+        </button>
+        <button id="skipSequence" type="button" aria-label="모션 건너뛰기" title="SKIP">
+          <img src="assets/last-page.svg" alt="" />
+        </button>
+      </div>
+
       <div class="cue" id="cue" aria-hidden="true">
-        <span>SCROLL</span>
+        <span>SCROLL TO ENTER</span>
         <i></i>
       </div>
     </div>
@@ -179,9 +195,9 @@
           <img class="reel-img" alt="" decoding="async" fetchpriority="high" />
         </picture>
         <div class="reel-copy">
-          <p class="ch-label"><span class="ch-dash"></span>00 / IGNITION</p>
-          <h1 class="ch-title">ONE COIN<br />STARTS<br /><em>EVERYTHING</em></h1>
-          <p class="ch-body">동전 하나가 문을 엽니다. 여섯 장면으로 이어지는 여정의 시작입니다.</p>
+          <p class="ch-label"><span class="ch-dash"></span>00 / ORIGINAL</p>
+          <h1 class="ch-title">BEYOND<br />MORE,<br />ORIGINAL<br /><em>GAMES</em></h1>
+          <p class="ch-body">By pushing conventional boundaries, we craft original instant win experiences.</p>
         </div>
       </article>
 
@@ -192,9 +208,9 @@
           <img class="reel-img" alt="" decoding="async" />
         </picture>
         <div class="reel-copy">
-          <p class="ch-label"><span class="ch-dash"></span>01 / THE REALM</p>
-          <h2 class="ch-title">ENTER<br />THE <em>CROWN</em></h2>
-          <p class="ch-body">균열 사이로 쏟아진 빛이 성으로 이어집니다.</p>
+          <p class="ch-label"><span class="ch-dash"></span>01 / BOLD</p>
+          <h2 class="ch-title">MANY<br />WORLDS.<br />ONE<br /><em>CROWN.</em></h2>
+          <p class="ch-body">Where original mechanics become worlds.</p>
         </div>
       </article>
 
@@ -205,9 +221,9 @@
           <img class="reel-img" alt="" decoding="async" />
         </picture>
         <div class="reel-copy">
-          <p class="ch-label"><span class="ch-dash"></span>02 / GRAND HALL</p>
-          <h2 class="ch-title">A HALL<br />BUILT FOR<br /><em>PLAY</em></h2>
-          <p class="ch-body">성문을 지나면 홀 전체가 눈앞에 펼쳐집니다.</p>
+          <p class="ch-label"><span class="ch-dash"></span>02 / CRAFTED</p>
+          <h2 class="ch-title">A WORLD<br />BUILT TO<br /><em>BE PLAYED</em></h2>
+          <p class="ch-body">Every world is crafted, never assembled from a template.</p>
         </div>
       </article>
 
@@ -218,9 +234,9 @@
           <img class="reel-img" alt="" decoding="async" />
         </picture>
         <div class="reel-copy">
-          <p class="ch-label"><span class="ch-dash"></span>03 / LIVE DEALER</p>
-          <h2 class="ch-title">FACE<br />TO <em>FACE</em></h2>
-          <p class="ch-body">딜러가 자리에 앉고, 시선이 테이블 높이로 내려옵니다.</p>
+          <p class="ch-label"><span class="ch-dash"></span>03 / GAMEPLAY</p>
+          <h2 class="ch-title">GAMEPLAY<br /><em>FIRST</em></h2>
+          <p class="ch-body">A round you remember long after the result.</p>
         </div>
       </article>
 
@@ -231,9 +247,9 @@
           <img class="reel-img" alt="" decoding="async" />
         </picture>
         <div class="reel-copy">
-          <p class="ch-label"><span class="ch-dash"></span>04 / TAKE OFF</p>
-          <h2 class="ch-title">AND THE SKY<br />IS <em>NEXT</em></h2>
-          <p class="ch-body">카드 뒷면의 문양이 다음 세계로 이어집니다.</p>
+          <p class="ch-label"><span class="ch-dash"></span>04 / UNEXPECTED</p>
+          <h2 class="ch-title">ENTER THE<br />BLITZCROWN<br /><em>UNIVERSE</em></h2>
+          <p class="ch-body">Many entrances, one crown. Every world connects.</p>
         </div>
       </article>
 
@@ -244,9 +260,9 @@
           <img class="reel-img" alt="" decoding="async" />
         </picture>
         <div class="reel-copy">
-          <p class="ch-label"><span class="ch-dash"></span>05 / ORBIT</p>
-          <h2 class="ch-title">PAST THE<br />LAST <em>SKY</em></h2>
-          <p class="ch-body">대기권을 넘어서면 마지막 하늘이 열립니다.</p>
+          <p class="ch-label"><span class="ch-dash"></span>05 / PARTNERSHIP</p>
+          <h2 class="ch-title">BEYOND<br />EVERY<br /><em>BOUNDARY</em></h2>
+          <p class="ch-body">The next original experience starts with a conversation.</p>
         </div>
       </article>
     </div>
@@ -283,59 +299,78 @@
       <!-- 카드 그리드보다 몰입형 featured 하나를 앞세운다는 기획 의도를 따른다. -->
       <article class="feature reveal">
         <div class="ph ph--wide">
-          <span class="ph-type">[IMAGE] FEATURED GAME WORLD</span>
-          <span class="ph-meta">21:9 · full-bleed layered environment</span>
+          <span class="ph-type">[IMAGE] SMASH TOWER KEY ART</span>
+          <span class="ph-meta">2:1 · full-bleed layered environment</span>
         </div>
 
         <div class="feature-body">
           <div class="feature-head">
             <span class="badge">NEW</span>
-            <h3 class="feature-title">GAME TITLE</h3>
-            <p class="feature-premise">한 줄 프레미스가 들어갑니다. 게임의 세계와 규칙을 한 문장으로 설명합니다.</p>
+            <h3 class="feature-title">SMASH TOWER</h3>
+            <p class="feature-premise">SMASH. CLIMB. CASH OUT.</p>
+            <div class="actions">
+              <a class="btn btn--primary" href="https://blitzcrown.massivegaming.io/game_info?title=smash-tower" target="_blank" rel="noreferrer">PLAY DEMO<i></i></a>
+              <a class="btn" href="https://blitzcrown.massivegaming.io/game_info?title=smash-tower" target="_blank" rel="noreferrer">VIEW GAME<i></i></a>
+            </div>
           </div>
 
           <dl class="meta">
             <div><dt>GAME TYPE</dt><dd>INSTANT WIN</dd></div>
-            <div><dt>KEY MECHANIC</dt><dd>MECHANIC</dd></div>
-            <div><dt>RELEASE DATE</dt><dd class="pending">APPROVED DATA REQUIRED</dd></div>
+            <div><dt>KEY MECHANIC</dt><dd>PICK &amp; REVEAL</dd></div>
+            <div><dt>RELEASE DATE</dt><dd>APR 2026</dd></div>
           </dl>
-
-          <div class="actions">
-            <a class="btn btn--primary" href="#contact">PLAY DEMO<i></i></a>
-            <a class="btn" href="#games">VIEW GAME<i></i></a>
-          </div>
         </div>
       </article>
 
-      <!-- 추가 릴리스 레일. 현재 선택 상태와 이전/다음 컨트롤. -->
+      <!-- 추가 릴리스 레일. 데스크톱은 3장씩 보이고 화살표로 실제 가로 이동한다. -->
       <div class="rail-row reveal">
-        <span class="rail-label">MORE RELEASES</span>
-        <div class="rail-items">
+        <div class="rail-items" role="region" aria-label="Additional releases" tabindex="0">
           <button class="rail-item is-current" type="button" aria-current="true">
             <span class="ph ph--16x9">
-              <span class="ph-type">[IMAGE] KEY ART</span>
+              <span class="ph-type">[IMAGE] SMASH TOWER</span>
               <span class="ph-meta">16:9</span>
             </span>
-            <span class="rail-name">GAME TITLE</span>
+            <span class="rail-name">SMASH TOWER</span>
           </button>
           <button class="rail-item" type="button">
             <span class="ph ph--16x9">
-              <span class="ph-type">[IMAGE] KEY ART</span>
+              <span class="ph-type">[IMAGE] DOUBLE POP PLINKO</span>
               <span class="ph-meta">16:9</span>
             </span>
-            <span class="rail-name">GAME TITLE</span>
+            <span class="rail-name">DOUBLE POP PLINKO 51200X</span>
           </button>
           <button class="rail-item" type="button">
             <span class="ph ph--16x9">
-              <span class="ph-type">[IMAGE] KEY ART</span>
+              <span class="ph-type">[IMAGE] TWIN CRASH</span>
               <span class="ph-meta">16:9</span>
             </span>
-            <span class="rail-name">GAME TITLE</span>
+            <span class="rail-name">TWIN CRASH: BLITZ</span>
+          </button>
+          <button class="rail-item" type="button">
+            <span class="ph ph--16x9">
+              <span class="ph-type">[IMAGE] SUPER CARD RUSH</span>
+              <span class="ph-meta">16:9</span>
+            </span>
+            <span class="rail-name">SUPER CARD RUSH</span>
+          </button>
+          <button class="rail-item" type="button">
+            <span class="ph ph--16x9">
+              <span class="ph-type">[IMAGE] INTERSTELLAR PLINKO</span>
+              <span class="ph-meta">16:9</span>
+            </span>
+            <span class="rail-name">INTERSTELLAR PLINKO</span>
+          </button>
+          <button class="rail-item" type="button">
+            <span class="ph ph--16x9">
+              <span class="ph-type">[IMAGE] FAST CRASH</span>
+              <span class="ph-meta">16:9</span>
+            </span>
+            <span class="rail-name">FAST CRASH: BLITZ</span>
           </button>
         </div>
         <div class="rail-nav">
-          <button type="button" aria-label="이전 릴리스">←</button>
-          <button type="button" aria-label="다음 릴리스">→</button>
+          <button type="button" data-direction="-1" aria-label="이전 릴리스">←</button>
+          <button type="button" data-direction="1" aria-label="다음 릴리스">→</button>
         </div>
       </div>
     </div>
@@ -366,26 +401,75 @@
         -->
         <div class="chips" role="group" aria-label="카테고리">
           <button class="chip" type="button" aria-pressed="true">ALL</button>
-          <button class="chip" type="button" aria-pressed="false">INSTANT WIN</button>
           <button class="chip" type="button" aria-pressed="false">PLINKO</button>
           <button class="chip" type="button" aria-pressed="false">CRASH</button>
+          <button class="chip" type="button" aria-pressed="false">MINE</button>
           <button class="chip" type="button" aria-pressed="false">OTHER</button>
         </div>
-
-        <a class="signal" href="#games">VIEW ALL GAMES<i></i></a>
       </div>
 
       <div class="card-grid">
         <article class="card reveal">
           <div class="ph ph--16x10">
-            <span class="ph-type">[IMAGE] GAME KEY ART</span>
+            <span class="ph-type">[IMAGE] SMASH TOWER</span>
+            <span class="ph-meta">16:10 · hover scale 1.03</span>
+          </div>
+          <div class="card-body">
+            <span class="badge badge--soft">NEW</span>
+            <h3>SMASH TOWER</h3>
+            <p>SMASH, CLIMB OR CASH OUT.</p>
+            <p class="tags">MINE · PICK &amp; REVEAL</p>
+            <div class="actions actions--compact">
+              <a class="btn btn--primary" href="https://blitzcrown.massivegaming.io/game_info?title=smash-tower" target="_blank" rel="noreferrer">PLAY DEMO<i></i></a>
+              <a class="signal" href="https://blitzcrown.massivegaming.io/game_info?title=smash-tower" target="_blank" rel="noreferrer">VIEW GAME<i></i></a>
+            </div>
+          </div>
+        </article>
+
+        <article class="card reveal">
+          <div class="ph ph--16x10">
+            <span class="ph-type">[IMAGE] DOUBLE POP PLINKO</span>
+            <span class="ph-meta">16:10 · hover scale 1.03</span>
+          </div>
+          <div class="card-body">
+            <span class="badge badge--soft">NEW</span>
+            <h3>DOUBLE POP PLINKO 51200X</h3>
+            <p>MULTI-BALL PLINKO WITH RE-LAUNCHES.</p>
+            <p class="tags">PLINKO · MULTI-BALL</p>
+            <div class="actions actions--compact">
+              <a class="btn btn--primary" href="#contact">PLAY DEMO<i></i></a>
+              <a class="signal" href="#games">VIEW GAME<i></i></a>
+            </div>
+          </div>
+        </article>
+
+        <article class="card reveal">
+          <div class="ph ph--16x10">
+            <span class="ph-type">[IMAGE] TWIN CRASH</span>
+            <span class="ph-meta">16:10 · hover scale 1.03</span>
+          </div>
+          <div class="card-body">
+            <span class="badge badge--soft">NEW</span>
+            <h3>TWIN CRASH: BLITZ</h3>
+            <p>TWO PLANES. TWO MULTIPLIERS.</p>
+            <p class="tags">CRASH · DUAL MULTIPLIER</p>
+            <div class="actions actions--compact">
+              <a class="btn btn--primary" href="#contact">PLAY DEMO<i></i></a>
+              <a class="signal" href="#games">VIEW GAME<i></i></a>
+            </div>
+          </div>
+        </article>
+
+        <article class="card reveal">
+          <div class="ph ph--16x10">
+            <span class="ph-type">[IMAGE] SUPER CARD RUSH</span>
             <span class="ph-meta">16:10 · hover scale 1.03</span>
           </div>
           <div class="card-body">
             <span class="badge badge--soft">POPULAR</span>
-            <h3>GAME TITLE</h3>
-            <p>한 줄 설명이 들어갑니다.</p>
-            <p class="tags">INSTANT WIN · MECHANIC</p>
+            <h3>SUPER CARD RUSH</h3>
+            <p>CARD STRATEGY IN A SINGLE ROUND.</p>
+            <p class="tags">OTHER · CARD</p>
             <div class="actions actions--compact">
               <a class="btn btn--primary" href="#contact">PLAY DEMO<i></i></a>
               <a class="signal" href="#games">VIEW GAME<i></i></a>
@@ -395,14 +479,14 @@
 
         <article class="card reveal">
           <div class="ph ph--16x10">
-            <span class="ph-type">[IMAGE] GAME KEY ART</span>
+            <span class="ph-type">[IMAGE] INTERSTELLAR PLINKO</span>
             <span class="ph-meta">16:10 · hover scale 1.03</span>
           </div>
           <div class="card-body">
             <span class="badge badge--soft">POPULAR</span>
-            <h3>GAME TITLE</h3>
-            <p>한 줄 설명이 들어갑니다.</p>
-            <p class="tags">PLINKO · MECHANIC</p>
+            <h3>INTERSTELLAR PLINKO</h3>
+            <p>COSMIC DROPS AND CHARGED PLANETS.</p>
+            <p class="tags">PLINKO · MULTIPLIER</p>
             <div class="actions actions--compact">
               <a class="btn btn--primary" href="#contact">PLAY DEMO<i></i></a>
               <a class="signal" href="#games">VIEW GAME<i></i></a>
@@ -412,63 +496,14 @@
 
         <article class="card reveal">
           <div class="ph ph--16x10">
-            <span class="ph-type">[IMAGE] GAME KEY ART</span>
+            <span class="ph-type">[IMAGE] FAST CRASH</span>
             <span class="ph-meta">16:10 · hover scale 1.03</span>
           </div>
           <div class="card-body">
             <span class="badge badge--soft">POPULAR</span>
-            <h3>GAME TITLE</h3>
-            <p>한 줄 설명이 들어갑니다.</p>
-            <p class="tags">CRASH · MECHANIC</p>
-            <div class="actions actions--compact">
-              <a class="btn btn--primary" href="#contact">PLAY DEMO<i></i></a>
-              <a class="signal" href="#games">VIEW GAME<i></i></a>
-            </div>
-          </div>
-        </article>
-
-        <article class="card reveal">
-          <div class="ph ph--16x10">
-            <span class="ph-type">[IMAGE] GAME KEY ART</span>
-            <span class="ph-meta">16:10 · hover scale 1.03</span>
-          </div>
-          <div class="card-body">
-            <h3>GAME TITLE</h3>
-            <p>한 줄 설명이 들어갑니다.</p>
-            <p class="tags">INSTANT WIN · MECHANIC</p>
-            <div class="actions actions--compact">
-              <a class="btn btn--primary" href="#contact">PLAY DEMO<i></i></a>
-              <a class="signal" href="#games">VIEW GAME<i></i></a>
-            </div>
-          </div>
-        </article>
-
-        <article class="card reveal">
-          <div class="ph ph--16x10">
-            <span class="ph-type">[IMAGE] GAME KEY ART</span>
-            <span class="ph-meta">16:10 · hover scale 1.03</span>
-          </div>
-          <div class="card-body">
-            <h3>GAME TITLE</h3>
-            <p>한 줄 설명이 들어갑니다.</p>
-            <p class="tags">PLINKO · MECHANIC</p>
-            <div class="actions actions--compact">
-              <a class="btn btn--primary" href="#contact">PLAY DEMO<i></i></a>
-              <a class="signal" href="#games">VIEW GAME<i></i></a>
-            </div>
-          </div>
-        </article>
-
-        <!-- 데모가 아직 없는 상태. 기획서의 "Demo unavailable" 변형이다. -->
-        <article class="card reveal">
-          <div class="ph ph--16x10">
-            <span class="ph-type">[IMAGE] GAME KEY ART</span>
-            <span class="ph-meta">16:10 · hover scale 1.03</span>
-          </div>
-          <div class="card-body">
-            <h3>GAME TITLE</h3>
-            <p>한 줄 설명이 들어갑니다.</p>
-            <p class="tags">OTHER · MECHANIC</p>
+            <h3>FAST CRASH: BLITZ</h3>
+            <p>FAST ROUNDS. INSTANT CASHOUT.</p>
+            <p class="tags">CRASH · MULTIPLIER</p>
             <div class="actions actions--compact">
               <span class="btn is-disabled" aria-disabled="true">DEMO UNAVAILABLE</span>
               <a class="signal" href="#games">VIEW GAME<i></i></a>
@@ -524,7 +559,7 @@
 
       <div class="sec-intro reveal">
         <h2 class="sec-title">BUILT WORLD <em>BY WORLD.</em></h2>
-        <p class="sec-lead">Home에는 핵심 milestone만 둡니다. 전체 연혁은 About 페이지로 이어집니다.</p>
+        <p class="sec-lead">Key milestones only. The full history lives on About Us.</p>
       </div>
 
       <!--
@@ -587,7 +622,7 @@
           </div>
           <p class="news-meta">CATEGORY · DATE</p>
           <h3>ARTICLE TITLE PLACEHOLDER</h3>
-          <p class="news-summary">기사 요약이 들어갑니다. 실제 발표 자료가 확정된 뒤 채웁니다.</p>
+          <p class="news-summary">ARTICLE SUMMARY PLACEHOLDER</p>
           <a class="signal" href="#news">READ NEWS<i></i></a>
         </article>
 
@@ -638,7 +673,7 @@
         <span class="logo-slot">PARTNER LOGO</span>
         <span class="logo-slot">PARTNER LOGO</span>
       </div>
-      <p class="note reveal">모두 같은 monochrome 처리. hover에서만 원본 로고 색으로 전환합니다.</p>
+      <p class="note reveal">HOVER: monochrome to full brand logo</p>
     </div>
   </section>
 

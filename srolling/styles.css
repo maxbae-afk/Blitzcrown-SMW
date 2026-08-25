@@ -11,20 +11,53 @@
     구간 자의 높이가 아니라 순수 이동 거리라, 장수로 나누면 프레임당 거리가 바로 나온다.
     이 값이 프레임 수에 비례해야 이음매에서 재생 속도가 튀지 않는다.
 
-      main   264장 / 1012vh = 3.83vh
+      main   352장 / 1343vh = 3.81vh
       bridge  22장 /   77vh = 3.50vh
       ascent 144장 /  552vh = 3.83vh
 
-    구간마다 speed 배수가 다르므로 평균만 맞춰서는 부족하다.
-    값을 바꾸면 .tools/pace-profile.mjs 로 이음매 구간끼리 다시 비교한다.
-    (브리지가 조금 낮은 건 양옆 구간이 둘 다 평균보다 느린 컷이라 거기에 맞춘 것이다.)
+    main 은 같은 영상을 4/3 배 촘촘하게 다시 뽑은 판본이라, 장수만 늘고 담긴 화면은 같다.
+    그래서 vh/프레임은 다른 시퀀스보다 낮게 나오는 게 정상이다. 이음매 비교는 프레임 수가
+    아니라 화면 변화량 기준이어야 하므로 pace-profile.mjs 의 "vh/움직임" 열을 본다.
+
+    1012 → 1220vh 는 시퀀스1만 25% 느리게 만든 것이다. 마지막 '비행' 구간은 bridge 와
+    맞닿아 있어 speed 를 함께 낮춰 예전 속도로 남겨 두었다(pacing.mjs 참고).
+    원복하려면 1012vh + 비행 speed 1.45.
+
+    1220 → 1287vh 는 성문·대홀·딜러 구간에 스크롤을 더 준 만큼 총량을 함께 늘린 것이다.
+    총량을 고정한 채 세 구간만 늘리면 나머지가 그만큼 빨라져 이음매가 틀어진다.
+
+    1287 → 1343vh 도 같은 이유다. 카드 딜링과 새로 가른 '비행기 등장' 을 늦춘 만큼 올렸다.
+    정확한 값은 pace-profile.mjs 의 이음매 줄을 보고 '비행' 이 2.7vh/프레임에 오도록 맞췄다.
   */
-  --travel-main: 1012vh;
+  --travel-main: 1343vh;
   --travel-bridge: 77vh;
   --travel-ascent: 552vh;
   /* 마지막 시퀀스가 끝난 뒤 그 프레임에 머무는 거리 */
   --end-hold: 55vh;
   --mono: "JetBrains Mono", ui-monospace, SFMono-Regular, Menlo, monospace;
+
+  /*
+    간격 한 벌. 4px 배수만 쓰고 8px 배수를 우선한다.
+    시퀀스 아래 문서 구간의 여백은 예외 없이 이 다섯 개에서만 고른다.
+
+    섹션 여백을 위아래 같은 값으로 두는 게 핵심이다. 섹션이 세로로 쌓이므로
+    섹션 사이 간격은 언제나 --sec-pad 의 두 배가 되고, 어느 두 섹션을 붙여도
+    같은 간격이 나온다. 위아래를 다르게 주면 순서를 바꾸는 순간 어긋난다.
+
+      섹션 ↔ 섹션        192px  (96 + 96)
+      섹션 ↔ 띠          144px  (96 + 48)
+
+    띠(marquee·trust)는 위아래 선으로 묶인 독립된 덩어리라 절반만 준다.
+    1:2 비율이라 좁아진 게 아니라 의도한 것으로 읽힌다.
+  */
+  --sec-pad: 96px;
+  --band-pad: 48px;
+  /* 섹션 안에서 블록과 블록 사이 */
+  --block: 48px;
+  /* 카드·썸네일 그리드의 칸 사이 */
+  --gap-col: 32px;
+  /* 2단 대형 분할 (feature·news·outro·footer) */
+  --gap-col-lg: 64px;
 }
 
 * {
@@ -138,23 +171,21 @@ code {
   align-items: center;
   justify-content: space-between;
   gap: 24px;
-  padding: 26px clamp(20px, 4vw, 56px);
+  /* 전체 높이는 유지하고 안쪽 콘텐츠만 기존 중심선보다 10px 위로 올린다. */
+  padding: 16px clamp(20px, 4vw, 56px) 36px;
   mix-blend-mode: difference;
 }
 
 .brand {
   display: inline-flex;
   align-items: center;
-  gap: 10px;
-  font-size: 13px;
-  font-weight: 800;
-  letter-spacing: 0.3em;
+  flex: 0 0 auto;
 }
 
-.brand-dot {
-  width: 7px;
-  height: 7px;
-  background: var(--mint);
+.brand img {
+  display: block;
+  width: 169px;
+  height: auto;
 }
 
 .topnav {
@@ -538,6 +569,47 @@ code {
   transform: translate(-50%, -50%) rotate(45deg);
 }
 
+.sequence-controls {
+  position: absolute;
+  right: clamp(20px, 4vw, 56px);
+  bottom: clamp(52px, 9vh, 104px);
+  z-index: 10;
+  display: flex;
+  gap: 8px;
+}
+
+.sequence-controls button {
+  display: grid;
+  place-items: center;
+  width: 44px;
+  height: 44px;
+  padding: 0;
+  border: 1px solid rgb(242 247 245 / 0.18);
+  background: rgb(5 7 8 / 0.48);
+  cursor: pointer;
+  transition: border-color 0.22s ease, background 0.22s ease, opacity 0.22s ease;
+}
+
+.sequence-controls button:hover {
+  border-color: rgb(50 218 180 / 0.58);
+  background: rgb(50 218 180 / 0.08);
+}
+
+.sequence-controls button:disabled {
+  opacity: 0.28;
+  cursor: default;
+}
+
+.sequence-controls button:disabled:hover {
+  border-color: rgb(242 247 245 / 0.18);
+  background: rgb(5 7 8 / 0.48);
+}
+
+.sequence-controls img {
+  width: 22px;
+  height: 22px;
+}
+
 .cue {
   position: absolute;
   left: 50%;
@@ -583,8 +655,8 @@ code {
 .sec-head {
   display: flex;
   align-items: center;
-  gap: 20px;
-  padding-bottom: 22px;
+  gap: 24px;
+  padding-bottom: 24px;
   border-bottom: 1px solid var(--line);
 }
 
@@ -626,7 +698,7 @@ code {
 */
 
 .sec-intro {
-  margin: clamp(38px, 5vh, 62px) 0 clamp(40px, 5vh, 68px);
+  margin: var(--block) 0;
   max-width: 900px;
 }
 
@@ -645,7 +717,7 @@ code {
 }
 
 .sec-lead {
-  margin: 22px 0 0;
+  margin: 24px 0 0;
   max-width: 560px;
   font-size: 14px;
   line-height: 1.85;
@@ -677,7 +749,7 @@ code {
   display: flex;
   flex-direction: column;
   justify-content: flex-end;
-  gap: 5px;
+  gap: 4px;
   padding: 16px;
   border: 1px solid var(--line);
   background: #0b1013;
@@ -716,9 +788,9 @@ code {
 .btn {
   display: inline-flex;
   align-items: center;
-  gap: 14px;
+  gap: 16px;
   min-height: 44px;
-  padding: 13px 28px;
+  padding: 12px 28px;
   border: 1px solid var(--line);
   font-family: var(--mono);
   font-size: 11px;
@@ -781,7 +853,7 @@ code {
 .signal {
   display: inline-flex;
   align-items: center;
-  gap: 10px;
+  gap: 12px;
   padding: 8px 0;
   border-bottom: 1px solid transparent;
   font-family: var(--mono);
@@ -816,7 +888,7 @@ code {
   display: flex;
   flex-wrap: wrap;
   align-items: center;
-  gap: 12px 18px;
+  gap: 16px;
 }
 
 /* 아직 확정되지 않은 값과 검수가 필요한 문구는 같은 색으로 눈에 띄게 둔다. */
@@ -837,22 +909,28 @@ code {
 /* ============ 01 / NEW RELEASE ============ */
 
 .release {
-  padding: clamp(88px, 12vh, 156px) 0 clamp(78px, 10vh, 128px);
+  padding: var(--sec-pad) 0;
   background: #070a0b;
 }
 
 .feature {
   display: grid;
   grid-template-columns: 1.35fr 1fr;
-  gap: clamp(28px, 3vw, 56px);
-  padding-top: 30px;
+  gap: 24px;
+  padding-top: 32px;
   border-top: 1px solid var(--line);
+}
+
+.feature > .ph {
+  align-self: start;
+  width: 100%;
+  aspect-ratio: 2 / 1;
 }
 
 .feature-body {
   display: flex;
   flex-direction: column;
-  gap: clamp(24px, 3vh, 36px);
+  gap: 32px;
 }
 
 .feature-title {
@@ -863,10 +941,14 @@ code {
 }
 
 .feature-premise {
-  margin: 14px 0 0;
+  margin: 16px 0 0;
   font-size: 14px;
   line-height: 1.8;
   color: rgb(242 247 245 / 0.62);
+}
+
+.feature-head .actions {
+  margin-top: 24px;
 }
 
 .meta {
@@ -878,7 +960,7 @@ code {
   display: flex;
   justify-content: space-between;
   gap: 16px;
-  padding: 13px 0;
+  padding: 16px 0;
   border-bottom: 1px solid var(--line);
 }
 
@@ -898,28 +980,33 @@ code {
 
 .rail-row {
   display: grid;
-  grid-template-columns: auto minmax(0, 1fr) auto;
-  align-items: center;
-  gap: clamp(20px, 3vw, 40px);
-  margin-top: clamp(40px, 5vh, 66px);
-  padding-top: 28px;
+  grid-template-columns: minmax(0, 1fr) auto;
+  align-items: end;
+  gap: var(--gap-col);
+  margin-top: var(--block);
+  padding-top: 32px;
   border-top: 1px solid var(--line);
 }
 
-.rail-label {
-  font-family: var(--mono);
-  font-size: 10px;
-  letter-spacing: 0.28em;
-  color: var(--muted);
+.rail-items {
+  display: flex;
+  gap: 24px;
+  min-width: 0;
+  overflow-x: auto;
+  overscroll-behavior-inline: contain;
+  scroll-behavior: smooth;
+  scroll-snap-type: inline mandatory;
+  scrollbar-width: none;
 }
 
-.rail-items {
-  display: grid;
-  grid-template-columns: repeat(3, 1fr);
-  gap: 16px;
+.rail-items::-webkit-scrollbar {
+  display: none;
 }
 
 .rail-item {
+  flex: 0 0 calc((100% - 48px) / 3);
+  scroll-snap-align: start;
+  scroll-snap-stop: always;
   padding: 0;
   border: 0;
   background: none;
@@ -942,7 +1029,7 @@ code {
 
 .rail-name {
   display: block;
-  margin-top: 10px;
+  margin-top: 12px;
   font-family: var(--mono);
   font-size: 10px;
   letter-spacing: 0.2em;
@@ -951,6 +1038,7 @@ code {
 .rail-nav {
   display: flex;
   gap: 8px;
+  padding-bottom: 24px;
 }
 
 .rail-nav button {
@@ -968,10 +1056,16 @@ code {
   color: var(--mint);
 }
 
+.rail-nav button:disabled {
+  border-color: rgb(242 247 245 / 0.07);
+  color: rgb(242 247 245 / 0.22);
+  cursor: default;
+}
+
 /* ============ 02 / POPULAR GAMES ============ */
 
 .games {
-  padding: clamp(88px, 12vh, 156px) 0 clamp(78px, 10vh, 128px);
+  padding: var(--sec-pad) 0;
   background: var(--bg);
 }
 
@@ -980,13 +1074,15 @@ code {
   flex-wrap: wrap;
   align-items: center;
   gap: 16px 24px;
-  margin-bottom: clamp(32px, 4vh, 56px);
-  padding-bottom: 26px;
+  margin-bottom: var(--block);
+  padding-bottom: 24px;
   border-bottom: 1px solid var(--line);
 }
 
 .search {
-  flex: 1 1 240px;
+  flex: 0 1 calc((100% - 48px) / 3);
+  width: calc((100% - 48px) / 3);
+  max-width: 100%;
 }
 
 .search input {
@@ -1006,19 +1102,26 @@ code {
 }
 
 .search input:focus {
-  border-color: var(--mint);
+  border-color: rgb(50 218 180 / 0.38);
+  background: rgb(50 218 180 / 0.035);
+}
+
+.search input:focus-visible {
+  outline: none;
 }
 
 .chips {
   display: flex;
   flex-wrap: wrap;
+  justify-content: flex-end;
   gap: 8px;
+  margin-left: auto;
 }
 
 .chip {
   display: inline-flex;
   align-items: center;
-  gap: 9px;
+  gap: 8px;
   min-height: 44px;
   padding: 10px 16px;
   border: 1px solid var(--line);
@@ -1040,29 +1143,31 @@ code {
 }
 
 .chip:hover {
-  border-color: rgb(242 247 245 / 0.3);
-  color: var(--white);
+  border-color: rgb(242 247 245 / 0.22);
+  color: rgb(242 247 245 / 0.82);
 }
 
 .chip[aria-pressed="true"] {
-  border-color: var(--mint);
-  color: var(--mint);
+  border-color: rgb(50 218 180 / 0.38);
+  background: rgb(50 218 180 / 0.035);
+  color: rgb(120 255 226 / 0.78);
 }
 
 .chip[aria-pressed="true"]::before {
-  background: var(--mint);
+  background: currentColor;
+  opacity: 0.7;
 }
 
 .card-grid {
   display: grid;
   grid-template-columns: repeat(3, 1fr);
-  gap: clamp(24px, 2.6vw, 40px);
+  gap: 24px;
 }
 
 .card {
   display: flex;
   flex-direction: column;
-  padding-top: 18px;
+  padding-top: 24px;
   border-top: 1px solid var(--line);
 }
 
@@ -1080,7 +1185,7 @@ code {
   flex-direction: column;
   align-items: flex-start;
   gap: 12px;
-  padding-top: 20px;
+  padding-top: 24px;
 }
 
 .card-body h3 {
@@ -1106,17 +1211,18 @@ code {
 
 .actions--compact {
   margin-top: auto;
-  padding-top: 14px;
+  padding-top: 16px;
 }
 
+/* 카드 안에서는 폭이 좁아 기본 버튼이 두 줄로 접힌다. 좌우만 줄인다. */
 .actions--compact .btn {
-  padding: 12px 20px;
+  padding-inline: 20px;
 }
 
 /* ============ 03 / WHAT WE BUILD ============ */
 
 .build {
-  padding: clamp(88px, 12vh, 156px) 0 clamp(78px, 10vh, 128px);
+  padding: var(--sec-pad) 0;
   background: #070a0b;
 }
 
@@ -1131,8 +1237,8 @@ code {
   display: grid;
   grid-template-columns: 80px minmax(0, 1fr) minmax(0, 1.15fr);
   align-items: baseline;
-  gap: clamp(18px, 3vw, 48px);
-  padding: clamp(26px, 3.4vh, 44px) 0;
+  gap: var(--gap-col);
+  padding: 32px 0;
   border-bottom: 1px solid var(--line);
   transition: background 0.3s ease;
 }
@@ -1165,14 +1271,14 @@ code {
 /* ============ 04 / OUR JOURNEY ============ */
 
 .journey {
-  padding: clamp(88px, 12vh, 156px) 0 clamp(78px, 10vh, 128px);
+  padding: var(--sec-pad) 0;
   background: var(--bg);
 }
 
 .timeline {
   display: grid;
   grid-template-columns: repeat(4, 1fr);
-  margin: 0 0 clamp(38px, 5vh, 62px);
+  margin: 0 0 var(--block);
   padding: 0;
   list-style: none;
   border-top: 1px solid var(--line);
@@ -1180,7 +1286,7 @@ code {
 
 .milestone {
   position: relative;
-  padding: 34px clamp(16px, 2vw, 28px) 42px;
+  padding: 32px 24px;
   border-left: 1px solid var(--line);
 }
 
@@ -1214,7 +1320,7 @@ code {
 }
 
 .milestone h3 {
-  margin: 22px 0 12px;
+  margin: 24px 0 12px;
   font-size: 16px;
   font-weight: 700;
 }
@@ -1226,15 +1332,15 @@ code {
 /* ============ 05 / FROM THE CROWN ============ */
 
 .news {
-  padding: clamp(88px, 12vh, 156px) 0 clamp(78px, 10vh, 128px);
+  padding: var(--sec-pad) 0;
   background: #070a0b;
 }
 
 .news-grid {
   display: grid;
   grid-template-columns: 1.25fr 1fr;
-  gap: clamp(30px, 4vw, 72px);
-  margin-bottom: clamp(38px, 5vh, 62px);
+  gap: var(--gap-col-lg);
+  margin-bottom: var(--block);
 }
 
 .news-meta {
@@ -1250,7 +1356,7 @@ code {
 }
 
 .news-lead h3 {
-  margin: 0 0 14px;
+  margin: 0 0 16px;
   font-size: clamp(22px, 2.6vw, 34px);
   font-weight: 800;
   letter-spacing: -0.025em;
@@ -1275,7 +1381,7 @@ code {
   flex-direction: column;
   align-items: flex-start;
   gap: 12px;
-  padding: clamp(20px, 2.8vh, 32px) 0;
+  padding: 24px 0;
   border-bottom: 1px solid var(--line);
 }
 
@@ -1289,7 +1395,7 @@ code {
 /* ============ 06 / OUR PARTNERS ============ */
 
 .partners {
-  padding: clamp(88px, 12vh, 156px) 0 clamp(78px, 10vh, 128px);
+  padding: var(--sec-pad) 0;
   background: var(--bg);
 }
 
@@ -1304,7 +1410,7 @@ code {
   display: flex;
   align-items: center;
   justify-content: center;
-  min-height: clamp(96px, 11vw, 140px);
+  min-height: 128px;
   border-right: 1px solid var(--line);
   border-bottom: 1px solid var(--line);
   font-family: var(--mono);
@@ -1320,7 +1426,7 @@ code {
 }
 
 .note {
-  margin: 20px 0 0;
+  margin: 24px 0 0;
   font-family: var(--mono);
   font-size: 10px;
   letter-spacing: 0.18em;
@@ -1330,7 +1436,7 @@ code {
 /* ============ LEGAL TRUST STRIP ============ */
 
 .trust {
-  padding: clamp(50px, 7vh, 88px) 0;
+  padding: var(--band-pad) 0;
   border-block: 1px solid var(--line);
   background: #070a0b;
 }
@@ -1342,7 +1448,7 @@ code {
 }
 
 .trust-row > div {
-  padding-left: clamp(16px, 2vw, 26px);
+  padding-left: 24px;
   border-left: 1px solid var(--line);
 }
 
@@ -1354,7 +1460,7 @@ code {
 }
 
 .trust-row dd {
-  margin: 13px 0 0;
+  margin: 12px 0 0;
   font-size: 14px;
   line-height: 1.6;
 }
@@ -1365,7 +1471,7 @@ code {
   align-items: center;
   justify-content: space-between;
   gap: 16px;
-  margin-top: 34px;
+  margin-top: 32px;
   padding-top: 24px;
   border-top: 1px solid var(--line);
 }
@@ -1374,7 +1480,7 @@ code {
 
 .marquee {
   overflow: hidden;
-  padding: 26px 0;
+  padding: var(--band-pad) 0;
   border-block: 1px solid var(--line);
   background: #070a0b;
 }
@@ -1403,15 +1509,15 @@ code {
 /* ============ CONTACT CTA ============ */
 
 .outro {
-  padding: clamp(90px, 12vh, 160px) 0 clamp(70px, 10vh, 130px);
+  padding: var(--sec-pad) 0;
   background: #070a0b;
 }
 
 .outro-grid {
   display: grid;
   grid-template-columns: 1.1fr 1fr;
-  gap: clamp(40px, 6vw, 96px);
-  margin-top: clamp(48px, 6vh, 80px);
+  gap: var(--gap-col-lg);
+  margin-top: var(--block);
 }
 
 .outro-title {
@@ -1428,7 +1534,7 @@ code {
 }
 
 .outro-side p {
-  margin: 0 0 30px;
+  margin: 0 0 32px;
   font-size: 14px;
   line-height: 1.85;
   color: rgb(242 247 245 / 0.64);
@@ -1437,7 +1543,7 @@ code {
 /* ============ FOOT ============ */
 
 .foot {
-  padding: clamp(56px, 7vh, 92px) 0 28px;
+  padding: var(--band-pad) 0 24px;
   border-top: 1px solid var(--line);
   background: #050708;
 }
@@ -1445,8 +1551,8 @@ code {
 .foot-top {
   display: grid;
   grid-template-columns: 1.4fr 1fr;
-  gap: clamp(30px, 4vw, 64px);
-  padding-bottom: 40px;
+  gap: var(--gap-col-lg);
+  padding-bottom: var(--block);
   border-bottom: 1px solid var(--line);
 }
 
@@ -1459,7 +1565,7 @@ code {
 }
 
 .foot-statement {
-  margin: 20px 0 0;
+  margin: 24px 0 0;
   max-width: 440px;
   font-size: 13.5px;
   line-height: 1.85;
@@ -1470,7 +1576,7 @@ code {
   display: flex;
   flex-direction: column;
   align-items: flex-start;
-  gap: 14px;
+  gap: 16px;
   font-family: var(--mono);
   font-size: 11px;
   letter-spacing: 0.22em;
@@ -1485,8 +1591,8 @@ code {
   display: flex;
   flex-direction: column;
   align-items: flex-start;
-  gap: 6px;
-  padding: 30px 0;
+  gap: 8px;
+  padding: 32px 0;
   border-bottom: 1px solid var(--line);
 }
 
@@ -1498,7 +1604,7 @@ code {
 }
 
 .foot-legal .flag {
-  margin-top: 14px;
+  margin-top: 16px;
 }
 
 .foot-bottom {
@@ -1506,7 +1612,7 @@ code {
   flex-wrap: wrap;
   justify-content: space-between;
   gap: 12px;
-  padding-top: 22px;
+  padding-top: 24px;
   font-family: var(--mono);
   font-size: 10px;
   letter-spacing: 0.22em;
@@ -1664,6 +1770,18 @@ code {
 /* ============ RESPONSIVE ============ */
 
 @media (max-width: 1080px) {
+  /*
+    간격은 여기서 한 번만 줄인다. 개별 규칙이 각자 clamp 로 줄어들면
+    화면 폭에 따라 서로 다른 속도로 좁아져서 리듬이 어긋난다.
+  */
+  :root {
+    --sec-pad: 72px;
+    --band-pad: 36px;
+    --block: 40px;
+    --gap-col: 24px;
+    --gap-col-lg: 40px;
+  }
+
   .feature,
   .news-grid,
   .outro-grid,
@@ -1673,6 +1791,11 @@ code {
 
   .card-grid {
     grid-template-columns: repeat(2, 1fr);
+  }
+
+  .search {
+    flex-basis: calc((100% - 24px) / 2);
+    width: calc((100% - 24px) / 2);
   }
 
   .timeline,
@@ -1693,20 +1816,15 @@ code {
     grid-column: 2;
   }
 
-  /* 셋을 한 줄에 두면 썸네일이 너무 작아진다. 레일만 아래로 내린다. */
-  .rail-row {
-    grid-template-columns: 1fr auto;
-  }
-
-  .rail-items {
-    grid-column: 1 / -1;
-    order: 1;
+  /* 좁아지면 비율은 유지하고 한 화면에 보이는 장수만 3 → 2로 줄인다. */
+  .rail-item {
+    flex-basis: calc((100% - 24px) / 2);
   }
 
   .foot-nav {
     flex-direction: row;
     flex-wrap: wrap;
-    gap: 14px 28px;
+    gap: 16px 32px;
   }
 }
 
@@ -1714,7 +1832,7 @@ code {
   이 경계에서 화면 구성이 통째로 바뀐다.
   스크롤 시퀀스는 사라지고 슬라이드 롤링이 그 자리를 대신한다.
   app.js 도 같은 900px 을 보고 둘 중 하나만 구동한다. 두 값이 어긋나면
-  아무것도 안 보이거나 430장을 헛되이 내려받는다.
+  아무것도 안 보이거나 518장을 헛되이 내려받는다.
 */
 @media (max-width: 900px) {
   .topnav {
@@ -1732,11 +1850,35 @@ code {
 }
 
 @media (max-width: 560px) {
+  :root {
+    --sec-pad: 56px;
+    --band-pad: 28px;
+    --block: 32px;
+    --gap-col: 20px;
+    --gap-col-lg: 32px;
+  }
+
   .card-grid,
   .timeline,
-  .trust-row,
-  .rail-items {
+  .trust-row {
     grid-template-columns: 1fr;
+  }
+
+  .search {
+    flex-basis: 100%;
+    width: 100%;
+  }
+
+  .brand img {
+    width: 120px;
+  }
+
+  .rail-item {
+    flex-basis: 100%;
+  }
+
+  .rail-nav {
+    padding-bottom: 24px;
   }
 
   .logo-grid {
@@ -1746,7 +1888,7 @@ code {
   /* 한 줄로 세우면 칸을 나누던 세로선이 사라져 항목끼리 붙어 보인다. 간격으로 대신한다. */
   .timeline,
   .trust-row {
-    gap: 26px 0;
+    gap: 24px 0;
   }
 
   .milestone,
@@ -1768,6 +1910,10 @@ code {
 
 @media (prefers-reduced-motion: reduce) {
   html {
+    scroll-behavior: auto;
+  }
+
+  .rail-items {
     scroll-behavior: auto;
   }
 

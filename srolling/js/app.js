@@ -47,6 +47,7 @@ const SEAM_PX = 24;
  */
 const progress = SEQUENCES.map(() => 0);
 const states = SEQUENCES.map(() => null);
+const engines = SEQUENCES.map(() => null);
 // 엔진이 붙었는지. states 는 첫 틱에서야 차므로 붙자마자 여기에 표시한다.
 const mounted = SEQUENCES.map(() => false);
 // 교차 정도. 0번은 항상 깔려 있으므로 1로 둔다.
@@ -245,7 +246,7 @@ function setupReveal() {
 
 /**
  * 카테고리 칩과 릴리스 레일의 선택 상태만 다룬다.
- * 실제 게임 데이터가 아직 없어서 목록을 걸러 내지는 않는다.
+ * 현재 카드는 정적 마크업이라 카테고리별 목록 필터링은 아직 연결하지 않는다.
  * 상태를 aria 로도 알려야 해서 클래스만 바꾸고 끝내지 않는다.
  */
 function setupControls() {
@@ -260,28 +261,104 @@ function setupControls() {
 
   document.querySelectorAll('.rail-items').forEach((group) => {
     const items = Array.from(group.querySelectorAll('.rail-item'));
-    const select = (next) => {
-      items.forEach((item) => {
-        const on = item === next;
+    const nav = group.parentElement?.querySelector('.rail-nav');
+    const prev = nav?.querySelector('[data-direction="-1"]');
+    const next = nav?.querySelector('[data-direction="1"]');
+    let active = Math.max(
+      0,
+      items.findIndex((item) => item.classList.contains('is-current')),
+    );
+
+    const update = (index, scroll = false) => {
+      active = clamp(index, 0, items.length - 1);
+      items.forEach((item, i) => {
+        const on = i === active;
         item.classList.toggle('is-current', on);
-        item.setAttribute('aria-current', String(on));
+        if (on) item.setAttribute('aria-current', 'true');
+        else item.removeAttribute('aria-current');
       });
+      if (prev) prev.disabled = active === 0;
+      if (next) next.disabled = active === items.length - 1;
+
+      if (!scroll) return;
+      const item = items[active];
+      const left =
+        item.getBoundingClientRect().left - group.getBoundingClientRect().left + group.scrollLeft;
+      group.scrollTo({ left, behavior: reducedMotion ? 'auto' : 'smooth' });
     };
 
     group.addEventListener('click', (e) => {
       const hit = e.target.closest('.rail-item');
-      if (hit) select(hit);
+      const index = items.indexOf(hit);
+      if (index >= 0) update(index, true);
     });
 
-    const nav = group.parentElement?.querySelector('.rail-nav');
     nav?.addEventListener('click', (e) => {
       const button = e.target.closest('button');
       if (!button) return;
-      const step = nav.firstElementChild === button ? -1 : 1;
-      const at = items.findIndex((item) => item.classList.contains('is-current'));
-      select(items[(at + step + items.length) % items.length]);
+      update(active + Number(button.dataset.direction), true);
     });
+
+    // 트랙패드·터치로 직접 밀었을 때도 가장 왼쪽에 가까운 카드를 현재 항목으로 맞춘다.
+    let scrollFrame = 0;
+    group.addEventListener(
+      'scroll',
+      () => {
+        cancelAnimationFrame(scrollFrame);
+        scrollFrame = requestAnimationFrame(() => {
+          const left = group.getBoundingClientRect().left;
+          const closest = items.reduce(
+            (best, item, index) => {
+              const distance = Math.abs(item.getBoundingClientRect().left - left);
+              return distance < best.distance ? { index, distance } : best;
+            },
+            { index: active, distance: Number.POSITIVE_INFINITY },
+          );
+          update(closest.index);
+        });
+      },
+      { passive: true },
+    );
+
+    update(active);
   });
+}
+
+/* ---------- 시퀀스 처음 / 끝 이동 ---------- */
+
+function setupSequenceControls() {
+  const sequence = $('#sequence');
+  const replay = $('#replaySequence');
+  const skip = $('#skipSequence');
+  if (!sequence || !replay || !skip) return;
+
+  const limits = () => {
+    const start = sequence.offsetTop;
+    // sticky 화면 하나를 뺀 지점이 마지막 프레임이 화면을 채우는 마지막 스크롤 위치다.
+    const end = Math.max(start, start + sequence.offsetHeight - window.innerHeight - 1);
+    return { start, end };
+  };
+
+  const update = () => {
+    const { start, end } = limits();
+    replay.disabled = window.scrollY <= start + 2;
+    skip.disabled = window.scrollY >= end - 2;
+  };
+
+  const jump = (toEnd) => {
+    const { start, end } = limits();
+    window.scrollTo({ top: toEnd ? end : start, behavior: 'instant' });
+    requestAnimationFrame(() => {
+      engines.forEach((engine) => engine?.sync());
+      update();
+    });
+  };
+
+  replay.addEventListener('click', () => jump(false));
+  skip.addEventListener('click', () => jump(true));
+  window.addEventListener('scroll', update, { passive: true });
+  window.addEventListener('resize', update);
+  update();
 }
 
 /* ---------- 앵커 이동 ---------- */
@@ -316,7 +393,7 @@ function mount(index, renderer) {
   if (!renderer || !canvas || !scrollHost) return;
   mounted[index] = true;
 
-  createEngine({
+  engines[index] = createEngine({
     canvas,
     scrollHost,
     renderer,
@@ -355,6 +432,7 @@ function finishBoot(label) {
 async function start() {
   setupReveal();
   setupControls();
+  setupSequenceControls();
   setupAnchors();
   window.addEventListener('scroll', renderTopline, { passive: true });
   renderTopline();
@@ -367,7 +445,7 @@ async function start() {
  * 좁은 화면. 시퀀스는 건드리지 않는다.
  *
  * 프레임을 한 장도 요청하지 않는 게 핵심이다. 세로 화면에서는 16:9 프레임의 좌우가
- * 통째로 잘려 장면을 알아볼 수 없는 데다, 430장 36MB 를 모바일 회선에 지울 이유도 없다.
+ * 통째로 잘려 장면을 알아볼 수 없는 데다, 518장 39MB 를 모바일 회선에 지울 이유도 없다.
  */
 function startReel() {
   window.__sequence.mode = 'reel';
@@ -375,7 +453,8 @@ function startReel() {
 
   createReel($('#reel'));
   footMode.textContent = 'RENDER MODE — MOBILE REEL';
-  finishBoot('REEL READY');
+  // 어느 경로로 그렸는지는 푸터의 footMode 가 알려 준다. 로딩 문구는 브랜드 카피로 둔다.
+  finishBoot('WORLD READY');
 }
 
 async function startSequence() {
@@ -389,7 +468,7 @@ async function startSequence() {
   renderChapters = createChapters($('#chapters'), SEQUENCES.length);
   mount(0, renderer);
 
-  finishBoot(renderer.kind === 'sequence' ? 'SEQUENCE READY' : 'FALLBACK SCENE READY');
+  finishBoot('WORLD READY');
 
   loadRest(renderer);
 }

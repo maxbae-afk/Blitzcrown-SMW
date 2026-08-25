@@ -339,6 +339,15 @@ export function createEngine({ canvas, scrollHost, renderer, onTick, easing = 0.
     requestAnimationFrame(tick);
   }
 
+  // 스킵·다시 보기처럼 스크롤 위치가 한 번에 크게 바뀔 때 감쇠 구간을 거치지 않고
+  // 해당 위치의 프레임을 즉시 그리도록 내부 진행도를 맞춘다.
+  function sync() {
+    target = readTarget();
+    current = target;
+    velocity = 0;
+    dirty = true;
+  }
+
   const ro = new ResizeObserver(resize);
   ro.observe(canvas);
   window.addEventListener('orientationchange', resize);
@@ -347,5 +356,5 @@ export function createEngine({ canvas, scrollHost, renderer, onTick, easing = 0.
   current = readTarget();
   requestAnimationFrame(tick);
 
-  return { resize };
+  return { resize, sync };
 }

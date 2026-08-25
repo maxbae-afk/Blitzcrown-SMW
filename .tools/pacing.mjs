@@ -35,19 +35,37 @@ export function listSource(srcDir) {
 // 원본 프레임 번호(0-based) 기준. 컨택트 시트로 확인한 컷 경계.
 // speed 1 보다 크면 느리게, 작으면 빠르게 지나간다. speed 를 적지 않으면 자동 페이싱에 맡긴다.
 
+// 원본을 같은 영상에서 4/3 배 촘촘하게(264 → 352장) 다시 뽑았다. 컷 경계는 옛 번호 × 4/3.
+// 프레임당 화면 변화가 줄어 스크롤이 덜 끊긴다. 구간 비율은 그대로라 speed 값은 건드리지 않았다.
 const MAIN_SECTIONS = [
-  { name: '코인 정지', from: 0, to: 7 },
-  { name: '동전 폭발', from: 8, to: 36, speed: 1.55 },
-  { name: '워프', from: 37, to: 44 },
-  { name: '성 등장', from: 45, to: 79, speed: 1.55 },
-  { name: '성문 진입', from: 80, to: 91 },
-  { name: '대홀 진입', from: 92, to: 123, speed: 0.55 },
-  { name: '딜러 등장', from: 124, to: 144, speed: 2.4 },
-  { name: '카드 딜링', from: 145, to: 179, speed: 1.65 },
-  { name: '카드 뒤집기', from: 180, to: 203, speed: 3 },
-  { name: '구름', from: 204, to: 212 },
-  // 51장으로 가장 긴 구간이라 자동 페이싱에 맡기면 빠른 속도가 오래 지속된다.
-  { name: '비행', from: 213, to: 263, speed: 1.45 },
+  { name: '코인 정지', from: 0, to: 10 },
+  { name: '동전 폭발', from: 11, to: 48, speed: 1.55 },
+  { name: '워프', from: 49, to: 59 },
+  { name: '성 등장', from: 60, to: 106, speed: 1.55 },
+  { name: '성문 진입', from: 107, to: 121, speed: 1.25 },
+  { name: '대홀 진입', from: 122, to: 157, speed: 0.85 },
+  /*
+   * 딜러는 160장 근처에서 테이블 안쪽에 처음 보이기 시작한다. 예전에는 그 시작점이
+   * '대홀 진입'(0.55배) 안에 있어서 등장 자체가 통로 질주에 묻혔다. 경계를 165 → 158 로
+   * 당겨 등장 순간부터 느린 페이스를 적용한다.
+   */
+  { name: '딜러 등장', from: 158, to: 192, speed: 2.4 },
+  { name: '카드 딜링', from: 193, to: 239, speed: 2.1 },
+  { name: '카드 뒤집기', from: 240, to: 271, speed: 3 },
+  // 291장까지는 구름뿐이고 비행기는 아직 없다.
+  { name: '구름', from: 272, to: 291 },
+  /*
+   * 비행기는 292장에서 먼 점으로 처음 보이고 311장쯤 화면을 채운다. 예전에는 이 등장이
+   * '비행' 안에 있었는데, 그 구간은 이음매 때문에 speed 를 낮춰 둔 자리라 main 에서 가장
+   * 빠르다. 등장이 통째로 그 속도에 묻혔다. 등장과 순항을 갈라 앞쪽만 늦춘다.
+   */
+  { name: '비행기 등장', from: 292, to: 311, speed: 1.8 },
+  /*
+   * 뒤 bridge 와 맞닿는 구간이라 절대 속도를 건드리면 전환에서 속도가 튄다.
+   * 다른 구간을 늦출 때마다 speed 는 그대로 두고 --travel-main 을 같은 비율로 올려
+   * 이 구간의 프레임당 거리(≈2.7vh)를 고정한다. pace-profile.mjs 의 이음매 줄로 확인한다.
+   */
+  { name: '비행', from: 312, to: 351, speed: 1.16 },
 ];
 
 // 1번 시퀀스 끝의 프로펠러기와 2번 시퀀스의 편대 사이를 메우는 다리.
@@ -71,9 +89,20 @@ const ASCENT_SECTIONS = [
  *
  * match 는 원본 렌더의 톤이 시퀀스마다 다를 때 쓰는 클립 맞추기 계수다.
  * 공용 그레이딩 앞에서 걸린다. 값은 match-fit.mjs 로 뽑는다.
+ *
+ * density 는 "다른 시퀀스에 비해 몇 배 촘촘하게 뽑았는지"다. 기준(1)에서 뽑은 시퀀스끼리는
+ * vh/프레임을 그대로 비교하면 되지만, 촘촘한 시퀀스는 같은 화면을 더 여러 장에 나눠 담으므로
+ * vh/프레임이 낮게 나오는 게 정상이다. 이음매 속도를 비교할 때 이 값을 곱해 눈금을 맞춘다.
  */
 export const SEQUENCES = [
-  { id: 'main', src: '_source-frames', out: 'desktop', sections: MAIN_SECTIONS },
+  {
+    id: 'main',
+    src: '_source-frames',
+    out: 'desktop',
+    sections: MAIN_SECTIONS,
+    // 같은 영상을 264장 → 352장으로 다시 뽑았다.
+    density: 352 / 264,
+  },
   {
     id: 'bridge',
     src: '_source-frames-bridge',

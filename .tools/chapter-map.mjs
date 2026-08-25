@@ -23,13 +23,14 @@ const manifest = JSON.parse(readFileSync(`${SITE}/frames/manifest.json`, 'utf8')
 // bridge 는 카피를 두지 않는다. 76vh 뿐이라 여닫을 거리가 안 나오고,
 // 05 가 이 구간을 그대로 지나가며 덮는다.
 const CHAPTERS = {
+  // main 원본이 264 → 352장으로 촘촘해져서 프레임 번호를 4/3 배로 옮겼다. 컷 위치는 그대로다.
   main: [
-    ['00 / IGNITION', 0, 34],
-    ['01 / THE REALM', 52, 78],
-    ['02 / GRAND HALL', 84, 121],
-    ['03 / LIVE DEALER', 127, 143],
-    ['04 / THE DEAL', 150, 190],
-    ['05 / TAKE OFF', 218, 263],
+    ['00 / IGNITION', 0, 45],
+    ['01 / THE REALM', 69, 104],
+    ['02 / GRAND HALL', 112, 161],
+    ['03 / LIVE DEALER', 169, 191],
+    ['04 / THE DEAL', 200, 253],
+    ['05 / TAKE OFF', 291, 351],
   ],
   ascent: [
     ['05 / TAKE OFF (끝)', 0, 30],
