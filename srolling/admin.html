@@ -1,0 +1,62 @@
+<!doctype html>
+<html lang="ko">
+<head>
+<meta charset="utf-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<title>BLITZCROWN — 관리자</title>
+<link rel="icon" href="data:," />
+<meta name="robots" content="noindex, nofollow" />
+<link rel="preconnect" href="https://fonts.googleapis.com" />
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet" />
+<link rel="stylesheet" href="styles.css" />
+<link rel="stylesheet" href="admin.css" />
+</head>
+<body class="page-admin">
+
+<!-- 비밀번호를 통과하기 전에는 아래 내용이 아예 그려지지 않는다. js/admin.js 가 켠다. -->
+<div class="adm" id="adm" hidden>
+
+  <header class="adm-top">
+    <div class="adm-top-left">
+      <a class="adm-mark" href="index.html">BLITZCROWN</a>
+      <span class="adm-role">ADMIN</span>
+    </div>
+
+    <!-- 지금 저장이 어디로 가는지 늘 보이게 둔다. 이걸 모르면 고쳐 놓고 날린다. -->
+    <p class="adm-mode" id="admMode">연결 확인 중…</p>
+
+    <div class="adm-top-right">
+      <button class="btn" type="button" id="admDownload">파일 내려받기</button>
+      <button class="btn btn--primary" type="button" id="admSave">저장</button>
+    </div>
+  </header>
+
+  <div class="adm-bar">
+    <div class="adm-tabs" role="tablist">
+      <button class="adm-tab" type="button" role="tab" data-tab="games" aria-selected="true">게임</button>
+      <button class="adm-tab" type="button" role="tab" data-tab="news" aria-selected="false">뉴스</button>
+    </div>
+    <div class="adm-bar-right">
+      <span class="adm-note" id="admStatus"></span>
+      <button class="adm-ghost" type="button" id="admReset">임시 저장 지우기</button>
+      <a class="adm-ghost" href="index.html">사이트로</a>
+    </div>
+  </div>
+
+  <main class="adm-body">
+    <aside class="adm-list">
+      <div class="adm-list-head">
+        <span id="admCount"></span>
+        <button class="adm-ghost" type="button" id="admNew">+ 새로 만들기</button>
+      </div>
+      <ol class="adm-items" id="admItems"></ol>
+    </aside>
+
+    <section class="adm-editor" id="admEditor"></section>
+  </main>
+</div>
+
+<script type="module" src="js/admin.js"></script>
+</body>
+</html>

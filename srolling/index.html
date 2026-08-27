@@ -32,7 +32,8 @@
     <img src="assets/blitzcrown-logo.svg" alt="Blitzcrown" />
   </a>
   <nav class="topnav">
-    <a href="#games">GAMES</a>
+    <a href="games.html">GAMES</a>
+    <a href="news.html">NEWS</a>
     <a href="#build">ABOUT US</a>
     <a href="#contact">CONTACT</a>
   </nav>
@@ -160,6 +161,9 @@
       <div class="sequence-controls" aria-label="Sequence controls">
         <button id="replaySequence" type="button" aria-label="처음부터 다시 보기" title="REPLAY">
           <img src="assets/first-page.svg" alt="" />
+        </button>
+        <button id="playSequence" type="button" aria-label="자동 재생" aria-pressed="false" title="PLAY">
+          <img src="assets/play.svg" alt="" id="playSequenceIcon" />
         </button>
         <button id="skipSequence" type="button" aria-label="모션 건너뛰기" title="SKIP">
           <img src="assets/last-page.svg" alt="" />
@@ -296,78 +300,18 @@
         <p class="sec-lead">Original instant win games with unexpected mechanics and fresh ideas.</p>
       </div>
 
+      <!--
+        아래 세 칸(피처드·레일·카드)과 뉴스 칸은 js/home-content.js 가 채운다.
+        내용은 js/games.data.js 와 js/news.data.js 에 있고, 관리자 페이지가 그 파일을 고친다.
+        여기에 직접 적으면 관리자에서 고쳐도 홈만 옛날 문구로 남는다.
+      -->
+
       <!-- 카드 그리드보다 몰입형 featured 하나를 앞세운다는 기획 의도를 따른다. -->
-      <article class="feature reveal">
-        <div class="ph ph--wide">
-          <span class="ph-type">[IMAGE] SMASH TOWER KEY ART</span>
-          <span class="ph-meta">2:1 · full-bleed layered environment</span>
-        </div>
-
-        <div class="feature-body">
-          <div class="feature-head">
-            <span class="badge">NEW</span>
-            <h3 class="feature-title">SMASH TOWER</h3>
-            <p class="feature-premise">SMASH. CLIMB. CASH OUT.</p>
-            <div class="actions">
-              <a class="btn btn--primary" href="https://blitzcrown.massivegaming.io/game_info?title=smash-tower" target="_blank" rel="noreferrer">PLAY DEMO<i></i></a>
-              <a class="btn" href="https://blitzcrown.massivegaming.io/game_info?title=smash-tower" target="_blank" rel="noreferrer">VIEW GAME<i></i></a>
-            </div>
-          </div>
-
-          <dl class="meta">
-            <div><dt>GAME TYPE</dt><dd>INSTANT WIN</dd></div>
-            <div><dt>KEY MECHANIC</dt><dd>PICK &amp; REVEAL</dd></div>
-            <div><dt>RELEASE DATE</dt><dd>APR 2026</dd></div>
-          </dl>
-        </div>
-      </article>
+      <div id="homeFeature"></div>
 
       <!-- 추가 릴리스 레일. 데스크톱은 3장씩 보이고 화살표로 실제 가로 이동한다. -->
       <div class="rail-row reveal">
-        <div class="rail-items" role="region" aria-label="Additional releases" tabindex="0">
-          <button class="rail-item is-current" type="button" aria-current="true">
-            <span class="ph ph--16x9">
-              <span class="ph-type">[IMAGE] SMASH TOWER</span>
-              <span class="ph-meta">16:9</span>
-            </span>
-            <span class="rail-name">SMASH TOWER</span>
-          </button>
-          <button class="rail-item" type="button">
-            <span class="ph ph--16x9">
-              <span class="ph-type">[IMAGE] DOUBLE POP PLINKO</span>
-              <span class="ph-meta">16:9</span>
-            </span>
-            <span class="rail-name">DOUBLE POP PLINKO 51200X</span>
-          </button>
-          <button class="rail-item" type="button">
-            <span class="ph ph--16x9">
-              <span class="ph-type">[IMAGE] TWIN CRASH</span>
-              <span class="ph-meta">16:9</span>
-            </span>
-            <span class="rail-name">TWIN CRASH: BLITZ</span>
-          </button>
-          <button class="rail-item" type="button">
-            <span class="ph ph--16x9">
-              <span class="ph-type">[IMAGE] SUPER CARD RUSH</span>
-              <span class="ph-meta">16:9</span>
-            </span>
-            <span class="rail-name">SUPER CARD RUSH</span>
-          </button>
-          <button class="rail-item" type="button">
-            <span class="ph ph--16x9">
-              <span class="ph-type">[IMAGE] INTERSTELLAR PLINKO</span>
-              <span class="ph-meta">16:9</span>
-            </span>
-            <span class="rail-name">INTERSTELLAR PLINKO</span>
-          </button>
-          <button class="rail-item" type="button">
-            <span class="ph ph--16x9">
-              <span class="ph-type">[IMAGE] FAST CRASH</span>
-              <span class="ph-meta">16:9</span>
-            </span>
-            <span class="rail-name">FAST CRASH: BLITZ</span>
-          </button>
-        </div>
+        <div class="rail-items" id="homeRail" role="region" aria-label="Additional releases" tabindex="0"></div>
         <div class="rail-nav">
           <button type="button" data-direction="-1" aria-label="이전 릴리스">←</button>
           <button type="button" data-direction="1" aria-label="다음 릴리스">→</button>
@@ -408,109 +352,7 @@
         </div>
       </div>
 
-      <div class="card-grid">
-        <article class="card reveal">
-          <div class="ph ph--16x10">
-            <span class="ph-type">[IMAGE] SMASH TOWER</span>
-            <span class="ph-meta">16:10 · hover scale 1.03</span>
-          </div>
-          <div class="card-body">
-            <span class="badge badge--soft">NEW</span>
-            <h3>SMASH TOWER</h3>
-            <p>SMASH, CLIMB OR CASH OUT.</p>
-            <p class="tags">MINE · PICK &amp; REVEAL</p>
-            <div class="actions actions--compact">
-              <a class="btn btn--primary" href="https://blitzcrown.massivegaming.io/game_info?title=smash-tower" target="_blank" rel="noreferrer">PLAY DEMO<i></i></a>
-              <a class="signal" href="https://blitzcrown.massivegaming.io/game_info?title=smash-tower" target="_blank" rel="noreferrer">VIEW GAME<i></i></a>
-            </div>
-          </div>
-        </article>
-
-        <article class="card reveal">
-          <div class="ph ph--16x10">
-            <span class="ph-type">[IMAGE] DOUBLE POP PLINKO</span>
-            <span class="ph-meta">16:10 · hover scale 1.03</span>
-          </div>
-          <div class="card-body">
-            <span class="badge badge--soft">NEW</span>
-            <h3>DOUBLE POP PLINKO 51200X</h3>
-            <p>MULTI-BALL PLINKO WITH RE-LAUNCHES.</p>
-            <p class="tags">PLINKO · MULTI-BALL</p>
-            <div class="actions actions--compact">
-              <a class="btn btn--primary" href="#contact">PLAY DEMO<i></i></a>
-              <a class="signal" href="#games">VIEW GAME<i></i></a>
-            </div>
-          </div>
-        </article>
-
-        <article class="card reveal">
-          <div class="ph ph--16x10">
-            <span class="ph-type">[IMAGE] TWIN CRASH</span>
-            <span class="ph-meta">16:10 · hover scale 1.03</span>
-          </div>
-          <div class="card-body">
-            <span class="badge badge--soft">NEW</span>
-            <h3>TWIN CRASH: BLITZ</h3>
-            <p>TWO PLANES. TWO MULTIPLIERS.</p>
-            <p class="tags">CRASH · DUAL MULTIPLIER</p>
-            <div class="actions actions--compact">
-              <a class="btn btn--primary" href="#contact">PLAY DEMO<i></i></a>
-              <a class="signal" href="#games">VIEW GAME<i></i></a>
-            </div>
-          </div>
-        </article>
-
-        <article class="card reveal">
-          <div class="ph ph--16x10">
-            <span class="ph-type">[IMAGE] SUPER CARD RUSH</span>
-            <span class="ph-meta">16:10 · hover scale 1.03</span>
-          </div>
-          <div class="card-body">
-            <span class="badge badge--soft">POPULAR</span>
-            <h3>SUPER CARD RUSH</h3>
-            <p>CARD STRATEGY IN A SINGLE ROUND.</p>
-            <p class="tags">OTHER · CARD</p>
-            <div class="actions actions--compact">
-              <a class="btn btn--primary" href="#contact">PLAY DEMO<i></i></a>
-              <a class="signal" href="#games">VIEW GAME<i></i></a>
-            </div>
-          </div>
-        </article>
-
-        <article class="card reveal">
-          <div class="ph ph--16x10">
-            <span class="ph-type">[IMAGE] INTERSTELLAR PLINKO</span>
-            <span class="ph-meta">16:10 · hover scale 1.03</span>
-          </div>
-          <div class="card-body">
-            <span class="badge badge--soft">POPULAR</span>
-            <h3>INTERSTELLAR PLINKO</h3>
-            <p>COSMIC DROPS AND CHARGED PLANETS.</p>
-            <p class="tags">PLINKO · MULTIPLIER</p>
-            <div class="actions actions--compact">
-              <a class="btn btn--primary" href="#contact">PLAY DEMO<i></i></a>
-              <a class="signal" href="#games">VIEW GAME<i></i></a>
-            </div>
-          </div>
-        </article>
-
-        <article class="card reveal">
-          <div class="ph ph--16x10">
-            <span class="ph-type">[IMAGE] FAST CRASH</span>
-            <span class="ph-meta">16:10 · hover scale 1.03</span>
-          </div>
-          <div class="card-body">
-            <span class="badge badge--soft">POPULAR</span>
-            <h3>FAST CRASH: BLITZ</h3>
-            <p>FAST ROUNDS. INSTANT CASHOUT.</p>
-            <p class="tags">CRASH · MULTIPLIER</p>
-            <div class="actions actions--compact">
-              <span class="btn is-disabled" aria-disabled="true">DEMO UNAVAILABLE</span>
-              <a class="signal" href="#games">VIEW GAME<i></i></a>
-            </div>
-          </div>
-        </article>
-      </div>
+      <div class="card-grid" id="homeCards"></div>
     </div>
   </section>
 
@@ -563,31 +405,34 @@
       </div>
 
       <!--
-        연도와 사건을 지어내지 않는다. 기획서가 정한 네 가지 항목만 두고
-        실제 값은 자료가 확정된 뒤 채운다.
+        아래 연도와 문장은 검토용 더미다. 확정된 연혁이 아니다.
+        기획서가 정한 네 항목의 자리와 길이를 보려고 채워 둔 것이므로,
+        실제 값이 나오면 그대로 갈아 끼우고 아래 검수 표시를 지운다.
       -->
       <ol class="timeline">
         <li class="milestone reveal">
-          <span class="milestone-year">YEAR</span>
+          <span class="milestone-year">2021</span>
           <h3>Studio Foundation</h3>
-          <p class="pending">CONTENT REQUIRED</p>
+          <p>Formed around one idea: many worlds, one crown.</p>
         </li>
         <li class="milestone reveal">
-          <span class="milestone-year">YEAR</span>
+          <span class="milestone-year">2023</span>
           <h3>First Game Release</h3>
-          <p class="pending">CONTENT REQUIRED</p>
+          <p>Our first original instant win title reaches players.</p>
         </li>
         <li class="milestone reveal">
-          <span class="milestone-year">YEAR</span>
+          <span class="milestone-year">2025</span>
           <h3>Licence / Certification</h3>
-          <p class="pending">CONTENT REQUIRED</p>
+          <p>Licensed and regulated by the Malta Gaming Authority.</p>
         </li>
         <li class="milestone reveal">
-          <span class="milestone-year">YEAR</span>
+          <span class="milestone-year">2026</span>
           <h3>Landmark Partnership</h3>
-          <p class="pending">CONTENT REQUIRED</p>
+          <p>A single integration opens the full catalogue.</p>
         </li>
       </ol>
+
+      <p class="journey-flag reveal"><span class="flag">PLACEHOLDER MILESTONES — NOT CONFIRMED HISTORY</span></p>
 
       <a class="btn reveal" href="#journey">DISCOVER OUR STORY<i></i></a>
     </div>
@@ -613,39 +458,10 @@
         <h2 class="sec-title">NEWS &amp; <em>UPDATES</em></h2>
       </div>
 
-      <!-- 사실처럼 보이는 가짜 발표를 만들지 않는다. 제목은 placeholder 그대로 둔다. -->
-      <div class="news-grid">
-        <article class="news-lead reveal">
-          <div class="ph ph--16x9">
-            <span class="ph-type">[IMAGE] FEATURED ARTICLE MEDIA</span>
-            <span class="ph-meta">16:9</span>
-          </div>
-          <p class="news-meta">CATEGORY · DATE</p>
-          <h3>ARTICLE TITLE PLACEHOLDER</h3>
-          <p class="news-summary">ARTICLE SUMMARY PLACEHOLDER</p>
-          <a class="signal" href="#news">READ NEWS<i></i></a>
-        </article>
+      <!-- js/news.data.js 의 최신 네 건. js/home-content.js 가 채운다. -->
+      <div class="news-grid" id="homeNews"></div>
 
-        <ul class="news-list">
-          <li class="reveal">
-            <p class="news-meta">NEW RELEASES · DATE</p>
-            <h3>ARTICLE TITLE PLACEHOLDER</h3>
-            <a class="signal" href="#news">READ NEWS<i></i></a>
-          </li>
-          <li class="reveal">
-            <p class="news-meta">PARTNERSHIPS · DATE</p>
-            <h3>ARTICLE TITLE PLACEHOLDER</h3>
-            <a class="signal" href="#news">READ NEWS<i></i></a>
-          </li>
-          <li class="reveal">
-            <p class="news-meta">LICENSING · DATE</p>
-            <h3>ARTICLE TITLE PLACEHOLDER</h3>
-            <a class="signal" href="#news">READ NEWS<i></i></a>
-          </li>
-        </ul>
-      </div>
-
-      <a class="btn reveal" href="#news">VIEW ALL NEWS<i></i></a>
+      <a class="btn reveal" href="news.html">VIEW ALL NEWS<i></i></a>
     </div>
   </section>
 
@@ -711,7 +527,7 @@
           <p>Talk to our team about partnerships, distribution and original game experiences.</p>
           <div class="actions">
             <a class="btn btn--primary" href="#contact">START A CONVERSATION<i></i></a>
-            <a class="btn" href="#games">EXPLORE GAMES<i></i></a>
+            <a class="btn" href="games.html">EXPLORE GAMES<i></i></a>
           </div>
         </div>
       </div>
@@ -728,7 +544,7 @@
         <p class="foot-statement">By pushing conventional boundaries, we craft original instant win experiences that redefine iGaming.</p>
       </div>
       <nav class="foot-nav" aria-label="Footer">
-        <a href="#games">Games</a>
+        <a href="games.html">Games</a>
         <a href="#build">About Us</a>
         <a href="#contact">Contact</a>
         <a href="#contact">Privacy Policy</a>

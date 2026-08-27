@@ -222,6 +222,20 @@ code {
   transform: scaleX(1);
 }
 
+/*
+  지금 보고 있는 곳. 마우스를 올렸을 때 나오는 밑줄을 펴 둔 채로 남긴다.
+  자리를 따로 만들지 않아 커서가 오갈 때 선이 튀지 않는다.
+  다만 hover 와 구분은 되어야 하므로 선을 한 픽셀 두껍게 둔다.
+*/
+.topnav a.is-here {
+  color: var(--white);
+}
+
+.topnav a.is-here::after {
+  height: 2px;
+  transform: scaleX(1);
+}
+
 .top-cta {
   padding: 10px 20px;
   border: 1px solid var(--line);
@@ -231,9 +245,249 @@ code {
   transition: border-color 0.25s ease, background 0.25s ease;
 }
 
-.top-cta:hover {
+/* 눌러서 연 경우에는 커서가 버튼 위에 없을 수도 있다. 열린 동안은 켜 둔 채로 보여 준다. */
+.top-cta:hover,
+.top-cta[aria-expanded="true"] {
   border-color: var(--mint);
   background: rgb(50 218 180 / 0.12);
+}
+
+/* 본문이 더미인 기사 맨 위 표시. 첫 문단과 붙지 않게 아래만 띄운다. */
+.article-flag {
+  margin-bottom: 20px;
+}
+
+/* 연혁 아래 검수 표시. 바로 밑에 버튼이 와서 사이를 벌려 둔다. */
+.journey-flag {
+  margin-bottom: 22px;
+}
+
+/* ---- 푸터 관리자 버튼과 비밀번호 창 ---- */
+
+/* 평소에는 저작권 줄에 섞여 있다가 필요할 때만 눈에 들어오면 된다. */
+.admin-link {
+  padding: 0;
+  border: 0;
+  background: none;
+  font: inherit;
+  color: rgb(242 247 245 / 0.28);
+  letter-spacing: 0.2em;
+  cursor: pointer;
+  transition: color 0.22s ease;
+}
+
+.admin-link:hover {
+  color: var(--mint);
+}
+
+.gate {
+  width: min(420px, calc(100vw - 32px));
+  padding: 0;
+  border: 1px solid var(--line);
+  background: #060809;
+  color: var(--white);
+}
+
+.gate::backdrop {
+  background: rgb(3 4 5 / 0.82);
+}
+
+.gate-form {
+  display: flex;
+  flex-direction: column;
+  gap: 14px;
+  padding: 26px;
+}
+
+.gate-label {
+  font-family: var(--mono);
+  font-size: 10px;
+  letter-spacing: 0.3em;
+  color: var(--mint);
+}
+
+.gate-field input {
+  width: 100%;
+  padding: 12px 14px;
+  border: 1px solid var(--line);
+  background: #0b1013;
+  color: var(--white);
+  font-family: var(--mono);
+  font-size: 12px;
+  letter-spacing: 0.2em;
+}
+
+.gate-field input:focus {
+  outline: none;
+  border-color: rgb(50 218 180 / 0.55);
+  background: rgb(50 218 180 / 0.06);
+}
+
+.gate-error {
+  font-family: var(--mono);
+  font-size: 10px;
+  letter-spacing: 0.16em;
+  color: #e0705f;
+}
+
+.gate-note {
+  font-size: 12px;
+  line-height: 1.6;
+  color: var(--muted);
+}
+
+.gate-actions {
+  display: flex;
+  justify-content: flex-end;
+  gap: 10px;
+}
+
+.gate-actions .btn {
+  min-height: 38px;
+  padding: 10px 18px;
+  font-size: 10px;
+}
+
+/* ---- 상단 PLAY DEMO 패널 ---- */
+
+/*
+  헤더가 아니라 헤더 다음 형제로 붙는다. 헤더의 mix-blend-mode 를 물려받으면
+  색이 반전된다. 자리는 js/demo-menu.js 가 버튼을 재서 top / right 로 채운다.
+*/
+.demo-menu {
+  position: fixed;
+  z-index: 55;
+  width: min(672px, calc(100vw - 40px));
+  border: 1px solid var(--line);
+  background: #060809;
+  box-shadow: 0 26px 70px rgb(0 0 0 / 0.6);
+  /* 화면이 낮을 때 패널이 잘리는 대신 안에서 스크롤되게 둔다. */
+  max-height: calc(100vh - 120px);
+  overflow-y: auto;
+  opacity: 0;
+  visibility: hidden;
+  transform: translateY(-8px);
+  transition: opacity 0.22s ease, transform 0.22s ease, visibility 0.22s;
+}
+
+.demo-menu.is-open {
+  opacity: 1;
+  visibility: visible;
+  transform: none;
+}
+
+.demo-menu-head {
+  display: flex;
+  align-items: center;
+  gap: 18px;
+  padding: 16px 22px;
+}
+
+.demo-menu-head .sec-label {
+  font-size: 10px;
+  letter-spacing: 0.3em;
+  color: var(--mint);
+}
+
+.demo-menu-head .sec-dash {
+  width: 28px;
+  height: 3px;
+}
+
+.demo-menu-grid {
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  gap: 22px;
+  padding: 4px 22px 22px;
+}
+
+.demo-item {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}
+
+.demo-thumb {
+  padding: 11px;
+  transition: border-color 0.24s ease, background 0.24s ease;
+}
+
+.demo-item:hover .demo-thumb {
+  border-color: rgb(50 218 180 / 0.5);
+  background: #0d1417;
+}
+
+.demo-thumb .ph-type,
+.demo-thumb .ph-meta {
+  font-size: 9px;
+  letter-spacing: 0.16em;
+}
+
+.demo-thumb .ph-type {
+  color: rgb(50 218 180 / 0.75);
+}
+
+/* 자리표 왼쪽 위 순번. 본문 섹션 번호와 같은 말투다. */
+.demo-index {
+  position: absolute;
+  top: 10px;
+  left: 11px;
+  font-family: var(--mono);
+  font-size: 10px;
+  letter-spacing: 0.18em;
+  color: rgb(242 247 245 / 0.34);
+  transition: color 0.24s ease;
+}
+
+.demo-item:hover .demo-index {
+  color: var(--mint);
+}
+
+.demo-name {
+  /* 제목이 한 줄인 게임과 두 줄인 게임이 섞여 있다. 두 줄 자리를 늘 잡아 분류 줄을 맞춘다. */
+  min-height: 2.5em;
+  font-size: 14px;
+  font-weight: 700;
+  line-height: 1.25;
+  transition: color 0.22s ease;
+}
+
+.demo-item:hover .demo-name {
+  color: var(--mint);
+}
+
+.demo-tag {
+  /* 제목 바로 아래 붙여 둬야 제목·분류가 한 덩어리로 읽힌다. */
+  margin-top: -5px;
+  font-family: var(--mono);
+  font-size: 9px;
+  letter-spacing: 0.16em;
+  color: var(--muted);
+}
+
+/* 카드용 버튼 그대로면 패널 안에서 너무 크다. 생김새는 두고 크기만 줄인다. */
+.demo-menu .btn {
+  justify-content: center;
+  width: 100%;
+  gap: 10px;
+  min-height: 38px;
+  /* 제목이 두 줄이 되는 게임이 있어도 버튼 줄은 나란히 맞는다. */
+  margin-top: auto;
+  padding: 10px 12px;
+  font-size: 10px;
+  letter-spacing: 0.16em;
+}
+
+.demo-menu-foot {
+  display: flex;
+  justify-content: flex-end;
+  padding: 11px 22px;
+  border-top: 1px solid var(--line);
+}
+
+.demo-menu .signal {
+  padding: 4px 0;
+  font-size: 10px;
 }
 
 /* ============ SCENE ============ */
@@ -605,6 +859,12 @@ code {
   background: rgb(5 7 8 / 0.48);
 }
 
+/* 재생 중은 모양이 pause 로 바뀌는 것만으로는 약하다. 테두리로도 켜진 상태를 알린다. */
+.sequence-controls button[aria-pressed="true"] {
+  border-color: var(--mint);
+  background: rgb(50 218 180 / 0.12);
+}
+
 .sequence-controls img {
   width: 22px;
   height: 22px;
@@ -757,6 +1017,21 @@ code {
   overflow: hidden;
 }
 
+/* 사진이 들어온 자리. 테두리와 비율은 자리표와 같게 두고 안쪽만 사진으로 채운다. */
+.ph--filled {
+  padding: 0;
+  background-image: none;
+}
+
+.ph--filled img {
+  position: absolute;
+  inset: 0;
+  display: block;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
 .ph--wide {
   aspect-ratio: 21 / 9;
 }
@@ -884,6 +1159,14 @@ code {
   color: var(--mint);
 }
 
+/*
+  뱃지가 없는 게임도 같은 높이를 차지하게 둔다.
+  빼 버리면 한 줄에 놓인 카드끼리 제목 높이가 어긋난다.
+*/
+.badge--empty {
+  visibility: hidden;
+}
+
 .actions {
   display: flex;
   flex-wrap: wrap;
@@ -978,9 +1261,19 @@ code {
   letter-spacing: 0.16em;
 }
 
+/*
+  레일 칸을 남는 자리만큼 늘리지 않고, 썸네일 세 장이 딱 들어가는 폭으로 잘라 둔다.
+  늘려 두면 네 번째 장이 40px쯤 걸쳐 잘린 채로 보인다.
+
+  폭은 위 키비주얼에서 되짚는다. 키비주얼은 .feature 의 왼쪽 칸이므로
+  (100% - 24px) x 1.35/2.35 이고, 썸네일 두 장에 사이 간격을 더한 값이 그와 같아야 하니
+  한 장은 (키비주얼 - 24px) / 2 이다. 세 장에 간격 둘을 더하면 아래 식이 된다.
+  저 위의 1.35fr 1fr 을 고치면 여기도 같이 고쳐야 한다.
+*/
 .rail-row {
   display: grid;
-  grid-template-columns: minmax(0, 1fr) auto;
+  grid-template-columns: calc(1.5 * ((100% - 24px) * 1.35 / 2.35) + 12px) auto;
+  justify-content: space-between;
   align-items: end;
   gap: var(--gap-col);
   margin-top: var(--block);
@@ -1003,6 +1296,7 @@ code {
   display: none;
 }
 
+/* 칸 폭을 이미 세 장에 맞춰 잘라 두었으므로 여기서는 그냥 삼등분하면 된다. */
 .rail-item {
   flex: 0 0 calc((100% - 48px) / 3);
   scroll-snap-align: start;
@@ -1169,6 +1463,11 @@ code {
   flex-direction: column;
   padding-top: 24px;
   border-top: 1px solid var(--line);
+}
+
+/* 목록에서 걸러 낸 카드. display 를 준 요소는 [hidden] 만으로 숨지 않는다. */
+.card[hidden] {
+  display: none;
 }
 
 .card .ph {
@@ -1816,7 +2115,15 @@ code {
     grid-column: 2;
   }
 
-  /* 좁아지면 비율은 유지하고 한 화면에 보이는 장수만 3 → 2로 줄인다. */
+  /*
+    좁아지면 비율은 유지하고 한 화면에 보이는 장수만 3 → 2로 줄인다.
+    여기서는 위 키비주얼도 한 칸으로 접혀 폭을 맞출 상대가 없으므로,
+    레일 칸은 다시 남는 자리를 그대로 쓴다.
+  */
+  .rail-row {
+    grid-template-columns: minmax(0, 1fr) auto;
+  }
+
   .rail-item {
     flex-basis: calc((100% - 24px) / 2);
   }
@@ -1837,6 +2144,10 @@ code {
 @media (max-width: 900px) {
   .topnav {
     display: none;
+  }
+
+  .demo-menu {
+    width: min(560px, calc(100vw - 32px));
   }
 
   /* 자리만 차지하는 게 아니라 통째로 없앤다. 높이가 1800vh 라 남겨 두면 빈 스크롤이 된다. */
@@ -1871,6 +2182,51 @@ code {
 
   .brand img {
     width: 120px;
+  }
+
+  .demo-menu {
+    width: calc(100vw - 24px);
+  }
+
+  .demo-menu-head,
+  .demo-menu-foot {
+    padding-inline: 16px;
+  }
+
+  /* 세 칸을 좁은 폭에 나란히 두면 글자가 다 깨진다. 가로로 눕혀 한 줄씩 놓는다. */
+  .demo-menu-grid {
+    grid-template-columns: minmax(0, 1fr);
+    gap: 16px;
+    padding: 4px 16px 16px;
+  }
+
+  .demo-item {
+    display: grid;
+    grid-template-columns: 124px minmax(0, 1fr);
+    /* 행을 적어 두지 않으면 아래 grid-row 의 -1 이 첫 줄로 접혀 자리표가 한 칸만 차지한다. */
+    grid-template-rows: auto auto auto;
+    column-gap: 14px;
+    row-gap: 6px;
+    align-content: center;
+  }
+
+  .demo-thumb {
+    grid-row: 1 / -1;
+    align-self: center;
+  }
+
+  /* 자리표가 작아져 세 줄이 겹쳐 보인다. 비율 표기는 접는다. */
+  .demo-thumb .ph-meta {
+    display: none;
+  }
+
+  /* 한 줄에 하나씩 놓이므로 옆 칸과 줄을 맞출 일이 없다. 빈 줄을 잡아 둘 이유도 없다. */
+  .demo-name {
+    min-height: 0;
+  }
+
+  .demo-menu .btn {
+    margin-top: 4px;
   }
 
   .rail-item {
@@ -1925,5 +2281,869 @@ code {
   .reveal {
     opacity: 1;
     transform: none;
+  }
+}
+
+/* ============ GAME DETAIL ============ */
+/*
+  game.html 전용. 홈에서 쓰던 조각(.wrap · .sec-head · .ph · .btn · .meta · .rows · .rail-*)을
+  그대로 쓰고, 여기서는 그 조각들을 놓는 자리만 정의한다.
+
+  홈에는 상단에 시퀀스가 있어 고정 헤더 아래가 가려지지 않지만
+  이 페이지는 첫 섹션이 바로 시작하므로 헤더 높이만큼 위를 비워야 한다.
+*/
+
+/* 배경은 홈처럼 한 칸씩 엇갈린다. hero(070a0b) → spec(bg) → trust(띠) */
+.page-game .gd-hero {
+  padding: 132px 0 var(--sec-pad);
+  background: #070a0b;
+}
+
+/* 화살표만 뒤집는다. hover 이동 방향도 따라가야 앞으로 가는 링크와 헷갈리지 않는다. */
+.signal--back i {
+  rotate: 180deg;
+}
+
+.signal--back:hover i {
+  transform: translateX(-5px);
+}
+
+.signal--back {
+  margin-bottom: 24px;
+}
+
+.gd-top {
+  display: grid;
+  grid-template-columns: 1.35fr 1fr;
+  gap: var(--gap-col-lg);
+  padding-top: 32px;
+  border-top: 1px solid var(--line);
+}
+
+/* ---- 왼쪽 위: 스크린샷과 영상 ---- */
+
+/*
+  무대를 16:9 로 고정해 둔다. 안에 들어오는 게 이미지든 영상이든 자리표든
+  높이가 같아야 썸네일을 눌렀을 때 아래 내용이 밀리지 않는다.
+*/
+.gd-stage {
+  position: relative;
+  margin: 0;
+  aspect-ratio: 16 / 9;
+  border: 1px solid var(--line);
+  background: #0b1013;
+  overflow: hidden;
+}
+
+.gd-stage .gd-frame {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  border: 0;
+  object-fit: cover;
+}
+
+/*
+  자리표의 설명은 아래쪽에 붙는다. 버튼을 같은 모서리에 두면 좁은 화면에서 글자를 덮는다.
+  반대쪽인 오른쪽 위에 둔다.
+*/
+.gd-expand {
+  position: absolute;
+  right: 0;
+  top: 0;
+  z-index: 2;
+  display: inline-flex;
+  align-items: center;
+  gap: 12px;
+  padding: 12px 18px;
+  border: 0;
+  border-bottom: 1px solid var(--line);
+  border-left: 1px solid var(--line);
+  background: rgb(5 7 8 / 0.82);
+  color: inherit;
+  font-family: var(--mono);
+  font-size: 10px;
+  letter-spacing: 0.24em;
+  cursor: pointer;
+  transition: color 0.22s ease, background 0.22s ease, border-color 0.22s ease;
+}
+
+.gd-expand:hover {
+  border-color: var(--mint);
+  background: var(--mint);
+  color: #04120d;
+}
+
+/* 네 귀퉁이만 그린 확대 표시. 아이콘 파일 없이 선만으로 만든다. */
+.gd-expand i {
+  position: relative;
+  width: 12px;
+  height: 12px;
+  border: 1px solid currentColor;
+  border-left-color: transparent;
+  border-bottom-color: transparent;
+}
+
+.gd-expand i::after {
+  content: "";
+  position: absolute;
+  left: -3px;
+  bottom: -3px;
+  width: 12px;
+  height: 12px;
+  border: 1px solid currentColor;
+  border-top-color: transparent;
+  border-right-color: transparent;
+}
+
+.gd-stage-note {
+  margin: 12px 0 0;
+  font-family: var(--mono);
+  font-size: 10px;
+  letter-spacing: 0.2em;
+  color: var(--muted);
+}
+
+.gd-thumbs {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 24px;
+  margin-top: 24px;
+}
+
+.gd-thumb {
+  padding: 0;
+  border: 0;
+  background: none;
+  color: inherit;
+  text-align: left;
+  cursor: pointer;
+  opacity: 0.48;
+  transition: opacity 0.25s ease;
+}
+
+.gd-thumb:hover,
+.gd-thumb.is-current {
+  opacity: 1;
+}
+
+/* 선택 상태를 흐리기 차이로만 두지 않고 테두리로도 알린다. 레일과 같은 규칙이다. */
+.gd-thumb.is-current .gd-thumb-frame {
+  border-color: var(--mint);
+}
+
+.gd-thumb-frame {
+  display: block;
+  width: 100%;
+  aspect-ratio: 16 / 9;
+  border: 1px solid var(--line);
+  object-fit: cover;
+}
+
+/* 썸네일 크기에서는 자리표의 두 줄이 다 들어가지 않는다. 종류만 남긴다. */
+.gd-thumb .ph {
+  padding: 10px;
+}
+
+.gd-thumb .ph-type {
+  font-size: 9px;
+  letter-spacing: 0.14em;
+}
+
+.gd-thumb .ph-meta {
+  display: none;
+}
+
+.gd-thumb-name {
+  display: block;
+  margin-top: 12px;
+  font-family: var(--mono);
+  font-size: 10px;
+  letter-spacing: 0.2em;
+}
+
+/* ---- 오른쪽: 정보와 데모 ---- */
+
+.gd-info {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+}
+
+.gd-title {
+  margin: 16px 0 0;
+  font-size: clamp(28px, 3.2vw, 46px);
+  font-weight: 800;
+  line-height: 1.05;
+  letter-spacing: -0.03em;
+  text-transform: uppercase;
+}
+
+/* 한 줄 카피는 본문보다 밝게 둔다. 제목 다음으로 먼저 읽혀야 하는 줄이다. */
+.gd-info > .feature-premise {
+  color: rgb(242 247 245 / 0.86);
+}
+
+.gd-summary {
+  margin: 16px 0 0;
+  font-size: 14px;
+  line-height: 1.85;
+  color: rgb(242 247 245 / 0.62);
+}
+
+.gd-info .actions {
+  margin-top: 32px;
+}
+
+.gd-info .meta {
+  align-self: stretch;
+  margin-top: var(--block);
+}
+
+/* .btn 을 button 으로도 쓴다. 기본 모양만 지운다. */
+button.btn {
+  background: none;
+  color: inherit;
+  cursor: pointer;
+}
+
+/* ---- 세부 정보 ---- */
+
+.gd-spec {
+  padding: var(--sec-pad) 0;
+  background: var(--bg);
+}
+
+.gd-spec-grid {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: var(--gap-col-lg);
+}
+
+.gd-spec-label {
+  margin: 0 0 16px;
+  font-family: var(--mono);
+  font-size: 10px;
+  letter-spacing: 0.24em;
+  color: var(--muted);
+}
+
+.gd-spec-flag {
+  margin: var(--block) 0 0;
+}
+
+/* ---- 전체 보기 ---- */
+
+.lightbox {
+  position: fixed;
+  inset: 0;
+  z-index: 120;
+  display: flex;
+  flex-direction: column;
+  /* 반투명으로 두면 아래 고정 헤더가 비쳐서 두 화면이 겹쳐 보인다. */
+  background: #030405;
+  opacity: 0;
+  transition: opacity 0.2s ease;
+}
+
+/*
+  display:flex 가 [hidden] 의 display:none 을 이긴다.
+  이걸 빼면 닫힌 상태에서도 투명한 덮개가 화면 전체의 클릭을 가로챈다.
+*/
+.lightbox[hidden] {
+  display: none;
+}
+
+.lightbox.is-open {
+  opacity: 1;
+}
+
+.lightbox-bar {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 24px;
+  padding: 20px clamp(20px, 4vw, 56px);
+  border-bottom: 1px solid var(--line);
+}
+
+.lightbox-label,
+.lightbox-count {
+  font-family: var(--mono);
+  font-size: 10px;
+  letter-spacing: 0.24em;
+  color: var(--muted);
+  white-space: nowrap;
+}
+
+/* 제목이 길어도 줄로 접히지 않게 한다. 접히면 그만큼 사진 자리가 줄어든다. */
+.lightbox-label {
+  min-width: 0;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+
+.lightbox-tools {
+  display: flex;
+  align-items: center;
+  gap: 16px;
+}
+
+.lightbox-tools button {
+  min-height: 36px;
+  padding: 8px 18px;
+  border: 1px solid var(--line);
+  background: none;
+  color: inherit;
+  font-family: var(--mono);
+  font-size: 10px;
+  letter-spacing: 0.24em;
+  cursor: pointer;
+  transition: border-color 0.22s ease, color 0.22s ease;
+}
+
+.lightbox-tools button:hover {
+  border-color: var(--mint);
+  color: var(--mint);
+}
+
+.lightbox-body {
+  display: flex;
+  align-items: center;
+  gap: 24px;
+  min-height: 0;
+  flex: 1;
+  padding: clamp(20px, 4vw, 48px);
+}
+
+.lightbox-stage {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex: 1;
+  min-width: 0;
+  height: 100%;
+  margin: 0;
+}
+
+/*
+  화면을 넘지 않는 선에서 최대한 키운다. 세로가 짧은 화면에서도
+  높이가 먼저 걸려 잘리지 않아야 한다.
+*/
+.lightbox-stage .gd-frame {
+  max-width: 100%;
+  max-height: 100%;
+  object-fit: contain;
+}
+
+/* 자리표는 스스로 크기를 갖지 못하므로 16:9 로 채운다. */
+.lightbox-stage .ph.gd-frame {
+  width: min(100%, calc((100vh - 190px) * 16 / 9));
+  aspect-ratio: 16 / 9;
+}
+
+.lightbox-nav {
+  flex: 0 0 auto;
+  width: 48px;
+  height: 48px;
+  border: 1px solid var(--line);
+  background: none;
+  color: inherit;
+  cursor: pointer;
+  transition: border-color 0.22s ease, color 0.22s ease;
+}
+
+.lightbox-nav:hover {
+  border-color: var(--mint);
+  color: var(--mint);
+}
+
+body.is-locked {
+  overflow: hidden;
+}
+
+@media (max-width: 1080px) {
+  .page-game .gd-hero {
+    padding-top: 116px;
+  }
+
+  .gd-top,
+  .gd-spec-grid {
+    grid-template-columns: 1fr;
+  }
+
+  /* 정보가 아래로 내려오면 붙어 보인다. 격자 간격만큼 다시 벌린다. */
+  .gd-info {
+    padding-top: 8px;
+  }
+}
+
+@media (max-width: 560px) {
+  .page-game .gd-hero {
+    padding-top: 96px;
+  }
+
+  .gd-thumbs {
+    grid-template-columns: repeat(2, 1fr);
+    gap: 16px;
+  }
+
+  /*
+    좁은 화면에서 좌우 화살표가 사진과 자리를 나눠 가지면 사진이 손바닥만 해진다.
+    화살표를 사진 위로 띄우고 가로는 전부 사진에 준다.
+  */
+  .lightbox-body {
+    position: relative;
+    padding: 16px;
+  }
+
+  .lightbox-nav {
+    position: absolute;
+    bottom: 16px;
+    z-index: 2;
+    width: 44px;
+    height: 44px;
+    background: rgb(5 7 8 / 0.72);
+  }
+
+  .lightbox-nav[data-direction="-1"] {
+    left: 16px;
+  }
+
+  .lightbox-nav[data-direction="1"] {
+    right: 16px;
+  }
+
+  .lightbox-tools {
+    gap: 8px;
+  }
+
+  .lightbox-tools button {
+    padding: 8px 12px;
+  }
+
+  .lightbox-stage .ph.gd-frame {
+    width: 100%;
+  }
+}
+
+/* ============ NEWS INDEX ============ */
+/*
+  news.html 전용. 홈의 뉴스 섹션이 featured 하나 + 짧은 목록이라면
+  여기서는 전부를 한 줄씩 아래로 쌓는다. 줄 하나가 기사 하나다.
+
+  줄의 뼈대는 홈 03 섹션의 .row 와 같다. 왼쪽에 고정폭, 가운데는 남는 만큼,
+  오른쪽은 내용만큼. 선 하나와 hover 틴트로만 경계를 만든다.
+*/
+
+.page-news .news-index {
+  padding: 132px 0 var(--sec-pad);
+  background: #070a0b;
+}
+
+/* 목록 위에 걸리는 결과 개수. 뉴스와 게임이 같은 자리, 같은 모양을 쓴다. */
+.news-count,
+.game-count {
+  font-family: var(--mono);
+  font-size: 11px;
+  letter-spacing: 0.24em;
+  color: var(--muted);
+}
+
+/*
+  위쪽 선을 두지 않는다. 바로 앞의 .controls 가 이미 선으로 닫혀 있어서,
+  여기에 또 그으면 48px 사이에 같은 선이 둘 생긴다.
+*/
+.news-rows {
+  margin: 0;
+  padding: 0;
+  list-style: none;
+}
+
+.news-rows > li {
+  border-bottom: 1px solid var(--line);
+}
+
+.news-row {
+  display: grid;
+  grid-template-columns: 260px minmax(0, 1fr) auto;
+  align-items: center;
+  gap: var(--gap-col);
+  padding: 24px 0;
+  transition: background 0.3s ease;
+}
+
+.news-row:hover {
+  background: rgb(50 218 180 / 0.045);
+}
+
+.news-row:hover .ph,
+.news-row:hover .news-row-thumb {
+  border-color: var(--mint);
+}
+
+/* 사진이 들어온 줄. 자리표와 같은 칸을 차지해야 줄 높이가 들쭉날쭉해지지 않는다. */
+.news-row-thumb {
+  display: block;
+  width: 100%;
+  aspect-ratio: 16 / 9;
+  border: 1px solid var(--line);
+  object-fit: cover;
+  transition: border-color 0.22s ease;
+}
+
+.news-row-body {
+  display: block;
+  min-width: 0;
+}
+
+.news-row .news-meta {
+  display: block;
+}
+
+.news-row-title {
+  display: block;
+  margin-top: 12px;
+  font-size: clamp(18px, 1.9vw, 26px);
+  font-weight: 800;
+  line-height: 1.2;
+  letter-spacing: -0.025em;
+}
+
+.news-row-summary {
+  display: block;
+  margin-top: 12px;
+  max-width: 560px;
+  font-size: 13.5px;
+  line-height: 1.8;
+  color: rgb(242 247 245 / 0.6);
+}
+
+/* 줄 전체가 링크다. 화살표는 표시일 뿐이라 스스로 hover 를 갖지 않는다. */
+.news-row .signal {
+  padding: 0;
+  white-space: nowrap;
+}
+
+.news-row:hover .signal {
+  color: var(--mint);
+}
+
+.news-row:hover .signal i {
+  transform: translateX(5px);
+}
+
+.news-empty,
+.games-empty {
+  margin: 32px 0 0;
+  font-family: var(--mono);
+  font-size: 11px;
+  letter-spacing: 0.24em;
+  color: var(--muted);
+}
+
+.news-more {
+  margin-top: var(--block);
+}
+
+.news-flag,
+.games-flag {
+  margin: var(--block) 0 0;
+}
+
+@media (max-width: 1080px) {
+  .page-news .news-index {
+    padding-top: 116px;
+  }
+
+  .news-row {
+    grid-template-columns: 200px minmax(0, 1fr) auto;
+  }
+}
+
+@media (max-width: 560px) {
+  .page-news .news-index {
+    padding-top: 96px;
+  }
+
+  /* 한 줄에 셋을 욱여넣으면 미디어가 우표만 해진다. 위아래로 쌓는다. */
+  .news-row {
+    grid-template-columns: 1fr;
+    gap: 16px;
+    padding: 24px 0 20px;
+  }
+
+  .news-row .signal {
+    justify-self: start;
+  }
+
+  .news-count,
+  .game-count {
+    flex: 1 1 100%;
+  }
+
+  /*
+    좁아지면 칩이 여러 줄로 접힌다. 오른쪽 정렬을 유지하면 줄마다 시작점이 달라져
+    계단처럼 보인다. 개수도 이미 왼쪽에 있으니 여기서는 왼쪽에 맞춘다.
+  */
+  .page-news .chips,
+  .page-games .chips {
+    justify-content: flex-start;
+    margin-left: 0;
+  }
+}
+
+/* ============ GAMES INDEX ============ */
+/*
+  games.html 전용. 카드와 필터는 홈의 GAMES 섹션 것을 그대로 쓴다.
+  다른 점은 여기서 검색과 칩이 실제로 목록을 거른다는 것뿐이라, 새로 만드는 모양이 없다.
+*/
+
+.page-games .games-index {
+  padding: 132px 0 var(--sec-pad);
+  background: #070a0b;
+}
+
+@media (max-width: 1080px) {
+  .page-games .games-index {
+    padding-top: 116px;
+  }
+}
+
+@media (max-width: 560px) {
+  .page-games .games-index {
+    padding-top: 96px;
+  }
+}
+
+/* ============ ARTICLE ============ */
+/*
+  article.html 전용. 본문은 읽으라고 있는 화면이라 다른 곳보다 글자를 키우고
+  줄 간격을 넓혔다. 대신 폭을 720px 로 묶는다. 한 줄이 길어지면 다음 줄 첫 글자를
+  놓치기 때문에, 여기서만 .wrap 의 1360px 을 따르지 않는다.
+*/
+
+.page-article .article {
+  padding: 132px 0 var(--sec-pad);
+  background: #070a0b;
+}
+
+.article-head {
+  max-width: 900px;
+  margin-top: var(--block);
+}
+
+.article-title {
+  margin: 16px 0 0;
+  font-size: clamp(30px, 4vw, 58px);
+  font-weight: 800;
+  line-height: 1.06;
+  letter-spacing: -0.035em;
+  text-transform: uppercase;
+}
+
+.article-lead {
+  margin: 24px 0 0;
+  max-width: 700px;
+  font-size: clamp(15px, 1.4vw, 18px);
+  line-height: 1.75;
+  color: rgb(242 247 245 / 0.78);
+}
+
+.article-hero {
+  margin: var(--block) 0 0;
+}
+
+/* 자리표(.ph--wide)와 같은 21:9 로 잘라 쓴다. 사진 유무로 화면 높이가 바뀌면 안 된다. */
+.article-hero-img {
+  display: block;
+  width: 100%;
+  aspect-ratio: 21 / 9;
+  border: 1px solid var(--line);
+  object-fit: cover;
+}
+
+.article-grid {
+  display: grid;
+  grid-template-columns: 240px minmax(0, 1fr);
+  gap: var(--gap-col-lg);
+  margin-top: var(--block);
+  padding-top: var(--block);
+  border-top: 1px solid var(--line);
+}
+
+/* 고정 헤더 높이만큼 내려서 붙인다. 그러지 않으면 첫 줄이 로고 뒤로 들어간다. */
+.article-side {
+  position: sticky;
+  top: 112px;
+  align-self: start;
+}
+
+.article-side .meta {
+  margin-bottom: 24px;
+}
+
+.article-body {
+  max-width: 720px;
+}
+
+.article-body p {
+  margin: 0 0 24px;
+  font-size: 15px;
+  line-height: 1.95;
+  color: rgb(242 247 245 / 0.72);
+}
+
+.article-h {
+  margin: 48px 0 20px;
+  font-size: clamp(18px, 2vw, 24px);
+  font-weight: 800;
+  letter-spacing: -0.02em;
+  text-transform: uppercase;
+}
+
+/* 본문 첫 블록이 소제목이면 위에 빈 칸이 두 번 생긴다. */
+.article-body > :first-child {
+  margin-top: 0;
+}
+
+.article-quote {
+  margin: 40px 0;
+  padding-left: 24px;
+  border-left: 2px solid var(--mint);
+}
+
+.article-quote blockquote {
+  margin: 0;
+  font-size: clamp(19px, 2.1vw, 26px);
+  font-weight: 700;
+  line-height: 1.4;
+  letter-spacing: -0.02em;
+}
+
+.article-quote figcaption {
+  margin-top: 16px;
+  font-family: var(--mono);
+  font-size: 10px;
+  letter-spacing: 0.24em;
+  color: var(--muted);
+}
+
+/* 점 대신 짧은 민트 선을 쓴다. 본문 어디에도 둥근 모양을 두지 않는다. */
+.article-list {
+  margin: 0 0 24px;
+  padding: 0;
+  list-style: none;
+  border-top: 1px solid var(--line);
+}
+
+.article-list li {
+  position: relative;
+  padding: 16px 0 16px 28px;
+  border-bottom: 1px solid var(--line);
+  font-size: 14.5px;
+  line-height: 1.8;
+  color: rgb(242 247 245 / 0.72);
+}
+
+.article-list li::before {
+  content: "";
+  position: absolute;
+  left: 0;
+  top: 29px;
+  width: 12px;
+  height: 1px;
+  background: var(--mint);
+}
+
+.article-figure {
+  margin: 40px 0;
+}
+
+/* .signal 을 button 으로도 쓴다. 기본 모양만 지운다. */
+button.signal {
+  border: 0;
+  border-bottom: 1px solid transparent;
+  background: none;
+  color: inherit;
+  cursor: pointer;
+}
+
+.article-nav {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: var(--gap-col);
+  margin-top: var(--sec-pad);
+  padding-top: var(--block);
+  border-top: 1px solid var(--line);
+}
+
+.article-nav-item {
+  display: block;
+  padding: 24px;
+  border: 1px solid var(--line);
+  transition: border-color 0.22s ease, background 0.22s ease;
+}
+
+.article-nav-item:hover {
+  border-color: var(--mint);
+  background: rgb(50 218 180 / 0.05);
+}
+
+/* 뒤쪽 기사는 오른쪽 끝에 붙여 방향을 알린다. */
+.article-nav-item--older {
+  text-align: right;
+}
+
+.article-nav-role {
+  display: block;
+  font-family: var(--mono);
+  font-size: 10px;
+  letter-spacing: 0.24em;
+  color: var(--muted);
+}
+
+.article-nav-title {
+  display: block;
+  margin-top: 12px;
+  font-size: 16px;
+  font-weight: 700;
+  line-height: 1.35;
+  letter-spacing: -0.01em;
+}
+
+@media (max-width: 1080px) {
+  .page-article .article {
+    padding-top: 116px;
+  }
+
+  /* 옆줄이 본문 위로 접힌다. 붙어 있을 자리가 없으므로 sticky 도 푼다. */
+  .article-grid {
+    grid-template-columns: 1fr;
+    gap: var(--block);
+  }
+
+  .article-side {
+    position: static;
+  }
+}
+
+@media (max-width: 560px) {
+  .page-article .article {
+    padding-top: 96px;
+  }
+
+  .article-nav {
+    grid-template-columns: 1fr;
+  }
+
+  /* 한 줄로 서면 좌우 정렬 차이가 방향이 아니라 실수로 읽힌다. */
+  .article-nav-item--older {
+    text-align: left;
+  }
+
+  .article-nav-empty {
+    display: none;
   }
 }

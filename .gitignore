@@ -4,6 +4,11 @@ _source-frames-bridge/
 _source-frames-2/
 _source-reel/
 
+# 시퀀스 1을 352장으로 늘리기 전의 264장 원본. 되돌릴 일에 대비해 남겨 둔 것이라 올리지 않는다.
+_source-frames-264/
+
+# 뉴스 원본은 두 장뿐이고 가벼워 함께 올린다. 이미지를 다시 뽑을 때 필요하다.
+
 # 변환·검수용 로컬 도구
 .tools/node_modules/
 .tools/shots/

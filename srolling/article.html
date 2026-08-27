@@ -1,0 +1,127 @@
+<!doctype html>
+<html lang="ko">
+<head>
+<meta charset="utf-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover" />
+<title>NEWS — BLITZCROWN</title>
+<link rel="icon" href="data:," />
+<meta name="description" content="Releases, partnerships and licensing updates from Blitzcrown." />
+<link rel="preconnect" href="https://fonts.googleapis.com" />
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet" />
+<link rel="stylesheet" href="styles.css" />
+</head>
+<body class="page-article">
+
+<div class="topline" aria-hidden="true"><i id="topline"></i></div>
+
+<header class="topbar">
+  <a class="brand" href="index.html" aria-label="Blitzcrown home">
+    <img src="assets/blitzcrown-logo.svg" alt="Blitzcrown" />
+  </a>
+  <nav class="topnav">
+    <a href="games.html">GAMES</a>
+    <a href="news.html">NEWS</a>
+    <a href="index.html#build">ABOUT US</a>
+    <a href="index.html#contact">CONTACT</a>
+  </nav>
+  <a class="top-cta" href="index.html#release">PLAY DEMO</a>
+</header>
+
+<main id="top">
+
+  <!-- ============ 01 / ARTICLE ============ -->
+  <!--
+    본문은 js/news-data.js 의 body 배열에서 만들어진다. 여기에는 자리만 있다.
+    왼쪽 세로줄(카테고리·날짜·공유)은 데스크톱에서 본문을 따라 붙어 있고,
+    좁아지면 본문 위로 접힌다.
+  -->
+  <article class="article">
+    <div class="wrap">
+      <a class="signal signal--back" href="news.html" id="articleBack"><i></i>ALL NEWS</a>
+
+      <header class="sec-head">
+        <span class="sec-label" id="articleLabel">01 / FROM THE CROWN</span>
+        <span class="sec-line"></span>
+        <span class="sec-dash"></span>
+      </header>
+
+      <div class="article-head reveal">
+        <p class="news-meta" id="articleMeta"></p>
+        <h1 class="article-title" id="articleTitle"></h1>
+        <p class="article-lead" id="articleLead"></p>
+      </div>
+
+      <figure class="article-hero reveal" id="articleHero"></figure>
+
+      <div class="article-grid">
+        <aside class="article-side">
+          <dl class="meta" id="articleFacts"></dl>
+          <button class="signal" type="button" id="articleCopy">COPY LINK<i></i></button>
+        </aside>
+
+        <div class="article-body" id="articleBody"></div>
+      </div>
+
+      <!-- 앞뒤 기사. 목록으로 돌아갔다 다시 들어오지 않아도 되게 둔다. -->
+      <nav class="article-nav" id="articleNav" aria-label="다른 기사"></nav>
+    </div>
+  </article>
+
+  <!-- ============ 02 / NEXT STEP ============ -->
+  <section class="outro" id="contact">
+    <div class="wrap">
+      <header class="sec-head">
+        <span class="sec-label">02 / NEXT STEP</span>
+        <span class="sec-line"></span>
+        <span class="sec-dash"></span>
+      </header>
+      <div class="outro-grid">
+        <h2 class="outro-title reveal">LET'S BUILD<br />THE NEXT<br /><em>ORIGINAL EXPERIENCE.</em></h2>
+        <div class="outro-side reveal">
+          <p>Talk to our team about partnerships, distribution and original game experiences.</p>
+          <div class="actions">
+            <a class="btn btn--primary" href="index.html#contact">START A CONVERSATION<i></i></a>
+            <a class="btn" href="games.html">EXPLORE GAMES<i></i></a>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+</main>
+
+<footer class="foot">
+  <div class="wrap">
+    <div class="foot-top">
+      <div class="foot-brand">
+        <p class="foot-mark">BLITZCROWN</p>
+        <p class="foot-statement">By pushing conventional boundaries, we craft original instant win experiences that redefine iGaming.</p>
+      </div>
+      <nav class="foot-nav" aria-label="Footer">
+        <a href="games.html">Games</a>
+        <a href="index.html#build">About Us</a>
+        <a href="news.html">News</a>
+        <a href="index.html#contact">Contact</a>
+      </nav>
+    </div>
+
+    <div class="foot-legal">
+      <p>This site is operated by Massive Gaming Malta Limited.</p>
+      <p>Registration number C109221.</p>
+      <p>Registered address: 97, Triq Windsor, Sliema, SLM 1853, Malta.</p>
+      <p>Licensed and regulated by the Malta Gaming Authority.</p>
+      <p>Licence number MGA/B2B/1088/2025.</p>
+      <span class="flag">LEGAL REVIEW REQUIRED</span>
+    </div>
+
+    <div class="foot-bottom">
+      <span>© 2026 BLITZCROWN</span>
+      <span>MANY WORLDS. ONE CROWN.</span>
+    </div>
+  </div>
+</footer>
+
+<script type="module" src="js/article.js"></script>
+</body>
+</html>

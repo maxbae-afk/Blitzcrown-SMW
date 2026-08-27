@@ -1,0 +1,578 @@
+/*
+  관리자 화면 전용.
+
+  사이트 본문과 같은 색·글꼴을 쓰되(styles.css 의 변수), 짜임은 다르다.
+  본문은 읽는 화면이고 여기는 고치는 화면이라 여백을 훨씬 좁게 잡았다.
+  한 화면에 목록과 입력칸이 같이 보여야 왔다 갔다 하지 않는다.
+*/
+
+.page-admin {
+  overflow: auto;
+}
+
+.adm {
+  display: flex;
+  flex-direction: column;
+  min-height: 100vh;
+}
+
+/* ---- 위쪽 두 줄 ---- */
+
+.adm-top,
+.adm-bar {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 20px;
+  padding: 0 22px;
+  border-bottom: 1px solid var(--line);
+}
+
+.adm-top {
+  height: 62px;
+  background: #060809;
+}
+
+.adm-bar {
+  height: 46px;
+  background: #05070a;
+}
+
+.adm-top-left,
+.adm-top-right,
+.adm-bar-right {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+}
+
+.adm-mark {
+  font-size: 15px;
+  font-weight: 800;
+  letter-spacing: 0.02em;
+}
+
+.adm-role,
+.adm-mode,
+.adm-note {
+  font-family: var(--mono);
+  font-size: 10px;
+  letter-spacing: 0.2em;
+  color: var(--muted);
+}
+
+.adm-role {
+  padding: 4px 8px;
+  border: 1px solid var(--line);
+  color: var(--mint);
+}
+
+/* 파일에 저장되는 상태와 브라우저에만 남는 상태를 색으로 갈라 둔다. */
+.adm-mode[data-mode="server"] {
+  color: var(--mint);
+}
+
+.adm-mode[data-mode="browser"] {
+  color: #e0a94f;
+}
+
+.adm-top .btn {
+  min-height: 34px;
+  padding: 9px 16px;
+  font-size: 10px;
+  letter-spacing: 0.16em;
+}
+
+.adm-tabs {
+  display: flex;
+  gap: 0;
+  height: 100%;
+}
+
+.adm-tab {
+  padding: 0 18px;
+  border: 0;
+  border-bottom: 2px solid transparent;
+  background: none;
+  color: var(--muted);
+  font-family: var(--mono);
+  font-size: 11px;
+  letter-spacing: 0.2em;
+  cursor: pointer;
+  transition: color 0.2s ease, border-color 0.2s ease;
+}
+
+.adm-tab[aria-selected="true"] {
+  border-bottom-color: var(--mint);
+  color: var(--white);
+}
+
+.adm-ghost {
+  padding: 0;
+  border: 0;
+  background: none;
+  color: var(--muted);
+  font-family: var(--mono);
+  font-size: 10px;
+  letter-spacing: 0.18em;
+  cursor: pointer;
+  transition: color 0.2s ease;
+}
+
+.adm-ghost:hover {
+  color: var(--mint);
+}
+
+/* ---- 목록과 편집칸 ---- */
+
+.adm-body {
+  display: grid;
+  grid-template-columns: 300px minmax(0, 1fr);
+  flex: 1;
+  min-height: 0;
+}
+
+.adm-list {
+  display: flex;
+  flex-direction: column;
+  border-right: 1px solid var(--line);
+  background: #05070a;
+}
+
+.adm-list-head {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 12px;
+  padding: 14px 16px;
+  border-bottom: 1px solid var(--line);
+  font-family: var(--mono);
+  font-size: 10px;
+  letter-spacing: 0.18em;
+  color: var(--muted);
+}
+
+.adm-items {
+  flex: 1;
+  overflow-y: auto;
+  list-style: none;
+}
+
+.adm-item {
+  display: grid;
+  grid-template-columns: 26px minmax(0, 1fr) auto;
+  align-items: center;
+  gap: 10px;
+  width: 100%;
+  padding: 11px 16px;
+  border: 0;
+  border-bottom: 1px solid rgb(242 247 245 / 0.05);
+  background: none;
+  color: var(--white);
+  text-align: left;
+  cursor: pointer;
+  transition: background 0.18s ease;
+}
+
+.adm-item:hover {
+  background: rgb(242 247 245 / 0.03);
+}
+
+.adm-item[aria-current="true"] {
+  background: rgb(50 218 180 / 0.08);
+  box-shadow: inset 2px 0 0 var(--mint);
+}
+
+.adm-item-no {
+  font-family: var(--mono);
+  font-size: 10px;
+  color: rgb(242 247 245 / 0.3);
+}
+
+.adm-item-name {
+  overflow: hidden;
+  font-size: 13px;
+  font-weight: 600;
+  line-height: 1.3;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+
+.adm-item-tag {
+  font-family: var(--mono);
+  font-size: 9px;
+  letter-spacing: 0.14em;
+  color: var(--muted);
+}
+
+.adm-item[data-pending="true"] .adm-item-tag {
+  color: #e0a94f;
+}
+
+.adm-editor {
+  overflow-y: auto;
+  padding: 26px 28px 60px;
+}
+
+.adm-empty {
+  padding: 40px 0;
+  color: var(--muted);
+}
+
+/* ---- 입력칸 ---- */
+
+.adm-head {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 16px;
+  padding-bottom: 16px;
+  border-bottom: 1px solid var(--line);
+}
+
+.adm-head h2 {
+  font-size: 20px;
+  font-weight: 800;
+  letter-spacing: 0.01em;
+}
+
+.adm-head-tools {
+  display: flex;
+  gap: 14px;
+}
+
+.adm-group {
+  padding: 22px 0;
+  border-bottom: 1px solid var(--line);
+}
+
+.adm-group > legend,
+.adm-group-title {
+  padding-bottom: 14px;
+  font-family: var(--mono);
+  font-size: 10px;
+  letter-spacing: 0.24em;
+  color: var(--mint);
+}
+
+.adm-grid {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 16px;
+}
+
+.adm-grid--wide {
+  grid-template-columns: minmax(0, 1fr);
+}
+
+.f {
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
+  min-width: 0;
+}
+
+.f-label {
+  font-family: var(--mono);
+  font-size: 9px;
+  letter-spacing: 0.2em;
+  color: var(--muted);
+}
+
+.f input[type="text"],
+.f input[type="url"],
+.f select,
+.f textarea {
+  width: 100%;
+  padding: 10px 12px;
+  border: 1px solid var(--line);
+  background: #0b1013;
+  color: var(--white);
+  font-family: inherit;
+  font-size: 13px;
+  line-height: 1.5;
+}
+
+.f textarea {
+  min-height: 88px;
+  resize: vertical;
+}
+
+.f input:focus,
+.f select:focus,
+.f textarea:focus {
+  outline: none;
+  border-color: rgb(50 218 180 / 0.55);
+  background: rgb(50 218 180 / 0.05);
+}
+
+.f-hint {
+  font-size: 11px;
+  line-height: 1.5;
+  color: var(--muted);
+}
+
+.f-check {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  cursor: pointer;
+}
+
+.f-check input {
+  width: 15px;
+  height: 15px;
+  accent-color: var(--mint);
+}
+
+.f-check .f-label {
+  font-size: 10px;
+  color: var(--white);
+}
+
+/* ---- 이름값 표 (메타·사양) ---- */
+
+.adm-pairs {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+}
+
+.adm-pair {
+  display: grid;
+  grid-template-columns: 200px minmax(0, 1fr) 28px;
+  gap: 8px;
+  align-items: center;
+}
+
+.adm-pair input {
+  width: 100%;
+  padding: 8px 10px;
+  border: 1px solid var(--line);
+  background: #0b1013;
+  color: var(--white);
+  font-family: var(--mono);
+  font-size: 11px;
+  letter-spacing: 0.1em;
+}
+
+.adm-pair input:focus {
+  outline: none;
+  border-color: rgb(50 218 180 / 0.55);
+}
+
+/* 비워 두면 화면에 CONTENT REQUIRED 로 나온다는 것을 여기서도 보이게 한다. */
+.adm-pair input[data-empty="true"] {
+  color: #e0a94f;
+}
+
+.adm-x {
+  width: 28px;
+  height: 28px;
+  border: 1px solid var(--line);
+  background: none;
+  color: var(--muted);
+  cursor: pointer;
+  transition: color 0.2s ease, border-color 0.2s ease;
+}
+
+.adm-x:hover {
+  border-color: #e0705f;
+  color: #e0705f;
+}
+
+.adm-add {
+  align-self: flex-start;
+  margin-top: 4px;
+  padding: 7px 12px;
+  border: 1px dashed rgb(242 247 245 / 0.2);
+  background: none;
+  color: var(--muted);
+  font-family: var(--mono);
+  font-size: 10px;
+  letter-spacing: 0.16em;
+  cursor: pointer;
+  transition: border-color 0.2s ease, color 0.2s ease;
+}
+
+.adm-add:hover {
+  border-color: var(--mint);
+  color: var(--mint);
+}
+
+/* ---- 사진 ---- */
+
+.adm-image {
+  display: grid;
+  grid-template-columns: 220px minmax(0, 1fr);
+  gap: 18px;
+  align-items: start;
+}
+
+.adm-preview {
+  position: relative;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  aspect-ratio: 16 / 10;
+  border: 1px solid var(--line);
+  background: #0b1013;
+  background-image: repeating-linear-gradient(135deg, rgb(242 247 245 / 0.028) 0 1px, transparent 1px 9px);
+  overflow: hidden;
+}
+
+.adm-preview img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+.adm-preview span {
+  font-family: var(--mono);
+  font-size: 10px;
+  letter-spacing: 0.18em;
+  color: var(--muted);
+}
+
+.adm-image-fields {
+  display: flex;
+  flex-direction: column;
+  gap: 14px;
+}
+
+.adm-file {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+}
+
+.adm-file input[type="file"] {
+  font-family: var(--mono);
+  font-size: 11px;
+  color: var(--muted);
+}
+
+/* ---- 본문 블록 ---- */
+
+.adm-blocks {
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+}
+
+.adm-block {
+  border: 1px solid var(--line);
+  background: #080b0d;
+}
+
+.adm-block-bar {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 12px;
+  padding: 8px 12px;
+  border-bottom: 1px solid var(--line);
+}
+
+.adm-block-kind {
+  font-family: var(--mono);
+  font-size: 9px;
+  letter-spacing: 0.2em;
+  color: var(--mint);
+}
+
+.adm-block-tools {
+  display: flex;
+  gap: 6px;
+}
+
+.adm-block-tools button {
+  width: 26px;
+  height: 24px;
+  border: 1px solid var(--line);
+  background: none;
+  color: var(--muted);
+  font-size: 11px;
+  cursor: pointer;
+  transition: color 0.2s ease, border-color 0.2s ease;
+}
+
+.adm-block-tools button:hover:not(:disabled) {
+  border-color: var(--mint);
+  color: var(--mint);
+}
+
+.adm-block-tools button:disabled {
+  opacity: 0.3;
+  cursor: default;
+}
+
+.adm-block-body {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+  padding: 12px;
+}
+
+.adm-block-body textarea,
+.adm-block-body input {
+  width: 100%;
+  padding: 9px 11px;
+  border: 1px solid var(--line);
+  background: #0b1013;
+  color: var(--white);
+  font-family: inherit;
+  font-size: 13px;
+  line-height: 1.55;
+}
+
+.adm-block-body textarea {
+  min-height: 76px;
+  resize: vertical;
+}
+
+.adm-block-body input:focus,
+.adm-block-body textarea:focus {
+  outline: none;
+  border-color: rgb(50 218 180 / 0.55);
+}
+
+.adm-block-add {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px;
+  margin-top: 4px;
+}
+
+/* ---- 좁은 화면 ---- */
+
+@media (max-width: 900px) {
+  .adm-body {
+    grid-template-columns: minmax(0, 1fr);
+  }
+
+  .adm-list {
+    border-right: 0;
+    border-bottom: 1px solid var(--line);
+  }
+
+  .adm-items {
+    max-height: 240px;
+  }
+
+  .adm-grid,
+  .adm-image {
+    grid-template-columns: minmax(0, 1fr);
+  }
+
+  .adm-top,
+  .adm-bar {
+    flex-wrap: wrap;
+    height: auto;
+    padding: 12px 16px;
+  }
+
+  .adm-editor {
+    padding: 20px 16px 48px;
+  }
+}

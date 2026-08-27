@@ -1,0 +1,201 @@
+<!doctype html>
+<html lang="ko">
+<head>
+<meta charset="utf-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover" />
+<title>BLITZCROWN — Game</title>
+<link rel="icon" href="data:," />
+<meta name="description" content="Original instant win games with unexpected mechanics and fresh ideas." />
+<link rel="preconnect" href="https://fonts.googleapis.com" />
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet" />
+<link rel="stylesheet" href="styles.css" />
+</head>
+<body class="page-game">
+
+<div class="topline" aria-hidden="true"><i id="topline"></i></div>
+
+<header class="topbar">
+  <a class="brand" href="index.html" aria-label="Blitzcrown home">
+    <img src="assets/blitzcrown-logo.svg" alt="Blitzcrown" />
+  </a>
+  <nav class="topnav">
+    <a href="games.html">GAMES</a>
+    <a href="news.html">NEWS</a>
+    <a href="index.html#build">ABOUT US</a>
+    <a href="index.html#contact">CONTACT</a>
+  </nav>
+  <a class="top-cta" id="topDemo" href="index.html#release">PLAY DEMO</a>
+</header>
+
+<main id="top">
+
+  <!-- ============ 01 / GAME ============ -->
+  <!--
+    기획 의도: 왼쪽 위에 스크린샷·영상, 오른쪽에 정보와 데모 버튼, 그 아래에 세부 정보.
+    홈의 feature 블록과 같은 1.35fr / 1fr 격자를 그대로 쓴다.
+    본문 값은 js/game-data.js 에서 채운다. 아래 마크업에는 자리만 있다.
+  -->
+  <section class="gd-hero">
+    <div class="wrap">
+      <a class="signal signal--back" href="games.html"><i></i>BACK TO GAMES</a>
+
+      <header class="sec-head">
+        <span class="sec-label" id="gameLabel">01 / GAME</span>
+        <span class="sec-line"></span>
+        <span class="sec-dash"></span>
+      </header>
+
+      <div class="gd-top">
+        <div class="gd-media reveal">
+          <!--
+            무대는 16:9 로 고정한다. 안에 들어오는 게 이미지든 영상이든 자리표든
+            비율이 같아야 썸네일을 눌렀을 때 아래 내용이 위아래로 밀리지 않는다.
+          -->
+          <figure class="gd-stage" id="gameStage">
+            <button class="gd-expand" type="button" id="gameExpand">
+              <span>VIEW FULL</span>
+              <i aria-hidden="true"></i>
+            </button>
+          </figure>
+          <p class="gd-stage-note" id="gameStageNote"></p>
+          <div class="gd-thumbs" id="gameThumbs" role="tablist" aria-label="Game media"></div>
+        </div>
+
+        <div class="gd-info reveal">
+          <span class="badge" id="gameBadge">NEW</span>
+          <h1 class="gd-title" id="gameTitle">GAME</h1>
+          <p class="feature-premise" id="gamePremise"></p>
+          <p class="gd-summary" id="gameSummary"></p>
+          <div class="actions" id="gameActions"></div>
+          <dl class="meta" id="gameMeta"></dl>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ============ 02 / SPECIFICATIONS ============ -->
+  <!--
+    RTP·최대 배수·변동성은 규제 검수를 거친 값만 넣는다.
+    확정 전에는 숫자를 지어내지 않고 CONTENT REQUIRED 로 남긴다.
+  -->
+  <section class="gd-spec" id="spec">
+    <div class="wrap">
+      <header class="sec-head">
+        <span class="sec-label">02 / SPECIFICATIONS</span>
+        <span class="sec-line"></span>
+        <span class="sec-dash"></span>
+      </header>
+
+      <div class="sec-intro reveal">
+        <h2 class="sec-title">GAME <em>DATA</em></h2>
+      </div>
+
+      <div class="gd-spec-grid">
+        <div class="gd-spec-col reveal">
+          <p class="gd-spec-label">MATH &amp; RULES</p>
+          <dl class="meta" id="gameSpecs"></dl>
+        </div>
+        <div class="gd-spec-col reveal">
+          <p class="gd-spec-label">DELIVERY</p>
+          <dl class="meta" id="gamePlatform"></dl>
+        </div>
+      </div>
+
+      <p class="gd-spec-flag reveal"><span class="flag">PLACEHOLDER FIGURES — NOT CERTIFIED VALUES</span></p>
+    </div>
+  </section>
+
+  <!-- ============ LEGAL TRUST STRIP ============ -->
+  <section class="trust" aria-label="Licensing">
+    <div class="wrap">
+      <dl class="trust-row">
+        <div class="reveal"><dt>LICENSED</dt><dd>Malta Gaming Authority</dd></div>
+        <div class="reveal"><dt>REGULATED</dt><dd>MGA/B2B/1088/2025</dd></div>
+        <div class="reveal"><dt>OPERATED BY</dt><dd>Massive Gaming Malta Limited</dd></div>
+        <div class="reveal"><dt>REGISTRATION</dt><dd>C109221</dd></div>
+      </dl>
+      <div class="trust-foot">
+        <a class="signal" href="index.html#contact">VERIFY LICENCE<i></i></a>
+        <span class="flag">CONTENT REVIEW REQUIRED BEFORE LAUNCH</span>
+      </div>
+    </div>
+  </section>
+
+  <!-- ============ CONTACT CTA ============ -->
+  <section class="outro" id="contact">
+    <div class="wrap">
+      <header class="sec-head">
+        <span class="sec-label">03 / NEXT STEP</span>
+        <span class="sec-line"></span>
+        <span class="sec-dash"></span>
+      </header>
+      <div class="outro-grid">
+        <h2 class="outro-title reveal">WANT THIS<br />GAME IN YOUR<br /><em>LOBBY?</em></h2>
+        <div class="outro-side reveal">
+          <p>Talk to our team about partnerships, distribution and original game experiences.</p>
+          <div class="actions">
+            <a class="btn btn--primary" href="index.html#contact">START A CONVERSATION<i></i></a>
+            <a class="btn" href="games.html">EXPLORE GAMES<i></i></a>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+</main>
+
+<footer class="foot">
+  <div class="wrap">
+    <div class="foot-top">
+      <div class="foot-brand">
+        <p class="foot-mark">BLITZCROWN</p>
+        <p class="foot-statement">By pushing conventional boundaries, we craft original instant win experiences that redefine iGaming.</p>
+      </div>
+      <nav class="foot-nav" aria-label="Footer">
+        <a href="games.html">Games</a>
+        <a href="index.html#build">About Us</a>
+        <a href="index.html#contact">Contact</a>
+        <a href="index.html#contact">Privacy Policy</a>
+      </nav>
+    </div>
+
+    <div class="foot-legal">
+      <p>This site is operated by Massive Gaming Malta Limited.</p>
+      <p>Registration number C109221.</p>
+      <p>Registered address: 97, Triq Windsor, Sliema, SLM 1853, Malta.</p>
+      <p>Licensed and regulated by the Malta Gaming Authority.</p>
+      <p>Licence number MGA/B2B/1088/2025.</p>
+      <span class="flag">LEGAL REVIEW REQUIRED</span>
+    </div>
+
+    <div class="foot-bottom">
+      <span>© 2026 BLITZCROWN</span>
+      <span>MANY WORLDS. ONE CROWN.</span>
+    </div>
+  </div>
+</footer>
+
+<!--
+  전체 보기. 무대와 같은 화면을 그대로 키운 것이라 다른 화면으로 넘어간 느낌이 없어야 한다.
+  ESC 로 닫히고, 좌우 키로 다음 장면으로 넘어간다.
+-->
+<div class="lightbox" id="lightbox" hidden>
+  <div class="lightbox-bar">
+    <span class="lightbox-label" id="lightboxLabel"></span>
+    <div class="lightbox-tools">
+      <span class="lightbox-count" id="lightboxCount"></span>
+      <button type="button" id="lightboxFull">FULLSCREEN</button>
+      <button type="button" id="lightboxClose">CLOSE</button>
+    </div>
+  </div>
+  <div class="lightbox-body">
+    <button class="lightbox-nav" type="button" data-direction="-1" aria-label="이전 장면">←</button>
+    <figure class="lightbox-stage" id="lightboxStage"></figure>
+    <button class="lightbox-nav" type="button" data-direction="1" aria-label="다음 장면">→</button>
+  </div>
+</div>
+
+<script type="module" src="js/game.js"></script>
+</body>
+</html>

@@ -1,0 +1,135 @@
+<!doctype html>
+<html lang="ko">
+<head>
+<meta charset="utf-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover" />
+<title>ALL GAMES — BLITZCROWN</title>
+<link rel="icon" href="data:," />
+<meta name="description" content="The full Blitzcrown catalogue. Filter by category or search by name." />
+<link rel="preconnect" href="https://fonts.googleapis.com" />
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet" />
+<link rel="stylesheet" href="styles.css" />
+</head>
+<body class="page-games">
+
+<div class="topline" aria-hidden="true"><i id="topline"></i></div>
+
+<header class="topbar">
+  <a class="brand" href="index.html" aria-label="Blitzcrown home">
+    <img src="assets/blitzcrown-logo.svg" alt="Blitzcrown" />
+  </a>
+  <nav class="topnav">
+    <a href="games.html">GAMES</a>
+    <a href="news.html">NEWS</a>
+    <a href="index.html#build">ABOUT US</a>
+    <a href="index.html#contact">CONTACT</a>
+  </nav>
+  <a class="top-cta" href="index.html#release">PLAY DEMO</a>
+</header>
+
+<main id="top">
+
+  <!-- ============ 01 / ALL GAMES ============ -->
+  <!--
+    홈의 02 섹션은 골라 놓은 여섯을 보여 주는 자리이고, 여기는 전부를 담는 자리다.
+    카드 모양은 홈과 같게 두고, 홈에서는 장식이던 검색과 칩만 실제로 동작하게 했다.
+    카드는 js/games.js 가 game-data.js 를 읽어 채운다. 아래에는 자리만 있다.
+  -->
+  <section class="games games-index">
+    <div class="wrap">
+      <a class="signal signal--back" href="index.html#games"><i></i>BACK TO HOME</a>
+
+      <header class="sec-head">
+        <span class="sec-label">01 / ALL GAMES</span>
+        <span class="sec-line"></span>
+        <span class="sec-dash"></span>
+      </header>
+
+      <div class="sec-intro reveal">
+        <h2 class="sec-title">EVERY WORLD<br />WE HAVE <em>BUILT</em></h2>
+        <p class="sec-lead">The full catalogue. Filter by category, or search by name and mechanic.</p>
+      </div>
+
+      <!--
+        선택 상태를 색으로만 알리지 않는다(접근성 요구사항).
+        aria-pressed 와 함께 왼쪽 표식으로도 구분한다. 홈의 게임 필터와 같은 규칙이다.
+      -->
+      <div class="controls reveal">
+        <label class="search">
+          <span class="sr-only">Search games</span>
+          <input type="search" id="gameSearch" placeholder="Search games" />
+        </label>
+        <span class="game-count" id="gameCount">18 GAMES</span>
+        <div class="chips" role="group" aria-label="카테고리" id="gameChips"></div>
+      </div>
+
+      <div class="card-grid" id="gameGrid"></div>
+
+      <p class="games-empty" id="gameEmpty" hidden>NO GAMES MATCH THIS FILTER.</p>
+
+      <!--
+        발표된 것과 자리표를 섞어 두었으니 그 사실을 숨기지 않는다.
+        문구는 js/games.js 가 pending 개수를 세어 채운다. 제목이 확정될수록 숫자가 줄어든다.
+      -->
+      <p class="games-flag reveal"><span class="flag" id="gameFlag"></span></p>
+    </div>
+  </section>
+
+  <!-- ============ 02 / NEXT STEP ============ -->
+  <section class="outro" id="contact">
+    <div class="wrap">
+      <header class="sec-head">
+        <span class="sec-label">02 / NEXT STEP</span>
+        <span class="sec-line"></span>
+        <span class="sec-dash"></span>
+      </header>
+      <div class="outro-grid">
+        <h2 class="outro-title reveal">LET'S BUILD<br />THE NEXT<br /><em>ORIGINAL EXPERIENCE.</em></h2>
+        <div class="outro-side reveal">
+          <p>Talk to our team about partnerships, distribution and original game experiences.</p>
+          <div class="actions">
+            <a class="btn btn--primary" href="index.html#contact">START A CONVERSATION<i></i></a>
+            <a class="btn" href="news.html">READ THE NEWS<i></i></a>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+</main>
+
+<footer class="foot">
+  <div class="wrap">
+    <div class="foot-top">
+      <div class="foot-brand">
+        <p class="foot-mark">BLITZCROWN</p>
+        <p class="foot-statement">By pushing conventional boundaries, we craft original instant win experiences that redefine iGaming.</p>
+      </div>
+      <nav class="foot-nav" aria-label="Footer">
+        <a href="games.html">Games</a>
+        <a href="index.html#build">About Us</a>
+        <a href="index.html#contact">Contact</a>
+        <a href="index.html#contact">Privacy Policy</a>
+      </nav>
+    </div>
+
+    <div class="foot-legal">
+      <p>This site is operated by Massive Gaming Malta Limited.</p>
+      <p>Registration number C109221.</p>
+      <p>Registered address: 97, Triq Windsor, Sliema, SLM 1853, Malta.</p>
+      <p>Licensed and regulated by the Malta Gaming Authority.</p>
+      <p>Licence number MGA/B2B/1088/2025.</p>
+      <span class="flag">LEGAL REVIEW REQUIRED</span>
+    </div>
+
+    <div class="foot-bottom">
+      <span>© 2026 BLITZCROWN</span>
+      <span>MANY WORLDS. ONE CROWN.</span>
+    </div>
+  </div>
+</footer>
+
+<script type="module" src="js/games.js"></script>
+</body>
+</html>

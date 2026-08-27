@@ -1,8 +1,20 @@
 import { resolveRenderer, createEngine } from './scroll-sequence.js';
 import { createDust } from './dust.js';
 import { createReel } from './reel.js';
+import { setupDemoMenu } from './demo-menu.js';
+import { renderHome } from './home-content.js';
+import { setupAdminGate } from './admin-gate.js';
+import { markCurrentNav } from './nav.js';
 
 const $ = (sel) => document.querySelector(sel);
+
+// 헤더와 푸터는 모든 페이지가 같으므로 다른 페이지는 chrome.js 가, 홈은 여기서 붙인다.
+setupDemoMenu();
+setupAdminGate();
+markCurrentNav();
+
+// 아래 내용은 자료에서 그린다. 리빌·레일 같은 연출이 요소를 찾기 전에 끝나야 한다.
+renderHome();
 
 const boot = $('#boot');
 const bootBar = $('#bootBar');
@@ -324,13 +336,22 @@ function setupControls() {
   });
 }
 
-/* ---------- 시퀀스 처음 / 끝 이동 ---------- */
+/* ---------- 시퀀스 처음 / 끝 이동, 자동 재생 ---------- */
+
+/*
+  자동 재생 속도는 px 가 아니라 화면 높이 기준이다.
+  구간 길이도 vh 로 정의돼 있어서, 이렇게 묶어야 화면이 크든 작든
+  처음부터 끝까지 걸리는 시간이 같다. 0.64 는 약 30초다.
+*/
+const AUTO_VH_PER_SEC = 0.64;
 
 function setupSequenceControls() {
   const sequence = $('#sequence');
   const replay = $('#replaySequence');
+  const play = $('#playSequence');
+  const playIcon = $('#playSequenceIcon');
   const skip = $('#skipSequence');
-  if (!sequence || !replay || !skip) return;
+  if (!sequence || !replay || !play || !skip) return;
 
   const limits = () => {
     const start = sequence.offsetTop;
@@ -354,10 +375,85 @@ function setupSequenceControls() {
     });
   };
 
-  replay.addEventListener('click', () => jump(false));
-  skip.addEventListener('click', () => jump(true));
+  let frame = 0;
+  let last = 0;
+  // 우리가 굴린 위치. 실제 scrollY 와 벌어지면 사용자가 끼어든 것으로 본다.
+  let cursor = 0;
+
+  const setPlaying = (on) => {
+    play.setAttribute('aria-pressed', String(on));
+    play.title = on ? 'PAUSE' : 'PLAY';
+    play.setAttribute('aria-label', on ? '자동 재생 멈춤' : '자동 재생');
+    playIcon.src = on ? 'assets/pause.svg' : 'assets/play.svg';
+  };
+
+  const stop = () => {
+    if (!frame) return;
+    cancelAnimationFrame(frame);
+    frame = 0;
+    setPlaying(false);
+  };
+
+  const step = (now) => {
+    /*
+      휠·터치·키보드를 따로 듣지 않는다. 스크롤 이벤트는 우리가 굴려도 똑같이 나므로
+      누가 움직였는지 구분할 수 없다. 대신 우리가 적어 둔 위치와 실제 위치를 견준다.
+      반올림 오차는 1px 안쪽이라 한 번의 휠(약 100px)과 섞이지 않는다.
+    */
+    if (Math.abs(window.scrollY - cursor) > 6) {
+      stop();
+      return;
+    }
+
+    // 탭을 비웠다 돌아오면 dt 가 커진다. 그대로 쓰면 화면이 한 번에 튄다.
+    const dt = Math.min((now - last) / 1000, 0.05);
+    last = now;
+
+    const { end } = limits();
+    cursor = Math.min(cursor + AUTO_VH_PER_SEC * window.innerHeight * dt, end);
+    window.scrollTo({ top: cursor, behavior: 'instant' });
+    update();
+
+    if (cursor >= end) {
+      stop();
+      return;
+    }
+    frame = requestAnimationFrame(step);
+  };
+
+  const startAuto = () => {
+    const { start, end } = limits();
+    // 끝에서 눌렀으면 처음으로 돌린다. 아니면 아무 일도 일어나지 않는다.
+    if (window.scrollY >= end - 2) jump(false);
+    else if (window.scrollY < start) window.scrollTo({ top: start, behavior: 'instant' });
+
+    setPlaying(true);
+    // jump 는 다음 프레임에 자리를 잡는다. 그 뒤의 위치를 시작점으로 삼아야 한다.
+    requestAnimationFrame(() => {
+      cursor = window.scrollY;
+      last = performance.now();
+      frame = requestAnimationFrame(step);
+    });
+  };
+
+  play.addEventListener('click', () => (frame ? stop() : startAuto()));
+  replay.addEventListener('click', () => {
+    stop();
+    jump(false);
+  });
+  skip.addEventListener('click', () => {
+    stop();
+    jump(true);
+  });
+
+  // 다른 탭에 가 있는 동안 계속 굴리면 돌아왔을 때 이미 끝나 있다.
+  document.addEventListener('visibilitychange', () => document.hidden && stop());
+
   window.addEventListener('scroll', update, { passive: true });
-  window.addEventListener('resize', update);
+  window.addEventListener('resize', () => {
+    stop();
+    update();
+  });
   update();
 }
 
