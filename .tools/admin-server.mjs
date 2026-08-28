@@ -136,7 +136,7 @@ async function saveNewsImage(buffer, name) {
   const tiers = [
     { suffix: '-sm', width: 520 },
     { suffix: '', width: 1360 },
-    { suffix: '-2x', width: 2048 },
+    { suffix: '-2x', width: 2720 },
   ];
 
   for (const { suffix, width } of tiers) {

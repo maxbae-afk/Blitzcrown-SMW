@@ -42,13 +42,26 @@ const BLOCKS = {
     return list;
   },
 
-  /* 사진이 들어올 자리. 홈과 같은 규칙으로 무엇이 어떤 비율로 들어오는지 적어 둔다. */
+  /* 실제 사진이 있으면 그리고, 아직 없으면 필요한 사진의 자리표를 남긴다. */
   media: (block) => {
     const figure = el('figure', 'article-figure');
-    const ph = el('div', 'ph ph--16x9');
-    ph.append(el('span', 'ph-type', `[IMAGE] ${block.label}`));
-    ph.append(el('span', 'ph-meta', block.note || '16:9'));
-    figure.append(ph);
+    if (block.image?.base) {
+      const img = el('img', 'article-figure-img');
+      fillImage(img, block.image, '(max-width: 1080px) calc(100vw - 32px), 720px');
+      figure.append(img);
+
+      if (block.label || block.note) {
+        const caption = el('figcaption', 'article-figure-caption');
+        if (block.label) caption.append(el('span', null, block.label));
+        if (block.note) caption.append(el('small', null, block.note));
+        figure.append(caption);
+      }
+    } else {
+      const ph = el('div', 'ph ph--16x9');
+      ph.append(el('span', 'ph-type', `[IMAGE] ${block.label}`));
+      ph.append(el('span', 'ph-meta', block.note || '16:9'));
+      figure.append(ph);
+    }
     return figure;
   },
 };
@@ -149,7 +162,13 @@ function renderNav() {
     }
     const link = el('a', `article-nav-item article-nav-item--${role.toLowerCase()}`);
     link.href = `article.html?id=${item.id}`;
-    link.append(el('span', 'article-nav-role', role));
+
+    // 화살표는 글이 놓인 방향을 가리킨다. 최신은 왼쪽, 이전은 오른쪽이다.
+    const label = el('span', 'article-nav-role');
+    const arrow = el('i');
+    label.append(...(role === 'NEWER' ? [arrow, role] : [role, arrow]));
+
+    link.append(label);
     link.append(el('span', 'article-nav-title', item.title));
     nav.append(link);
   });

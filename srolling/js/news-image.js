@@ -8,7 +8,7 @@
 const TIERS = [
   { suffix: '-sm', width: 520 },
   { suffix: '', width: 1360 },
-  { suffix: '-2x', width: 2048 },
+  { suffix: '-2x', width: 2720 },
 ];
 
 export function fillImage(img, image, sizes) {

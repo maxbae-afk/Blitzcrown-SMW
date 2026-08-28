@@ -30,7 +30,11 @@ export const ARTICLES = [
       {
         "type": "media",
         "label": "INTERSTELLAR PLINKO — CHARGED PLANET",
-        "note": "16:9 · in-game capture"
+        "note": "21:9 · AI-generated concept image",
+        "image": {
+          "base": "assets/news/news-01-body-01",
+          "alt": "빛나는 행성과 중력 궤적 사이를 통과하는 인터스텔라 플링코 공."
+        }
       },
       {
         "type": "h",
@@ -53,7 +57,11 @@ export const ARTICLES = [
         "type": "p",
         "text": "That rule is why the release took longer than a reskin would have. A board that reacts has to stay readable at speed, on a phone, to someone who has never seen it before. Every planet we added had to earn its place against that test."
       }
-    ]
+    ],
+    "image": {
+      "base": "assets/news/news-01-hero",
+      "alt": "우주의 행성들이 핀 역할을 하는 인터스텔라 플링코 보드."
+    }
   },
   {
     "id": "02",
@@ -98,7 +106,11 @@ export const ARTICLES = [
         "text": "DUMMY COPY — closing paragraph. Replace before publication. Kept shorter than the opening block so the end of the article does not run level with the sidebar."
       }
     ],
-    "dummy": true
+    "dummy": true,
+    "image": {
+      "base": "assets/news/news-02-hero",
+      "alt": "하나의 연결선에서 네 개의 게임 세계로 확장되는 블리츠크라운 통합 화면."
+    }
   },
   {
     "id": "03",
@@ -128,7 +140,11 @@ export const ARTICLES = [
       {
         "type": "media",
         "label": "STAND — FOUR KEY VISUALS ON ONE WALL",
-        "note": "21:9 · venue photography"
+        "note": "21:9 · AI-generated concept image",
+        "image": {
+          "base": "assets/news/news-03-body-01",
+          "alt": "네 개의 게임 키비주얼과 블리츠크라운 로고가 보이는 전시 공간."
+        }
       },
       {
         "type": "h",
@@ -178,7 +194,11 @@ export const ARTICLES = [
       {
         "type": "media",
         "label": "TWIN CRASH: BLITZ — TWO CURVES DIVERGING",
-        "note": "16:9 · in-game capture"
+        "note": "16:9 · in-game capture",
+        "image": {
+          "base": "assets/news/news-04-body-01",
+          "alt": "TWIN CRASH: BLITZ — TWO CURVES DIVERGING"
+        }
       },
       {
         "type": "h",
@@ -202,7 +222,11 @@ export const ARTICLES = [
         "text": "DUMMY COPY — closing paragraph. Replace before publication. Kept shorter than the opening block so the end of the article does not run level with the sidebar."
       }
     ],
-    "dummy": true
+    "dummy": true,
+    "image": {
+      "base": "assets/news/news-04-hero",
+      "alt": "TWIN CRASH: BLITZ PUTS TWO CURVES IN ONE ROUND"
+    }
   },
   {
     "id": "05",
@@ -248,7 +272,11 @@ export const ARTICLES = [
         "text": "DUMMY COPY — closing paragraph. Replace before publication. Kept shorter than the opening block so the end of the article does not run level with the sidebar."
       }
     ],
-    "dummy": true
+    "dummy": true,
+    "image": {
+      "base": "assets/news/news-05-hero",
+      "alt": "게임 빌드와 출시 검증 과정을 다루는 블리츠크라운 품질 관리 공간."
+    }
   },
   {
     "id": "06",
@@ -290,7 +318,11 @@ export const ARTICLES = [
         "by": "PLACEHOLDER ATTRIBUTION"
       }
     ],
-    "dummy": true
+    "dummy": true,
+    "image": {
+      "base": "assets/news/news-06-hero",
+      "alt": "네 개의 게임 세계와 통합 환경을 함께 검토하는 파트너 미팅 공간."
+    }
   },
   {
     "id": "07",
@@ -316,7 +348,11 @@ export const ARTICLES = [
       {
         "type": "media",
         "label": "DOUBLE POP PLINKO 51200X — CHAIN OF DROPS",
-        "note": "16:9 · in-game capture"
+        "note": "21:9 · AI-generated concept image",
+        "image": {
+          "base": "assets/news/news-07-body-01",
+          "alt": "하나의 공이 여러 색상의 공으로 증식하며 이어지는 플링코 낙하 장면."
+        }
       },
       {
         "type": "h",
@@ -336,7 +372,11 @@ export const ARTICLES = [
         "by": "PLACEHOLDER ATTRIBUTION"
       }
     ],
-    "dummy": true
+    "dummy": true,
+    "image": {
+      "base": "assets/news/news-07-hero",
+      "alt": "여러 개로 증식하는 공이 플링코 보드로 떨어지는 더블 팝 플링코 장면."
+    }
   },
   {
     "id": "08",
@@ -381,7 +421,11 @@ export const ARTICLES = [
         "text": "DUMMY COPY — closing paragraph. Replace before publication. Kept shorter than the opening block so the end of the article does not run level with the sidebar."
       }
     ],
-    "dummy": true
+    "dummy": true,
+    "image": {
+      "base": "assets/news/news-08-hero",
+      "alt": "게임 제작 전 여러 세계관의 키비주얼을 검토하는 블리츠크라운 스튜디오."
+    }
   },
   {
     "id": "09",
@@ -424,7 +468,11 @@ export const ARTICLES = [
         "by": "PLACEHOLDER ATTRIBUTION"
       }
     ],
-    "dummy": true
+    "dummy": true,
+    "image": {
+      "base": "assets/news/news-09-hero",
+      "alt": "블리츠크라운 로고와 검증 설비가 배치된 라이선싱 및 컴플라이언스 공간."
+    }
   },
   {
     "id": "10",
@@ -450,7 +498,11 @@ export const ARTICLES = [
       {
         "type": "media",
         "label": "SMASH TOWER — BREAKING A FLOOR",
-        "note": "16:9 · in-game capture"
+        "note": "21:9 · AI-generated concept image",
+        "image": {
+          "base": "assets/news/news-10-body-01",
+          "alt": "해머 충격으로 타워 바닥이 갈라지고 아래 보상 공간이 드러나는 장면."
+        }
       },
       {
         "type": "h",
@@ -474,7 +526,11 @@ export const ARTICLES = [
         "text": "DUMMY COPY — closing paragraph. Replace before publication. Kept shorter than the opening block so the end of the article does not run level with the sidebar."
       }
     ],
-    "dummy": true
+    "dummy": true,
+    "image": {
+      "base": "assets/news/news-10-hero",
+      "alt": "전사가 해머로 타워의 바닥을 부수는 스매시 타워의 핵심 장면."
+    }
   },
   {
     "id": "11",
@@ -520,7 +576,11 @@ export const ARTICLES = [
         "text": "DUMMY COPY — closing paragraph. Replace before publication. Kept shorter than the opening block so the end of the article does not run level with the sidebar."
       }
     ],
-    "dummy": true
+    "dummy": true,
+    "image": {
+      "base": "assets/news/news-11-hero",
+      "alt": "게임 세계를 중심으로 파트너십을 논의하는 블리츠크라운 프레젠테이션 룸."
+    }
   },
   {
     "id": "12",
@@ -550,7 +610,10 @@ export const ARTICLES = [
       {
         "type": "media",
         "label": "STAND — GAME WALL AND VISITORS",
-        "note": "21:9 · venue photography"
+        "note": "21:9 · venue photography",
+        "image": {
+          "base": "assets/news/12-body-04-many-worlds-one-crown-where-the-studi"
+        }
       },
       {
         "type": "h",

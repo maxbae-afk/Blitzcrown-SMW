@@ -9,7 +9,7 @@
  */
 
 import sharp from 'sharp';
-import { mkdirSync } from 'node:fs';
+import { existsSync, mkdirSync } from 'node:fs';
 
 const [name, srcArg] = process.argv.slice(2);
 if (!name) {
@@ -19,7 +19,13 @@ if (!name) {
 
 const ROOT = 'C:/Users/maxbae/Desktop/ArtCraft. web/blitzcrown-v2';
 const OUT = `${ROOT}/srolling/assets/news`;
-const src = srcArg ?? `${ROOT}/_source-news/${name}.png`;
+const candidates = ['png', 'jpg', 'jpeg', 'webp'].map((ext) => `${ROOT}/_source-news/${name}.${ext}`);
+const src = srcArg ?? candidates.find(existsSync);
+
+if (!src) {
+  console.error(`원본을 찾지 못했습니다: ${candidates.join(', ')}`);
+  process.exit(1);
+}
 
 mkdirSync(OUT, { recursive: true });
 

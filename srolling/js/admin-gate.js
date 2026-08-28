@@ -10,12 +10,15 @@
   배포된 사이트에서는 브라우저 안에만 남는 임시 저장과 파일 내려받기까지고,
   실제 파일을 고치는 것은 내 컴퓨터에서 관리자 서버를 켰을 때뿐이다.
 
-  비밀번호를 바꾸려면 새 비밀번호의 SHA-256 을 구해 PASS_HASH 에 넣는다.
+  비밀번호를 바꾸려면 아래를 쓴다. 비밀번호 자체는 어디에도 남기지 않는다.
 
-    bun -e "const h=new Bun.CryptoHasher('sha256');h.update('새비밀번호');console.log(h.digest('hex'))"
+    cd blitzcrown-v2/.tools
+    bun run set-admin-pass.mjs 새비밀번호
+
+  해시는 공개 저장소에 그대로 올라간다. 짧거나 흔한 말은 대조표로 풀리므로
+  위 도구가 12자 미만과 흔한 말을 받지 않는다.
 */
 
-/** 기본 비밀번호는 crown-2026 이다. */
 export const PASS_HASH = 'f18cac4952fc553e4f09c2539530e98996f653d80fd6ae3b7eced261ce6b79bf';
 
 const SESSION_KEY = 'blitzcrown:admin';

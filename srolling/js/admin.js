@@ -198,7 +198,7 @@ function pairsEditor(rows) {
  * 게임 썸네일은 파일 하나, 뉴스 사진은 화면 크기별 세 벌이다.
  * 세 벌 만드는 일은 서버가 하므로, 서버가 없으면 경로를 직접 적는 것만 된다.
  */
-function imageEditor(target, kind) {
+function imageEditor(target, kind, uploadName) {
   const box = el('div', 'adm-image');
   const preview = el('div', 'adm-preview');
   const fields = el('div', 'adm-image-fields');
@@ -261,7 +261,13 @@ function imageEditor(target, kind) {
     const input = document.createElement('input');
     input.type = 'file';
     input.accept = 'image/*';
-    const note = el('span', 'f-hint', '올리면 알맞은 크기로 변환해 저장합니다.');
+    const autoName =
+      uploadName ?? (kind === 'news' ? `${target.id}-${slugify(target.title)}` : target.slug);
+    const note = el(
+      'span',
+      'f-hint',
+      `자동 파일명: ${autoName}${kind === 'news' ? '-sm / 기본 / -2x.webp' : '.webp'}`,
+    );
 
     input.addEventListener('change', async () => {
       const file = input.files?.[0];
@@ -271,7 +277,7 @@ function imageEditor(target, kind) {
       const form = new FormData();
       form.append('file', file);
       form.append('kind', kind);
-      form.append('name', kind === 'news' ? `${target.id}-${slugify(target.title)}` : target.slug);
+      form.append('name', autoName);
 
       try {
         const res = await fetch('/api/upload', {
@@ -283,7 +289,7 @@ function imageEditor(target, kind) {
         if (!res.ok) throw new Error(body.error ?? '올리지 못했습니다.');
 
         target.image = { ...(target.image ?? {}), ...body };
-        target.image.alt = target.image.alt || target.title;
+        target.image.alt = target.image.alt || target.title || target.label || '';
         note.textContent = '올렸습니다. 저장을 눌러야 반영됩니다.';
         touch();
         renderEditor();
@@ -377,7 +383,7 @@ function gameEditor(game) {
       ),
     ),
 
-    group('썸네일', imageEditor(game, 'game')),
+    group('썸네일', imageEditor(game, 'game', `game-${slugify(game.slug)}-thumbnail`)),
     group('요약 정보', pairsEditor(game.meta)),
     group('사양', pairsEditor(game.specs)),
   );
@@ -395,7 +401,7 @@ const BLOCK_NAMES = {
   media: '사진 자리',
 };
 
-function blockBody(block) {
+function blockBody(block, article, index) {
   const body = el('div', 'adm-block-body');
 
   const area = (value, onInput, placeholder) => {
@@ -453,6 +459,19 @@ function blockBody(block) {
         block.note = v;
       }, '비율과 설명 (예: 16:9 · in-game capture)'),
     );
+
+    /*
+      대표 이미지와 같은 업로더를 본문 블록에도 붙인다.
+      블록 번호를 파일명에 넣어 한 기사 안의 여러 사진이 서로 덮어쓰지 않게 한다.
+      블록을 옮긴 뒤에도 이미 저장된 경로는 그대로라 화면에서 사진이 바뀌지는 않는다.
+    */
+    // 서버가 파일명을 48자로 자르므로 블록 번호를 앞에 둔다. 뒤에 두면 긴 제목끼리 같은 이름이 된다.
+    const mediaNumber = article.body
+      .slice(0, index + 1)
+      .filter((item) => item.type === 'media').length;
+    const uploadName =
+      `news-${slugify(article.id)}-body-${String(mediaNumber).padStart(2, '0')}`;
+    body.append(imageEditor(block, 'news', uploadName));
   }
 
   return body;
@@ -500,7 +519,7 @@ function blocksEditor(article) {
 
       tools.append(up, down, drop);
       bar.append(tools);
-      box.append(bar, blockBody(block));
+      box.append(bar, blockBody(block, article, i));
       host.append(box);
     });
 
@@ -580,7 +599,7 @@ function newsEditor(article) {
       ),
     ),
 
-    group('키비주얼', imageEditor(article, 'news')),
+    group('키비주얼', imageEditor(article, 'news', `news-${slugify(article.id)}-hero`)),
     group('본문', blocksEditor(article)),
   );
 
@@ -770,7 +789,7 @@ async function save() {
       // 파일이 진짜 값이 되었으니 브라우저에 남은 임시본은 치운다. 두면 서로 다른 값이 남는다.
       clearDraft();
       dirty = false;
-      setStatus('파일에 저장했습니다.', 'good');
+      setStatus('파일에 저장했습니다. Git 반영은 별도로 진행하세요.', 'good');
     } catch (error) {
       setStatus(String(error.message ?? error), 'bad');
     }
@@ -799,7 +818,7 @@ async function boot() {
   if (mode === 'server') {
     const res = await fetch('/api/data', { cache: 'no-store' });
     data = await res.json();
-    modeLabel.textContent = '관리자 서버 연결됨 · 저장하면 파일이 바뀝니다';
+    modeLabel.textContent = '관리자 서버 연결됨 · 저장하면 파일이 바뀝니다 · Git 반영은 별도';
     modeLabel.dataset.mode = 'server';
     if (hasDraft()) {
       setStatus('브라우저에 남은 임시 저장은 무시합니다. 저장하면 지워집니다.');

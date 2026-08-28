@@ -1075,7 +1075,8 @@ code {
 }
 
 .btn i,
-.signal i {
+.signal i,
+.article-nav-role i {
   position: relative;
   width: 16px;
   height: 1px;
@@ -1084,7 +1085,8 @@ code {
 }
 
 .btn i::after,
-.signal i::after {
+.signal i::after,
+.article-nav-role i::after {
   content: "";
   position: absolute;
   right: 0;
@@ -3061,6 +3063,32 @@ body.is-locked {
   margin: 40px 0;
 }
 
+.article-figure-img {
+  display: block;
+  width: 100%;
+  aspect-ratio: 16 / 9;
+  object-fit: cover;
+}
+
+.article-figure-caption {
+  display: flex;
+  justify-content: space-between;
+  gap: 24px;
+  padding-top: 12px;
+  border-top: 1px solid var(--line);
+  font-family: var(--mono);
+  font-size: 9px;
+  line-height: 1.5;
+  letter-spacing: 0.16em;
+  text-transform: uppercase;
+  color: rgb(242 247 245 / 0.58);
+}
+
+.article-figure-caption small {
+  font: inherit;
+  color: rgb(242 247 245 / 0.38);
+}
+
 /* .signal 을 button 으로도 쓴다. 기본 모양만 지운다. */
 button.signal {
   border: 0;
@@ -3097,11 +3125,36 @@ button.signal {
 }
 
 .article-nav-role {
-  display: block;
+  display: flex;
+  align-items: center;
+  gap: 12px;
   font-family: var(--mono);
   font-size: 10px;
   letter-spacing: 0.24em;
   color: var(--muted);
+  transition: color 0.22s ease;
+}
+
+/* 칸 전체가 링크다. 화살표는 방향 표시일 뿐이라 스스로 hover 를 갖지 않는다. */
+.article-nav-item:hover .article-nav-role {
+  color: var(--mint);
+}
+
+.article-nav-item:hover .article-nav-role i {
+  transform: translateX(5px);
+}
+
+/* 최신 글은 목록에서 위쪽에 있다. 화살표와 이동 방향을 함께 뒤집는다. */
+.article-nav-item--newer .article-nav-role i {
+  rotate: 180deg;
+}
+
+.article-nav-item--newer:hover .article-nav-role i {
+  transform: translateX(-5px);
+}
+
+.article-nav-item--older .article-nav-role {
+  justify-content: flex-end;
 }
 
 .article-nav-title {
@@ -3141,6 +3194,10 @@ button.signal {
   /* 한 줄로 서면 좌우 정렬 차이가 방향이 아니라 실수로 읽힌다. */
   .article-nav-item--older {
     text-align: left;
+  }
+
+  .article-nav-item--older .article-nav-role {
+    justify-content: flex-start;
   }
 
   .article-nav-empty {

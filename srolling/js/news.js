@@ -20,7 +20,20 @@ const fromUrl = new URLSearchParams(location.search).get('category');
 let active = CATEGORIES.includes(fromUrl) ? fromUrl : 'ALL';
 let shown = PAGE_SIZE;
 
-const visible = () => (active === 'ALL' ? ARTICLES : ARTICLES.filter((a) => a.category === active));
+/* 목록 맨 위에 세워 두는 기사. 적은 순서 그대로 올라간다. */
+const PINNED = ['03', '12'];
+
+/*
+  ALL 목록에서만 순서를 바꾼다.
+  원본 배열을 바꾸면 홈의 최신 뉴스 네 칸과 EVENTS 카테고리 순서까지 함께 바뀌므로,
+  여기서 복사본의 표시 순서만 조정한다.
+*/
+const visible = () => {
+  if (active !== 'ALL') return ARTICLES.filter((article) => article.category === active);
+
+  const pinned = PINNED.map((id) => ARTICLES.find((article) => article.id === id)).filter(Boolean);
+  return [...pinned, ...ARTICLES.filter((article) => !pinned.includes(article))];
+};
 
 /* ---------- 한 줄 ---------- */
 
