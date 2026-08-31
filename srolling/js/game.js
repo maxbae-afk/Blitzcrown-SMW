@@ -1,5 +1,6 @@
-import { PLATFORM, findGame } from './game-data.js';
+import { PLATFORM, findGame, badgeTone } from './game-data.js';
 import { setupChrome } from './chrome.js';
+import { attachDemo, demoButton } from './demo-player.js';
 
 /*
   게임 상세 페이지.
@@ -199,7 +200,9 @@ function setupLightbox() {
 function renderInfo() {
   document.title = `${game.title} — BLITZCROWN`;
   $('#gameLabel').textContent = `01 / ${game.title}`;
-  $('#gameBadge').textContent = game.badge;
+  const badge = $('#gameBadge');
+  badge.className = `badge${badgeTone(game.badge)}`;
+  badge.textContent = game.badge;
   $('#gameTitle').textContent = game.title;
   $('#gamePremise').textContent = game.premise;
   $('#gameSummary').textContent = game.summary;
@@ -207,25 +210,16 @@ function renderInfo() {
   const actions = $('#gameActions');
   actions.textContent = '';
 
-  if (game.demo) {
-    const demo = document.createElement('a');
-    demo.className = 'btn btn--primary';
-    demo.href = game.demo;
-    demo.target = '_blank';
-    demo.rel = 'noreferrer';
-    demo.append('PLAY DEMO', document.createElement('i'));
-    actions.append(demo);
-    // 상단 CTA 도 지금 보고 있는 게임의 데모를 가리키게 맞춘다.
+  const demo = demoButton(game);
+  actions.append(demo);
+
+  // 상단 CTA 도 지금 보고 있는 게임의 데모를 가리키게 맞춘다.
+  if (demo.href) {
     const top = $('#topDemo');
-    top.href = game.demo;
+    top.href = demo.href;
     top.target = '_blank';
     top.rel = 'noreferrer';
-  } else {
-    const off = document.createElement('span');
-    off.className = 'btn is-disabled';
-    off.setAttribute('aria-disabled', 'true');
-    off.textContent = 'DEMO UNAVAILABLE';
-    actions.append(off);
+    attachDemo(top, game);
   }
 
   const view = document.createElement('button');

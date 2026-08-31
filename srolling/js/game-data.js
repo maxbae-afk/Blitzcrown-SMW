@@ -20,6 +20,11 @@ import { overlay } from './store.js';
 
     image: { src: 'assets/uploads/smash-tower.png', alt: 'Smash Tower key art' }
 
+  demo 는 공식 사이트의 안내 페이지, embed 는 게임이 실제로 돌아가는 주소다.
+  안내 페이지는 연령 확인이 앞에 걸려 있어 페이지 안에 넣을 수 없으므로 둘을 따로 둔다.
+  embed 가 있으면 데모를 페이지 안에서 열고, 없으면 지금까지처럼 새 탭으로 넘긴다.
+  주소 목록은 저장소 뿌리의 DEMO_LINKS.md 에 있다.
+
   media 는 상세 페이지의 스크린샷 자리다. 실제 파일이 오기 전까지 src 를 null 로 둔다.
 
     { type: 'image', src: 'assets/games/smash-tower/key-art.jpg', label: 'KEY ART' }
@@ -29,7 +34,7 @@ import { overlay } from './store.js';
 /** @typedef {{ src: string, alt?: string }} Thumb */
 /** @typedef {{ type: 'image' | 'video', src: string | null, poster?: string | null, label: string, note?: string }} Media */
 /** @typedef {{ slug: string, title: string, badge: string | null, category: string, pending?: boolean,
- *              premise: string, summary: string, demo: string | null, image?: Thumb,
+ *              premise: string, summary: string, demo: string | null, embed?: string | null, image?: Thumb,
  *              media: Media[], meta: [string, string | null][], specs: [string, string | null][] }} Game */
 
 /** @type {Game[]} */
@@ -51,6 +56,13 @@ export const PLATFORM = [
 ];
 
 export const findGame = (slug) => GAMES.find((game) => game.slug === slug) || GAMES[0];
+
+/*
+  뱃지 색.
+  NEW 와 POPULAR 는 눈에 띄라고 다는 것이고, BETA 는 아직 검수 중이라는 표시다.
+  둘을 같은 민트로 두면 시험판을 추천작으로 읽는다. 그래서 BETA 만 회색으로 뺀다.
+*/
+export const badgeTone = (badge) => (badge === 'BETA' ? ' badge--beta' : '');
 
 /** 상세 페이지의 자리표 문구. 새 게임을 만들 때 media 를 이걸로 채운다. */
 export const mediaSlots = (name) =>

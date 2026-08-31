@@ -14,6 +14,7 @@ export const GAMES = [
     "premise": "SMASH. CLIMB. CASH OUT.",
     "summary": "Break a floor, take what is behind it, and decide whether the next one is worth the climb. Every level raises the multiplier and the cost of being wrong.",
     "demo": "https://blitzcrown.massivegaming.io/game_info?title=smash-tower",
+    "embed": "https://games.ntcc.massivegaming.io/st-mine/",
     "media": [
       {
         "type": "image",
@@ -87,37 +88,38 @@ export const GAMES = [
     ]
   },
   {
-    "slug": "double-pop-plinko",
-    "title": "DOUBLE POP PLINKO 51200X",
-    "badge": "NEW",
-    "category": "PLINKO",
-    "premise": "MULTI-BALL PLINKO WITH RE-LAUNCHES.",
-    "summary": "One ball becomes many. Balls pop, split and re-launch across the board, so a single drop can turn into a chain of drops before the round settles.",
+    "slug": "massive-limbo",
+    "title": "MASSIVE LIMBO",
+    "badge": "BETA",
+    "category": "OTHER",
+    "premise": "SET THE TARGET. LAUNCH THE FLEET.",
+    "summary": "Pick the multiplier you want and how many rockets fly for it. The win chance moves as you set it, so the round is decided before launch and settles the moment it starts.",
     "demo": null,
+    "embed": "https://games.dq.ntcc.massivegaming.io/mb-limbo-arts2/",
     "media": [
       {
         "type": "image",
         "src": null,
-        "label": "DOUBLE POP PLINKO · KEY ART",
+        "label": "MASSIVE LIMBO · KEY ART",
         "note": "16:9 · full-bleed key visual"
       },
       {
         "type": "video",
         "src": null,
         "poster": null,
-        "label": "DOUBLE POP PLINKO · GAMEPLAY",
+        "label": "MASSIVE LIMBO · GAMEPLAY",
         "note": "16:9 · loop, no audio"
       },
       {
         "type": "image",
         "src": null,
-        "label": "DOUBLE POP PLINKO · SCREENSHOT 01",
+        "label": "MASSIVE LIMBO · SCREENSHOT 01",
         "note": "16:9 · in-game capture"
       },
       {
         "type": "image",
         "src": null,
-        "label": "DOUBLE POP PLINKO · SCREENSHOT 02",
+        "label": "MASSIVE LIMBO · SCREENSHOT 02",
         "note": "16:9 · win moment"
       }
     ],
@@ -128,41 +130,41 @@ export const GAMES = [
       ],
       [
         "KEY MECHANIC",
-        "MULTI-BALL"
+        "MULTI-ROCKET LIMBO"
       ],
       [
         "CATEGORY",
-        "PLINKO"
+        "OTHER"
       ],
       [
         "RELEASE DATE",
-        "MAY 2026"
+        "IN BETA"
       ]
     ],
     "specs": [
       [
         "RTP",
-        "96.30%"
+        "PENDING CERTIFICATION"
       ],
       [
         "MAX WIN",
-        "51,200x"
+        "PENDING"
       ],
       [
         "VOLATILITY",
-        "HIGH"
+        "PLAYER CONTROLLED"
       ],
       [
         "MIN / MAX BET",
-        "0.10 / 200.00"
+        "SET BY OPERATOR"
       ],
       [
         "ROUND LENGTH",
-        "7 SEC AVG"
+        "INSTANT"
       ],
       [
         "CERTIFICATION",
-        "GLI-19 · ISO/IEC 17025"
+        "IN PROGRESS"
       ]
     ]
   },
@@ -173,7 +175,8 @@ export const GAMES = [
     "category": "CRASH",
     "premise": "TWO PLANES. TWO MULTIPLIERS.",
     "summary": "Two planes climb together and crash apart. Every round asks whether to split the stake between them or commit everything to one curve.",
-    "demo": null,
+    "demo": "https://blitzcrown.massivegaming.io/game_info?title=twin-crash-blitz",
+    "embed": "https://games.ntcc.massivegaming.io/twin-crash-blitz/?operator=demo",
     "media": [
       {
         "type": "image",
@@ -253,7 +256,8 @@ export const GAMES = [
     "category": "OTHER",
     "premise": "CARD STRATEGY IN A SINGLE ROUND.",
     "summary": "A full hand of decisions compressed into one round. Each card you keep changes what the next one is worth, and the round ends the moment you stop.",
-    "demo": null,
+    "demo": "https://blitzcrown.massivegaming.io/game_info?title=super-card-rush",
+    "embed": "https://games.ntcc.massivegaming.io/scr-collect/",
     "media": [
       {
         "type": "image",
@@ -333,7 +337,8 @@ export const GAMES = [
     "category": "PLINKO",
     "premise": "COSMIC DROPS AND CHARGED PLANETS.",
     "summary": "The pegs are charged planets that pull and push the ball on its way down. The same drop from the same slot does not read the same twice.",
-    "demo": null,
+    "demo": "https://blitzcrown.massivegaming.io/game_info?title=interstellar-plinko",
+    "embed": "https://games.ntcc.massivegaming.io/is-plinko/",
     "media": [
       {
         "type": "image",
@@ -413,7 +418,8 @@ export const GAMES = [
     "category": "CRASH",
     "premise": "FAST ROUNDS. INSTANT CASHOUT.",
     "summary": "A crash round stripped to its shortest form. The curve moves fast, the cashout is one tap, and the next round starts before you have finished thinking about the last one.",
-    "demo": null,
+    "demo": "https://blitzcrown.massivegaming.io/game_info?title=fast-crash-blitz",
+    "embed": "https://games.ntcc.massivegaming.io/fast-crash-blitz/?operator=demo",
     "media": [
       {
         "type": "image",

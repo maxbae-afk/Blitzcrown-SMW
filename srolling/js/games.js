@@ -1,6 +1,7 @@
-import { GAMES, GAME_CATEGORIES } from './game-data.js';
+import { GAMES, GAME_CATEGORIES, badgeTone } from './game-data.js';
 import { setupChrome } from './chrome.js';
 import { fillThumb } from './thumb.js';
+import { demoButton } from './demo-player.js';
 
 /*
   게임 목록.
@@ -27,25 +28,6 @@ const mechanic = (game) => game.meta.find(([label]) => label === 'KEY MECHANIC')
 
 /* ---------- 카드 ---------- */
 
-/* 데모 주소가 없으면 눌리는 버튼을 두지 않는다. 눌렀는데 아무 일도 없는 편이 더 나쁘다. */
-function buildDemo(game) {
-  if (!game.demo) {
-    const off = document.createElement('span');
-    off.className = 'btn is-disabled';
-    off.setAttribute('aria-disabled', 'true');
-    off.textContent = 'DEMO UNAVAILABLE';
-    return off;
-  }
-
-  const link = document.createElement('a');
-  link.className = 'btn btn--primary';
-  link.href = game.demo;
-  link.target = '_blank';
-  link.rel = 'noreferrer';
-  link.append('PLAY DEMO', document.createElement('i'));
-  return link;
-}
-
 function buildCard(game) {
   const card = document.createElement('article');
   card.className = 'card reveal';
@@ -59,7 +41,9 @@ function buildCard(game) {
 
   // 뱃지가 없는 게임도 자리는 만든다. 빼면 옆 카드와 제목 높이가 어긋난다.
   const badge = document.createElement('span');
-  badge.className = game.badge ? 'badge badge--soft' : 'badge badge--soft badge--empty';
+  badge.className = game.badge
+    ? `badge badge--soft${badgeTone(game.badge)}`
+    : 'badge badge--soft badge--empty';
   badge.textContent = game.badge ?? 'NEW';
   body.append(badge);
 
@@ -82,7 +66,7 @@ function buildCard(game) {
   view.href = `game.html?title=${game.slug}`;
   view.append('VIEW GAME', document.createElement('i'));
 
-  actions.append(buildDemo(game), view);
+  actions.append(demoButton(game), view);
   body.append(title, premise, tags, actions);
   card.append(ph, body);
   return card;

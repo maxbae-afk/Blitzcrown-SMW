@@ -1,0 +1,32 @@
+{
+  "checked": "2026-08-31",
+  "source": "https://blitzcrown.massivegaming.io/games",
+  "note": "각 game_info 페이지에서 실제로 뜬 iframe 주소다. demo-links.mjs 로 다시 뽑을 수 있다.",
+  "games": {
+    "pumpkin-pop-plinko": "https://games.ntcc.massivegaming.io/pp-plinko-hw/?operator=demo",
+    "poker-stadium": "https://games.ntcc.massivegaming.io/ps-table/?operator=demo",
+    "multiplier-baccarat": "https://games.ntcc.massivegaming.io/mb-table/?operator=demo",
+    "dark-horse": "https://games.ntcc.massivegaming.io/dh-table/",
+    "double-pop-plinko-51200": "https://games.ntcc.massivegaming.io/dp-plinko-51k/",
+    "smash-tower": "https://games.ntcc.massivegaming.io/st-mine/",
+    "nine-knights-strikers": "https://games.ntcc.massivegaming.io/nk-table-wc/?operator=demo",
+    "double-pop-plinko-goals": "https://games.ntcc.massivegaming.io/dp-plinko-wc/?operator=demo",
+    "dragon-wizard-fly2win": "https://games.ntcc.massivegaming.io/dwf2w-crash/",
+    "super-card-rush": "https://games.ntcc.massivegaming.io/scr-collect/",
+    "interstellar-plinko": "https://games.ntcc.massivegaming.io/is-plinko/",
+    "dragon-and-wizard-jump2win": "https://games.ntcc.massivegaming.io/dwj2w-crash/",
+    "dragon-and-wizard": "https://games.ntcc.massivegaming.io/dw-crash/?operator=demo&lang=en",
+    "epic-strike-tower-of-zeus": "https://games.ntcc.massivegaming.io/zeus-tower/?operator=demo",
+    "lollypop-plinko": "https://games.ntcc.massivegaming.io/lp-plinko/",
+    "twin-crash-blitz": "https://games.ntcc.massivegaming.io/twin-crash-blitz/?operator=demo",
+    "fast-crash-blitz": "https://games.ntcc.massivegaming.io/fast-crash-blitz/?operator=demo",
+    "snowball-plinko": "https://games.ntcc.massivegaming.io/sb-plinko/?operator=demo",
+    "nine-knights": "https://games.ntcc.massivegaming.io/nine-knights/",
+    "fortune-ball-plinko": "https://games.ntcc.massivegaming.io/fb-plinko/?operator=demo",
+    "boom-boom-hit-plinko": "https://games.ntcc.massivegaming.io/bbh-plinko/?operator=demo",
+    "double-pop-plinko": "https://games.ntcc.massivegaming.io/dp-plinko/?operator=demo",
+    "twin-crash": "https://games.ntcc.massivegaming.io/twin-crash/?operator=demo",
+    "fastcrash": "https://games.ntcc.massivegaming.io/fast-crash/",
+    "crash": "https://games.ntcc.massivegaming.io/crash/?operator=demo"
+  }
+}

@@ -1,5 +1,6 @@
 import { GAMES } from './game-data.js';
 import { fillThumb } from './thumb.js';
+import { demoButton } from './demo-player.js';
 
 /*
   상단 PLAY DEMO 에 걸리는 게임 목록.
@@ -23,7 +24,7 @@ const SHOWN = 3; // 나머지는 아래 ALL GAMES 로 넘긴다
 */
 const picked = () =>
   GAMES.filter((game) => !game.pending)
-    .sort((a, b) => Number(Boolean(b.demo)) - Number(Boolean(a.demo)))
+    .sort((a, b) => Number(Boolean(b.demo || b.embed)) - Number(Boolean(a.demo || a.embed)))
     .slice(0, SHOWN);
 
 const mechanic = (game) => game.meta.find(([label]) => label === 'KEY MECHANIC')?.[1] ?? null;
@@ -56,27 +57,8 @@ function buildItem(game, index) {
   const key = mechanic(game);
   tag.textContent = key ? `${game.category} · ${key}` : game.category;
 
-  item.append(ph, name, tag, buildDemo(game));
+  item.append(ph, name, tag, demoButton(game));
   return item;
-}
-
-/* 데모 주소가 없으면 눌리는 버튼을 두지 않는다. 눌렀는데 아무 일도 없는 편이 더 나쁘다. */
-function buildDemo(game) {
-  if (!game.demo) {
-    const off = document.createElement('span');
-    off.className = 'btn is-disabled';
-    off.setAttribute('aria-disabled', 'true');
-    off.textContent = 'DEMO UNAVAILABLE';
-    return off;
-  }
-
-  const link = document.createElement('a');
-  link.className = 'btn btn--primary';
-  link.href = game.demo;
-  link.target = '_blank';
-  link.rel = 'noreferrer';
-  link.append('PLAY DEMO', document.createElement('i'));
-  return link;
 }
 
 function buildPanel(list) {

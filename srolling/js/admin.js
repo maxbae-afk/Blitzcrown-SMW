@@ -373,12 +373,19 @@ function gameEditor(game) {
         textField('설명', game.summary, (v) => {
           game.summary = v;
         }, { multiline: true }),
-        textField('데모 주소', game.demo ?? '', (v) => {
+        textField('데모 안내 페이지', game.demo ?? '', (v) => {
           game.demo = v.trim() || null;
         }, {
           type: 'url',
-          placeholder: 'https://…',
-          hint: '비워 두면 버튼이 DEMO UNAVAILABLE 로 바뀌고 눌리지 않는다.',
+          placeholder: 'https://blitzcrown.massivegaming.io/game_info?title=…',
+          hint: '공식 사이트의 소개 페이지. 아래 실행 주소가 없을 때만 새 탭으로 열린다.',
+        }),
+        textField('데모 실행 주소', game.embed ?? '', (v) => {
+          game.embed = v.trim() || null;
+        }, {
+          type: 'url',
+          placeholder: 'https://games.ntcc.massivegaming.io/…',
+          hint: '게임이 실제로 돌아가는 주소. 넣으면 페이지 안 목업에서 바로 플레이된다. 둘 다 비우면 DEMO UNAVAILABLE 이 된다.',
         }),
       ),
     ),
@@ -721,6 +728,7 @@ function blankGame() {
     premise: '',
     summary: '',
     demo: null,
+    embed: null,
     media: mediaSlots('NEW GAME'),
     meta: [
       ['GAME TYPE', 'INSTANT WIN'],

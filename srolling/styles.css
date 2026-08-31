@@ -1161,6 +1161,13 @@ code {
   color: var(--mint);
 }
 
+/* 아직 검수를 마치지 않은 게임. 추천작으로 읽히지 않게 강조색을 뺀다. */
+.badge--beta {
+  border: 1px solid var(--line);
+  background: none;
+  color: var(--muted);
+}
+
 /*
   뱃지가 없는 게임도 같은 높이를 차지하게 둔다.
   빼 버리면 한 줄에 놓인 카드끼리 제목 높이가 어긋난다.
@@ -1650,6 +1657,14 @@ code {
   font-size: 10px;
   letter-spacing: 0.24em;
   color: var(--muted);
+}
+
+/* 자리표(.ph--16x9)가 있던 자리라 크기와 비율을 그대로 따른다. */
+.news-lead-img {
+  display: block;
+  width: 100%;
+  aspect-ratio: 16 / 9;
+  object-fit: cover;
 }
 
 .news-lead .news-meta {
@@ -2510,6 +2525,26 @@ button.btn {
   cursor: pointer;
 }
 
+/*
+  다만 강조 단추는 채워져 있어야 한다.
+  위 규칙이 .btn--primary 보다 좁아서, 되돌리지 않으면 테두리만 남는다.
+*/
+button.btn--primary {
+  background: var(--mint);
+  color: #04120d;
+}
+
+button.btn--primary:hover {
+  background: var(--mint-soft);
+  color: #04120d;
+}
+
+button.btn--primary.is-disabled {
+  border-color: transparent;
+  background: rgb(50 218 180 / 0.28);
+  color: rgb(4 18 13 / 0.62);
+}
+
 /* ---- 세부 정보 ---- */
 
 .gd-spec {
@@ -2663,6 +2698,307 @@ button.btn {
 
 body.is-locked {
   overflow: hidden;
+}
+
+/* ---- 데모 플레이어 ---- */
+
+.demoplay {
+  position: fixed;
+  inset: 0;
+  z-index: 130;
+  display: flex;
+  flex-direction: column;
+  background: #030405;
+  opacity: 0;
+  transition: opacity 0.2s ease;
+}
+
+/* 라이트박스와 같은 이유로 닫힌 상태의 display 를 눌러 준다. */
+.demoplay[hidden] {
+  display: none;
+}
+
+.demoplay.is-open {
+  opacity: 1;
+}
+
+.demoplay-bar {
+  position: relative;
+  z-index: 2; /* QR 이 아래 게임 화면 위로 내려와야 한다 */
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 24px;
+  padding: 20px clamp(20px, 4vw, 56px);
+  border-bottom: 1px solid var(--line);
+}
+
+.demoplay-modes {
+  display: flex;
+  flex: 0 0 auto;
+}
+
+/* 폰으로 들어오면 전환 버튼을 감춘다. display:flex 가 [hidden] 을 이기므로 눌러 준다. */
+.demoplay-modes[hidden] {
+  display: none;
+}
+
+.demoplay-mode {
+  min-height: 36px;
+  padding: 8px 16px;
+  border: 1px solid var(--line);
+  background: none;
+  color: var(--muted);
+  font-family: var(--mono);
+  font-size: 10px;
+  letter-spacing: 0.24em;
+  cursor: pointer;
+  transition: border-color 0.22s ease, color 0.22s ease;
+}
+
+/* 두 칸이 맞붙어 하나의 스위치로 보이게 가운데 선을 겹친다. */
+.demoplay-mode + .demoplay-mode {
+  margin-left: -1px;
+}
+
+.demoplay-mode:hover {
+  color: var(--ink);
+}
+
+.demoplay-mode.is-on {
+  border-color: var(--mint);
+  color: var(--mint);
+}
+
+.demoplay-title {
+  min-width: 0;
+  margin: 0;
+  overflow: hidden;
+  font-family: var(--mono);
+  font-size: 10px;
+  letter-spacing: 0.24em;
+  color: var(--muted);
+  white-space: nowrap;
+  text-overflow: ellipsis;
+}
+
+.demoplay-tools {
+  display: flex;
+  flex: 0 0 auto;
+  align-items: center;
+  gap: 16px;
+}
+
+.demoplay-tool {
+  min-height: 36px;
+  padding: 8px 18px;
+  border: 1px solid var(--line);
+  background: none;
+  color: inherit;
+  font-family: var(--mono);
+  font-size: 10px;
+  letter-spacing: 0.24em;
+  text-decoration: none;
+  cursor: pointer;
+  transition: border-color 0.22s ease, color 0.22s ease;
+}
+
+.demoplay-tool:hover {
+  border-color: var(--mint);
+  color: var(--mint);
+}
+
+/* ---------- QR ---------- */
+
+.demoplay-qr {
+  position: relative;
+  display: flex;
+}
+
+.demoplay-qr[hidden] {
+  display: none;
+}
+
+/* 글자 대신 그림이 들어가는 단추라 좌우 여백을 줄여 정사각에 가깝게 둔다. */
+.demoplay-tool--icon {
+  display: grid;
+  place-items: center;
+  width: 36px;
+  padding: 0;
+}
+
+.demoplay-tool--icon img {
+  width: 16px;
+  height: 16px;
+  opacity: 0.72;
+  transition: opacity 0.22s ease;
+}
+
+.demoplay-qr:hover .demoplay-tool--icon img,
+.demoplay-qr.is-pinned .demoplay-tool--icon img {
+  opacity: 1;
+}
+
+.demoplay-qr:hover .demoplay-tool--icon,
+.demoplay-qr:has(:focus-visible) .demoplay-tool--icon,
+.demoplay-qr.is-pinned .demoplay-tool--icon {
+  border-color: var(--mint);
+}
+
+/*
+  단추 아래에 매단다. 오른쪽 끝에 있는 단추라 오른쪽 모서리를 맞춰야 화면을 넘지 않는다.
+
+  여닫는 판정은 브라우저에 맡긴다. 자바스크립트로 떠나는 사건을 받아 닫으려 하면
+  마우스가 아래 게임 iframe 으로 넘어갈 때 그 사건이 오지 않아 토스트가 남는다.
+*/
+.demoplay-toast {
+  display: none;
+  position: absolute;
+  top: calc(100% + 12px);
+  right: 0;
+  z-index: 1;
+  flex-direction: column;
+  gap: 12px;
+  width: 232px;
+  padding: 16px;
+  border: 1px solid var(--line);
+  background: #0a0d0e;
+}
+
+/*
+  키보드로 온 초점만 연다(:focus-visible).
+  마우스로 눌러도 단추에는 초점이 남는데, 그것까지 열어 두면
+  고정을 풀고 마우스를 치워도 토스트가 그대로 남는다.
+*/
+.demoplay-qr:hover .demoplay-toast,
+.demoplay-qr:has(:focus-visible) .demoplay-toast,
+.demoplay-qr.is-pinned .demoplay-toast {
+  display: flex;
+}
+
+.demoplay-toast-label {
+  margin: 0;
+  font-family: var(--mono);
+  font-size: 10px;
+  letter-spacing: 0.24em;
+  color: var(--mint);
+}
+
+/* QR 은 흰 바탕에 검은 칸이어야 카메라가 제일 잘 잡는다. 어두운 판 위에 흰 칸을 얹는다. */
+.demoplay-toast-code {
+  display: block;
+  background: #fff;
+}
+
+.demoplay-toast-code svg {
+  display: block;
+  width: 100%;
+  height: auto;
+}
+
+/*
+  게임은 다른 출처의 iframe 이다. 마우스가 그 위로 넘어가면 이 문서는 더 이상 소식을 받지 못해서,
+  떠난 줄 모르고 :hover 가 그대로 붙어 있는다. QR 토스트가 게임 위에 남는 이유가 그것이다.
+
+  그래서 QR 이 열려 있는 동안만 게임 위에 보이지 않는 판을 한 장 덮는다.
+  마우스가 이 문서 안에서 움직이게 되므로 판을 지나는 순간 :hover 가 정상으로 풀리고,
+  풀리면 이 판도 함께 사라져 게임은 다시 그대로 만져진다.
+  막대(z-index 2)보다는 아래에 두어 위쪽 단추들은 계속 눌린다.
+*/
+.demoplay-guard {
+  display: none;
+  position: absolute;
+  inset: 0;
+  z-index: 1;
+}
+
+.demoplay:has(.demoplay-qr:hover) .demoplay-guard,
+.demoplay:has(.demoplay-qr :focus-visible) .demoplay-guard {
+  display: block;
+}
+
+.demoplay-toast-link {
+  margin: 0;
+  overflow: hidden;
+  font-family: var(--mono);
+  font-size: 9px;
+  letter-spacing: 0.12em;
+  line-height: 1.5;
+  color: var(--muted);
+  overflow-wrap: anywhere;
+}
+
+.demoplay-stage {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex: 1;
+  min-height: 0;
+  padding: clamp(16px, 3vw, 40px);
+}
+
+/*
+  목업 안 화면이 정확히 402x874 가 되도록 틀 크기를 목업 비율에서 되돌려 잡는다.
+  화면이 좁다고 틀을 줄이면 게임이 더 작은 폰으로 알고 다시 배치한다.
+  그래서 크기는 그대로 두고 아래 transform 으로 통째로 줄인다.
+*/
+.demoplay-device {
+  position: relative;
+  flex: 0 0 auto;
+  width: var(--device-w);
+  height: var(--device-h);
+}
+
+.demoplay-frame {
+  position: absolute;
+  left: var(--screen-x);
+  top: var(--screen-y);
+  width: var(--screen-w);
+  height: var(--screen-h);
+  border: 0;
+  background: #000;
+}
+
+/*
+  목업 그림은 게임 위를 덮되 마우스는 통과시킨다.
+  화면 자리가 뚫려 있어 아래 게임이 그대로 보인다.
+*/
+.demoplay-shell {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  pointer-events: none;
+}
+
+/* PC 화면에서는 목업을 걷고 남는 자리 없이 전부 게임에 준다. */
+.demoplay[data-mode='pc'] .demoplay-stage {
+  padding: 0;
+}
+
+.demoplay[data-mode='pc'] .demoplay-device {
+  width: 100%;
+  height: 100%;
+}
+
+.demoplay[data-mode='pc'] .demoplay-frame {
+  position: static;
+  width: 100%;
+  height: 100%;
+}
+
+.demoplay[data-mode='pc'] .demoplay-shell {
+  display: none;
+}
+
+@media (max-width: 900px) {
+  .demoplay-bar {
+    padding: 14px 20px;
+  }
+
+  .demoplay-stage {
+    padding: 0;
+  }
 }
 
 @media (max-width: 1080px) {
@@ -3204,3 +3540,433 @@ button.signal {
     display: none;
   }
 }
+
+/* ============ CONTACT ============ */
+/*
+  contact.html 전용. 새로 만든 것은 입력 칸뿐이고, 나머지는 화면 곳곳의 조각을 그대로 끌어 쓴다.
+  칩은 게임 거르개, 항목표는 .meta, 단추는 .btn 이다.
+  입력 칸도 결국 검색 칸(.search input)과 같은 규칙을 따른다.
+  선 하나와 민트 한 색만 쓰고, 모서리는 깎지 않는다.
+*/
+
+.page-contact .contact {
+  padding: 132px 0 var(--sec-pad);
+  background: #070a0b;
+}
+
+/*
+  왼쪽이 넓다. 글을 쓰는 쪽이라 줄이 짧아지면 답답해진다.
+  오른쪽 옆줄은 읽기만 하는 곳이므로 좁혀 둔다.
+
+  칸 사이는 gap 이 아니라 양쪽 여백으로 벌린다.
+  그래야 그 가운데에 세로선 한 줄을 세울 수 있다.
+  이 세로선은 화면 곳곳에서 갈래를 나눌 때 쓰는 것과 같은 1px 선이다.
+*/
+.contact-grid {
+  display: grid;
+  grid-template-columns: 1.25fr 1fr;
+  column-gap: 0;
+  align-items: start;
+  padding-top: 32px;
+  border-top: 1px solid var(--line);
+}
+
+/* ---------- 입력 칸 ---------- */
+
+.contact-form {
+  display: grid;
+  gap: 28px;
+  padding-right: var(--gap-col-lg);
+}
+
+/* display:grid 는 hidden 을 이긴다. 보낸 뒤에 서식이 남지 않게 따로 눌러 준다. */
+.contact-form[hidden] {
+  display: none;
+}
+
+.field {
+  display: grid;
+  gap: 10px;
+  margin: 0;
+  min-width: 0;
+}
+
+/* fieldset 은 기본 테두리와 안쪽 여백이 있다. 다른 칸과 같은 자리에 서게 지운다. */
+.field-set {
+  padding: 0;
+  border: 0;
+}
+
+.field-row {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: var(--gap-col);
+}
+
+.field-label {
+  font-family: var(--mono);
+  font-size: 10px;
+  letter-spacing: 0.24em;
+  color: var(--muted);
+}
+
+/* legend 는 자리를 흘리기 쉬워 줄 하나를 온전히 차지하게 둔다. */
+legend.field-label {
+  padding: 0;
+  margin-bottom: 10px;
+}
+
+.field-label em {
+  font-style: normal;
+  color: var(--mint);
+}
+
+.field-input {
+  width: 100%;
+  min-height: 46px;
+  padding: 13px 16px;
+  border: 1px solid var(--line);
+  background: #0b1013;
+  color: var(--white);
+  font-family: var(--mono);
+  font-size: 12px;
+  letter-spacing: 0.08em;
+  transition: border-color 0.22s ease, background 0.22s ease;
+}
+
+.field-input--area {
+  min-height: 0;
+  line-height: 1.8;
+  resize: vertical;
+}
+
+.field-input:focus {
+  border-color: rgb(50 218 180 / 0.38);
+  background: rgb(50 218 180 / 0.035);
+}
+
+.field-input:focus-visible {
+  outline: none;
+}
+
+/* 아직 채우지 않은 칸을 미리 빨갛게 칠하지 않는다. 보내기를 누른 뒤에만 표시한다. */
+.field-input.is-bad {
+  border-color: rgb(224 169 79 / 0.55);
+  background: rgb(224 169 79 / 0.05);
+}
+
+.field-hint {
+  justify-self: end;
+  font-family: var(--mono);
+  font-size: 10px;
+  letter-spacing: 0.16em;
+  color: rgb(242 247 245 / 0.34);
+}
+
+.field-error {
+  font-family: var(--mono);
+  font-size: 10px;
+  letter-spacing: 0.16em;
+  color: #e0a94f;
+}
+
+/* 자동 등록기용 미끼. 화면에서 지우되 읽는 기기에서도 건너뛰게 aria-hidden 을 함께 건다. */
+.field-trap {
+  position: absolute;
+  left: -9999px;
+  width: 1px;
+  height: 1px;
+  overflow: hidden;
+}
+
+/* ---------- 갈래 고르개 ---------- */
+
+/* 칩 자체는 게임 거르개 것을 쓰고, 여기서는 서는 방향만 바꾼다. */
+.chips--start {
+  justify-content: flex-start;
+  margin-left: 0;
+}
+
+.chip:has(input) {
+  position: relative;
+}
+
+/*
+  동그라미를 지우고 칩 모양만 남긴다. opacity 로만 지운다.
+  display:none 으로 지우면 자판으로 고를 수 없다.
+*/
+.chip input {
+  position: absolute;
+  inset: 0;
+  margin: 0;
+  opacity: 0;
+  cursor: pointer;
+}
+
+.chip:has(input:checked) {
+  border-color: rgb(50 218 180 / 0.38);
+  background: rgb(50 218 180 / 0.035);
+  color: rgb(120 255 226 / 0.78);
+}
+
+.chip:has(input:checked)::before {
+  background: currentColor;
+  opacity: 0.7;
+}
+
+.chip:has(input:focus-visible) {
+  outline: 1px solid var(--mint);
+  outline-offset: 2px;
+}
+
+.chips--start.is-bad .chip {
+  border-color: rgb(224 169 79 / 0.4);
+}
+
+/* ---------- 동의 ---------- */
+
+.consent {
+  position: relative;
+  display: grid;
+  grid-template-columns: 16px 1fr;
+  align-items: start;
+  gap: 12px;
+  font-size: 12px;
+  line-height: 1.7;
+  color: rgb(242 247 245 / 0.6);
+  cursor: pointer;
+}
+
+.consent input {
+  position: absolute;
+  opacity: 0;
+  width: 16px;
+  height: 16px;
+  margin: 0;
+}
+
+.consent i {
+  width: 16px;
+  height: 16px;
+  margin-top: 3px;
+  border: 1px solid var(--line);
+  transition: border-color 0.22s ease, background 0.22s ease;
+}
+
+.consent:hover i {
+  border-color: rgb(242 247 245 / 0.28);
+}
+
+.consent input:checked + i {
+  border-color: var(--mint);
+  background: var(--mint);
+}
+
+/* 체크 표시. 네모 안에 ㄴ 자를 눕혀 그린다. */
+.consent input:checked + i::after {
+  content: "";
+  display: block;
+  width: 4px;
+  height: 8px;
+  margin: 2px auto 0;
+  border-right: 2px solid #04120d;
+  border-bottom: 2px solid #04120d;
+  rotate: 45deg;
+}
+
+.consent input:focus-visible + i {
+  outline: 1px solid var(--mint);
+  outline-offset: 2px;
+}
+
+.consent.is-bad i {
+  border-color: rgb(224 169 79 / 0.55);
+}
+
+/* ---------- 보내기 ---------- */
+
+.contact-actions {
+  display: grid;
+  grid-template-columns: auto 1fr;
+  align-items: center;
+  gap: var(--gap-col);
+  padding-top: 8px;
+  border-top: 1px solid var(--line);
+  margin-top: 4px;
+}
+
+.contact-fineprint {
+  margin: 0;
+  font-size: 11px;
+  line-height: 1.7;
+  color: rgb(242 247 245 / 0.42);
+}
+
+.contact-status {
+  margin: 0;
+  padding: 14px 16px;
+  border: 1px solid var(--line);
+  font-family: var(--mono);
+  font-size: 11px;
+  line-height: 1.7;
+  letter-spacing: 0.16em;
+  color: rgb(242 247 245 / 0.62);
+}
+
+.contact-status.is-bad {
+  border-color: rgb(224 169 79 / 0.45);
+  color: #e0a94f;
+}
+
+.contact-status[hidden] {
+  display: none;
+}
+
+/* ---------- 보낸 뒤 ---------- */
+
+.contact-done {
+  padding-right: var(--gap-col-lg);
+}
+
+.contact-done[hidden] {
+  display: none;
+}
+
+.contact-done-title {
+  margin: 16px 0 0;
+  font-size: clamp(28px, 3.2vw, 44px);
+  font-weight: 800;
+  line-height: 1.08;
+  letter-spacing: -0.03em;
+}
+
+.contact-done-title em {
+  font-style: normal;
+  color: var(--mint);
+}
+
+.contact-done-body {
+  margin: 24px 0 32px;
+  max-width: 460px;
+  font-size: 14px;
+  line-height: 1.85;
+  color: rgb(242 247 245 / 0.62);
+}
+
+.contact-done-body a {
+  color: var(--mint);
+  border-bottom: 1px solid rgb(50 218 180 / 0.4);
+}
+
+/* ---------- 옆줄 ---------- */
+
+/*
+  긴 글을 쓰는 동안에도 회사 정보와 편지 주소가 옆에 남아 있어야 한다.
+  기사 화면의 옆줄과 같은 규칙을 쓴다.
+*/
+.contact-aside {
+  position: sticky;
+  top: 112px;
+  align-self: start;
+  display: grid;
+  gap: var(--block);
+  padding-left: var(--gap-col-lg);
+  border-left: 1px solid var(--line);
+}
+
+.contact-block {
+  display: grid;
+  gap: 12px;
+  justify-items: start;
+}
+
+/* 편지 주소가 이 줄에서 가장 먼저 눈에 들어와야 한다. */
+.contact-block--lead {
+  padding-bottom: var(--block);
+  border-bottom: 1px solid var(--line);
+}
+
+.contact-mail {
+  font-size: clamp(18px, 1.7vw, 24px);
+  font-weight: 600;
+  letter-spacing: -0.01em;
+  color: var(--mint);
+  border-bottom: 1px solid transparent;
+  transition: border-color 0.22s ease;
+  overflow-wrap: anywhere;
+}
+
+.contact-mail:hover {
+  border-bottom-color: var(--mint);
+}
+
+.contact-note {
+  margin: 0;
+  font-size: 12px;
+  line-height: 1.8;
+  color: rgb(242 247 245 / 0.5);
+}
+
+.contact-address {
+  margin: 0;
+  font-family: var(--mono);
+  font-size: 12px;
+  line-height: 2;
+  letter-spacing: 0.08em;
+  color: rgb(242 247 245 / 0.72);
+}
+
+/* 옆줄 안에서는 항목표가 폭을 다 써야 좌우 정렬이 살아난다. */
+.contact-block .meta {
+  width: 100%;
+}
+
+@media (max-width: 1080px) {
+  .page-contact .contact {
+    padding-top: 116px;
+  }
+
+  /*
+    옆줄이 서식 아래로 접힌다. 서식을 먼저 읽고 회사 정보를 나중에 보는 순서가 맞다.
+    한 칸이 되었으므로 가운데 세로선도 가로선으로 눕히고, 붙어 있을 자리가 없으니 sticky 도 푼다.
+  */
+  .contact-grid {
+    grid-template-columns: 1fr;
+    row-gap: var(--block);
+  }
+
+  .contact-form,
+  .contact-done {
+    padding-right: 0;
+  }
+
+  .contact-aside {
+    position: static;
+    padding-left: 0;
+    padding-top: var(--block);
+    border-left: 0;
+    border-top: 1px solid var(--line);
+  }
+}
+
+@media (max-width: 560px) {
+  .page-contact .contact {
+    padding-top: 96px;
+  }
+
+  /* 이름과 회사가 한 줄에 서면 각 칸이 손가락보다 좁아진다. */
+  .field-row {
+    grid-template-columns: 1fr;
+    gap: 28px;
+  }
+
+  .contact-actions {
+    grid-template-columns: 1fr;
+    gap: 16px;
+  }
+
+  .contact-actions .btn {
+    justify-content: center;
+  }
+}
+

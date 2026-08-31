@@ -8,6 +8,7 @@
 const SECTIONS = [
   ['games.html', ['games.html', 'game.html']],
   ['news.html', ['news.html', 'article.html']],
+  ['contact.html', ['contact.html']],
 ];
 
 export function markCurrentNav() {

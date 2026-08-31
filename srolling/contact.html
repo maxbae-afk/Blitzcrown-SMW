@@ -1,0 +1,236 @@
+<!doctype html>
+<html lang="ko">
+<head>
+<meta charset="utf-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover" />
+<title>CONTACT — BLITZCROWN</title>
+<link rel="icon" href="data:," />
+<meta name="description" content="Talk to Blitzcrown about partnerships, game distribution and media enquiries." />
+<link rel="preconnect" href="https://fonts.googleapis.com" />
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet" />
+<link rel="stylesheet" href="styles.css" />
+</head>
+<body class="page-contact">
+
+<div class="topline" aria-hidden="true"><i id="topline"></i></div>
+
+<header class="topbar">
+  <a class="brand" href="index.html" aria-label="Blitzcrown home">
+    <img src="assets/blitzcrown-logo.svg" alt="Blitzcrown" />
+  </a>
+  <nav class="topnav">
+    <a href="games.html">GAMES</a>
+    <a href="news.html">NEWS</a>
+    <a href="index.html#build">ABOUT US</a>
+    <a href="index.html#journey">STUDIO</a>
+    <a href="contact.html">CONTACT</a>
+  </nav>
+  <a class="top-cta" href="index.html#release">PLAY DEMO</a>
+</header>
+
+<main id="top">
+
+  <!-- ============ 01 / START A CONVERSATION ============ -->
+  <!--
+    묻는 쪽과 답하는 쪽을 좌우로 나눈다.
+    왼쪽은 우리가 받고 싶은 것(문의 서식), 오른쪽은 우리가 먼저 밝히는 것(주소·법인·면허)이다.
+    지도는 넣지 않는다. 지도 한 장을 띄우려고 외부 스크립트를 끌어오면
+    아무 것도 누르지 않은 사람에게까지 추적 쿠키가 붙는다. 주소는 글로 적고 링크만 건다.
+  -->
+  <section class="contact">
+    <div class="wrap">
+      <a class="signal signal--back" href="index.html"><i></i>BACK TO HOME</a>
+
+      <header class="sec-head">
+        <span class="sec-label">01 / START A CONVERSATION</span>
+        <span class="sec-line"></span>
+        <span class="sec-dash"></span>
+      </header>
+
+      <div class="sec-intro reveal">
+        <h1 class="sec-title">LET'S BUILD<br />THE NEXT<br /><em>ORIGINAL EXPERIENCE.</em></h1>
+        <p class="sec-lead">
+          Tell us what you are building. Partnerships, distribution and media enquiries
+          all land with a person, not a queue.
+        </p>
+      </div>
+
+      <div class="contact-grid">
+
+        <!-- ---------- 왼쪽: 문의 서식 ---------- -->
+        <!--
+          novalidate 를 걸고 검사를 직접 한다. 브라우저 기본 말풍선은
+          한 번에 한 칸만 알려 주고 생김새도 화면과 따로 논다.
+          required 는 그대로 둔다. 조판이 깨져 스크립트가 죽어도 서식은 살아 있어야 한다.
+        -->
+        <form class="contact-form reveal" id="contactForm" novalidate>
+
+          <div class="field-row">
+            <p class="field">
+              <label class="field-label" for="cfName">NAME <em>*</em></label>
+              <input class="field-input" id="cfName" name="name" type="text" required autocomplete="name" />
+              <span class="field-error" id="cfNameError" hidden></span>
+            </p>
+            <p class="field">
+              <label class="field-label" for="cfCompany">COMPANY <em>*</em></label>
+              <input class="field-input" id="cfCompany" name="company" type="text" required autocomplete="organization" />
+              <span class="field-error" id="cfCompanyError" hidden></span>
+            </p>
+          </div>
+
+          <p class="field">
+            <label class="field-label" for="cfEmail">BUSINESS EMAIL <em>*</em></label>
+            <input class="field-input" id="cfEmail" name="email" type="email" required autocomplete="email" inputmode="email" />
+            <span class="field-error" id="cfEmailError" hidden></span>
+          </p>
+
+          <!--
+            갈래를 고르는 칸이다. 목록 상자 대신 화면 곳곳에서 쓰는 칩을 그대로 쓴다.
+            네 개뿐이라 접어 둘 이유가 없고, 무엇을 고를 수 있는지 한눈에 보인다.
+          -->
+          <fieldset class="field field-set">
+            <legend class="field-label">INQUIRY TYPE <em>*</em></legend>
+            <div class="chips chips--start">
+              <label class="chip"><input type="radio" name="inquiry" value="PARTNERSHIP" /><span>PARTNERSHIP</span></label>
+              <label class="chip"><input type="radio" name="inquiry" value="DISTRIBUTION" /><span>DISTRIBUTION</span></label>
+              <label class="chip"><input type="radio" name="inquiry" value="MEDIA" /><span>MEDIA</span></label>
+              <label class="chip"><input type="radio" name="inquiry" value="GENERAL" /><span>GENERAL</span></label>
+            </div>
+            <span class="field-error" id="cfInquiryError" hidden></span>
+          </fieldset>
+
+          <p class="field">
+            <label class="field-label" for="cfMessage">MESSAGE <em>*</em></label>
+            <textarea class="field-input field-input--area" id="cfMessage" name="message" rows="7" required></textarea>
+            <span class="field-hint"><span id="cfCount">0</span> / 2000</span>
+            <span class="field-error" id="cfMessageError" hidden></span>
+          </p>
+
+          <p class="field">
+            <label class="consent">
+              <input type="checkbox" id="cfConsent" name="consent" required />
+              <i aria-hidden="true"></i>
+              <span>I agree that Blitzcrown may use these details to answer this enquiry.</span>
+            </label>
+            <span class="field-error" id="cfConsentError" hidden></span>
+          </p>
+
+          <!-- 사람이 채울 일이 없는 칸. 자동 등록기가 채우면 그대로 버린다. -->
+          <p class="field-trap" aria-hidden="true">
+            <label for="cfWebsite">Leave this field empty</label>
+            <input id="cfWebsite" name="website" type="text" tabindex="-1" autocomplete="off" />
+          </p>
+
+          <div class="contact-actions">
+            <button class="btn btn--primary" type="submit" id="cfSubmit">SEND ENQUIRY<i></i></button>
+            <p class="contact-fineprint">
+              We only use what you write here to answer you.
+              Nothing is passed on to anyone else.
+            </p>
+          </div>
+
+          <!-- 보내는 중·보냈음·못 보냄을 알리는 자리. 소리 내어 읽는 기기에도 전해져야 한다. -->
+          <p class="contact-status" id="cfStatus" role="status" aria-live="polite" hidden></p>
+        </form>
+
+        <!--
+          보낸 뒤에 서식 자리를 대신 채운다.
+          "받았습니다" 한 줄만 남기고 사라지면 다음에 무엇을 할지가 없어진다.
+        -->
+        <div class="contact-done" id="contactDone" hidden>
+          <span class="sec-label">MESSAGE SENT</span>
+          <h2 class="contact-done-title">THANK YOU.<br /><em>WE WILL BE IN TOUCH.</em></h2>
+          <p class="contact-done-body">
+            Your enquiry is with the commercial team. Expect a reply within two business days.
+            If it is urgent, write to <a href="mailto:maxbae@neowiz.com">maxbae@neowiz.com</a> directly.
+          </p>
+          <div class="actions">
+            <a class="btn" href="games.html">EXPLORE GAMES<i></i></a>
+            <a class="btn" href="news.html">READ THE NEWS<i></i></a>
+          </div>
+        </div>
+
+        <!-- ---------- 오른쪽: 우리가 먼저 밝히는 것 ---------- -->
+        <aside class="contact-aside">
+
+          <div class="contact-block contact-block--lead reveal">
+            <p class="field-label">DIRECT</p>
+            <a class="contact-mail" href="mailto:maxbae@neowiz.com">maxbae@neowiz.com</a>
+            <p class="contact-note">
+              Written to by operators, aggregators and press.
+              Read every working day from Malta.
+            </p>
+          </div>
+
+          <div class="contact-block reveal">
+            <p class="field-label">WHO YOU ARE WRITING TO</p>
+            <dl class="meta">
+              <div><dt>LEGAL ENTITY</dt><dd>MASSIVE GAMING MALTA LTD</dd></div>
+              <div><dt>REGISTRATION</dt><dd>C109221</dd></div>
+              <div><dt>REGULATOR</dt><dd>MALTA GAMING AUTHORITY</dd></div>
+              <div><dt>LICENCE</dt><dd>MGA/B2B/1088/2025</dd></div>
+            </dl>
+          </div>
+
+          <div class="contact-block reveal">
+            <p class="field-label">REGISTERED OFFICE</p>
+            <p class="contact-address">97, Triq Windsor<br />Sliema, SLM 1853<br />Malta</p>
+            <a
+              class="signal"
+              href="https://www.google.com/maps/search/?api=1&amp;query=97%2C+Triq+Windsor%2C+Sliema%2C+SLM+1853%2C+Malta"
+              target="_blank"
+              rel="noreferrer"
+            >VIEW ON MAP<i></i></a>
+          </div>
+
+          <div class="contact-block reveal">
+            <p class="field-label">WHERE TO MEET US</p>
+            <p class="contact-note">
+              We take meetings at the main industry events through the year.
+              Ask for a slot and we will send the stand number.
+            </p>
+            <span class="flag">EVENT SCHEDULE TO BE CONFIRMED</span>
+          </div>
+
+        </aside>
+      </div>
+    </div>
+  </section>
+
+</main>
+
+<footer class="foot">
+  <div class="wrap">
+    <div class="foot-top">
+      <div class="foot-brand">
+        <p class="foot-mark">BLITZCROWN</p>
+        <p class="foot-statement">By pushing conventional boundaries, we craft original instant win experiences that redefine iGaming.</p>
+      </div>
+      <nav class="foot-nav" aria-label="Footer">
+        <a href="games.html">Games</a>
+        <a href="index.html#build">About Us</a>
+        <a href="contact.html">Contact</a>
+        <a href="index.html#contact">Privacy Policy</a>
+      </nav>
+    </div>
+
+    <div class="foot-legal">
+      <p>This site is operated by Massive Gaming Malta Limited.</p>
+      <p>Registration number C109221.</p>
+      <p>Registered address: 97, Triq Windsor, Sliema, SLM 1853, Malta.</p>
+      <p>Licensed and regulated by the Malta Gaming Authority.</p>
+      <p>Licence number MGA/B2B/1088/2025.</p>
+      <span class="flag">LEGAL REVIEW REQUIRED</span>
+    </div>
+
+    <div class="foot-bottom">
+      <span>© 2026 BLITZCROWN</span>
+      <span>MANY WORLDS. ONE CROWN.</span>
+    </div>
+  </div>
+</footer>
+
+<script type="module" src="js/contact.js"></script>
+</body>
+</html>

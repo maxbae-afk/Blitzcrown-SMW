@@ -1,6 +1,8 @@
-import { GAMES } from './game-data.js';
+import { GAMES, badgeTone } from './game-data.js';
 import { ARTICLES } from './news-data.js';
 import { fillThumb } from './thumb.js';
+import { fillImage } from './news-image.js';
+import { demoButton } from './demo-player.js';
 
 /*
   홈의 게임 칸과 뉴스 칸을 자료에서 그린다.
@@ -32,21 +34,6 @@ const el = (tag, className, text) => {
 
 const metaValue = (game, label) => game.meta.find(([key]) => key === label)?.[1] ?? null;
 
-/* 데모 주소가 없으면 눌리는 버튼을 두지 않는다. 눌렀는데 아무 일도 없는 편이 더 나쁘다. */
-function demoButton(game) {
-  if (!game.demo) {
-    const off = el('span', 'btn is-disabled', 'DEMO UNAVAILABLE');
-    off.setAttribute('aria-disabled', 'true');
-    return off;
-  }
-  const link = el('a', 'btn btn--primary');
-  link.href = game.demo;
-  link.target = '_blank';
-  link.rel = 'noreferrer';
-  link.append('PLAY DEMO', document.createElement('i'));
-  return link;
-}
-
 function arrowLink(className, href, label) {
   const link = el('a', className);
   link.href = href;
@@ -67,7 +54,7 @@ function renderFeature(host, game) {
 
   const body = el('div', 'feature-body');
   const head = el('div', 'feature-head');
-  if (game.badge) head.append(el('span', 'badge', game.badge));
+  if (game.badge) head.append(el('span', `badge${badgeTone(game.badge)}`, game.badge));
   head.append(el('h3', 'feature-title', game.title), el('p', 'feature-premise', game.premise));
 
   const actions = el('div', 'actions');
@@ -120,7 +107,10 @@ function renderCards(host, list) {
 
     const body = el('div', 'card-body');
     // 뱃지가 없는 게임도 자리는 만든다. 빼면 옆 카드와 제목 높이가 어긋난다.
-    const badge = el('span', game.badge ? 'badge badge--soft' : 'badge badge--soft badge--empty');
+    const badge = el(
+      'span',
+      game.badge ? `badge badge--soft${badgeTone(game.badge)}` : 'badge badge--soft badge--empty',
+    );
     badge.textContent = game.badge ?? 'NEW';
 
     const key = metaValue(game, 'KEY MECHANIC');
@@ -151,12 +141,23 @@ function renderNews(host, list) {
   if (!lead) return;
 
   const big = el('article', 'news-lead reveal');
-  const ph = el('div', 'ph--16x9');
-  // 기사 사진은 화면 크기별로 세 벌이라 news-image.js 가 따로 다룬다.
-  // 홈의 큰 칸은 자리표만 쓰고, 실제 사진은 목록과 본문에서 보여 준다.
-  fillThumb(ph, { title: lead.title }, { label: `[IMAGE] ${lead.title}`, note: '16:9' });
+
+  /*
+    사진이 있으면 그것을 쓰고, 없는 기사면 지금까지처럼 자리표를 남긴다.
+    이 칸은 데스크톱에서 545px, 그 아래로는 화면 폭에서 좌우 여백을 뺀 만큼이다.
+  */
+  let media;
+  if (lead.image?.base) {
+    media = el('img', 'news-lead-img');
+    fillImage(media, lead.image, '(max-width: 1080px) calc(100vw - 32px), 545px');
+    media.loading = 'lazy';
+  } else {
+    media = el('div', 'ph--16x9');
+    fillThumb(media, { title: lead.title }, { label: `[IMAGE] ${lead.title}`, note: '16:9' });
+  }
+
   big.append(
-    ph,
+    media,
     el('p', 'news-meta', `${lead.category} · ${lead.date}`),
     el('h3', null, lead.title),
     el('p', 'news-summary', lead.summary),
